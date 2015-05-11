@@ -1,0 +1,369 @@
+/* Elements & general class*/
+body {
+	background: #d9e2ea;
+	box-sizing: content-box;
+	font-family: sans-serif;
+}
+
+p {
+	font-size: 12pt;
+}
+
+/* Page Layout */
+.container {
+    overflow: visible;
+    width: 100%;
+    min-width: 100%;
+    max-width: 100%;
+    margin: 20px auto;
+}
+
+.wall {
+	padding-left: 20px;
+	padding-right: 20px;
+	display: block;
+	margin: 0 auto;
+	width: auto;
+	max-width: 1200px;
+	min-width: 755px;
+}
+
+/* Tile layout */
+.tile {
+	border-radius: 3px;
+	margin: 0 5px 10px;
+	width: auto;
+	position: relative;
+	box-sizing: content-box;
+	perspective: 1000px;
+}
+
+.service-group-wide {
+	width: 270px;
+	height: 130px;
+}
+
+.service-group-tall {
+	width: 130px;
+	height: 270px;
+}
+
+.endpoint {
+	width: 130px;
+	width: 130px;
+}
+
+.icon {
+	color: #fff;
+	font-size: 15pt;
+}
+
+.icon a {
+	color: rgba(255, 255, 255, 0.5);
+}
+
+.icon a:hover{
+	color: rgba(255, 255, 255, 1);
+}
+
+.organisation {
+	margin: 5px 0 0 5px;
+}
+
+.link-type {
+	margin: 5px 5px 0 0;
+}
+
+.favourite {
+	margin: 0 0 5px 5px;
+}
+
+.info {
+	margin: 0 5px 5px 0;
+}
+
+/* Logo Tile */
+.logo {
+	width: 130px;
+	height: 130px;
+	background: #0492d4 url('../images/ku-logo.png') no-repeat 50% 0;
+	background-size: cover;
+	border-radius: 0;
+}
+
+/* My Status Tile */
+.my-status {
+	width: 368px;
+	height: 228px;
+	background: #fff;
+	border: 2px solid #0492d4;
+	padding: 20px;
+}
+
+.my-status a {
+	font-size: 18pt;
+}
+
+.my-status .avatar {
+	width: 100px;
+
+}
+
+.my-status .avatar img {
+	border-radius: 50%;
+	border: 1px solid #0492d4 ;
+	width: 100px;
+}
+
+.my-status .details{
+	margin-left: 50px;
+}
+
+.my-status .ticker {
+	clear: both;
+	padding-top: 35px;
+}
+
+.my-status .ticker ul {
+	list-style-type: none;
+	font-size: 9pt;
+}
+
+.my-status .ticker ul li {
+	padding-bottom: 3px;
+	border-bottom: 1px solid gray;
+}
+
+.tile-header {
+	height: 25px;
+}
+
+.tile-body {
+	clear: both;
+	transition: 0.6s;
+  	transform-style: preserve-3d;
+}
+
+.tile-front, .tile-back{
+	height: 100%;
+	display: table;
+	backface-visibility: hidden;
+	position: absolute;
+	top:0;
+	left: 0;
+	text-align: center;
+}
+
+.tile-front {
+z-index: 2;
+	/* for firefox 31 */
+	transform: rotateY(0deg);
+}
+
+/* back, initially hidden pane */
+.tile-back {
+	transform: rotateY(180deg);
+}
+
+.tile-content {
+	display: table-cell;
+	vertical-align: middle;
+	padding: 3px 8px;
+	cursor: pointer;
+}
+
+.tile-content p {
+	font-size: 10pt;
+	color: #fff;
+}
+
+.tile-content a {
+	text-decoration: none;
+	color: #fff;
+	font-size: 14pt;
+
+	text-shadow: none;
+	-webkit-transition: 200ms linear 0s;
+	-moz-transition: 200ms linear 0s;
+	-o-transition: 200ms linear 0s;
+	transition: 200ms linear 0s;
+	outline: 0 none;
+}
+
+.tile-content a:hover, .tile-content a:focus, .tile-content a.hover {
+	color: #fff;
+	font-size: 14pt;
+	text-shadow: -1px 1px 8px #ffc, 1px -1px 8px #fff;
+}
+
+/* Ensures text is centred */
+.service-group-tall .tile-content {
+	width: 130px;
+}
+
+.service-group-wide .tile-content {
+	width: 270px;
+}
+
+.endpoint .tile-content {
+	width: 130px;
+}
+
+/* sets height to force footer to bottom */
+.service-group-tall .tile-body {
+	height: 220px;
+}
+
+.service-group-wide .tile-body {
+	height: 80px;
+}
+
+.endpoint .tile-body {
+	height: 80px;
+}
+
+.tile-footer {
+	height: 25px;
+}
+
+.flip {
+	transform: rotateY(180deg);
+}
+
+/* Tile colours */
+.blue {
+	background: #a7dada;
+	background-image: linear-gradient(
+      to bottom right, 
+      #7abebe, #4e9a9a
+    );
+}
+.green {
+	background: #b3d685;
+	background-image: linear-gradient(
+      to bottom right, 
+      #b3d685, #6e9a34
+    );
+}
+.orange {
+	background: #ff9e65;
+	background-image: linear-gradient(
+      to bottom right, 
+      #ff9e65, #d6611c
+    );
+}
+.pink {
+	background: #ecaebe;
+	background-image: linear-gradient(
+      to bottom right, 
+      #db869b, #ba566f
+    );
+}
+.purple {
+	background: #c0aaf4;
+	background-image: linear-gradient(
+      to bottom right, 
+      #c0aaf4, #8865d8
+    );
+}
+.yellow {
+	background: #ffe0dd;
+	background-image: linear-gradient(
+      to bottom right, 
+      #ffe63b, #d4b900
+    );
+}
+
+.image {
+	overflow: hidden;
+}
+
+/** Media Queries **/
+
+/* Smaller screens */
+
+@media only screen and (max-width: 960px) {
+
+	.wall {
+		min-width: 600px;
+	}
+	
+}
+
+/* Mobile */
+
+@media handheld, only screen and (max-width: 767px) {
+	
+	.wall {
+		min-width: 0;
+		margin-top: 0 !important;
+	}	
+
+	.logo {
+		width: 270px;
+		background-size: 130px;
+		background-position: left top;
+	}
+
+	.my-status {
+		width: 246px;
+		height: 106px;
+		padding: 10px;
+	}
+
+	.my-status .avatar, .my-status .avatar img {
+		width: 60px;
+	}
+
+	.my-status .details{
+		margin-left: 14px;
+	}
+
+	.my-status .ticker{
+		display:none;
+	}
+
+	.service-group-tall {
+		width: 270px;
+		height: 130px;
+	}
+
+	.service-group-tall .tile-content {
+		width: 270px;
+	}
+
+	.service-group-tall .tile-body {
+		height: 80px;
+	}
+
+	.image{
+		display: none;
+	}
+}
+
+/* Foundation Overrides */
+
+.top-bar .name h1, .top-bar .name h1 a {
+	font-size: 0.8125rem;
+	display: inline-block;
+}
+
+.top-bar .name h1:after {
+	content: ">";
+	color: gray;
+}
+
+.top-bar .name h1:last-of-type:after {
+	content: "";
+	color: gray;
+}
+
+.has-tip {
+	border: none;
+	color: #fff;
+}
+
+.has-tip:hover {
+	border: none;
+	color: #fff;
+}
