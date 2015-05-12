@@ -1,12 +1,20 @@
-@extends('layouts.master')
-
-@section('navbar')
-<nav class="top-bar" data-topbar role="navigation">
+<!--[if IE 9]><html class="lt-ie10" lang="en" > <![endif]-->
+<html class="no-js" lang="en" >
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>@yield('title')</title>
+        <link rel="stylesheet" href="/assets/vendor/foundation/css/foundation.min.css">
+        <link rel="stylesheet" href="/assets/vendor/font-awesome/css/font-awesome.min.css">
+        <link rel="stylesheet" href="/assets/css/app.css">
+        <script src="/assets/vendor/foundation/js/vendor/modernizr.js"></script>
+    </head>
+    <body>
+        <header class="fixed">
+            <nav class="top-bar" data-topbar role="navigation">
 	<ul class="title-area">
 		<li class="name">
-			<h1><a href="/my-kingston">My Kingston</a></h1> 
-			<h1><a href="/my-kingston/my-studies">My Studies</a></h1>	
-			<h1><a href="/my-kingston/my-library-support">My Library Support</a></h1>
+			<h1><a href="/my-kingston" class="current">My Kingston</a></h1>
 		</li>
 		<li class="toggle-topbar menu-icon"><a href="#"><span>Menu</span></a></li>
 	</ul>
@@ -33,31 +41,56 @@
 
 	</section>
 </nav>
-@stop
+        </header>
+        
 
-@section('content')
+        <div class="container">
+            
 <div class="wall">
+	<div class="tile logo">		
+	</div>
+	<div class="tile my-status">
+		<div class="tile-body">
+			<div class="avatar left">
+				<a href="#"><img src="../assets/images/avatar.jpg"></a>
+			</div>
+			<div class="details left">
+				<a href="#">My Status</a>
+				<p>Welcome back Stuart</p>
+			</div>
+			<div class="ticker">
+				<ul>
+					<li><i class="fa fa-thumbs-o-up"></i> Student Husting in the SU bar 17/05/2015 @ 16:00</li>
+					<li><i class="fa fa-money"></i> Student loan application deadline 31/05/2015</li>
+					<li><i class="fa fa-pencil"></i> Open day 28/05/2015</li> 
+				</ul>
+			</div>
+		</div>
+	</div>
 
+	<div class="tile image">
+		<img src="/assets/images/fass.jpg" />
+	</div>
 
-	<div class="tile endpoint pink">
+	<div class="tile service-group-wide blue">
 		<div class="tile-wrapper">
 			<div class="tile-header">
 				<div class="icon organisation left">
-					<span data-tooltip aria-haspopup="true" class="has-tip" title="Library & Learning Services"><i class="fa fa-book"></i></span>
+					<span data-tooltip aria-haspopup="true" class="has-tip" title="My University"><i class="fa fa-university"></i></span>
 				</div>
 				<div class="icon link-type right">
-					<a href="#"><i class="fa fa-sign-in"></i></a>
+					<a href="#"><i class="fa fa-th"></i></a>
 				</div>
 			</div>
 			<div class="tile-body row">
 				<div class="tile-front">
 					<div class="tile-content">
-						<a href="#">iCat Library Services</a>
+						<a href="#">My University</a>
 					</div>
 				</div>
 				<div class="tile-back">
 					<div class="tile-content">
-						<p></p>
+						<p>Long text description of this organisation</p>
 					</div>
 				</div>
 			</div>
@@ -72,25 +105,25 @@
 		</div>
 	</div>
 
-	<div class="tile endpoint green">
+	<div class="tile service-group-wide green">
 		<div class="tile-wrapper">
 			<div class="tile-header">
 				<div class="icon organisation left">
-					<span data-tooltip aria-haspopup="true" class="has-tip" title="Library & Learning Services"><i class="fa fa-book"></i></span>
+					<span data-tooltip aria-haspopup="true" class="has-tip" title="My Faculty Support"><i class="fa fa-compass"></i></span>
 				</div>
 				<div class="icon link-type right">
-					<a href="#"><i class="fa fa-link"></i></a>
+					<a href="#"><i class="fa fa-th"></i></a>
 				</div>
 			</div>
 			<div class="tile-body row">
 				<div class="tile-front">
 					<div class="tile-content">
-						<a href="#">My Library Account</a>
+						<a href="#">My Faculty Support</a>
 					</div>
 				</div>
 				<div class="tile-back">
 					<div class="tile-content">
-						<p></p>
+						<p>Long text description of this organisation</p>
 					</div>
 				</div>
 			</div>
@@ -105,25 +138,25 @@
 		</div>
 	</div>
 
-	<div class="tile endpoint blue">
+	<div class="tile service-group-tall orange">
 		<div class="tile-wrapper">
 			<div class="tile-header">
 				<div class="icon organisation left">
-					<span data-tooltip aria-haspopup="true" class="has-tip" title="Library & Learning Services"><i class="fa fa-book"></i></span>
+					<span data-tooltip aria-haspopup="true" class="has-tip" title="My Studies"><i class="fa fa-graduation-cap"></i></span>
 				</div>
 				<div class="icon link-type right">
-					<a href="#"><i class="fa fa-link"></i></a>
+					<a href="/my-kingston/my-studies"><i class="fa fa-th"></i></a>
 				</div>
 			</div>
 			<div class="tile-body row">
 				<div class="tile-front">
 					<div class="tile-content">
-						<a href="#">Borrowing Library Resources</a>
+						<a href="/my-kingston/my-studies">My Studies</a>
 					</div>
 				</div>
 				<div class="tile-back">
 					<div class="tile-content">
-						<p></p>
+						<p>Long text description of this organisation</p>
 					</div>
 				</div>
 			</div>
@@ -138,25 +171,29 @@
 		</div>
 	</div>
 
-	<div class="tile endpoint green">
+	<div class="tile image">
+		<img src="/assets/images/fbl.jpg" />
+	</div>
+
+	<div class="tile service-group-wide pink">
 		<div class="tile-wrapper">
 			<div class="tile-header">
 				<div class="icon organisation left">
-					<span data-tooltip aria-haspopup="true" class="has-tip" title="Library & Learning Services"><i class="fa fa-book"></i></span>
+					<span data-tooltip aria-haspopup="true" class="has-tip" title="My Campus"><i class="fa fa-building-o"></i></span>
 				</div>
 				<div class="icon link-type right">
-					<a href="#"><i class="fa fa-link"></i></a>
+					<a href="#"><i class="fa fa-th"></i></a>
 				</div>
 			</div>
 			<div class="tile-body row">
 				<div class="tile-front">
 					<div class="tile-content">
-						<a href="#">Renewing Library Resources</a>
+						<a href="#">My Campus</a>
 					</div>
 				</div>
 				<div class="tile-back">
 					<div class="tile-content">
-						<p></p>
+						<p>Long text description of this organisation</p>
 					</div>
 				</div>
 			</div>
@@ -171,25 +208,29 @@
 		</div>
 	</div>
 
-	<div class="tile endpoint purple">
+	<div class="tile image">
+		<img src="/assets/images/fsec.jpg" />
+	</div>
+
+	<div class="tile service-group-wide pink">
 		<div class="tile-wrapper">
 			<div class="tile-header">
 				<div class="icon organisation left">
-					<span data-tooltip aria-haspopup="true" class="has-tip" title="Library & Learning Services"><i class="fa fa-book"></i></span>
+					<span data-tooltip aria-haspopup="true" class="has-tip" title="My Home"><i class="fa fa-home"></i></span>
 				</div>
 				<div class="icon link-type right">
-					<a href="#"><i class="fa fa-link"></i></a>
+					<a href="#"><i class="fa fa-th"></i></a>
 				</div>
 			</div>
 			<div class="tile-body row">
 				<div class="tile-front">
 					<div class="tile-content">
-						<a href="#">Placing Library Hold Requests</a>
+						<a href="#">My Home</a>
 					</div>
 				</div>
 				<div class="tile-back">
 					<div class="tile-content">
-						<p></p>
+						<p>Long text description of this organisation</p>
 					</div>
 				</div>
 			</div>
@@ -204,25 +245,25 @@
 		</div>
 	</div>
 
-	<div class="tile endpoint pink">
+	<div class="tile service-group-tall purple">
 		<div class="tile-wrapper">
-			<div class="tile-header">
+			<div class="tile-header clearfix">
 				<div class="icon organisation left">
-					<span data-tooltip aria-haspopup="true" class="has-tip" title="Library & Learning Services"><i class="fa fa-book"></i></span>
+					<span data-tooltip aria-haspopup="true" class="has-tip" title="My Money"><i class="fa fa-gbp"></i></span>
 				</div>
 				<div class="icon link-type right">
-					<a href="#"><i class="fa fa-link"></i></a>
+					<a href="#"><i class="fa fa-th"></i></a>
 				</div>
 			</div>
 			<div class="tile-body row">
 				<div class="tile-front">
 					<div class="tile-content">
-						<a href="#">Library Fine Rates</a>
+						<a href="#">My Money</a>
 					</div>
 				</div>
 				<div class="tile-back">
 					<div class="tile-content">
-						<p></p>
+						<p>Long text description of this organisation</p>
 					</div>
 				</div>
 			</div>
@@ -237,25 +278,25 @@
 		</div>
 	</div>
 
-	<div class="tile endpoint orange">
+	<div class="tile service-group-tall yellow">
 		<div class="tile-wrapper">
 			<div class="tile-header">
 				<div class="icon organisation left">
-					<span data-tooltip aria-haspopup="true" class="has-tip" title="Library & Learning Services"><i class="fa fa-book"></i></span>
+					<span data-tooltip aria-haspopup="true" class="has-tip" title="My Wellbeing"><i class="fa fa-heartbeat"></i></span>
 				</div>
 				<div class="icon link-type right">
-					<a href="#"><i class="fa fa-link"></i></a>
+					<a href="#"><i class="fa fa-th"></i></a>
 				</div>
 			</div>
 			<div class="tile-body row">
 				<div class="tile-front">
 					<div class="tile-content">
-						<a href="#">Learning Caf&eacute;s</a>
+						<a href="#">My Wellbeing</a>
 					</div>
 				</div>
 				<div class="tile-back">
 					<div class="tile-content">
-						<p></p>
+						<p>Long text description of this organisation</p>
 					</div>
 				</div>
 			</div>
@@ -270,25 +311,29 @@
 		</div>
 	</div>
 
-	<div class="tile endpoint yellow">
+	<div class="tile image">
+		<img src="/assets/images/fhsec.jpg" />
+	</div>
+
+	<div class="tile service-group-tall blue">
 		<div class="tile-wrapper">
 			<div class="tile-header">
 				<div class="icon organisation left">
-					<span data-tooltip aria-haspopup="true" class="has-tip" title="Library & Learning Services"><i class="fa fa-book"></i></span>
+					<span data-tooltip aria-haspopup="true" class="has-tip" title="My Participation"><i class="fa fa-user-plus"></i></span>
 				</div>
 				<div class="icon link-type right">
-					<a href="#"><i class="fa fa-link"></i></a>
+					<a href="#"><i class="fa fa-th"></i></a>
 				</div>
 			</div>
 			<div class="tile-body row">
 				<div class="tile-front">
 					<div class="tile-content">
-						<a href="#">Print, Copy & Scan in the LRCs</a>
+						<a href="#">My Participation</a>
 					</div>
 				</div>
 				<div class="tile-back">
 					<div class="tile-content">
-						<p></p>
+						<p>Long text description of this organisation</p>
 					</div>
 				</div>
 			</div>
@@ -303,25 +348,58 @@
 		</div>
 	</div>
 
-	<div class="tile endpoint purple">
+	<div class="tile service-group-wide green">
 		<div class="tile-wrapper">
 			<div class="tile-header">
 				<div class="icon organisation left">
-					<span data-tooltip aria-haspopup="true" class="has-tip" title="Library & Learning Services"><i class="fa fa-book"></i></span>
+					<span data-tooltip aria-haspopup="true" class="has-tip" title="My Career Development"><i class="fa fa-line-chart"></i></span>
 				</div>
 				<div class="icon link-type right">
-					<a href="#"><i class="fa fa-link"></i></a>
+					<a href="#"><i class="fa fa-th"></i></a>
 				</div>
 			</div>
 			<div class="tile-body row">
 				<div class="tile-front">
 					<div class="tile-content">
-						<a href="#">Using Computers in the LRC</a>
+						<a href="#">My Career Development</a>
 					</div>
 				</div>
 				<div class="tile-back">
 					<div class="tile-content">
-						<p></p>
+						<p>Long text description of this organisation</p>
+					</div>
+				</div>
+			</div>
+			<div class="tile-footer">
+				<div class="icon favourite left">
+					<a href="#" class="bookmark" data-tooltip aria-haspopup="true" class="has-tip" title="Add to My favourites"><i class="fa fa-star"></i></a>
+				</div>
+				<div class="icon info right">
+					<a href="#"><i class="fa fa-info"></i></a>
+				</div>
+			</div>
+		</div>
+	</div>
+
+	<div class="tile service-group-tall orange">
+		<div class="tile-wrapper">
+			<div class="tile-header">
+				<div class="icon organisation left">
+					<span data-tooltip aria-haspopup="true" class="has-tip" title="My Passport to UK Study"><i class="fa fa-plane"></i></span>
+				</div>
+				<div class="icon link-type right">
+					<a href="#"><i class="fa fa-th"></i></a>
+				</div>
+			</div>
+			<div class="tile-body row">
+				<div class="tile-front">
+					<div class="tile-content">
+						<a href="#">My Passport to UK Study</a>
+					</div>
+				</div>
+				<div class="tile-back">
+					<div class="tile-content">
+						<p>Long text description of this organisation</p>
 					</div>
 				</div>
 			</div>
@@ -336,4 +414,14 @@
 		</div>
 	</div>
 </div>
-@stop
+        </div>
+
+    </body>
+    <script src="/assets/vendor/jquery/jquery-1.11.2.min.js"></script>
+    <script src="/assets/vendor/foundation/js/vendor/fastclick.js"></script>
+    <script src="/assets/vendor/foundation/js/foundation.min.js"></script>
+    <script src="/assets/vendor/foundation/js/foundation/foundation.topbar.js"></script>    
+    <script src="/assets/vendor/foundation/js/foundation/foundation.tooltip.js"></script>
+    <script src="/assets/vendor/metafizzy/packery.pkgd.min.js"></script>
+    <script src="/assets/js/app.js"></script>
+</html>

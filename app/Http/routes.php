@@ -14,6 +14,14 @@
 |
 */
 
+$app->get('/', function() use ($app) {
+    
+    $viewName = "prototype.my_kingston.home";
+
+	return view($viewName);
+
+});
+
 $app->get('/my-kingston/', function() use ($app) {
     
     $viewName = "prototype.my_kingston.home";

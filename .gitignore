@@ -2,6 +2,6 @@
 /vendor
 .env
 .env.local
-.sublime-project
-.sublime-workspace
+*.sublime-project
+*.sublime-workspace
 .DS_Store

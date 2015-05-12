@@ -1,7 +1,17 @@
-@extends('layouts.master')
-
-@section('navbar')
-<nav class="top-bar" data-topbar role="navigation">
+<!--[if IE 9]><html class="lt-ie10" lang="en" > <![endif]-->
+<html class="no-js" lang="en" >
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>@yield('title')</title>
+        <link rel="stylesheet" href="/assets/vendor/foundation/css/foundation.min.css">
+        <link rel="stylesheet" href="/assets/vendor/font-awesome/css/font-awesome.min.css">
+        <link rel="stylesheet" href="/assets/css/app.css">
+        <script src="/assets/vendor/foundation/js/vendor/modernizr.js"></script>
+    </head>
+    <body>
+        <header class="fixed">
+            <nav class="top-bar" data-topbar role="navigation">
 	<ul class="title-area">
 		<li class="name">
 			<h1><a href="/my-kingston">My Kingston</a></h1>
@@ -32,9 +42,11 @@
 
 	</section>
 </nav>
-@stop
+        </header>
+        
 
-@section('content')
+        <div class="container">
+            
 <div class="wall">
 	
 	<div class="tile service-group-wide purple">
@@ -237,4 +249,14 @@
 	</div>
 
 </div>
-@stop
+        </div>
+
+    </body>
+    <script src="/assets/vendor/jquery/jquery-1.11.2.min.js"></script>
+    <script src="/assets/vendor/foundation/js/vendor/fastclick.js"></script>
+    <script src="/assets/vendor/foundation/js/foundation.min.js"></script>
+    <script src="/assets/vendor/foundation/js/foundation/foundation.topbar.js"></script>    
+    <script src="/assets/vendor/foundation/js/foundation/foundation.tooltip.js"></script>
+    <script src="/assets/vendor/metafizzy/packery.pkgd.min.js"></script>
+    <script src="/assets/js/app.js"></script>
+</html>
