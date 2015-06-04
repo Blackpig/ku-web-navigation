@@ -17,7 +17,7 @@ $app->group(['prefix' => 'api'], function($app)
 {
 
 	/* User Endpoints */
-	$app->get('users/authenticate', 'App\Http\Controllers\UserController@authenticate');
+	$app->get('users/{id}', 'App\Http\Controllers\UserController@show');
 
 	
 	/* LANDesk Endpoints */
