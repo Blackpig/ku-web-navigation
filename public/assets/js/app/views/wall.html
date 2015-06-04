@@ -1,0 +1,138 @@
+	<header class="fixed">
+		<div>
+            <top-bar>
+                <ul class="title-area">
+                    <li class="name">
+                        <h1><a ng-href="#}">{{ ctrl.navbar.currentLabel}}</a></h1>
+                    </li>                    
+                </ul>
+
+                <top-bar-section>
+                    <!-- Right Nav Section -->
+                    <ul class="right">
+                        <li class="has-form">
+                          <div class="row collapse">
+                            <div class="large-8 small-9 columns">
+                              <input type="text" placeholder="Search">
+                            </div>
+                            <div class="large-4 small-3 columns">
+      							<a href="#" class="success button expand srch">Go</a>
+    						</div>
+                          </div>
+                        </li>
+                        <li><div style="height:100%"><a ng-href="/my-status" style="height:100%"><i class="fa fa-user fa-lg"></i></a></div></li>
+
+                        <li has-dropdown>
+                            <div><a href="#"><i class="fa fa-ellipsis-h fa-lg"></i></a></div>
+                            <ul top-bar-dropdown>                      
+                                <li ng-repeat="crumb in ctrl.navbar.breadcrumbs">
+                                    <a ng-href="/{{ ctrl.navbar.home.link }}/{{ crumb.guid }}">{{ crumb.label }}</a>
+                                </li>
+                            </ul>
+                        </li>
+
+                        <li ng-if="ctrl.navbar.canSwitch == 1">
+                            <div><a ng-href="/{{ctrl.navbar.switchTo}}"><i class="fa fa-exchange fa-lg"></i></a></div>
+                        </li>
+                    </ul> 
+                </top-bar-section>
+            </top-bar>
+        </div>
+	</header>
+
+	<div class="container">
+		<div class="wall">
+			
+			<div ng-if="ctrl.isrootpage" packery>
+				<div class="tile ku-logo stamp">		
+				</div>
+				<div class="tile logo stamp">		
+				</div>
+				
+				<div class="tile my-status">
+
+					<div class="tile-body">
+						<div class="avatar left">
+							<a href="#"><img src="../assets/images/avatar.jpg"></a>
+						</div>
+						<div class="details left">
+							<a href="#">My Status</a>
+							<p>Welcome back Stuart</p>
+						</div>
+						<div class="ticker">
+							<ul>
+								<li><i class="fa fa-thumbs-o-up"></i> Student Husting in the SU bar 17/05/2015 @ 16:00</li>
+								<li><i class="fa fa-money"></i> Student loan application deadline 31/05/2015</li>
+								<li><i class="fa fa-pencil"></i> Open day 28/05/2015</li> 
+							</ul>
+						</div>
+					</div>
+				</div>
+				<image-tile size="tall" class="stamp"></image-tile>
+				<div class="tile image stamp">
+					<img src="../assets/images/img-wide-0.jpg" />
+				</div>
+				
+			</div>
+
+
+			<div class="tile menu stamp" ng-if="!ctrl.isrootpage" packery>
+				<div class="tile-body row">
+					<div class="tile-content">
+						<a ng-href="/{{ ctrl.navbar.home.link }}"><i class="fa fa-home fa-4x"></i></a>
+					</div>
+				</div>		
+			</div>
+				
+			<div ng-if="ctrl.showback && !ctrl.isrootpage" class="tile menu stamp" packery>	
+				<div class="tile-body row">
+					<div class="tile-content">
+						<a ng-href="/{{ ctrl.navbar.home.link }}/{{ ctrl.navbar.backLink }}"><i class="fa fa-step-backward fa-4x"></i></a>
+					</div>
+				</div>	
+			</div>	
+
+			<div ng-repeat="endpoint in ctrl.data.endpoints" packery>
+				<div class="tile {{endpoint.type}} {{endpoint.color}}" >
+	                <div class="tile-body row" ng-class="{'flip': toggleInfo=={{$index}}}">
+	                    <div class="tile-front">
+	                        <div class="tile-content" ng-mouseenter="hasFocus=true"  ng-mouseleave="hasFocus=false">
+	                            <a ng-href="/{{ctrl.navbar.home.link | lowercase}}/{{endpoint.guid}}" ng-class="{hover:hasFocus}">{{endpoint.title}}</a>
+	                        </div>
+	                    </div>
+	                    <div class="tile-back">
+	                        <div class="tile-content">
+	                            <p>{{endpoint.desc}}</p>
+	                        </div>
+	                    </div>
+	                </div>
+	                <div class="tile-icons">
+	                    <ul>
+	                        <li><a href="#"><span aria-haspopup="true" class="has-tip tip-top" tooltip="{{endpoint.title}}"><i class="fa {{endpoint.icon}} fa-lg"></i></span></a></li>
+	                        <li><a  ng-href="/{{ctrl.navbar.home.link | lowercase}}/{{endpoint.guid}}" ng-mouseenter="hasFocus=true"  ng-mouseleave="hasFocus=false" ng-class="{hover:hasFocus}"><i class="fa {{endpoint.target_type}} fa-lg"></i></a></li>
+	                        <!-- <li><a href="#" class="bookmark" aria-haspopup="true" class="has-tip" tooltip="Add to My favourites"><i class="fa fa-star fa-lg"></i></a></li>-->
+	                        <li><a href="#" ng-click="ctrl.toggleInfo($index)"><i class="fa fa-info fa-lg"></i></a></li>
+	                    </ul>
+	                </div>
+	            </div>
+	            <div ng-if="ctrl.isrootpage">
+		            <div ng-if="$index%3==0">
+		            	<image-tile></image-tile>
+		            </div>
+		            <div ng-if="$index%5==0">
+		            	<image-tile></image-tile>
+		            </div>
+		        </div>    
+		        <div ng-if="!ctrl.isrootpage && ctrl.data.has_service_group">
+		            <div ng-if="$index%4==0">
+		            	<image-tile></image-tile>
+		            </div>
+		        </div>    
+		        <div ng-if="!ctrl.isrootpage && !ctrl.data.has_service_group">
+		            <div ng-if="$index%2.5==0 || $index%3==0">
+		            	<image-tile size="square"></image-tile>
+		            </div>
+		        </div>    
+			</div>
+		</div>
+	</div>

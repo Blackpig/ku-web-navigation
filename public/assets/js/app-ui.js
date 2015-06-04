@@ -1,0 +1,448 @@
+var app = angular.module('kuwnApp', ['ui.router', 'mm.foundation'])
+
+/*** CONFIGURATION & ROUTING ***/
+/* Set our routing and templates */
+	.config(
+		['$locationProvider',
+		'$urlRouterProvider', 
+		'$stateProvider',
+
+		function($locationProvider, $urlRouterProvider, $stateProvider) {
+			
+			/*Enable HTML5 mode */
+			$locationProvider.html5Mode(true);
+
+			$urlRouterProvider.otherwise('/');
+
+			$stateProvider
+
+					// Root state - abstract state to load user and then set the state
+					.state('root', {
+						url: '/',
+
+						resolve: {
+
+					     	userSvc: 'userSvc', // assign the resource
+
+					      	getuser: function(userSvc) {
+					      		return userSvc.getCurrent();
+					      	}
+						},
+						views: {
+							'content@': {
+
+								controller: 'rootCtrl'
+							}
+						}
+					})
+
+					.state('root.staff', {
+						url: '0/:tileid',
+
+					    params: {
+
+					     	tileid: { value:null, squash:true }
+					    },
+
+						resolve: {
+
+							user: function(getuser){
+								return getuser.data;
+							}
+						},
+
+						views: {
+							'content@': {
+								templateUrl: '/assets/js/app/views/wall.html',
+
+								controller: 'stateCtrl as ctrl'
+							}
+						}
+					})
+
+					.state('root.student', {
+						url: '1/:tileid',
+
+					    params: {
+
+					     	tileid: { value:null, squash:true }
+					    },
+
+						resolve: {
+
+							user: function(getuser){
+								return getuser.data;
+							}
+						},
+						views: {
+							'content@': {
+								templateUrl: '/assets/js/app/views/wall.html',
+
+								controller: 'stateCtrl as ctrl'
+							}
+						}
+						
+					})
+
+					.state('root.my-status', {
+						url: 'my-status',
+
+					    params: {
+
+					     	tileid: { value:null, squash:true }
+					    },
+
+						resolve: {
+
+							user: function(getuser){
+								return getuser.data;
+							}
+						},
+						views: {
+							'content@': {
+								templateUrl: '/assets/js/app/views/my-status.html',
+
+								controller: 'profileCtrl as ctrl'
+							}
+						}
+						
+					})
+	}]);
+
+/*** CONTROLLERS ***/
+
+/* Root Controller - used to pre-fetch User details and direct to correct portal */
+
+app.controller('rootCtrl', ['$scope', '$state', 'getuser', 'navbarSvc',
+	function ($scope, $state, getuser, navbar) {
+
+	var _state = 'root.' + getuser.data.state;
+	
+	$state.go(_state);
+	
+}]);
+
+/* State controller - used to build Wall tiles **/
+app.controller('stateCtrl', ['$scope', '$stateParams', '$state', 'user', 'navbarSvc', 'endpointsSvc',
+	function ($scope, $stateParams, $state, user, navbarSvc, endpointsSvc) {
+
+	// Students can't access the staff portal - redirect to student state if they try
+	if ( $state.is('root.staff') && user.employeeType == 1 ) {
+		$state.go('root.student');
+	}
+
+	self = this;
+
+	self.tileid = $stateParams.tileid;
+	
+	self.navbar = {};
+	self.data = {};
+	self.depth = 0;
+	self.isrootpage = (self.tileid) ? false : true;
+	self.showback = false;
+
+	self.build = function()	{
+
+		navbarSvc.reset();
+
+		endpointsSvc.getEndpoints($state.current.name, self.tileid).then( 
+			function(response) {
+				self.data = response.data;
+				self.depth = self.data.parents.length;
+				self.showback = (self.depth > 1) ? true : false;
+
+				navbarSvc.build(user.employeeType, $state.current.name, self.data.this, self.data.parents);
+
+				self.navbar = navbarSvc.navbar;
+
+			}				
+		);	
+	};
+
+	self.toggleInfo = function(toggleInfo){
+		$scope.toggleInfo = (!$scope.toggleInfo) ? toggleInfo : null;
+	}
+
+	self.setFocus = function(hasFocus){
+		$scope.hasFocus = (!$scope.hasFocus) ? hasFocus : null;
+	}
+
+	self.build();
+	
+}]);
+
+/* Profile controller - used for MyStatus pages and states */
+app.controller('profileCtrl', ['$scope', '$state', 'user',
+	function ($scope, $state, user) {
+	
+}]);
+
+
+/*** SERVICES ***/
+
+/* User Service - loads user details on page load */
+
+app.factory('userSvc',['$http','$q',function($http, $q){
+
+	var service = {
+
+			user: {},
+
+            getCurrent : function(){
+             	return $http.get('/api/users/1');
+            }
+        };
+
+    return service;
+
+}]) 
+
+/* Endpoint Service - retrieves Endpoints via API calls */
+
+app.factory('endpointsSvc',['$http','$q',function($http,$q){
+
+	var service = {
+
+			endpoints:{},
+
+			getEndpoints: function(type, tileid){
+
+				if (tileid) {
+					return $http.get('/api/endpoints/' + tileid);
+				} else {
+					if (type == 'root.staff') {
+						return $http.get('/api/organisations');
+					} else {
+						return $http.get('/api/channels');
+					}
+				}
+
+			},
+        };
+
+    return service;
+
+    }]) 
+
+/* NavBar Service - Build and manage the NavBar */
+app.factory('navbarSvc',[function(){
+
+	var service = {
+
+			"navbar": {
+				"home": {},
+				"switchTo": "",
+				"breadcrumbs": [],
+				"canSwitch": false,
+				"currentLabel": "",
+				"backLink": ""
+			},			
+
+			reset: function(userType, currentState) {
+
+				this.navbar.home = {};
+				this.navbar.switchTo = "";
+				this.navbar.breadcrumbs = [];
+				this.navbar.canSwitch = false;
+				this.navbar.currentLabel = "";
+				this.navbar.backLink = "";
+			},
+
+			build: function(userType, currentState, current, parents) {
+
+				for(var i=0, len=parents.length; i < len; i++){
+					if (parents[i].guid !== null && parents[i].label !== null) {
+						this.addCrumb(parents[i]);
+						this.navbar.backLink = parents[i].guid;
+					}
+				}
+
+				this.addCrumb(current);
+				this.navbar.currentLabel = current.label;
+				this.setHome(userType, currentState);
+				this.setSwitchTo(userType, currentState);
+
+
+			},
+
+			setHome: function(userType, currentState){
+
+				var label;
+				var link;
+
+				if (userType == 0) {
+					label = (currentState == 'root.staff') ? "University Organisations" : "Student Channels";
+					link = (currentState == 'root.staff') ? "0" : "1";
+				} else {
+					label = "Home";
+					link = "1";
+				}
+            	
+            	this.navbar.home = {"label": label, "link":link};
+            	this.navbar.breadcrumbs[0] = this.navbar.home;
+        		
+        		return this.navbar.home;
+            },
+
+            setSwitchTo: function(userType, currentState){
+            	if (userType == 0) {
+            		this.navbar.canSwitch = true;
+            		this.navbar.switchTo = (currentState == 'root.student') ? '0' : '1';
+            	}
+
+        		return this.navbar.switchTo;
+            },
+
+            addCrumb: function(crumb){
+            	this.navbar.breadcrumbs.push(crumb);
+        		return this.navbar.breadcrumbs;
+            }
+        };
+
+    return service;
+
+    }]) 
+
+
+/*** DIRECTIVES ***/
+
+/* Tile Image - create a tile image */
+app.directive('imageTile',[
+	function(){
+		return {
+			restrict: 'AE',
+			template: '<div class="tile image {{imageSize}}"><img src="../assets/images/img-{{imageSize}}-{{id}}.jpg" /></div>',
+			replace: true,
+			scope: {},
+			link: function(scope, element, attrs) {
+				
+				scope.element = element;
+				
+				var sizes = ['tall', 'wide', 'square'];
+				
+				if (attrs.size == undefined || attrs.size=='') {
+					var idx = Math.floor(Math.random()*3);
+					scope.imageSize = sizes[idx];
+				} else {
+					scope.imageSize = attrs.size;
+				}
+
+				if (attrs.id == undefined || attrs.id == '' || attrs.id > 8 || attrs.id == 0) {
+					scope.id = Math.floor((Math.random()*8)+1);
+				} else {
+					scope.id = attrs.id;
+				}
+			}
+		}
+}])
+
+/* Packery - adds the Packery library to the page */
+app.directive('packery', ['$rootScope', '$timeout',
+	function($rootScope, $timeout) {
+		return {
+			restrict: 'AE',
+			scope: true,
+			link: function(scope, element, attrs) {
+			    scope.element = element;
+			    if (!$rootScope.packery) {
+			    	$rootScope.packery = new Packery(element[0].parentElement, {
+			    		itemSelector: '.tile',
+			    		//columnWidth: 200,
+			    		animate: true,
+          				animationOptions: {
+            				duration: 100,
+            				queue: true
+          				}
+			    	});
+
+
+		    	var orderItems = function() {
+		    		var itemElems = $rootScope.packery.getItemElements();
+		    	};
+
+		    	$rootScope.packery.on('layoutComplete', orderItems);
+
+
+			    } else {
+			     
+			      $timeout(function() {
+			      	$rootScope.packery.appended(element[0]);
+			      });
+
+			  }
+			  $timeout(function() {
+			  	$rootScope.packery.layout();
+			  });
+
+	    // watch for destroying an item
+	    scope.$on('$destroy', function() {
+	    	if($rootScope.packery && $rootScope.packery.remove) {
+		    	$rootScope.packery.remove(scope.element[0]);
+		    	scope.packery.layout();
+		    	$rootScope.packery = null; 
+		    }
+	    });
+	}
+	};
+
+}
+]);
+
+/* DragPackery - adds the Packery library with drag/drop ability for Admin pages */
+app.directive('dragpackery', ['$rootScope', '$timeout',
+	function($rootScope, $timeout) {
+		return {
+			restrict: 'AE',
+			scope: true,
+			link: function(scope, element, attrs) {
+			    scope.element = element;
+			    if (!$rootScope.packery) {
+			    	$rootScope.packery = new Packery(element[0].parentElement, {
+			    		itemSelector: '.tile',
+			    		//columnWidth: 200,
+			    		animate: true,
+          				animationOptions: {
+            				duration: 100,
+            				queue: true
+          				}
+			    	});
+
+		    	var draggable1 = new Draggabilly(element[0]);
+		    	$rootScope.packery.bindDraggabillyEvents(draggable1);
+
+		    	var orderItems = function() {
+		    		var itemElems = $rootScope.packery.getItemElements();
+		    	};
+
+		    	$rootScope.packery.on('layoutComplete', orderItems);
+		    	$rootScope.packery.on('dragItemPositioned', orderItems);
+
+
+			    } else {
+			     
+			      $timeout(function() {
+			      	$rootScope.packery.appended(element[0]);
+			      });
+			      var draggable2 = new Draggabilly(element[0], {handle: '.handle'} );
+			      $rootScope.packery.bindDraggabillyEvents(draggable2);
+
+
+			  }
+			  $timeout(function() {
+			  	$rootScope.packery.layout();
+			  });
+
+
+	    // watch for destroying an item
+	    scope.$on('$destroy', function() {
+	    	if($rootScope.packery && $rootScope.packery.remove) {
+		    	$rootScope.packery.remove(scope.element[0]);
+		    	scope.packery.layout();
+		    	$rootScope.packery = null; 
+		    }
+	    });
+	}
+	};
+
+}
+]);

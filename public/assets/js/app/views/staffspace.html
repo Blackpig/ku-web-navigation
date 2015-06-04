@@ -1,0 +1,43 @@
+  	<header class="fixed">
+  		<div ng-include="'/assets/js/app/views/partials/navbar.html'">
+        </div>
+	</header>
+
+	<container>
+		<div class="wall" ng-repeat="endpoint in ctrl.endpoints | filter:ctrl.filterTxt">
+
+			<div class="tile service-group-tall {{endpoint.color}}" addpackery>
+				<div class="tile-wrapper">
+					<div class="tile-header">
+						<div class="icon organisation left">
+							<span aria-haspopup="true" class="has-tip" tooltip="{{endpoint.title}}"><i class="fa {{endpoint.icon}}"></i></span>
+						</div>
+						<div class="icon link-type right">
+							<a href="#"><i class="fa fa-th"></i></a>
+						</div>
+					</div>
+					<div class="tile-body row">
+						<div class="tile-front">
+							<div class="tile-content">
+								<a ng-href="#">{{endpoint.title}}</a>
+							</div>
+						</div>
+						<div class="tile-back">
+							<div class="tile-content">
+								<p>{{endpoint.desc}}</p>
+							</div>
+						</div>
+					</div>
+					<div class="tile-footer">
+						<div class="icon favourite left">
+							<a href="#" class="bookmark" aria-haspopup="true" class="has-tip" tooltip="Add to My favourites"><i class="fa fa-star"></i></a>
+						</div>
+						<div class="icon info right">
+							<a href="#"><i class="fa fa-info"></i></a>
+						</div>
+					</div>
+				</div>
+			</div>
+
+		</div>
+	</container>

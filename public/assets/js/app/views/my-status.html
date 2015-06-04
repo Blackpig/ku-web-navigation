@@ -1,0 +1,49 @@
+	
+  		<header class="fixed">
+		<div>
+            <top-bar>
+                <ul class="title-area">
+                    <li class="name">
+                        <h1><a ng-href="/{{ ctrl.navbar.home.link }}">{{ ctrl.navbar.home.label }}</a></h1>
+                    </li>                    
+                </ul>
+
+                <top-bar-section>
+                    <!-- Right Nav Section -->
+                    <ul class="right">
+                        <li class="has-form">
+                          <div class="row collapse">
+                            <div class="large-8 small-9 columns">
+                              <input type="text" placeholder="Search">
+                            </div>
+                            <div class="large-4 small-3 columns">
+      							<a href="#" class="success button expand srch">Go</a>
+    						</div>
+                          </div>
+                        </li>
+                        <li><div style="height:100%"><a ng-href="/my-status" style="height:100%"><i class="fa fa-user fa-lg"></i></a></div></li>
+
+                        <li has-dropdown>
+                            <div><a href="#"><i class="fa fa-ellipsis-h fa-lg"></i></a></div>
+                            <ul top-bar-dropdown>
+                                <li><a ng-href="/{{ ctrl.navbar.home.link }}">{{ ctrl.navbar.home.label }}</a></li>
+                                <li ng-repeat="crumb in navBarCtrl.navbar.breadcrumbs">
+                                    <a ng-href="/{{ ctrl.navbar.home.link }}/{{ crumb.link }}">{{ crumb.label }}</a>
+                                </li>
+                            </ul>
+                        </li>
+
+                        <li>
+                            <div><a ng-href="/{{ ctrl.navbar.home.link }}"><i class="fa fa-th fa-lg"></i></a></div>
+                        </li>
+                    </ul> 
+                </top-bar-section>
+            </top-bar>
+        </div>
+	</header>
+
+	<div class="container">
+		<div class="wall">
+			<h1>My Status</h1>
+		</div>
+	</div>

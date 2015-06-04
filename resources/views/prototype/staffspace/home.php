@@ -11,36 +11,34 @@
     </head>
     <body>
         <header class="fixed">
-            <nav class="top-bar" data-topbar role="navigation">
-	<ul class="title-area">
-		<li class="name">
-			<h1><a href="/staffspace" class="current">StaffSpace</a></h1>
-		</li>
-		<li class="toggle-topbar menu-icon"><a href="#"><span>Menu</span></a></li>
-	</ul>
+           <div ng-controller="navBarCtrl">
+			  <top-bar>
+			    <ul class="title-area">
+			      <li class="name">
+			        <h1><a href="#">My Site</a></h1>
+			      </li>
+			      <li toggle-top-bar class="menu-icon"><a href="#">Menu</a></li>
+			    </ul>
 
-	<section class="top-bar-section">
-		<!-- Right Nav Section -->
-		<ul class="right">
-			<li class="has-dropdown">
-				<a href="#">My Favourites</a>
-				<ul class="dropdown">
-					<li><a href="/staffspace/lrc-print-resources">LRC Print Resources</a></li>
-					<li><a href="/my-kingston/my-studies">My Studies</a></li>
-				</ul>
+			    <top-bar-section>
+			      <!-- Right Nav Section -->
+			      <ul class="right">
+			        <li class="active"><a href="#">Active</a></li>
+			        <li has-dropdown>
+			          <a href="#">Dropdown</a>
+			          <ul top-bar-dropdown>
+			            <li><a href="#">First link in dropdown</a></li>
+			          </ul>
+			        </li>
+			      </ul>
 
-			</li>
-			<li class="has-dropdown">
-				<a href="#">Switch View</a>
-				<ul class="dropdown">
-					<li><a href="/staffspace">StaffSpace - Staff View</a></li>
-					<li><a href="/my-kingston">My Kingston - Student View</a></li>
-				</ul>
-			</li>
-		</ul>
-
-	</section>
-</nav>
+			      <!-- Left Nav Section -->
+			      <ul class="left">
+			        <li><a href="#">Left</a></li>
+			      </ul>
+			    </top-bar-section>
+			  </top-bar>
+			</div>
         </header>
         
 

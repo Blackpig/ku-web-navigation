@@ -8,49 +8,41 @@
 */
 
 /*
-|--------------------------------------------------------------------------
-| Prototype Routing
-|--------------------------------------------------------------------------
+|
+| API Routing
 |
 */
 
-$app->get('/', function() use ($app) {
-    
-    $viewName = "prototype.my_kingston.home";
+$app->group(['prefix' => 'api'], function($app)
+{
 
-	return view($viewName);
+	/* User Endpoints */
+	$app->get('users/{id}', 'App\Http\Controllers\UserController@show');
 
-});
+	
+	/* LANDesk Endpoints */
+	$app->get('organisations', 'App\Http\Controllers\EndPointController@organisationList');
 
-$app->get('/my-kingston/', function() use ($app) {
-    
-    $viewName = "prototype.my_kingston.home";
+    $app->get('channels', 'App\Http\Controllers\EndPointController@channelList');
 
-	return view($viewName);
-
-});
-
-$app->get('/my-kingston/{route}', function($route) use ($app) {
-    
-    $viewName = "prototype.my_kingston.{$route}";
-
-	return view($viewName);
+    $app->get('endpoints/{id}', 'App\Http\Controllers\EndPointController@endpointList');
 
 });
 
-$app->get('/staffspace/', function() use ($app) {
-    
-    $viewName = "prototype.staffspace.home";
-
-	return view($viewName);
-
+$app->get('tile', function() use ($app)
+{
+	return view("tile");
 });
 
-$app->get('/staffspace/{route}', function($route) use ($app) {
-    
-    $viewName = "prototype.staffspace.{$route}";
+/*
+|
+| Front-end routing - send all requests to front end for Angular to manage routing
+|
+*/
 
-	return view($viewName);
+$app->get('{path:.*}', function() use ($app) 
+{
+
+    return view("app-ui");
 
 });
-
