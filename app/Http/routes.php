@@ -17,15 +17,15 @@ $app->group(['prefix' => 'api'], function($app)
 {
 
 	/* User Endpoints */
-	$app->get('users/{id}', 'App\Http\Controllers\UserController@show');
+	$app->get('users/authenticate', 'App\Http\Controllers\UserController@authenticate');
 
 	
 	/* LANDesk Endpoints */
-	$app->get('organisations', 'App\Http\Controllers\EndPointController@organisationList');
+	$app->get('organisations', 'App\Http\Controllers\EndpointController@organisationList');
 
-    $app->get('channels', 'App\Http\Controllers\EndPointController@channelList');
+    $app->get('channels', 'App\Http\Controllers\EndpointController@channelList');
 
-    $app->get('endpoints/{id}', 'App\Http\Controllers\EndPointController@endpointList');
+    $app->get('endpoints/{id}', 'App\Http\Controllers\EndpointController@endpointList');
 
 });
 
