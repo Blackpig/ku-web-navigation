@@ -8,7 +8,7 @@ class UserController extends Controller
      * Load user Details
      * @return JSON 
      */
-    public function show($id)
+    public function authenticate()
     {	
     	$data = [
     			"displayName"	=> "Stuart Hallewell",

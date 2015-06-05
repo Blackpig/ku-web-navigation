@@ -189,7 +189,7 @@ app.factory('userSvc',['$http','$q',function($http, $q){
 			user: {},
 
             getCurrent : function(){
-             	return $http.get('/api/users/1');
+             	return $http.get('/api/users/authenticate');
             }
         };
 
