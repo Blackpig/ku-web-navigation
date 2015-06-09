@@ -29,10 +29,7 @@ $app->group(['prefix' => 'api'], function($app)
 
 });
 
-$app->get('tile', function() use ($app)
-{
-	return view("tile");
-});
+$app->get('swh', 'App\Http\Controllers\UserController@swh');
 
 /*
 |

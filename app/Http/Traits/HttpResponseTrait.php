@@ -43,7 +43,7 @@ trait HttpResponseTrait
 		'code' => $code,
 		'status' => 'error',
 		'data' => [],
-		'message' => ($mesage) ? $message : $messages[$code]
+		'message' => ($message) ? $message : $messages[$code]
 		];
 
 		return response()->json($response, $response['code']);

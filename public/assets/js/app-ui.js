@@ -22,15 +22,29 @@ var app = angular.module('kuwnApp', ['ui.router', 'mm.foundation'])
 
 						resolve: {
 
-					     	userSvc: 'userSvc', // assign the resource
+					      	user: ['$rootScope', '$state', 'userSvc', 
+						      	function($rootScope, $state, userSvc) {
+						      		return userSvc.getCurrent().then(
+						      			function(response){
+						      				return response.data.data;
+						      			},
+						      			function(response){
+						      				var _error = {
+											  	'status': response.status,
+											  	'statusText': response.statusText,
+											  	'messageText': response.data.message
+											};
 
-					      	getuser: function(userSvc) {
-					      		return userSvc.getCurrent();
-					      	}
+											$rootScope.error = _error;
+											$state.go('error');
+						      			}
+						      		);
+						      	}
+					      	]
 						},
+
 						views: {
 							'content@': {
-
 								controller: 'rootCtrl'
 							}
 						}
@@ -40,21 +54,12 @@ var app = angular.module('kuwnApp', ['ui.router', 'mm.foundation'])
 						url: '0/:tileid',
 
 					    params: {
-
 					     	tileid: { value:null, squash:true }
 					    },
-
-						resolve: {
-
-							user: function(getuser){
-								return getuser.data;
-							}
-						},
 
 						views: {
 							'content@': {
 								templateUrl: '/assets/js/app/views/wall.html',
-
 								controller: 'stateCtrl as ctrl'
 							}
 						}
@@ -64,20 +69,12 @@ var app = angular.module('kuwnApp', ['ui.router', 'mm.foundation'])
 						url: '1/:tileid',
 
 					    params: {
-
 					     	tileid: { value:null, squash:true }
 					    },
 
-						resolve: {
-
-							user: function(getuser){
-								return getuser.data;
-							}
-						},
 						views: {
 							'content@': {
 								templateUrl: '/assets/js/app/views/wall.html',
-
 								controller: 'stateCtrl as ctrl'
 							}
 						}
@@ -88,21 +85,24 @@ var app = angular.module('kuwnApp', ['ui.router', 'mm.foundation'])
 						url: 'my-status',
 
 					    params: {
-
 					     	tileid: { value:null, squash:true }
 					    },
 
-						resolve: {
-
-							user: function(getuser){
-								return getuser.data;
-							}
-						},
 						views: {
 							'content@': {
 								templateUrl: '/assets/js/app/views/my-status.html',
-
 								controller: 'profileCtrl as ctrl'
+							}
+						}
+						
+					})
+
+					.state('error', {
+						url: 'error',
+					    views: {
+							'content@': {
+								templateUrl: '/assets/js/app/views/error.html',
+								controller: 'errorCtrl as ctrl'
 							}
 						}
 						
@@ -113,21 +113,20 @@ var app = angular.module('kuwnApp', ['ui.router', 'mm.foundation'])
 
 /* Root Controller - used to pre-fetch User details and direct to correct portal */
 
-app.controller('rootCtrl', ['$scope', '$state', 'getuser', 'navbarSvc',
-	function ($scope, $state, getuser, navbar) {
+app.controller('rootCtrl', ['$rootScope', '$scope', '$state', 'user', 'navbarSvc',
+	function ($rootScope, $scope, $state, user, navbar) {
 
-	var _state = 'root.' + getuser.data.state;
-	
-	$state.go(_state);
+		var _state = 'root.' + user.employee_status;
+		$state.go(_state);
 	
 }]);
 
 /* State controller - used to build Wall tiles **/
-app.controller('stateCtrl', ['$scope', '$stateParams', '$state', 'user', 'navbarSvc', 'endpointsSvc',
-	function ($scope, $stateParams, $state, user, navbarSvc, endpointsSvc) {
+app.controller('stateCtrl', ['$rootScope','$scope', '$stateParams', '$state', 'user', 'navbarSvc', 'endpointsSvc',
+	function ($rootScope, $scope, $stateParams, $state, user, navbarSvc, endpointsSvc) {
 
 	// Students can't access the staff portal - redirect to student state if they try
-	if ( $state.is('root.staff') && user.employeeType == 1 ) {
+	if ( $state.is('root.staff') && user.employee_type == 1 ) {
 		$state.go('root.student');
 	}
 
@@ -146,16 +145,26 @@ app.controller('stateCtrl', ['$scope', '$stateParams', '$state', 'user', 'navbar
 		navbarSvc.reset();
 
 		endpointsSvc.getEndpoints($state.current.name, self.tileid).then( 
-			function(response) {
-				self.data = response.data;
+			function(response) { // success response
+				self.data = response.data.data;
 				self.depth = self.data.parents.length;
 				self.showback = (self.depth > 1) ? true : false;
 
-				navbarSvc.build(user.employeeType, $state.current.name, self.data.this, self.data.parents);
+				navbarSvc.build(user.employee_type, $state.current.name, self.data.this, self.data.parents);
 
 				self.navbar = navbarSvc.navbar;
 
-			}				
+			},
+			function(response) { //failed
+			  var _error = {
+			  	'status': response.status,
+			  	'statusText': response.statusText,
+			  	'messageText': response.data.message
+			  }
+
+			  $rootScope.error = _error;
+			  $state.go('root.error');
+			}			
 		);	
 	};
 
@@ -175,6 +184,14 @@ app.controller('stateCtrl', ['$scope', '$stateParams', '$state', 'user', 'navbar
 app.controller('profileCtrl', ['$scope', '$state', 'user',
 	function ($scope, $state, user) {
 	
+}]);
+
+/* Profile controller - used for MyStatus pages and states */
+app.controller('errorCtrl', ['$rootScope', '$scope',
+	function ($rootScope, $scope) {
+
+		self = this;
+		self.error = $rootScope.error;
 }]);
 
 

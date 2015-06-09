@@ -4,6 +4,9 @@ use App\Http\Controllers\Controller;
 
 class EndpointController extends Controller
 {
+
+	use \App\Http\Traits\HttpresponseTrait;
+
     /**
      * Get Organisations fom LANDesk (StaffSpace view)
      * @return JSON 
@@ -142,7 +145,7 @@ class EndpointController extends Controller
 	    	]
     	];
 
-    	return response()->json($data);
+    	return $this->respondOK($data);;
     }
 
     /**
@@ -255,7 +258,7 @@ class EndpointController extends Controller
 		    ]
     	];
 
-    	return response()->json($data);
+    	return $this->respondOK($data);;
     }
 
     /**
@@ -865,6 +868,6 @@ class EndpointController extends Controller
 
     	$data = $results[$id];
 
-    	return response()->json($data);
+    	return $this->respondOK($data);;
     }
 }
