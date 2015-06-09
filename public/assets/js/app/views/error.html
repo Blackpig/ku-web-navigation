@@ -1,0 +1,23 @@
+	<header class="fixed">
+		<div>
+            <top-bar>
+                <ul class="title-area">
+                    <li class="name">
+                        <h1><a ng-href="#}">Oh No! Error!</a></h1>
+                    </li>                    
+                </ul>
+
+            </top-bar>
+        </div>
+	</header>
+
+	<div class="container">
+		<div class="wall">
+			<div class="alert-box alert">
+				<h1>Oops!</h1>
+				<p>Something has gone wrong.</p>
+				<p>The technical department has alrady been notified of the following issue.</p>
+				<p>Error {{ctrl.error.status}}: {{ctrl.error.statusText}} - {{ctrl.error.messageText}}</p>
+			</div>
+		</div>
+	</div>
