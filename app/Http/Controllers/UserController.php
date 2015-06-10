@@ -5,7 +5,7 @@ use App\Http\Controllers\Controller;
 class UserController extends Controller
 {
 
-    use \App\Http\Traits\HttpresponseTrait;
+    use \App\Http\Traits\HttpResponseTrait;
 
     /**
      * Load user Details
