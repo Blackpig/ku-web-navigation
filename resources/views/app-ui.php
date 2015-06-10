@@ -20,6 +20,6 @@
     <script src="/assets/vendor/angular-ui/angular-ui-router.min.js"></script>
     <script src="/assets/vendor/pineconellc/mm-foundation-tpls-0.6.0.js"></script>
     <script src="/assets/vendor/metafizzy/packery.pkgd.min.js"></script>
-    <script src="http://draggabilly.desandro.com/draggabilly.pkgd.min.js"></script>
+    <script src="/assets/vendor/desandro/draggabilly.pkgd.min.js"></script>
     <script src="/assets/js/app-ui.js"></script>
 </html>
