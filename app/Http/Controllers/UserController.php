@@ -29,8 +29,7 @@ class UserController extends Controller
 public function swh()
     {   
 
-        //$username = str_replace("KUDS\\", "", strtoupper($_SERVER['AUTH_USER'])); 
-        $username = "";
+        $username = str_replace("@KUDS.KINGSTON.AC.UK", "", strtoupper($_SERVER['AUTH_USER'])); 
 
         if(!$username) {
 
