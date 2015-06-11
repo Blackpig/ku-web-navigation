@@ -5,7 +5,7 @@ use App\Http\Controllers\Controller;
 class EndpointController extends Controller
 {
 
-	use \App\Http\Traits\HttpresponseTrait;
+	use \App\Http\Traits\HttpResponseTrait;
 
     /**
      * Get Organisations fom LANDesk (StaffSpace view)

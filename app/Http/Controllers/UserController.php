@@ -1,6 +1,7 @@
 <?php namespace App\Http\Controllers;
 
 use App\Http\Controllers\Controller;
+use App\Http\Models\User;
 
 class UserController extends Controller
 {
@@ -29,7 +30,7 @@ class UserController extends Controller
 public function swh()
     {   
 
-        $username = str_replace("@KUDS.KINGSTON.AC.UK", "", strtoupper($_SERVER['AUTH_USER'])); 
+        $username = str_replace("@KUDS.KINGSTON.AC.UK", "", strtoupper($_SERVER['PHP_AUTH_USER'])); 
 
         if(!$username) {
 
@@ -39,7 +40,7 @@ public function swh()
         }
 
         /* Do we have the user within the app*/
-        $user = User::find($username);
+        $user = \User::find($username);
 
         /* if no then retrieve from LDAP and create*/
         if (!$user) {
@@ -73,14 +74,37 @@ public function swh()
             $user->state = ($user->type == 0) ? 'staff' : 'student';
             $user->homedir = $ldap_user[0]["homedirectory"][0];
             $user->department = $ldap_user[0]["departmentnumber"][0];
-            $user->avatar = "";
+            $user->avatar = $this->getUserImage($username);
             $user->save();
             
-            $user = User::find($username);
+            $user = \User::find($username);
         }
 
-        Auth::login($user);
+        \Auth::login($user);
         
-        return $this->respondOK($data);
+        return $this->respondOK($user);
     }
+
+    private function getUserImage($id=false)
+    {
+        $default = "/assets/images/no-photo.jpg";
+
+        if ($id) {
+
+            $type = (strtoupper(substr($id, 0, 2)) == "KU") ? 'STAFF' : 'STUDENT';
+
+            $id = str_replace(["K","KU"],["",""],$id);
+
+            $image = "\\kucompic.kingston.ac.uk\IDPro7dataSettings\KU_$type_IDCARD\Images\$id.jpg";
+
+            $image_exists = @getimagesize($image_url);
+
+            if ($image_exists[0]) {
+                return $image;
+            }
+        }
+
+        return $default;
+    }
+
 }

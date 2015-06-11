@@ -1,4 +1,4 @@
-<?php namespace App\Models;
+<?php namespace App\Http\Models;
 
 use Illuminate\Auth\Authenticatable;
 use Illuminate\Database\Eloquent\Model;
@@ -30,15 +30,5 @@ class User extends Model implements AuthenticatableContract, CanResetPasswordCon
 	 * @var array
 	 */
 	protected $hidden = ['password', 'remember_token'];
-
-	/**
-	 * The user can have many entries.
-	 *
-	 * @return \Illuminate\Database\Eloquent\Relations\Hasmany
-	 */
-	public function entries()
-	{
-		return $this->hasMany('\App\Entry');
-	}
 
 }
