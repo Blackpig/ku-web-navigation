@@ -59,7 +59,9 @@ public function swh()
 
             $ldap = new \adLDAP\adLDAP($ldap_options);
 
-            $ldap_user = $ldap->user()->info($username);
+            $ldap_user = $ldap->user()->infoCollection($username, array("*"));
+
+            dd($ldap_user);
 
             if(!$ldap_user) {
 
