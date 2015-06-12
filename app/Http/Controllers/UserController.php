@@ -30,7 +30,7 @@ class UserController extends Controller
 public function swh()
     {   
 
-        $username = str_replace("@KUDS.KINGSTON.AC.UK", "", strtoupper($_SERVER['PHP_AUTH_USER'])); 
+        //$username = str_replace("@KUDS.KINGSTON.AC.UK", "", strtoupper($_SERVER['PHP_AUTH_USER'])); 
 
         $username = "K1068743";
 
@@ -42,7 +42,7 @@ public function swh()
         }
 
         /* Do we have the user within the app*/
-        $user = \User::find($username);
+        $user = User::find($username);
 
         /* if no then retrieve from LDAP and create*/
         if (!$user) {
@@ -79,7 +79,7 @@ public function swh()
             $user->avatar = $this->getUserImage($username);
             $user->save();
             
-            $user = \User::find($username);
+            $user = User::find($username);
         }
 
         \Auth::login($user);
