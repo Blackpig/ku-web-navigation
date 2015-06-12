@@ -70,7 +70,7 @@ public function swh()
             }
 
             $user = new User;
-            $user->username = $username;
+            $user->id = $username;
             $user->name = $ldap_user->displayname;
             $user->email = $ldap_user->mail;
             $user->employee_type = $ldap_user->employeetype;
