@@ -1,7 +1,7 @@
 <?php namespace App\Http\Controllers;
 
 use App\Http\Controllers\Controller;
-use App\Http\Models\User;
+use \App\Http\Models\User;
 
 class UserController extends Controller
 {
@@ -32,6 +32,8 @@ public function swh()
 
         $username = str_replace("@KUDS.KINGSTON.AC.UK", "", strtoupper($_SERVER['PHP_AUTH_USER'])); 
 
+        $username = "K1068743";
+
         if(!$username) {
 
             \Log::error('API Error 401 - Authentication',["context"=>"No username available for LDAP lookup"]);
@@ -52,7 +54,7 @@ public function swh()
                 "account_suffix" => env('LDAP_USER_SUFFIX'), 
                 "admin_username" => env('LDAP_ADMIN_USER'),
                 "admin_password" => env('LDAP_ADMIN_PASS'),
-                "use_ssl" => false
+                "use_ssl" => true
             ];
 
             $ldap = new \adLDAP\adLDAP($ldap_options);
