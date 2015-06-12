@@ -49,7 +49,7 @@ public function swh()
             include base_path() . "/vendor/adldap/adldap/lib/adLDAP/adLDAP.php";
 
             $ldap_options = [
-                "domain_controllers" => [env('LDAP_DC1'),env('LDAP_DC2')],
+                "domain_controllers" => [env('LDAP_DC_1'),env('LDAP_DC_2')],
                 "base_dn" => env('LDAP_BASE_DN'),
                 "account_suffix" => env('LDAP_USER_SUFFIX'), 
                 "admin_username" => env('LDAP_ADMIN_USER'),
