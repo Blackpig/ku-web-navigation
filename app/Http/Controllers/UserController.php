@@ -61,7 +61,6 @@ public function swh()
 
             $ldap_user = $ldap->user()->infoCollection($username, array("*"));
 
-            dd($ldap_user);
 
             if(!$ldap_user) {
 
@@ -72,13 +71,13 @@ public function swh()
 
             $user = new User;
             $user->username = $username;
-            $user->name = $ldap_user[0]["displayname"][0];
-            $user->email = $ldap_user[0]["mail"][0];
-            $user->type = $ldap_user[0]["employeetype"][0];
+            $user->name = $ldap_user->displayname;
+            $user->email = $ldap_user->mail;
+            $user->type = $ldap_user->employeetype;
             $user->state = ($user->type == 0) ? 'staff' : 'student';
-            $user->homedir = $ldap_user[0]["homedirectory"][0];
-            $user->department = $ldap_user[0]["departmentnumber"][0];
-            $user->avatar = $this->getUserImage($username);
+            $user->homedir = $ldap_user->homedirectory;
+            $user->department = $ldap_user->departmentnumber;
+            //$user->avatar = $this->getUserImage($username);
             $user->save();
             
             $user = User::find($username);
