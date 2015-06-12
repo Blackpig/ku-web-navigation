@@ -73,11 +73,11 @@ public function swh()
             $user->username = $username;
             $user->name = $ldap_user->displayname;
             $user->email = $ldap_user->mail;
-            $user->type = $ldap_user->employeetype;
-            $user->state = ($user->type == 0) ? 'staff' : 'student';
+            $user->employee_type = $ldap_user->employeetype;
+            $user->employee_status = ($user->type == 0) ? 'student' : 'staff';
             $user->homedir = $ldap_user->homedirectory;
             $user->department = $ldap_user->departmentnumber;
-            //$user->avatar = $this->getUserImage($username);
+            $user->avatar = $this->getUserImage($username);
             $user->save();
             
             $user = User::find($username);
