@@ -98,7 +98,7 @@ public function swh()
 
             $id = str_replace(["K","KU"],["",""],$id);
 
-            $image = "\\kucompic.kingston.ac.uk\IDPro7dataSettings\KU_$type_IDCARD\Images\$id.jpg";
+            $image = "\\kucompic.kingston.ac.uk\IDPro7dataSettings\KU_{$type}_IDCARD\Images\\{$id}.jpg";
 
             $image_exists = @getimagesize($image_url);
 
