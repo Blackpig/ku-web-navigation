@@ -15,21 +15,6 @@ class UserController extends Controller
     public function authenticate()
     {	
 
-        $data = [
-                "displayName"   => "Stuart Hallewell",
-                "firstName"     => "Stuart",
-                "lastName"      => "Hallewell",
-                "email"         => "stuart@hunniedesign.com",
-                "employee_type" => "0",
-                "employee_status"=> "staff"
-        ];
-       
-       return $this->respondOK($data);
-}
-
-public function swh()
-    {   
-
         $username = str_replace("@KUDS.KINGSTON.AC.UK", "", strtoupper($_SERVER['PHP_AUTH_USER'])); 
 
         if(!$username) {
