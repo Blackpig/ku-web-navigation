@@ -30,9 +30,7 @@ class UserController extends Controller
 public function swh()
     {   
 
-        //$username = str_replace("@KUDS.KINGSTON.AC.UK", "", strtoupper($_SERVER['PHP_AUTH_USER'])); 
-
-        $username = "K1068743";
+        $username = str_replace("@KUDS.KINGSTON.AC.UK", "", strtoupper($_SERVER['PHP_AUTH_USER'])); 
 
         if(!$username) {
 
@@ -73,8 +71,8 @@ public function swh()
             $user->id = $username;
             $user->name = $ldap_user->displayname;
             $user->email = $ldap_user->mail;
-            $user->employee_type = $ldap_user->employeetype;
-            $user->employee_status = ($user->type == 0) ? 'student' : 'staff';
+            $user->employee_type = $this->getEmployeeType($ldap_user->employeetype);
+            $user->employee_status = ($user->employee_type == 0) ? 'staff' : 'student';
             $user->homedir = $ldap_user->homedirectory;
             $user->department = $ldap_user->departmentnumber;
             $user->avatar = $this->getUserImage($username);
@@ -88,9 +86,18 @@ public function swh()
         return $this->respondOK($user);
     }
 
+    private function getEmployeeType($type) {
+
+        $type = strtoupper($type);
+        $staff_types = explode(",", strtoupper(env('STAFF_TYPES'))):
+
+        return in_array($type, $staff_types) ? 0 : 1;
+
+    }
+
     private function getUserImage($id=false)
     {
-        $default = "/assets/images/no-photo.jpg";
+        $default = "../assets/images/no-photo.jpg";
 
         if ($id) {
 
