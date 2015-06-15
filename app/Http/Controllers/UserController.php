@@ -89,7 +89,7 @@ public function swh()
     private function getEmployeeType($type) {
 
         $type = strtoupper($type);
-        $staff_types = explode(",", strtoupper(env('STAFF_TYPES'))):
+        $staff_types = explode(",", strtoupper(env('STAFF_TYPES')));
 
         return in_array($type, $staff_types) ? 0 : 1;
 
