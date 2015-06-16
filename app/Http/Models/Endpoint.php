@@ -11,11 +11,9 @@ class Endpoint extends Model{
 	 */
 	protected $table = null;
 
-	protected $connection = 'landesk';
-
-	public function Organisations()
-
-		$db = \DB::connection();
+	public static function Organisations()
+	{
+		$db = \DB::connection('landesk');
 
 		$i = 0;
 
@@ -29,7 +27,7 @@ class Endpoint extends Model{
 	}
 
 	public function Channels()
-
+	{
 		$db = \DB::connection();
 
 		$i = 0;

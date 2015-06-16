@@ -15,7 +15,7 @@ class SwhController extends Controller
     public function swh()
     {
 
-    	$date = Endpoint::Organisations()
+    	$date = Endpoint::Organisations();
 
     	return $this->respondOK($data);;
     }
@@ -23,7 +23,7 @@ class SwhController extends Controller
      public function swh2()
     {
 
-    	$date = Endpoint::Channels()
+    	$date = Endpoint::Channels();
 
     	return $this->respondOK($data);;
     }
