@@ -29,7 +29,7 @@ $app->group(['prefix' => 'api'], function($app)
 
 });
 
-$app->get('swh', 'App\Http\Controllers\UserController@swh');
+$app->get('swh', 'App\Http\Controllers\SwhController@swh');
 
 /*
 |
