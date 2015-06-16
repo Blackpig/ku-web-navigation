@@ -50,7 +50,7 @@ class Endpoint extends Model{
             $ep->desc = $rs->description;
             $ep->icon = $rs->{"Icon name"};
             $ep->target_type = "fa-th";
-            $ep->color = $this->assignColour($i);
+            $ep->color = self::assignColour($i);
             $ep->type = "service-group";
 
             return $ep;
