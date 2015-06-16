@@ -1,6 +1,7 @@
 <?php namespace App\Http\Controllers;
 
 use App\Http\Controllers\Controller;
+use \App\Http\Models\Endpoint;
 
 class SwhController extends Controller
 {
@@ -14,13 +15,15 @@ class SwhController extends Controller
     public function swh()
     {
 
-    	$db = DB::connection('ldap');
+    	$date = Endpoint::Organisations()
 
-    	$data = [];
-        // get all locations from SP
-        foreach (\DB::select('EXEC sp_Organisations;') as $attrs) {
-            $data[] = new Location((array)$attrs);
-        }
+    	return $this->respondOK($data);;
+    }
+
+     public function swh2()
+    {
+
+    	$date = Endpoint::Channels()
 
     	return $this->respondOK($data);;
     }
