@@ -19,7 +19,7 @@ class Endpoint extends Model{
 
         foreach (\DB::select('EXEC sp_Organisations;') as $rs) 
         {
-            $endpoints[] = $this->composeEndpoint($rs, $i);
+            $endpoints[] = self::composeEndpoint($rs, $i);
             $i++;
         }
 
@@ -28,20 +28,20 @@ class Endpoint extends Model{
 
 	public function Channels()
 	{
-		$db = \DB::connection();
+		$db = \DB::connection('landesk');
 
 		$i = 0;
 
         foreach (\DB::select('EXEC sp_Organisations;') as $rs) 
         {
-            $endpoints[] = $this->composeEndpoint($rs, $i);
+            $endpoints[] = self::composeEndpoint($rs, $i);
             $i++;
         }
 
 		return $endpoints;
 	}
 
-	private function composeEndpoint($rs, $i)
+	private static function composeEndpoint($rs, $i)
 	{
 			$ep = new Endpoint();
 
@@ -56,7 +56,7 @@ class Endpoint extends Model{
             return $ep;
 	}
 
-	private function assignColour($i=0) 
+	private static function assignColour($i=0) 
 	{
 
 		$colours = ["red", "orange", "yellow", "green", "blue", "purple", "pink"];
