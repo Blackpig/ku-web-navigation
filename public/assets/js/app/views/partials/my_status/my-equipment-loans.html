@@ -1,0 +1,22 @@
+				<div class="tile {{endpoint.type}} {{endpoint.color}}" >
+	                <div class="tile-body row" ng-class="{'flip': toggleInfo=={{$index}}}">
+	                    <div class="tile-front">
+	                        <div class="tile-content" ng-mouseenter="hasFocus=true"  ng-mouseleave="hasFocus=false">
+	                            <a ng-href="/my-status" ng-class="{hover:hasFocus}">My Tickets</a>
+	                        </div>
+	                    </div>
+	                    <div class="tile-back">
+	                        <div class="tile-content">
+	                            <p>{{ctrl.myTickets.desc}}</p>
+	                        </div>
+	                    </div>
+	                </div>
+	                <div class="tile-icons">
+	                    <ul>
+	                        <li><a href="#"><span aria-haspopup="true" class="has-tip tip-top" tooltip="My Tickets"><i class="fa {{endpoint.icon}} fa-lg"></i></span></a></li>
+	                        <li><a  ng-href="/my-status/my-tickets" ng-mouseenter="hasFocus=true"  ng-mouseleave="hasFocus=false" ng-class="{hover:hasFocus}"><i class="fa {{endpoint.target_type}} fa-lg"></i></a></li>
+	                        <!-- <li><a href="#" class="bookmark" aria-haspopup="true" class="has-tip" tooltip="Add to My favourites"><i class="fa fa-star fa-lg"></i></a></li>-->
+	                        <li><a href="#" ng-click="ctrl.toggleInfo($index)"><i class="fa fa-info fa-lg"></i></a></li>
+	                    </ul>
+	                </div>
+	            </div>
