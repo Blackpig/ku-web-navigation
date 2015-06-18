@@ -61,7 +61,7 @@ class UserController extends Controller
             $user->employee_status = ($user->employee_type == 0) ? 'staff' : 'student';
             $user->homedir = $ldap_user->homedirectory;
             $user->department = $ldap_user->departmentnumber;
-            $user->gender = $$ldap_user->extensionAttribute1;
+            $user->gender = $ldap_user->extensionAttribute1;
             $user->avatar = $this->getUserImage($username, $user->gender);
             $user->save();
             
