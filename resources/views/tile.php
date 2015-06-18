@@ -4,168 +4,56 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>StaffSpace</title>
-    <link rel="stylesheet" href="/assets/vendor/foundation/css/foundation.min.css">
-    <link rel="stylesheet" href="/assets/vendor/font-awesome/css/font-awesome.min.css">
-    <!-- <link rel="stylesheet" href="/assets/css/tile.css"> -->
-    <script src="/assets/vendor/foundation/js/vendor/modernizr.js"></script>
+     <link rel="stylesheet" href="/assets/vendor/foundation/css/foundation.min.css">
+        <link rel="stylesheet" href="/assets/vendor/font-awesome/css/font-awesome.min.css">
+        <link rel="stylesheet" href="/assets/css/app.css">
+        <script src="/assets/vendor/foundation/js/vendor/modernizr.js"></script>
     <style>
     /* Elements & general class*/
-body {
-    background: #d9e2ea;
-    box-sizing: content-box;
-    font-family: sans-serif;
+.ms-tile {
+    width: 290px;
+    height:140px;
+    background-color: #fff;
+    border: 1px solid #fff;
 }
 
-p {
-    font-size: 12pt;
-}
-
-/* Page Layout */
-.container {
-    overflow: visible;
+.ms-tile .tile-body{
     width: 100%;
-    min-width: 100%;
-    max-width: 100%;
-    margin: 65px auto;
+    height: 109px;
 }
 
-.wall {
-    padding-left: 20px;
-    padding-right: 20px;
-    display: block;
-    margin: 0px auto;
-    width: auto;
-    max-width: 1200px;
-    min-width: 755px;
+.ms-tile .tile-front{
+    text-align: left;
 }
 
-/* Tile layout */
-.tile {
-    border: 2px solid #000;
-   /* border-radius: 3px;*/
-    margin: 0 5px 10px;
-    width: auto;
-    height: 130px;
-    position: relative;
-    box-sizing: content-box;
-    perspective: 1000px;
-    padding: 3px;
-    background: #fff;
+.ms-tile .tile-front .tile-content{
+    vertical-align: initial;
+    padding-top: 15px;
 }
 
-.service-group, .service-group .tile-body, .service-group .tile-content {
-    width: 270px;
-}
-
-.endpoint, .endpoint .tile-body, .endpoint .tile-content {
-    width: 130px;
-}
-
-
-.tile-icons {
-    height: 38px;
-    background: #ccc;
-    margin-top: 2px;
-}
-
-.tile-icons ul {
-    list-style-type: none;
+.ms-tile .title {
     text-align: center;
-    line-height: 2.5em;
-    margin: 0;
+    width:82px;
+    float: left;
+} 
+
+.ms-tile .info {
+    width:192px;
+    float: left;
+} 
+
+.ms-tile .info .details{
+    margin-top: 8px;
+} 
+
+.ms-tile .info .details{
+    font-size: 9pt;
 }
 
-.tile-icons ul li{
-    display: inline;
-    margin-right: 2px;
+.ms-tile .tile-icons .fa-lg{
+    line-height: 1.5em;
+    vertical-align: 0;
 }
-
-.tile-icons ul li a{
-    color: rgba(255, 255, 255, 1);
-}
-
-.tile-icons ul li a:hover, .tile-icons ul li a:focus{
-    color: rgba(255, 255, 255, .5);
-}
-
-.tile-icons ul li:last-of-type{
-    display: inline;
-    margin-right: 0;
-}
-
-.tile-body {
-    height:90px;
-    background: #ccc;
-    transition: 0.6s;
-    transform-style: preserve-3d;
-}
-
-.tile-front, .tile-back{
-    height: 100%;
-    display: table;
-    backface-visibility: hidden;
-    position: absolute;
-    top:0;
-    left: 0;
-    text-align: center;
-}
-
-.tile-front {
-z-index: 2;
-    /* for firefox 31 */
-    transform: rotateY(0deg);
-}
-
-/* back, initially hidden pane */
-.tile-back {
-    transform: rotateY(180deg);
-}
-
-.tile-content {
-    display: table-cell;
-    vertical-align: middle;
-    padding: 3px 8px;
-    cursor: pointer;
-}
-
-.tile-content p {
-    font-size: 10pt;
-    color: #fff;
-}
-
-.tile-content a {
-    text-decoration: none;
-    color: #fff;
-    font-size: 14pt;
-    text-shadow: none;
-    -webkit-transition: 200ms linear 0s;
-    -moz-transition: 200ms linear 0s;
-    -o-transition: 200ms linear 0s;
-    transition: 200ms linear 0s;
-    outline: 0 none;
-}
-
-.tile-content a:hover, .tile-content a:focus, .tile-content a.hover {
-    color: #fff;
-    font-size: 14pt;
-    text-shadow: -1px 1px 8px #ffc, 1px -1px 8px #fff;
-}
-
-.tile.yellow {
-    border-color: #d4b900;
-}
-
-.yellow .tile-content {
-   background: #ffe0dd;
-    background-image: -webkit-linear-gradient(top left, #ffe63b, #d4b900);
-    background-image: -o-linear-gradient(top left, #ffe63b, #d4b900);
-    background-image: linear-gradient(to bottom right, #ffe63b, #d4b900);
-}
-
-.yellow .tile-icons {
-    background: #d4b900;
-}
-
 </style>
 </head>
 <body>
@@ -206,67 +94,44 @@ z-index: 2;
     <div class="container">
         <div class="wall">
 
-            <div class="tile service-group yellow">
-                <div class="tile-body row">
-                    <div class="tile-front">
-                        <div class="tile-content">
-                            <a href="#">Student Union</a>
+            <div class="ms-tile" >
+                <div class="red">
+                    <div class="tile-body row" >
+                        <div class="tile-front">
+                            <div class="tile-content" >
+                                <div class="title">
+                                     <a ng-href="my-tickets"><i class="fa fa-tags fa-3x"></i></a>
+                                </div>
+                                <div class="info">
+                                    <a ng-href="my-tickets">My Tickets</a>
+                                    <div class="details">
+                                        <p>Open Tickets: 14</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="tile-back">
+                            <div class="tile-content">
+                                <p>On The back</p>
+                            </div>
                         </div>
                     </div>
-                    <div class="tile-back">
-                        <div class="tile-content">
-                            <p>Long text description of this organisation</p>
-                        </div>
+                    <div class="tile-icons">
+                        <ul>
+                            <li><a href="#" ng-click="ctrl.toggleInfo($index)"><i class="fa fa-info fa-lg"></i></a></li>
+                        </ul>
                     </div>
-                </div>
-                <div class="tile-icons">
-                    <ul>
-                        <li><a href="#"><i class="fa fa-star fa-lg"></i></a></li>
-                        <li><a href="#"><i class="fa fa-star fa-lg"></i></a></li>
-                        <li><a href="#"><i class="fa fa-star fa-lg"></i></a></li>
-                        <li><a href="#"><i class="fa fa-star fa-lg"></i></a></li>
-                    </ul>
                 </div>
             </div>
-
-        </div>
-    </div>
-
-    <div class="container">
-        <div class="wall">
-
-            <div class="tile endpoint yellow">
-                <div class="tile-body row">
-                    <div class="tile-front">
-                        <div class="tile-content">
-                            <a href="#">Student Union</a>
-                        </div>
-                    </div>
-                    <div class="tile-back">
-                        <div class="tile-content">
-                            <p>Long text description of this organisation</p>
-                        </div>
-                    </div>
-                </div>
-                <div class="tile-icons">
-                    <ul>
-                        <li><a href="#"><i class="fa fa-star fa-lg"></i></a></li>
-                        <li><a href="#"><i class="fa fa-star fa-lg"></i></a></li>
-                        <li><a href="#"><i class="fa fa-star fa-lg"></i></a></li>
-                        <li><a href="#"><i class="fa fa-star fa-lg"></i></a></li>
-                    </ul>
-                </div>
-            </div>
-
         </div>
     </div>
 
 </body>
-<script src="/assets/vendor/jquery/jquery-1.11.2.min.js"></script>
-<script src="/assets/vendor/foundation/js/vendor/fastclick.js"></script>
-<script src="/assets/vendor/foundation/js/foundation.min.js"></script>
-<script src="/assets/vendor/foundation/js/foundation/foundation.topbar.js"></script>    
-<script src="/assets/vendor/foundation/js/foundation/foundation.tooltip.js"></script>
-<script src="/assets/vendor/metafizzy/packery.pkgd.min.js"></script>
-<script src="/assets/js/app.js"></script>
+ <script src="/assets/vendor/jquery/jquery-1.11.2.min.js"></script>
+    <script src="/assets/vendor/angular/angular.js"></script>
+    <script src="/assets/vendor/angular-ui/angular-ui-router.min.js"></script>
+    <script src="/assets/vendor/pineconellc/mm-foundation-tpls-0.6.0.js"></script>
+    <script src="/assets/vendor/metafizzy/packery.pkgd.min.js"></script>
+    <script src="/assets/vendor/desandro/draggabilly.pkgd.min.js"></script>
+    <script src="/assets/js/app-ui.js"></script>
 </html>

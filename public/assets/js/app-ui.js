@@ -139,6 +139,7 @@ app.controller('stateCtrl', ['$rootScope','$scope', '$stateParams', '$state', 'u
 	self.depth = 0;
 	self.isrootpage = (self.tileid) ? false : true;
 	self.showback = false;
+	self.user = user;
 
 	self.build = function()	{
 
@@ -328,7 +329,7 @@ app.directive('imageTile',[
 	function(){
 		return {
 			restrict: 'AE',
-			template: '<div class="tile image {{imageSize}}"><img src="../assets/images/img-{{imageSize}}-{{id}}.jpg" /></div>',
+			template: '<div class="tile image {{imageSize}} pack"><img src="../assets/images/img-{{imageSize}}-{{id}}.jpg" /></div>',
 			replace: true,
 			scope: {},
 			link: function(scope, element, attrs) {
@@ -363,7 +364,7 @@ app.directive('packery', ['$rootScope', '$timeout',
 			    scope.element = element;
 			    if (!$rootScope.packery) {
 			    	$rootScope.packery = new Packery(element[0].parentElement, {
-			    		itemSelector: '.tile',
+			    		itemSelector: '.pack',
 			    		//columnWidth: 200,
 			    		animate: true,
           				animationOptions: {

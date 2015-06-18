@@ -44,39 +44,32 @@
 		<div class="wall">
 			
 			<div ng-if="ctrl.isrootpage" packery>
-				<div class="tile ku-logo stamp">		
+				<div class="tile ku-logo stamp pack">		
 				</div>
-				<div class="tile logo stamp">		
+				<div class="tile logo stamp pack">		
 				</div>
 				
-				<div class="tile my-status">
+				<div class="tile my-status pack">
 
 					<div class="tile-body">
 						<div class="avatar left">
-							<a href="#"><img src="../assets/images/avatar.jpg"></a>
+							<a href="#"><img src="{{ctrl.users.avatar}}"></a>
 						</div>
 						<div class="details left">
 							<a href="#">My Status</a>
-							<p>Welcome back Stuart</p>
-						</div>
-						<div class="ticker">
-							<ul>
-								<li><i class="fa fa-thumbs-o-up"></i> Student Husting in the SU bar 17/05/2015 @ 16:00</li>
-								<li><i class="fa fa-money"></i> Student loan application deadline 31/05/2015</li>
-								<li><i class="fa fa-pencil"></i> Open day 28/05/2015</li> 
-							</ul>
+							<p>Welcome back {{ctrl.users.first_name}}</p>
 						</div>
 					</div>
 				</div>
 				<image-tile size="tall" class="stamp"></image-tile>
-				<div class="tile image stamp">
+				<div class="tile image stamp pack">
 					<img src="../assets/images/img-wide-0.jpg" />
 				</div>
 				
 			</div>
 
 
-			<div class="tile menu stamp" ng-if="!ctrl.isrootpage" packery>
+			<div class="tile menu stamp pack" ng-if="!ctrl.isrootpage" packery>
 				<div class="tile-body row">
 					<div class="tile-content">
 						<a ng-href="/{{ ctrl.navbar.home.link }}"><i class="fa fa-home fa-4x"></i></a>
@@ -84,7 +77,7 @@
 				</div>		
 			</div>
 				
-			<div ng-if="ctrl.showback && !ctrl.isrootpage" class="tile menu stamp" packery>	
+			<div ng-if="ctrl.showback && !ctrl.isrootpage" class="tile menu stamp pack" packery>	
 				<div class="tile-body row">
 					<div class="tile-content">
 						<a ng-href="/{{ ctrl.navbar.home.link }}/{{ ctrl.navbar.backLink }}"><i class="fa fa-step-backward fa-4x"></i></a>
@@ -93,7 +86,7 @@
 			</div>	
 
 			<div ng-repeat="endpoint in ctrl.data.endpoints" packery>
-				<div class="tile {{endpoint.type}} {{endpoint.color}}" >
+				<div class="tile {{endpoint.type}} {{endpoint.color}} pack" >
 	                <div class="tile-body row" ng-class="{'flip': toggleInfo=={{$index}}}">
 	                    <div class="tile-front">
 	                        <div class="tile-content" ng-mouseenter="hasFocus=true"  ng-mouseleave="hasFocus=false">

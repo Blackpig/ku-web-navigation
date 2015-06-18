@@ -11,18 +11,6 @@
                 <top-bar-section>
                     <!-- Right Nav Section -->
                     <ul class="right">
-                        <li class="has-form">
-                          <div class="row collapse">
-                            <div class="large-8 small-9 columns">
-                              <input type="text" placeholder="Search">
-                            </div>
-                            <div class="large-4 small-3 columns">
-      							<a href="#" class="success button expand srch">Go</a>
-    						</div>
-                          </div>
-                        </li>
-                        <li><div style="height:100%"><a ng-href="/my-status" style="height:100%"><i class="fa fa-user fa-lg"></i></a></div></li>
-
                         <li has-dropdown>
                             <div><a href="#"><i class="fa fa-ellipsis-h fa-lg"></i></a></div>
                             <ul top-bar-dropdown>
@@ -43,7 +31,22 @@
 	</header>
 
 	<div class="container">
-		<div class="wall">
-			<h1>My Status</h1>
-		</div>
+		<div class="ms-wall">
+            <div class="my-status pack" packery>
+                <div class="profile">
+
+                </div>
+            </div>
+    			<ng-include src="'assets/js/app/views/partials/my_status/tiles/my-tickets.html'"></ng-include>
+                <ng-include src="'assets/js/app/views/partials/my_status/tiles/my-print-account.html'"></ng-include>
+                <ng-include src="'assets/js/app/views/partials/my_status/tiles/my-it-account.html'"></ng-include>
+                <ng-include src="'assets/js/app/views/partials/my_status/tiles/my-door-access.html'"></ng-include>
+                <ng-include src="'assets/js/app/views/partials/my_status/tiles/my-fees.html'"></ng-include>
+                <ng-include src="'assets/js/app/views/partials/my_status/tiles/my-modules.html'"></ng-include>
+                <ng-include src="'assets/js/app/views/partials/my_status/tiles/my-room-bookings.html'"></ng-include>
+                <ng-include src="'assets/js/app/views/partials/my_status/tiles/my-equipment-loans.html'"></ng-include>
+                <ng-include src="'assets/js/app/views/partials/my_status/tiles/my-library.html'"></ng-include>
+                <ng-include src="'assets/js/app/views/partials/my_status/tiles/my-timetable.html'"></ng-include>
+                <ng-include src="'assets/js/app/views/partials/my_status/tiles/my-mail.html'"></ng-include> 
+        </div>
 	</div>
