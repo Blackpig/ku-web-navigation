@@ -379,6 +379,10 @@ z-index: 2;
 	height: 174px;
 }
 
+.my-status a:hover {
+	color: #0492d4;
+}
+
 .my-status .avatar img {
 	border-radius: 15px;
 	border: 1px solid #0492d4 ;
