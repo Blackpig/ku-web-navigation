@@ -375,12 +375,12 @@ z-index: 2;
 }
 
 .my-status .avatar {
-	width: 100px;
-
+	width: 135px;
+	height: 174px;
 }
 
 .my-status .avatar img {
-	border-radius: 50%;
+	border-radius: 15px;
 	border: 1px solid #0492d4 ;
 	width: 100px;
 }
