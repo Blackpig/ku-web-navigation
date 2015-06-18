@@ -46,6 +46,20 @@ return [
 
     'connections' => [
 
+        'mysql' => [
+            'driver'    => 'mysql',
+            'host'      => env('DB_WN_HOST', 'localhost'),
+            'port'      => env('DB_WN_PORT', 3306),
+            'database'  => env('DB_WN_DATABASE'),
+            'username'  => env('DB_WN_USERNAME'),
+            'password'  => env('DB_WN_PASSWORD'),
+            'charset'   => 'utf8',
+            'collation' => 'utf8_unicode_ci',
+            'prefix'    => env('DB_WN_PREFIX'),
+            'timezone'  => env('DB_WN_TIMEZONE','+00:00'),
+            'strict'    => false,
+        ],
+
         'webnav' => [
             'driver'    => 'mysql',
             'host'      => env('DB_WN_HOST', 'localhost'),
