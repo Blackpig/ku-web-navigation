@@ -53,18 +53,11 @@
 
 					<div class="tile-body">
 						<div class="avatar left">
-							<a href="#"><img src="../assets/images/avatar.jpg"></a>
+							<a href="#"><img src="{{ctrl.users.avatar}}"></a>
 						</div>
 						<div class="details left">
 							<a href="#">My Status</a>
-							<p>Welcome back Stuart</p>
-						</div>
-						<div class="ticker">
-							<ul>
-								<li><i class="fa fa-thumbs-o-up"></i> Student Husting in the SU bar 17/05/2015 @ 16:00</li>
-								<li><i class="fa fa-money"></i> Student loan application deadline 31/05/2015</li>
-								<li><i class="fa fa-pencil"></i> Open day 28/05/2015</li> 
-							</ul>
+							<p>Welcome back {{ctrl.users.first_name}}</p>
 						</div>
 					</div>
 				</div>
