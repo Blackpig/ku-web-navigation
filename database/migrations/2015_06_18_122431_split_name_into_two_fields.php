@@ -16,6 +16,7 @@ class SplitNameIntoTwoFields extends Migration {
 		{
 			$table->renameColumn('name', 'first_name');
 			$table->string('last_name',100)->after('first_name');
+			$table->string('gender',100)->after('avatar');
 
 		});
 	}
@@ -31,6 +32,7 @@ class SplitNameIntoTwoFields extends Migration {
 		{
 			$table->renameColumn('first_name', 'name');
 			$table->dropColumn('last_name');
+			$table->dropColumn('gender');
 		});
 	}
 
