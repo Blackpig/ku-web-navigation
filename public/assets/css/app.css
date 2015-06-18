@@ -28,7 +28,7 @@ p {
 	height: ;
 }
 
-.wall {
+.wall, .ms-wall {
 	padding-left: 20px;
 	padding-right: 20px;
 	display: block;
@@ -425,6 +425,76 @@ z-index: 2;
 .image.wide{
 	width: 290px;
 	height: 140px;
+}
+
+/* My Status Tiles */
+
+.ms-wall .my-status {
+	width: 550px;
+	height: 250px;
+	margin: 0 5px 10px;
+}
+
+.ms-tile {
+    width: 290px;
+    height:140px;
+    background-color: #fff;
+    border: 1px solid #0492d4;
+    margin: 0 5px 10px;
+}
+
+.ms-tile .tile-body{
+    width: 290px;
+    height: 109px;
+    color: #0492d4;
+}
+
+.ms-tile .tile-content p{
+	color: #666;
+	font-size: 9pt;
+}
+
+.ms-tile .tile-content a{
+    color: #0492d4;
+}
+
+.ms-tile .tile-front{
+    text-align: left;
+}
+
+.ms-tile .tile-front .tile-content{
+    vertical-align: initial;
+    padding-top: 15px;
+}
+
+.ms-tile .title {
+    text-align: center;
+    width:82px;
+    float: left;
+} 
+
+.ms-tile .info {
+    width:192px;
+    float: left;
+} 
+
+.ms-tile .info .details{
+    margin-top: 8px;
+} 
+
+.ms-tile .info .details{
+    font-size: 9pt;
+}
+
+.ms-tile .tile-icons {
+	background: #0492d4;
+	width: 288px;
+	margin: 0 auto;
+}
+
+.ms-tile .tile-icons .fa-lg{
+    line-height: 1.5em;
+    vertical-align: 0;
 }
 
 /** Media Queries **/
