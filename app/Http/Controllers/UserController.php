@@ -52,12 +52,10 @@ class UserController extends Controller
                 exit;
             }
 
-            $name = explode(",", $ldap_user->displayname);
-
             $user = new User;
             $user->id = $username;
-            $user->first_name = trim($name[1]);
-            $user->last_name = trim($name[0]);
+            $user->first_name = $ldap_user->givenname;
+            $user->last_name = $ldap_user->sn;
             $user->email = $ldap_user->mail;
             $user->employee_type = $this->getEmployeeType($ldap_user->employeetype);
             $user->employee_status = ($user->employee_type == 0) ? 'staff' : 'student';
