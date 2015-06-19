@@ -1,6 +1,7 @@
 <?php namespace App\Http\Controllers;
 
 use App\Http\Controllers\Controller;
+use Cache;
 
 class EndpointController extends Controller
 {
@@ -14,136 +15,138 @@ class EndpointController extends Controller
     public function organisationList()
     {
 
-    	$data = [
-			"this"	=> [
-				"guid" => "0",
-    			"label" => "University Organisations"
-			],
-  			"parents" => [
-    				"guid" => null,
-    				"label" => null
-    			],
-    		"has_service_group"	=> true,
-    		"endpoints" => [
-	    		[
-	    			"title"	=> "Estates",
-		    		"desc"	=> "A longer description of what is on this tile contains.",
-		    		"icon"	=> "fa-key",
-			    	"target_type"	=> "fa-th",
-		    		"guid"	=> "1236547895135784621-1",
-		    		"color" => "red",
-		    		"type"	=>	"service-group"
-		    	],
-	    		[
-	    			"title"	=> "Faculty of Art, Design & Architecture",
-		    		"desc"	=> "A longer description of what is on this tile contains.",
-		    		"icon"	=> "fa-pencil",
-			    	"target_type"	=> "fa-th",
-		    		"guid"	=> "1236547895135784621-2",
-		    		"color" => "orange",
-		    		"type"	=>	"service-group"
-		    	],
-	    		[
-	    			"title"	=> "Faculty of Arts & Social Sciences",
-		    		"desc"	=> "A longer description of what is on this tile contains.",
-		    		"icon"	=> "fa-paint-brush",
-			    	"target_type"	=> "fa-th",
-		    		"guid"	=> "1236547895135784621-3",
-		    		"color" => "yellow",
-		    		"type"	=>	"service-group"
-		    	],
-	    		[
-	    			"title"	=> "Faculty of Business & Law",
-		    		"desc"	=> "A longer description of what is on this tile contains.",
-		    		"icon"	=> "fa-legal",
-			    	"target_type"	=> "fa-th",
-		    		"guid"	=> "1236547895135784621-4",
-		    		"color" => "green",
-		    		"type"	=>	"service-group"
-		    	],
-	    		[
-	    			"title"	=> "Faculty of Healthcare, Social Science & Education",
-		    		"desc"	=> "A longer description of what is on this tile contains.",
-		    		"icon"	=> "fa-stethoscope",
-			    	"target_type"	=> "fa-th",
-		    		"guid"	=> "1236547895135784621-5",
-		    		"color" => "blue",
-		    		"type"	=>	"service-group"
-		    	],
-	    		[
-	    			"title"	=> "Faculty of Science, Engineering & Computing",
-		    		"desc"	=> "A longer description of what is on this tile contains.",
-		    		"icon"	=> "fa-cogs",
-			    	"target_type"	=> "fa-th",
-		    		"guid"	=> "1236547895135784621-6",
-		    		"color" => "pink",
-		    		"type"	=>	"service-group"
-		    	],
-	    		[
-	    			"title"	=> "Finance",
-		    		"desc"	=> "A longer description of what is on this tile contains.",
-		    		"icon"	=> "fa-money",
-			    	"target_type"	=> "fa-th",
-		    		"guid"	=> "1236547895135784621-7",
-		    		"color" => "purple",
-		    		"type"	=>	"service-group"
-		    	],
-	    		[
-	    			"title"	=> "Human Resources",
-		    		"desc"	=> "A longer description of what is on this tile contains.",
-		    		"icon"	=> "fa-group",
-			    	"target_type"	=> "fa-th",
-		    		"guid"	=> "1236547895135784621-8",
-		    		"color" => "yellow",
-		    		"type"	=>	"service-group"
-		    	],
-	    		[
-	    			"title"	=> "Informations Services",
-		    		"desc"	=> "A longer description of what is on this tile contains.",
-		    		"icon"	=> "fa-desktop",
-			    	"target_type"	=> "fa-th",
-		    		"guid"	=> "1236547895135784621-9",
-		    		"color" => "red",
-		    		"type"	=>	"service-group"
-		    	],
-	    		[
-	    			"title"	=> "Kusco",
-		    		"desc"	=> "A longer description of what is on this tile contains.",
-		    		"icon"	=> "fa-wrench",
-			    	"target_type"	=> "fa-th",
-		    		"guid"	=> "1236547895135784621-10",
-		    		"color" => "green",
-		    		"type"	=>	"service-group"
-		    	],
-	    		[
-	    			"title"	=> "Library & Learning Services",
-		    		"desc"	=> "A longer description of what is on this tile contains.",
-		    		"icon"	=> "fa-book",
-			    	"target_type"	=> "fa-th",
-		    		"guid"	=> "1236547895135784621-11",
-		    		"color" => "blue",
-		    		"type"	=>	"service-group"
-		    	],
-	    		[
-	    			"title"	=> "Student Services & Administration",
-		    		"desc"	=> "A longer description of what is on this tile contains.",
-		    		"icon"	=> "fa-comments-o",
-			    	"target_type"	=> "fa-th",
-		    		"guid"	=> "1236547895135784621-12",
-		    		"color" => "orange",
-		    		"type"	=>	"service-group"
-		    	],
-	    		[
-	    			"title"	=> "Student Union",
-		    		"desc"	=> "A longer description of what is on this tile contains.",
-		    		"icon"	=> "fa-thumbs-o-up",
-			    	"target_type"	=> "fa-th",
-		    		"guid"	=> "1236547895135784621-13",
-		    		"color" => "yellow",
-		    		"type"	=>	"service-group"
+    	$data = Cache::remember('organisations',360, function() {
+    		return [
+				"this"	=> [
+					"guid" => "0",
+	    			"label" => "University Organisations"
+				],
+	  			"parents" => [
+	    				"guid" => null,
+	    				"label" => null
+	    			],
+	    		"has_service_group"	=> true,
+	    		"endpoints" => [
+		    		[
+		    			"title"	=> "Estates",
+			    		"desc"	=> "A longer description of what is on this tile contains.",
+			    		"icon"	=> "fa-key",
+				    	"target_type"	=> "fa-th",
+			    		"guid"	=> "1236547895135784621-1",
+			    		"color" => "red",
+			    		"type"	=>	"service-group"
+			    	],
+		    		[
+		    			"title"	=> "Faculty of Art, Design & Architecture",
+			    		"desc"	=> "A longer description of what is on this tile contains.",
+			    		"icon"	=> "fa-pencil",
+				    	"target_type"	=> "fa-th",
+			    		"guid"	=> "1236547895135784621-2",
+			    		"color" => "orange",
+			    		"type"	=>	"service-group"
+			    	],
+		    		[
+		    			"title"	=> "Faculty of Arts & Social Sciences",
+			    		"desc"	=> "A longer description of what is on this tile contains.",
+			    		"icon"	=> "fa-paint-brush",
+				    	"target_type"	=> "fa-th",
+			    		"guid"	=> "1236547895135784621-3",
+			    		"color" => "yellow",
+			    		"type"	=>	"service-group"
+			    	],
+		    		[
+		    			"title"	=> "Faculty of Business & Law",
+			    		"desc"	=> "A longer description of what is on this tile contains.",
+			    		"icon"	=> "fa-legal",
+				    	"target_type"	=> "fa-th",
+			    		"guid"	=> "1236547895135784621-4",
+			    		"color" => "green",
+			    		"type"	=>	"service-group"
+			    	],
+		    		[
+		    			"title"	=> "Faculty of Healthcare, Social Science & Education",
+			    		"desc"	=> "A longer description of what is on this tile contains.",
+			    		"icon"	=> "fa-stethoscope",
+				    	"target_type"	=> "fa-th",
+			    		"guid"	=> "1236547895135784621-5",
+			    		"color" => "blue",
+			    		"type"	=>	"service-group"
+			    	],
+		    		[
+		    			"title"	=> "Faculty of Science, Engineering & Computing",
+			    		"desc"	=> "A longer description of what is on this tile contains.",
+			    		"icon"	=> "fa-cogs",
+				    	"target_type"	=> "fa-th",
+			    		"guid"	=> "1236547895135784621-6",
+			    		"color" => "pink",
+			    		"type"	=>	"service-group"
+			    	],
+		    		[
+		    			"title"	=> "Finance",
+			    		"desc"	=> "A longer description of what is on this tile contains.",
+			    		"icon"	=> "fa-money",
+				    	"target_type"	=> "fa-th",
+			    		"guid"	=> "1236547895135784621-7",
+			    		"color" => "purple",
+			    		"type"	=>	"service-group"
+			    	],
+		    		[
+		    			"title"	=> "Human Resources",
+			    		"desc"	=> "A longer description of what is on this tile contains.",
+			    		"icon"	=> "fa-group",
+				    	"target_type"	=> "fa-th",
+			    		"guid"	=> "1236547895135784621-8",
+			    		"color" => "yellow",
+			    		"type"	=>	"service-group"
+			    	],
+		    		[
+		    			"title"	=> "Informations Services",
+			    		"desc"	=> "A longer description of what is on this tile contains.",
+			    		"icon"	=> "fa-desktop",
+				    	"target_type"	=> "fa-th",
+			    		"guid"	=> "1236547895135784621-9",
+			    		"color" => "red",
+			    		"type"	=>	"service-group"
+			    	],
+		    		[
+		    			"title"	=> "Kusco",
+			    		"desc"	=> "A longer description of what is on this tile contains.",
+			    		"icon"	=> "fa-wrench",
+				    	"target_type"	=> "fa-th",
+			    		"guid"	=> "1236547895135784621-10",
+			    		"color" => "green",
+			    		"type"	=>	"service-group"
+			    	],
+		    		[
+		    			"title"	=> "Library & Learning Services",
+			    		"desc"	=> "A longer description of what is on this tile contains.",
+			    		"icon"	=> "fa-book",
+				    	"target_type"	=> "fa-th",
+			    		"guid"	=> "1236547895135784621-11",
+			    		"color" => "blue",
+			    		"type"	=>	"service-group"
+			    	],
+		    		[
+		    			"title"	=> "Student Services & Administration",
+			    		"desc"	=> "A longer description of what is on this tile contains.",
+			    		"icon"	=> "fa-comments-o",
+				    	"target_type"	=> "fa-th",
+			    		"guid"	=> "1236547895135784621-12",
+			    		"color" => "orange",
+			    		"type"	=>	"service-group"
+			    	],
+		    		[
+		    			"title"	=> "Student Union",
+			    		"desc"	=> "A longer description of what is on this tile contains.",
+			    		"icon"	=> "fa-thumbs-o-up",
+				    	"target_type"	=> "fa-th",
+			    		"guid"	=> "1236547895135784621-13",
+			    		"color" => "yellow",
+			    		"type"	=>	"service-group"
+			    	]
 		    	]
-	    	]
-    	];
+	    	];
+	    });
 
     	return $this->respondOK($data);;
     }
