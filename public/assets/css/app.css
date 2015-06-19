@@ -386,11 +386,10 @@ z-index: 2;
 .my-status .avatar img {
 	border-radius: 15px;
 	border: 1px solid #0492d4 ;
-	width: 100px;
 }
 
 .my-status .details{
-	margin-left: 50px;
+	margin-left: 25px;
 }
 
 .my-status .ticker {

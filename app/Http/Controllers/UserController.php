@@ -14,10 +14,13 @@ class UserController extends Controller
      */
     public function authenticate()
     {	
-
-        $username = str_replace("@KUDS.KINGSTON.AC.UK", "", strtoupper($_SERVER['PHP_AUTH_USER'])); 
-
-        if(!$username) {
+        if (env("APP_ENV") == 'local') {
+            $username = "ka01356";
+        } else {
+            $username = str_replace("@KUDS.KINGSTON.AC.UK", "", strtoupper($_SERVER['PHP_AUTH_USER'])); 
+        }
+        
+        if (!$username) {
 
             \Log::error('API Error 401 - Authentication',["context"=>"No username available for LDAP lookup"]);
             return $this->respondError(401);
@@ -61,7 +64,7 @@ class UserController extends Controller
             $user->employee_status = ($user->employee_type == 0) ? 'staff' : 'student';
             $user->homedir = $ldap_user->homedirectory;
             $user->department = $ldap_user->departmentnumber;
-            $user->gender = $ldap_user->extensionAttribute1;
+            $user->gender = strtolower($ldap_user->extensionAttribute1);
             $user->avatar = $this->getUserImage($username, $user->gender);
             $user->save();
             

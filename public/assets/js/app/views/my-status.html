@@ -11,6 +11,9 @@
                 <top-bar-section>
                     <!-- Right Nav Section -->
                     <ul class="right">
+                                                    <li>
+                                    <div><a ng-href="/{{ ctrl.navbar.home.link }}"><i class="fa fa-th fa-lg"></i></a></div>
+                                </li>
                         <li has-dropdown>
                             <div><a href="#"><i class="fa fa-ellipsis-h fa-lg"></i></a></div>
                             <ul top-bar-dropdown>
@@ -19,10 +22,6 @@
                                     <a ng-href="/{{ ctrl.navbar.home.link }}/{{ crumb.link }}">{{ crumb.label }}</a>
                                 </li>
                             </ul>
-                        </li>
-
-                        <li>
-                            <div><a ng-href="/{{ ctrl.navbar.home.link }}"><i class="fa fa-th fa-lg"></i></a></div>
                         </li>
                     </ul> 
                 </top-bar-section>
@@ -34,7 +33,15 @@
 		<div class="ms-wall">
             <div class="my-status pack" packery>
                 <div class="profile">
-
+                    <div class="tile-body">
+                        <div class="avatar left">
+                            <a ng-href="/my-status"><img src="{{ctrl.user.avatar}}"></a>
+                        </div>
+                        <div class="details left">
+                            <a ng-href="/my-status">My Status</a>
+                            <p>Welcome back {{ctrl.user.first_name}}</p>
+                        </div>
+                    </div>
                 </div>
             </div>
     			<ng-include src="'assets/js/app/views/partials/my_status/tiles/my-tickets.html'"></ng-include>
