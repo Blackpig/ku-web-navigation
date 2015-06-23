@@ -14,8 +14,11 @@ class UserController extends Controller
      */
     public function authenticate()
     {	
-
-        $username = str_replace("@KUDS.KINGSTON.AC.UK", "", strtoupper($_SERVER['PHP_AUTH_USER'])); 
+        if (env('APP_ENV') == 'local') {
+            $username = "ka01356";
+        } else {
+            $username = str_replace("@KUDS.KINGSTON.AC.UK", "", strtoupper($_SERVER['PHP_AUTH_USER'])); 
+        }
 
         if(!$username) {
 
