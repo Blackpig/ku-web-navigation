@@ -27,7 +27,7 @@ class EndpointController extends Controller
 	    				"label" => null
 	    			],
 	    		"has_service_group"	=> true,
-	    		"endpoints" => Endpoint::Organisations();
+	    		"endpoints" => Endpoint::Organisations()
 	    	];
 	    });
 
@@ -50,7 +50,7 @@ class EndpointController extends Controller
     				"label" => null
     			],
     		"has_service_group"	=> true,
-    		"endpoints" => Endpoint::Channels();
+    		"endpoints" => Endpoint::Channels()
     	];
 
     	return $this->respondOK($data);;

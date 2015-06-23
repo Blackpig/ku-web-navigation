@@ -16,7 +16,7 @@ class SplitNameIntoTwoFields extends Migration {
 		{
 			$table->renameColumn('name', 'first_name');
 			$table->string('last_name',100)->after('name');
-			$table->string('gender',100)->nullable()->after('avatar');
+			$table->string('gender',1)->nullable()->after('avatar');
 
 		});
 	}
