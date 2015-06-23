@@ -227,7 +227,7 @@ app.factory('endpointsSvc',['$http','$q',function($http,$q){
 
 				if (tileid) {
 					var route = (type == 'root.staff') ? 0 : 1;
-					return $http.get('/api/endpoints/' route + '/' + tileid);
+					return $http.get('/api/endpoints/' + route + '/' + tileid);
 				} else {
 					if (type == 'root.staff') {
 						return $http.get('/api/organisations');
