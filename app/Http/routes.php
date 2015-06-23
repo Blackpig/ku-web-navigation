@@ -29,11 +29,6 @@ $app->group(['prefix' => 'api'], function($app)
 
 });
 
-$app->get('swh', function() use ($app)
-{
-	return view('tile');
-});
-
 /*
 |
 | Front-end routing - send all requests to front end for Angular to manage routing
