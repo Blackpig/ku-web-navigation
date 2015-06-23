@@ -50,7 +50,7 @@ class Endpoint extends Model{
 
 		$endpoints = [];
 
-        foreach (\DB::select('EXEC sp_Organisation_Endpoints ?,?', [$guid,'1']) as $rs) 
+        foreach (\DB::select('EXEC sp_Organisation_Endpoints ?,?', [$guid,'0']) as $rs) 
         {
             $endpoints[] = $rs;
             $i++;
