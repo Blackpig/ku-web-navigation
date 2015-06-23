@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\Controller;
 use Cache;
+use \App\Http\Models\Endpoint;
 
 class EndpointController extends Controller
 {
@@ -26,125 +27,7 @@ class EndpointController extends Controller
 	    				"label" => null
 	    			],
 	    		"has_service_group"	=> true,
-	    		"endpoints" => [
-		    		[
-		    			"title"	=> "Estates",
-			    		"desc"	=> "A longer description of what is on this tile contains.",
-			    		"icon"	=> "fa-key",
-				    	"target_type"	=> "fa-th",
-			    		"guid"	=> "1236547895135784621-1",
-			    		"color" => "red",
-			    		"type"	=>	"service-group"
-			    	],
-		    		[
-		    			"title"	=> "Faculty of Art, Design & Architecture",
-			    		"desc"	=> "A longer description of what is on this tile contains.",
-			    		"icon"	=> "fa-pencil",
-				    	"target_type"	=> "fa-th",
-			    		"guid"	=> "1236547895135784621-2",
-			    		"color" => "orange",
-			    		"type"	=>	"service-group"
-			    	],
-		    		[
-		    			"title"	=> "Faculty of Arts & Social Sciences",
-			    		"desc"	=> "A longer description of what is on this tile contains.",
-			    		"icon"	=> "fa-paint-brush",
-				    	"target_type"	=> "fa-th",
-			    		"guid"	=> "1236547895135784621-3",
-			    		"color" => "yellow",
-			    		"type"	=>	"service-group"
-			    	],
-		    		[
-		    			"title"	=> "Faculty of Business & Law",
-			    		"desc"	=> "A longer description of what is on this tile contains.",
-			    		"icon"	=> "fa-legal",
-				    	"target_type"	=> "fa-th",
-			    		"guid"	=> "1236547895135784621-4",
-			    		"color" => "green",
-			    		"type"	=>	"service-group"
-			    	],
-		    		[
-		    			"title"	=> "Faculty of Healthcare, Social Science & Education",
-			    		"desc"	=> "A longer description of what is on this tile contains.",
-			    		"icon"	=> "fa-stethoscope",
-				    	"target_type"	=> "fa-th",
-			    		"guid"	=> "1236547895135784621-5",
-			    		"color" => "blue",
-			    		"type"	=>	"service-group"
-			    	],
-		    		[
-		    			"title"	=> "Faculty of Science, Engineering & Computing",
-			    		"desc"	=> "A longer description of what is on this tile contains.",
-			    		"icon"	=> "fa-cogs",
-				    	"target_type"	=> "fa-th",
-			    		"guid"	=> "1236547895135784621-6",
-			    		"color" => "pink",
-			    		"type"	=>	"service-group"
-			    	],
-		    		[
-		    			"title"	=> "Finance",
-			    		"desc"	=> "A longer description of what is on this tile contains.",
-			    		"icon"	=> "fa-money",
-				    	"target_type"	=> "fa-th",
-			    		"guid"	=> "1236547895135784621-7",
-			    		"color" => "purple",
-			    		"type"	=>	"service-group"
-			    	],
-		    		[
-		    			"title"	=> "Human Resources",
-			    		"desc"	=> "A longer description of what is on this tile contains.",
-			    		"icon"	=> "fa-group",
-				    	"target_type"	=> "fa-th",
-			    		"guid"	=> "1236547895135784621-8",
-			    		"color" => "yellow",
-			    		"type"	=>	"service-group"
-			    	],
-		    		[
-		    			"title"	=> "Informations Services",
-			    		"desc"	=> "A longer description of what is on this tile contains.",
-			    		"icon"	=> "fa-desktop",
-				    	"target_type"	=> "fa-th",
-			    		"guid"	=> "1236547895135784621-9",
-			    		"color" => "red",
-			    		"type"	=>	"service-group"
-			    	],
-		    		[
-		    			"title"	=> "Kusco",
-			    		"desc"	=> "A longer description of what is on this tile contains.",
-			    		"icon"	=> "fa-wrench",
-				    	"target_type"	=> "fa-th",
-			    		"guid"	=> "1236547895135784621-10",
-			    		"color" => "green",
-			    		"type"	=>	"service-group"
-			    	],
-		    		[
-		    			"title"	=> "Library & Learning Services",
-			    		"desc"	=> "A longer description of what is on this tile contains.",
-			    		"icon"	=> "fa-book",
-				    	"target_type"	=> "fa-th",
-			    		"guid"	=> "1236547895135784621-11",
-			    		"color" => "blue",
-			    		"type"	=>	"service-group"
-			    	],
-		    		[
-		    			"title"	=> "Student Services & Administration",
-			    		"desc"	=> "A longer description of what is on this tile contains.",
-			    		"icon"	=> "fa-comments-o",
-				    	"target_type"	=> "fa-th",
-			    		"guid"	=> "1236547895135784621-12",
-			    		"color" => "orange",
-			    		"type"	=>	"service-group"
-			    	],
-		    		[
-		    			"title"	=> "Student Union",
-			    		"desc"	=> "A longer description of what is on this tile contains.",
-			    		"icon"	=> "fa-thumbs-o-up",
-				    	"target_type"	=> "fa-th",
-			    		"guid"	=> "1236547895135784621-13",
-			    		"color" => "yellow",
-			    		"type"	=>	"service-group"
-			    	]
-		    	]
+	    		"endpoints" => Endpoint::Organisations();
 	    	];
 	    });
 
@@ -167,98 +50,7 @@ class EndpointController extends Controller
     				"label" => null
     			],
     		"has_service_group"	=> true,
-    		"endpoints" =>[
-	    		[
-	    			"title"	=> "My University",
-		    		"desc"	=> "A longer description of what is on this tile contains.",
-		    		"icon"	=> "fa-university",
-			    	"target_type"	=> "fa-th",
-		    		"guid"	=> "1236547895135784621-21",
-		    		"color" => "blue",
-		    		"type"	=>	"service-group"
-		    	],
-	    		[
-	    			"title"	=> "My Faculty Support",
-		    		"desc"	=> "A longer description of what is on this tile contains.",
-		    		"icon"	=> "fa-compass",
-			    	"target_type"	=> "fa-th",
-		    		"guid"	=> "1236547895135784621-22",
-		    		"color" => "green",
-		    		"type"	=>	"service-group"
-		    	],
-	    		[
-	    			"title"	=> "My Studies",
-		    		"desc"	=> "A longer description of what is on this tile contains.",
-		    		"icon"	=> "fa-graduation-cap",
-			    	"target_type"	=> "fa-th",
-		    		"guid"	=> "1236547895135784621-23",
-		    		"color" => "pink",
-		    		"type"	=>	"service-group"
-		    	],
-	    		[
-	    			"title"	=> "My Campus",
-		    		"desc"	=> "A longer description of what is on this tile contains.",
-		    		"icon"	=> "fa-building-o",
-			    	"target_type"	=> "fa-th",
-		    		"guid"	=> "1236547895135784621-24",
-		    		"color" => "orange",
-		    		"type"	=>	"service-group"
-		    	],
-	    		[
-	    			"title"	=> "My Home",
-		    		"desc"	=> "A longer description of what is on this tile contains.",
-		    		"icon"	=> "fa-home",
-			    	"target_type"	=> "fa-th",
-		    		"guid"	=> "1236547895135784621-25",
-		    		"color" => "purple",
-		    		"type"	=>	"service-group"
-		    	],
-	    		[
-	    			"title"	=> "My Money",
-		    		"desc"	=> "A longer description of what is on this tile contains.",
-		    		"icon"	=> "fa-cogs",
-			    	"target_type"	=> "fa-th",
-		    		"guid"	=> "1236547895135784621-26",
-		    		"color" => "blue",
-		    		"type"	=>	"service-group"
-		    	],
-	    		[
-	    			"title"	=> "My Wellbeing",
-		    		"desc"	=> "A longer description of what is on this tile contains.",
-		    		"icon"	=> "fa-heartbeat",
-			    	"target_type"	=> "fa-th",
-		    		"guid"	=> "1236547895135784621-27",
-		    		"color" => "pink",
-		    		"type"	=>	"service-group"
-		    	],
-	    		[
-	    			"title"	=> "My Participation",
-		    		"desc"	=> "A longer description of what is on this tile contains.",
-		    		"icon"	=> "fa-user-plus",
-			    	"target_type"	=> "fa-th",
-		    		"guid"	=> "1236547895135784621-28",
-		    		"color" => "green",
-		    		"type"	=>	"service-group"
-		    	],
-	    		[
-	    			"title"	=> "My Career Development",
-		    		"desc"	=> "A longer description of what is on this tile contains.",
-		    		"icon"	=> "fa-line-chart",
-			    	"target_type"	=> "fa-th",
-		    		"guid"	=> "1236547895135784621-29",
-		    		"color" => "orange",
-		    		"type"	=>	"service-group"
-		    	],
-	    		[
-	    			"title"	=> "My Passport to UK Study",
-		    		"desc"	=> "A longer description of what is on this tile contains.",
-		    		"icon"	=> "fa-plane",
-			    	"target_type"	=> "fa-th",
-		    		"guid"	=> "1236547895135784621-30",
-		    		"color" => "yellow",
-		    		"type"	=>	"service-group"
-		    	]
-		    ]
+    		"endpoints" => Endpoint::Channels();
     	];
 
     	return $this->respondOK($data);;
