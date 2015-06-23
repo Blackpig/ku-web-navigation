@@ -42,13 +42,13 @@ class Endpoint extends Model{
 		return $endpoints;
 	}
 
-	public static function OrganisationEndpoints()
+	public static function OrganisationEndpoints($guid)
 	{
 		$db = \DB::connection('landesk');
 
 		$i = 0;
 
-		$x = \DB::select('EXEC sp_Organisation_Endpoints;');
+		$x = \DB::select('EXEC sp_Organisation_Endpoints?)',array($guid));
 		dd($x);
 
         foreach (\DB::select('EXEC sp_Organisation_Endpoints;') as $rs) 

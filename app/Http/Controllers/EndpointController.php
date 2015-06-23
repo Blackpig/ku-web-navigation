@@ -72,7 +72,7 @@ class EndpointController extends Controller
 				],
 	    		"parents" => Endpoint::Parents($id),
 	    		"has_service_group"	=> true,
-	    		"endpoints" => Endpoint::OrganisationEndpoints()
+	    		"endpoints" => Endpoint::OrganisationEndpoints($id)
 	    	];
 
     	return $this->respondOK($data);;
