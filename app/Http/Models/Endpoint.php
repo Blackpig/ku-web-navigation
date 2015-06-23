@@ -27,7 +27,7 @@ class Endpoint extends Model{
 		return $endpoints;
 	}
 
-	public function Channels()
+	public static function Channels()
 	{
 		$db = \DB::connection('landesk');
 
