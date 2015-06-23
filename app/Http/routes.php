@@ -29,9 +29,6 @@ $app->group(['prefix' => 'api'], function($app)
 
 });
 
-$app->get('swh', 'App\Http\Controllers\SwhController@swh');
-$app->get('swh2', 'App\Http\Controllers\SwhController@swh2');
-
 /*
 |
 | Front-end routing - send all requests to front end for Angular to manage routing
