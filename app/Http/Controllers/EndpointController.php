@@ -42,18 +42,18 @@ class EndpointController extends Controller
     {
 	    $data = Cache::remember('channels',360, function() {
 	    	return [
-					"this"	=> [
-						"guid" => "1",
-		    			"label" => "Student Channels"
-					],
-		    		"parents" => [
-		    				"guid" => null,
-		    				"label" => null
-		    			],
-		    		"has_service_group"	=> true,
-		    		"endpoints" => Endpoint::Channels()
-		    	];
-	    	}
+				"this"	=> [
+					"guid" => "1",
+	    			"label" => "Student Channels"
+				],
+	    		"parents" => [
+	    				"guid" => null,
+	    				"label" => null
+	    			],
+	    		"has_service_group"	=> true,
+	    		"endpoints" => Endpoint::Channels()
+		    ];
+	    });
 
 	    return $this->respondOK($data);
 	}
@@ -64,7 +64,6 @@ class EndpointController extends Controller
      */
     public function organisationEndpointList($id)
     {
-
 
     	$data = [
 				"this"	=> [
