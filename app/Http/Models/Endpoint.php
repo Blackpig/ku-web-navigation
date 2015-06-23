@@ -48,7 +48,7 @@ class Endpoint extends Model{
 
 		$i = 0;
 
-		$x = \DB::select('EXEC sp_Organisation_Endpoints(?)',array($guid,1));
+		$x = \DB::select('EXEC sp_Organisation_Endpoints("?",?)',array($guid,1));
 		dd($x);
 
         foreach (\DB::select('EXEC sp_Organisation_Endpoints;') as $rs) 
