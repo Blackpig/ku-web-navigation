@@ -10,6 +10,7 @@ class Endpoint extends Model{
 	 * @var string
 	 */
 	protected $table = null;
+	protected $connection = 'landesk';
 
 	public static function Organisations()
 	{
