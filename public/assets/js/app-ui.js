@@ -140,7 +140,7 @@ app.controller('stateCtrl', ['$rootScope','$scope', '$stateParams', '$state', 'u
 	self.isrootpage = (self.tileid) ? false : true;
 	self.showback = false;
 	self.user = user;
-
+	
 	self.build = function()	{
 
 		navbarSvc.reset();
@@ -226,7 +226,8 @@ app.factory('endpointsSvc',['$http','$q',function($http,$q){
 			getEndpoints: function(type, tileid){
 
 				if (tileid) {
-					return $http.get('/api/endpoints/' + tileid);
+					var route = (type == 'root.staff') ? 0 ; 1;
+					return $http.get('/api/endpoints/' route + '/' + tileid);
 				} else {
 					if (type == 'root.staff') {
 						return $http.get('/api/organisations');

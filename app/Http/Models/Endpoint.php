@@ -42,6 +42,24 @@ class Endpoint extends Model{
 		return $endpoints;
 	}
 
+	public static function OrganisationEndpoints()
+	{
+		$db = \DB::connection('landesk');
+
+		$i = 0;
+
+		$x = \DB::select('EXEC sp_Organisation_Endpoints;');
+		dd($x);
+
+        foreach (\DB::select('EXEC sp_Organisation_Endpoints;') as $rs) 
+        {
+            $endpoints[] = self::composeEndpoint($rs, $i);
+            $i++;
+        }
+
+		return $endpoints;
+	}
+
 	private static function composeEndpoint($rs, $i)
 	{
 			$ep = new Endpoint();

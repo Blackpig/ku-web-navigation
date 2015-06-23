@@ -25,7 +25,9 @@ $app->group(['prefix' => 'api'], function($app)
 
     $app->get('channels', 'App\Http\Controllers\EndpointController@channelList');
 
-    $app->get('endpoints/{id}', 'App\Http\Controllers\EndpointController@endpointList');
+    $app->get('endpoints/0/{id}', 'App\Http\Controllers\EndpointController@organisationEndpointList');
+
+    $app->get('endpoints/1/{id}', 'App\Http\Controllers\EndpointController@channelEndpointList');
 
 });
 
