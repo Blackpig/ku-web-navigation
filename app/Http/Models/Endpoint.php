@@ -60,6 +60,16 @@ class Endpoint extends Model{
 		return $endpoints;
 	}
 
+	public static function Parents()
+	{
+		$parents = [
+			"guid" => '',
+			"label" => ''
+		];
+
+		return $endpoints;
+	}
+
 	private static function composeEndpoint($rs, $i)
 	{
 			$ep = new Endpoint();
