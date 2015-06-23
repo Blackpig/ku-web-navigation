@@ -67,7 +67,7 @@ class Endpoint extends Model{
 			"label" => ''
 		];
 
-		return $endpoints;
+		return $parents;
 	}
 
 	private static function composeEndpoint($rs, $i)
