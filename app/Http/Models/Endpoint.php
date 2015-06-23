@@ -48,10 +48,7 @@ class Endpoint extends Model{
 
 		$i = 0;
 
-		$x = \DB::select('EXEC sp_Organisation_Endpoints("?",?)',array($guid,1));
-		dd($x);
-
-        foreach (\DB::select('EXEC sp_Organisation_Endpoints;') as $rs) 
+        foreach (\DB::select('EXEC sp_Organisation_Endpoints ?,?', [$guid,'1']) as $rs) 
         {
             $endpoints[] = self::composeEndpoint($rs, $i);
             $i++;
