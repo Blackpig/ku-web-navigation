@@ -32,7 +32,7 @@ class Endpoint extends Model{
 
 		$i = 0;
 
-        foreach (\DB::select('EXEC sp_Organisations;') as $rs) 
+        foreach (\DB::select('EXEC sp_Channels;') as $rs) 
         {
             $endpoints[] = self::composeEndpoint($rs, $i);
             $i++;
