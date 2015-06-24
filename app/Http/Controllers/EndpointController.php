@@ -72,15 +72,13 @@ class EndpointController extends Controller
      * @return JSON 
      */
     public function organisationEndpointList($id)
-    {
+    { 
 
-    	if (env('APP_ENV')== 'development') {
-    		Cache::forget($id);
-    	}
 
-    	$data = Cache::remember($id,360, function() {
-	    	return [
-				"this"	=> [
+
+    	//$data = Cache::remember($id,360, function($id) {
+	    //	return [
+		$data = [		"this"	=> [
 					"guid" => $id,
 	    			"label" => "Get the Label"
 				],
@@ -88,7 +86,7 @@ class EndpointController extends Controller
 	    		"has_service_group"	=> true,
 	    		"endpoints" => Endpoint::OrganisationEndpoints($id)
 	    	];
-	    });
+	  //  });
 
     	return $this->respondOK($data);;
     }
