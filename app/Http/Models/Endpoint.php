@@ -52,7 +52,7 @@ class Endpoint extends Model{
 
         foreach (\DB::select('EXEC sp_Organisation_Endpoints ?,?', [$guid,'0']) as $rs) 
         {
-            $rs->color = ($rs->color) ? $rs->color : self::assignColour(mt_rand(0,6)));
+            $rs->color = ($rs->color) ? $rs->color : self::assignColour(mt_rand(0,6));
             $i++;
         }
 
