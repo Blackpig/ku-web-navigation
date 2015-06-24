@@ -20,11 +20,11 @@ class Endpoint extends Model{
 
         foreach (\DB::select('EXEC sp_Organisations;') as $rs) 
         {
-            $endpoints[] = self::composeEndpoint($rs, $i);
+            $rs->color = self::assignColour($i);
             $i++;
         }
 
-		return $endpoints;
+		return $rs;
 	}
 
 	public static function Channels()
@@ -35,7 +35,7 @@ class Endpoint extends Model{
 
         foreach (\DB::select('EXEC sp_Channels;') as $rs) 
         {
-            $endpoints[] = self::composeEndpoint($rs, $i);
+            $rs->color = self::assignColour($i);
             $i++;
         }
 
@@ -52,7 +52,7 @@ class Endpoint extends Model{
 
         foreach (\DB::select('EXEC sp_Organisation_Endpoints ?,?', [$guid,'0']) as $rs) 
         {
-            $endpoints[] = $rs;
+            $rs->color = ($rs->color) ? $rs->color : self::assignColour(mt_rand(0,6)));
             $i++;
         }
 
@@ -67,21 +67,6 @@ class Endpoint extends Model{
 		];
 
 		return $parents;
-	}
-
-	private static function composeEndpoint($rs, $i)
-	{
-			$ep = new Endpoint();
-
-            $ep->guid = $rs->guid;
-            $ep->title = $rs->name;
-            $ep->desc = $rs->description;
-            $ep->icon = $rs->{"Icon name"};
-            $ep->target_type = "fa-th";
-            $ep->color = self::assignColour($i);
-            $ep->type = "service-group";
-
-            return $ep;
 	}
 
 	private static function assignColour($i=0) 
