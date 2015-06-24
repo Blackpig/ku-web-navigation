@@ -40,9 +40,9 @@ class EndpointController extends Controller
      */
     public function channelList()
     {
-	    $data = Cache::remember('channels',360, function() {
-	    	return [
-				"this"	=> [
+	    //$data = Cache::remember('channels',360, function() {
+	    //	return [
+		$data = ]		"this"	=> [
 					"guid" => "1",
 	    			"label" => "Student Channels"
 				],
@@ -53,7 +53,7 @@ class EndpointController extends Controller
 	    		"has_service_group"	=> true,
 	    		"endpoints" => Endpoint::Channels()
 		    ];
-	    });
+	    //});
 
 	    return $this->respondOK($data);
 	}
