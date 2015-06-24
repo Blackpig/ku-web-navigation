@@ -16,26 +16,30 @@ class Endpoint extends Model{
 	{
 		$db = \DB::connection('landesk');
 
+		$endpoints = [];
 		$i = 0;
 
         foreach (\DB::select('EXEC sp_Organisations;') as $rs) 
         {
             $rs->color = self::assignColour($i);
+            $endoints[] = $rs;
             $i++;
         }
 
-		return $rs;
+		return $endoints;
 	}
 
 	public static function Channels()
 	{
 		$db = \DB::connection('landesk');
 
+		$endpoints = [];
 		$i = 0;
 
         foreach (\DB::select('EXEC sp_Channels;') as $rs) 
         {
             $rs->color = self::assignColour($i);
+            $endoints[] = $rs;
             $i++;
         }
 
