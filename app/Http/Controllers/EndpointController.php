@@ -16,6 +16,10 @@ class EndpointController extends Controller
     public function organisationList()
     {
 
+    	if (env('APP_ENV')== 'development') {
+    		Cache::forget('organisations');
+    	}
+
     	$data = Cache::remember('organisations',360, function() {
     		return [
 				"this"	=> [
@@ -40,9 +44,14 @@ class EndpointController extends Controller
      */
     public function channelList()
     {
-	    //$data = Cache::remember('channels',360, function() {
-	    //	return [
-		$data = ]		"this"	=> [
+	    
+	    if (env('APP_ENV')== 'development') {
+    		Cache::forget('channels');
+    	}
+
+	    $data = Cache::remember('channels',360, function() {
+	    	return [
+				"this"	=> [
 					"guid" => "1",
 	    			"label" => "Student Channels"
 				],
@@ -53,7 +62,7 @@ class EndpointController extends Controller
 	    		"has_service_group"	=> true,
 	    		"endpoints" => Endpoint::Channels()
 		    ];
-	    //});
+	    });
 
 	    return $this->respondOK($data);
 	}
@@ -65,7 +74,12 @@ class EndpointController extends Controller
     public function organisationEndpointList($id)
     {
 
-    	$data = [
+    	if (env('APP_ENV')== 'development') {
+    		Cache::forget($id);
+    	}
+
+    	$data = Cache::remember($id,360, function() {
+	    	return [ = [
 				"this"	=> [
 					"guid" => $id,
 	    			"label" => "Get the Label"
@@ -74,6 +88,7 @@ class EndpointController extends Controller
 	    		"has_service_group"	=> true,
 	    		"endpoints" => Endpoint::OrganisationEndpoints($id)
 	    	];
+	    });
 
     	return $this->respondOK($data);;
     }
