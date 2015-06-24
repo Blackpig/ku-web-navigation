@@ -79,7 +79,7 @@ class EndpointController extends Controller
     	}
 
     	$data = Cache::remember($id,360, function() {
-	    	return [ = [
+	    	return [
 				"this"	=> [
 					"guid" => $id,
 	    			"label" => "Get the Label"
