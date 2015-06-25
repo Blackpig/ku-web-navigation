@@ -86,6 +86,10 @@ class EndpointController extends Controller
     	} elseif ($type == 2) {
     		$current = Endpoint::ServiceGroup($id);
     		$endpoints = Endpoint::OrganisationServiceGroupEndpoints($id, $current->organisation_guid);		
+    		$parents = [
+					"guid" => "0",
+	    			"label" => "University Organisations"
+				];
     	} else {
     		return $this->respondError(500, 'Unknown Tile Type');
     	}
