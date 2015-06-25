@@ -16,7 +16,7 @@ class EndpointController extends Controller
     public function organisationList()
     {
 
-    	if (env('APP_ENV')== 'development') {
+    	if (env('APP_ENV') == 'development') {
     		Cache::forget('organisations');
     	}
 
@@ -45,7 +45,7 @@ class EndpointController extends Controller
     public function channelList()
     {
 	    
-	    if (env('APP_ENV')== 'development') {
+	    if (env('APP_ENV') == 'development') {
     		Cache::forget('channels');
     	}
 
@@ -74,17 +74,31 @@ class EndpointController extends Controller
     public function organisationEndpointList($id)
     { 
 
+    	$type = Endpoint::Type($id);
 
+    	if ($type == 1) {
+    		$current = Endpoint::Organisation($id);
+    		$endpoints = Endpoint::OrganisationEndpoints($id);
+    		$parents = [
+					"guid" => "0",
+	    			"label" => "University Organisations"
+				]
+    	} elseif ($type == 2) {
+    		$current = Endpoint::ServiceGroup($id);
+    		$endpoints = Endpoint::OrganisationServiceGroupEndpoints($id, $current->organisation_guid);		
+    	} else {
+    		return $this->respondError(500, 'Unknown Tile Type');
+    	}
 
     	//$data = Cache::remember($id,360, function($id) {
 	    //	return [
 		$data = [		"this"	=> [
-					"guid" => $id,
-	    			"label" => "Get the Label"
+					"guid" => $current->guid,
+	    			"label" => $current->name
 				],
-	    		"parents" => Endpoint::Parents($id),
+	    		"parents" => $parents,
 	    		"has_service_group"	=> true,
-	    		"endpoints" => Endpoint::OrganisationEndpoints($id)
+	    		"endpoints" => $endpoints;
 	    	];
 	  //  });
 

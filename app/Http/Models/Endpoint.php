@@ -14,7 +14,7 @@ class Endpoint extends Model{
 
 	public static function Organisations()
 	{
-		$db = \DB::connection('landesk');
+		$db = self::Connection();
 
 		$endpoints = [];
 		$i = 0;
@@ -31,7 +31,7 @@ class Endpoint extends Model{
 
 	public static function Channels()
 	{
-		$db = \DB::connection('landesk');
+		$db = self::Connection();
 
 		$endpoints = [];
 		$i = 0;
@@ -48,7 +48,7 @@ class Endpoint extends Model{
 
 	public static function OrganisationEndpoints($guid)
 	{
-		$db = \DB::connection('landesk');
+		$db = self::Connection();
 
 		$endpoints = [];
 
@@ -61,14 +61,50 @@ class Endpoint extends Model{
 		return $endpoints;
 	}
 
-	public static function Parents()
+	public static function OrganisationServiceGroupEndpoints($guid, $organisation_guid)
 	{
-		$parents = [
-			"guid" => '',
-			"label" => ''
-		];
+		$db = self::Connection();
 
-		return $parents;
+		$endpoints = [];
+
+        foreach (\DB::select('EXEC sp_OrgServiceGroup_Endpoints ?,?', [$guid, $organisation_guid]) as $rs) 
+        {
+            $rs->color = ($rs->color) ? $rs->color : self::assignColour(mt_rand(0,6));
+            $endpoints[] = $rs;
+        }
+
+		return $endpoints;
+	}
+
+	public static function Type($guid)
+	{
+		$db = self::Connection();
+		$rs = \DB::select('EXEC sp_getObjectTypeByGUID ?', [$guid]);
+
+		
+		if $rs->type = 'web nav organisation / channel' return 1;
+		if $rs->type = 'web nav service group' return 2;
+		
+		return false;
+
+	}
+
+	public static function Organisation($guid)
+	{
+		$db = self::Connection();
+		$rs = \DB::select('EXEC sp_getOrganisationByGUID ?', [$guid]);
+
+		return $rs;
+
+	}
+
+	public static function ServiceGroup($guid)
+	{
+		$db = self::Connection();
+		$rs = \DB::select('EXEC sp_getServiceGroupByGUID ?', [$guid]);
+		
+		return $rs;
+
 	}
 
 	private static function assignColour($i=0) 
@@ -81,5 +117,10 @@ class Endpoint extends Model{
 
 		return $colours[$idx];
 
+	}
+
+	private static Connection()
+	{
+		return \DB::connection('landesk');
 	}
 }
