@@ -146,7 +146,7 @@ app.controller('stateCtrl', ['$rootScope','$scope', '$stateParams', '$state', 'u
 		navbarSvc.reset();
 
 		endpointsSvc.getEndpoints($state.current.name, self.tileid).then( 
-			function(response) { // success response
+			function(response) { 
 				self.data = response.data.data;
 				self.depth = self.data.parents.length;
 				self.showback = (self.depth > 1) ? true : false;
@@ -156,7 +156,7 @@ app.controller('stateCtrl', ['$rootScope','$scope', '$stateParams', '$state', 'u
 				self.navbar = navbarSvc.navbar;
 
 			},
-			function(response) { //failed
+			function(response) {
 				console.log(response);
 			  var _error = {
 			  	'status': response.status,
@@ -236,7 +236,6 @@ app.factory('endpointsSvc',['$http','$q',function($http,$q){
 						return $http.get('/api/channels');
 					}
 				}
-
 			},
         };
 
