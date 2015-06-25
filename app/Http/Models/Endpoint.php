@@ -119,7 +119,7 @@ class Endpoint extends Model{
 
 	}
 
-	private static Connection()
+	private static function Connection()
 	{
 		return \DB::connection('landesk');
 	}
