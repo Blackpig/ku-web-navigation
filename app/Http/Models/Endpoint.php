@@ -50,15 +50,13 @@ class Endpoint extends Model{
 	{
 		$db = \DB::connection('landesk');
 
-		$i = 0;
-
 		$endpoints = [];
 
         foreach (\DB::select('EXEC sp_Organisation_Endpoints ?,?', [$guid,'0']) as $rs) 
         {
             $rs->color = ($rs->color) ? $rs->color : self::assignColour(mt_rand(0,6));
+            echo $rs->color."<br>";
             $endoints[] = $rs;
-            $i++;
         }
 
 		return $endpoints;
