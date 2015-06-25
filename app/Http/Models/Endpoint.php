@@ -81,6 +81,8 @@ class Endpoint extends Model{
 		$db = self::Connection();
 		$rs = \DB::select('EXEC sp_getObjectTypeByGUID ?', [$guid]);
 
+		dd($rs);
+		
 		
 		if ($rs->type == 'web nav organisation / channel') return 1;
 		if ($rs->type == 'web nav service group') return 2;
