@@ -98,7 +98,7 @@ class EndpointController extends Controller
 				],
 	    		"parents" => $parents,
 	    		"has_service_group"	=> true,
-	    		"endpoints" => $endpoints;
+	    		"endpoints" => $endpoints
 	    	];
 	  //  });
 
