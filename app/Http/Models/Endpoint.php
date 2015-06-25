@@ -94,7 +94,7 @@ class Endpoint extends Model{
 		$db = self::Connection();
 		$rs = \DB::select('EXEC sp_getOrganisationByGUID ?', [$guid]);
 
-		return $rs;
+		return $rs[0];
 
 	}
 
@@ -103,7 +103,7 @@ class Endpoint extends Model{
 		$db = self::Connection();
 		$rs = \DB::select('EXEC sp_getServiceGroupByGUID ?', [$guid]);
 		
-		return $rs;
+		return $rs[0];
 
 	}
 

@@ -78,7 +78,6 @@ class EndpointController extends Controller
 
     	if ($type == 1) {
     		$current = Endpoint::Organisation($id);
-    		dd($current);
     		$endpoints = Endpoint::OrganisationEndpoints($id);
     		$parents = [
 					"guid" => "0",
