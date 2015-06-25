@@ -85,7 +85,6 @@ class EndpointController extends Controller
 				];
     	} elseif ($type == 2) {
     		$current = Endpoint::ServiceGroup($id);
-    		dd($current);
     		$endpoints = Endpoint::OrganisationServiceGroupEndpoints($id, $current->organisation_guid);		
     		$parents = [
 					"guid" => "0",
