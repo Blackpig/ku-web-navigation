@@ -157,6 +157,7 @@ app.controller('stateCtrl', ['$rootScope','$scope', '$stateParams', '$state', 'u
 
 			},
 			function(response) { //failed
+				console.log(response);
 			  var _error = {
 			  	'status': response.status,
 			  	'statusText': response.statusText,
