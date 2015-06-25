@@ -164,7 +164,7 @@ app.controller('stateCtrl', ['$rootScope','$scope', '$stateParams', '$state', 'u
 			  }
 
 			  $rootScope.error = _error;
-			  $state.go('root.error');
+			  $state.go('error');
 			}			
 		);	
 	};
