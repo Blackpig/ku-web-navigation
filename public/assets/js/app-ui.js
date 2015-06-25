@@ -160,7 +160,7 @@ app.controller('stateCtrl', ['$rootScope','$scope', '$stateParams', '$state', 'u
 			  var _error = {
 			  	'status': response.status,
 			  	'statusText': response.statusText,
-			  	'messageText': response.data.message
+			  	//'messageText': response.data.message
 			  }
 
 			  $rootScope.error = _error;
