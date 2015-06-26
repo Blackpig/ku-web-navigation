@@ -111,8 +111,8 @@ class Endpoint extends Model{
 	{
 		$db = self::Connection();
 		$rs = \DB::select('EXEC sp_searchEndpoints ?, ?', [$term, $staff_only]);
-		
-		return $rs[0];
+
+		return $rs;
 
 	}
 
