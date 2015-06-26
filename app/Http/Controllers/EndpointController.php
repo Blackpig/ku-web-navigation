@@ -150,10 +150,18 @@ class EndpointController extends Controller
      * Get Endpoints fom LANDesk
      * @return JSON 
      */
-    public function searchEndpoints($term, $staff_only = 0)
+    public function searchEndpoints($term)
     { 
-    	echo "bert<br />"
-    	$data = Endpoint::Search($term, $staff_only);
+    	
+    	$user = \Auth::login($user);
+
+    	if ($user) {
+    		$staff_type = $user->employee_type;
+    	} else {
+    		$staff_type = 0;
+    	}
+
+    	$data = Endpoint::Search($term, $staff_type);
 
     	return $this->respondOK($data);
     }
