@@ -152,9 +152,8 @@ class EndpointController extends Controller
      */
     public function searchEndpoints($term, $staff_only = 0)
     { 
-
+    	echo "bert<br />"
     	$data = Endpoint::Search($term, $staff_only);
-    	dd($data);
 
     	return $this->respondOK($data);
     }

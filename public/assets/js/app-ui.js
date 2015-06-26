@@ -306,7 +306,6 @@ app.factory('endpointsSvc',['$http','$q',function($http,$q){
 			getEndpoints: function(type, tileid){
 
 				if (type == 'root.search') {
-					console.log(tileid);
 					return $http.get('/api/search/' + tileid);
 				} else if (tileid) {
 						var route = (type == 'root.staff') ? 0 : 1;

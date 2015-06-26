@@ -109,6 +109,7 @@ class Endpoint extends Model{
 
 	public static function Search($term, $staff_only)
 	{
+		echo "and ernie<br />";
 		$db = self::Connection();
 		$rs = \DB::select('EXEC sp_searchEndpoints ?, ?', [$term, $staff_only]);
 		dd($rs);
