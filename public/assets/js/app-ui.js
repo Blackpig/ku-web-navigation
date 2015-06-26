@@ -82,10 +82,11 @@ var app = angular.module('kuwnApp', ['ui.router', 'mm.foundation'])
 					})
 
 					.state('root.search', {
-						url: 'search/:term',
+						url: 'search/:term/:staffonly',
 
 					    params: {
-					     	terms: { value:null, squash:true }
+					     	terms: { value:null, squash:true },
+					     	staffonly: { value:null, squash:true }
 					    },
 
 						views: {
@@ -195,7 +196,7 @@ app.controller('stateCtrl', ['$rootScope','$scope', '$stateParams', '$state', 'u
 
 	self.search = function() {
 		var term = $('#search_term').val();
-		$state.go('root.search', {'term': term});
+		$state.go('root.search', {'term': term, 'staffonly': user.employee_type});
 	}
 
 	self.build();
@@ -254,7 +255,7 @@ app.controller('searchCtrl', ['$rootScope','$scope', '$stateParams', '$state', '
 
 	self.search = function() {
 		var term = $('#search_term').val();
-		$state.go('root.search', {'term': term});
+		$state.go('root.search', {'term': term, 'staffonly': user.employee_type});
 	}
 
 	self.build();

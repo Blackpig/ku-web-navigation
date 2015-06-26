@@ -107,6 +107,15 @@ class Endpoint extends Model{
 
 	}
 
+	public static function Search($term, $staff_only)
+	{
+		$db = self::Connection();
+		$rs = \DB::select('EXEC sp_searchEndpoints ?, ?', [$term, $staff_only]);
+		
+		return $rs[0];
+
+	}
+
 	private static function assignColour($i=0) 
 	{
 

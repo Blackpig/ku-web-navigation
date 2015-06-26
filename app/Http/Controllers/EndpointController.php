@@ -150,10 +150,10 @@ class EndpointController extends Controller
      * Get Endpoints fom LANDesk
      * @return JSON 
      */
-    public function searchEndpoints($term)
+    public function searchEndpoints($term, $staff_only = 0)
     { 
 
-    	$data = [];
+    	$data = Endpoint::Search($term);
 
     	return $this->respondOK($data);
     }
