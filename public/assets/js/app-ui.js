@@ -227,7 +227,7 @@ app.controller('searchCtrl', ['$rootScope','$scope', '$stateParams', '$state', '
 			function(response) { 
 				self.data = response.data.data;
 
-				navbarSvc.build(user.employee_type, $state.current.name, {}, {});
+				navbarSvc.build(user.employee_type, 'root.search', {}, {});
 
 				self.navbar = navbarSvc.navbar;
 
@@ -306,12 +306,11 @@ app.factory('endpointsSvc',['$http','$q',function($http,$q){
 
 			getEndpoints: function(type, tileid){
 
-				if (tileid) {
-					var route = (type == 'root.staff') ? 0 : 1;
-					return $http.get('/api/endpoints/' + route + '/' + tileid);
-				} else {
-					if (type == 'root.search') {
-						return $http.get('/api/search/' + tileid);
+				if (type == 'root.search') {
+					return $http.get('/api/search/' + tileid);
+				} else if (tileid) {
+						var route = (type == 'root.staff') ? 0 : 1;
+						return $http.get('/api/endpoints/' + route + '/' + tileid);
 					} else if (type == 'root.staff') {
 						return $http.get('/api/organisations');
 					} else {
