@@ -81,6 +81,22 @@ var app = angular.module('kuwnApp', ['ui.router', 'mm.foundation'])
 						
 					})
 
+					.state('root.search', {
+						url: 'search/:term',
+
+					    params: {
+					     	terms: { value:null, squash:true }
+					    },
+
+						views: {
+							'content@': {
+								templateUrl: '/assets/js/app/views/search.html',
+								controller: 'searchCtrl as ctrl'
+							}
+						}
+						
+					})
+
 					.state('root.my-status', {
 						url: 'my-status',
 
@@ -175,6 +191,65 @@ app.controller('stateCtrl', ['$rootScope','$scope', '$stateParams', '$state', 'u
 
 	self.setFocus = function(hasFocus){
 		$scope.hasFocus = (!$scope.hasFocus) ? hasFocus : null;
+	}
+
+	self.build();
+	
+}]);
+
+/* State controller - used to build Wall tiles **/
+app.controller('searchCtrl', ['$rootScope','$scope', '$stateParams', '$state', 'user', 'navbarSvc', 'endpointsSvc',
+	function ($rootScope, $scope, $stateParams, $state, user, navbarSvc, endpointsSvc) {
+
+	self = this;
+
+	self.term = $stateParams.term;
+	
+	self.navbar = {};
+	self.data = {};
+	self.depth = 0;
+	self.has_term = (self.term) ? true : false;
+	self.showback = false;
+	self.user = user;
+
+
+	self.build = function()	{
+
+		navbarSvc.reset();
+
+		endpointsSvc.getEndpoints($state.current.name, terms).then( 
+			function(response) { 
+				self.data = response.data.data;
+
+				navbarSvc.build(user.employee_type, $state.current.name, {}, {});
+
+				self.navbar = navbarSvc.navbar;
+
+			},
+			function(response) {
+			  var _error = {
+			  	'status': response.status,
+			  	'statusText': response.statusText,
+			  	'messageText': response.data.message
+			  }
+
+			  $rootScope.error = _error;
+			  $state.go('error');
+			}			
+		);	
+	};
+
+	self.toggleInfo = function(toggleInfo){
+		$scope.toggleInfo = (!$scope.toggleInfo) ? toggleInfo : null;
+	}
+
+	self.setFocus = function(hasFocus){
+		$scope.hasFocus = (!$scope.hasFocus) ? hasFocus : null;
+	}
+
+	self.search = function() {
+		var term = $('#search_term').val();
+		$state.go('root.search', {'term': term});
 	}
 
 	self.build();

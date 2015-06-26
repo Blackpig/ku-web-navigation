@@ -3,7 +3,7 @@
             <top-bar>
                 <ul class="title-area">
                     <li class="name">
-                        <h1><a ng-href="#}">{{ ctrl.navbar.currentLabel}}</a></h1>
+                        <h1><a ng-href="#">{{ ctrl.navbar.currentLabel}}</a></h1>
                     </li>                    
                 </ul>
 
@@ -13,14 +13,19 @@
                         <li class="has-form">
                           <div class="row collapse">
                             <div class="large-8 small-9 columns">
-                              <input type="text" placeholder="Search">
+                              <input type="text" name="term" placeholder="Search">
                             </div>
                             <div class="large-4 small-3 columns">
-      							<a href="#" class="success button expand srch">Go</a>
+      							<a href="" ng-click="ctrl.search()" class="success button expand srch">Go</a>
     						</div>
                           </div>
                         </li>
-                        <li><div style="height:100%"><a ng-href="/my-status" style="height:100%"><i class="fa fa-user fa-lg"></i></a></div></li>
+                        <li>
+                        	<div style="height:100%">
+                        		<a ng-href="/my-status" style="height:100%"><i class="fa fa-user fa-lg"></i>
+                        		</a>
+                        	</div>
+                        </li>
 
                         <li has-dropdown>
                             <div><a href="#"><i class="fa fa-ellipsis-h fa-lg"></i></a></div>

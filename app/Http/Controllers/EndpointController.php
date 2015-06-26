@@ -47,6 +47,43 @@ class EndpointController extends Controller
     }
 
     /**
+     * Get Endpoints fom LANDesk
+     * @return JSON 
+     */
+    public function organisationEndpointList($id)
+    { 
+
+    	$type = Endpoint::Type($id);
+
+    	if ($type == 1) {
+    		$current = Endpoint::Organisation($id);
+    		$endpoints = Endpoint::OrganisationEndpoints($id);
+    		$parents = $this->roots[0];
+    	} elseif ($type == 2) {
+    		$current = Endpoint::ServiceGroup($id);
+    		$endpoints = Endpoint::OrganisationServiceGroupEndpoints($id, $current->organisation_guid);		
+    		$parents = $this->getParents(0, $current);
+    	} else {
+    		return $this->respondError(500, 'Unknown Tile Type');
+    	}
+
+    	//$data = Cache::remember($id,360, function($id) {
+	    //	return [
+		$data = [		
+				"this"	=> [
+					"guid" => $current->guid,
+	    			"label" => $current->name
+				],
+	    		"parents" => $parents,
+	    		"has_service_group"	=> $this->checkForServiceGroup($endpoints),
+	    		"endpoints" => $endpoints
+	    	];
+	  //  });
+
+    	return $this->respondOK($data);
+    }
+
+     /**
      * Get Channels fom LANDesk (My Kingston/Student view)
      * @return JSON 
      */
@@ -72,22 +109,22 @@ class EndpointController extends Controller
 	    return $this->respondOK($data);
 	}
 
-    /**
+ /**
      * Get Endpoints fom LANDesk
      * @return JSON 
      */
-    public function organisationEndpointList($id)
+    public function channelEndpointList($id)
     { 
 
     	$type = Endpoint::Type($id);
 
     	if ($type == 1) {
     		$current = Endpoint::Organisation($id);
-    		$endpoints = Endpoint::OrganisationEndpoints($id);
+    		$endpoints = Endpoint::ChannelEndpoints($id);
     		$parents = $this->roots[0];
     	} elseif ($type == 2) {
     		$current = Endpoint::ServiceGroup($id);
-    		$endpoints = Endpoint::OrganisationServiceGroupEndpoints($id, $current->organisation_guid);		
+    		$endpoints = Endpoint::ChannelServiceGroupEndpoints($id, $current->organisation_guid);		
     		$parents = $this->getParents(0, $current);
     	} else {
     		return $this->respondError(500, 'Unknown Tile Type');
