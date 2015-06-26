@@ -152,11 +152,9 @@ class EndpointController extends Controller
      */
     public function searchEndpoints($term)
     { 
-    	
-    	$user = \Auth::login($user);
 
-    	if ($user) {
-    		$staff_type = $user->employee_type;
+    	if (\Auth::check()) {
+    		$staff_type = \Auth::user()->employee_type;
     	} else {
     		$staff_type = 0;
     	}
