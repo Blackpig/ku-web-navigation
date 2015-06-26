@@ -123,7 +123,6 @@ class EndpointController extends Controller
     		];
     		
     		$x = Endpoint::ServiceGroup($x->parent_guid);
-
     	}   
 
     	// Get the Organisation
@@ -133,7 +132,7 @@ class EndpointController extends Controller
     	];
 
     	// Get the root
-    	$parents = $this->roots[$root];
+    	$parents[] = $this->roots[$root];
 
     	return array_reverse($parents);
 
