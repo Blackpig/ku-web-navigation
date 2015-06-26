@@ -121,7 +121,7 @@ class EndpointController extends Controller
     		$parents[] = [
     			"guid" => $x->parent_guid,
     			"label" => $x->parent_name
-    		]
+    		];
     		
     		$x = Endpoint::ServiceGroup($x->parent_guid);
 
