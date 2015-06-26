@@ -29,7 +29,7 @@ $app->group(['prefix' => 'api'], function($app)
 
     $app->get('endpoints/1/{id}', 'App\Http\Controllers\EndpointController@channelEndpointList');
 
-    $app->get('search/{term}', 'App\Http\Controllers\EndpointController@searchEndpoints');
+    $app->get('search/{term}/{staff_only}', 'App\Http\Controllers\EndpointController@searchEndpoints');
 
 });
 
