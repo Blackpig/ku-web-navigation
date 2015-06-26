@@ -159,7 +159,7 @@ class EndpointController extends Controller
     		$staff_type = 0;
     	}
 
-    	$data = Endpoint::Search($term, $staff_type);
+    	$data['endpoints'] = Endpoint::Search($term, $staff_type);
 
     	return $this->respondOK($data);
     }
