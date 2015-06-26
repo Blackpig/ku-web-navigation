@@ -196,7 +196,7 @@ app.controller('stateCtrl', ['$rootScope','$scope', '$stateParams', '$state', 'u
 	self.search = function() {
 		var term = $('#search_term').val();
 		console.log(term);
-		//$state.go('root.search', {'term': term});
+		$state.go('root.search', {'term': term});
 	}
 
 	self.build();
