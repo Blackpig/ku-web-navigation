@@ -22,11 +22,11 @@ class Endpoint extends Model{
         foreach (\DB::select('EXEC sp_Organisations;') as $rs) 
         {
             $rs->color = self::assignColour($i);
-            $endoints[] = $rs;
+            $endpoints[] = $rs;
             $i++;
         }
 
-		return $endoints;
+		return $endpoints;
 	}
 
 	public static function Channels()
@@ -39,7 +39,7 @@ class Endpoint extends Model{
         foreach (\DB::select('EXEC sp_Channels;') as $rs) 
         {
             $rs->color = self::assignColour($i);
-            $endoints[] = $rs;
+            $endpoints[] = $rs;
             $i++;
         }
 
