@@ -115,6 +115,7 @@ class EndpointController extends Controller
 
     	$x = $current;
 
+    	echo $x->parent_guid."<br>";
     	
     	// Get the parent service group(s)
     	while ($x->parent_guid) {
