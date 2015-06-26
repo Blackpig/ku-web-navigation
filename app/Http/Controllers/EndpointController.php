@@ -18,7 +18,7 @@ class EndpointController extends Controller
 				"guid" => "1",
     			"label" => "Student Channels"
 			]
-		]
+		];
 
     /**
      * Get Organisations fom LANDesk (StaffSpace view)
