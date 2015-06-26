@@ -222,7 +222,7 @@ app.controller('searchCtrl', ['$rootScope','$scope', '$stateParams', '$state', '
 
 		navbarSvc.reset();
 
-		endpointsSvc.getEndpoints($state.current.name, terms).then( 
+		endpointsSvc.getEndpoints('root.search', self.term).then( 
 			function(response) { 
 				self.data = response.data.data;
 
@@ -309,7 +309,9 @@ app.factory('endpointsSvc',['$http','$q',function($http,$q){
 					var route = (type == 'root.staff') ? 0 : 1;
 					return $http.get('/api/endpoints/' + route + '/' + tileid);
 				} else {
-					if (type == 'root.staff') {
+					if (type == 'root.search') {
+						return $http.get('/api/search/' + tileid);
+					} else if (type == 'root.staff') {
 						return $http.get('/api/organisations');
 					} else {
 						return $http.get('/api/channels');
