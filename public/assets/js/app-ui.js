@@ -193,6 +193,11 @@ app.controller('stateCtrl', ['$rootScope','$scope', '$stateParams', '$state', 'u
 		$scope.hasFocus = (!$scope.hasFocus) ? hasFocus : null;
 	}
 
+	self.search = function() {
+		var term = $('#search_term').val();
+		$state.go('root.search', {'term': term});
+	}
+
 	self.build();
 	
 }]);
