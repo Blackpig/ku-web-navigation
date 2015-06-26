@@ -95,7 +95,8 @@
 	                <div class="tile-body row" ng-class="{'flip': toggleInfo=={{$index}}}">
 	                    <div class="tile-front">
 	                        <div class="tile-content" ng-mouseenter="hasFocus=true"  ng-mouseleave="hasFocus=false">
-	                            <a ng-href="/{{ctrl.navbar.home.link | lowercase}}/{{endpoint.guid}}" ng-class="{hover:hasFocus}"><span style="font-size:8pt">{{endpoint.name}}<br/>{{endpoint.guid}}</span></a>
+	                            <a ng-if="endpoint.type=='service-group'" ng-href="/{{ctrl.navbar.home.link | lowercase}}/{{endpoint.guid}}" ng-class="{hover:hasFocus}"><span style="font-size:8pt">{{endpoint.name}}<br/>{{endpoint.guid}}</span></a>
+	                            <a ng-if="endpoint.type=='endpoint'" href="{{endpoint.url}}" target="_blank" ng-class="{hover:hasFocus}">{{endpoint.name}}</a>
 	                        </div>
 	                    </div>
 	                    <div class="tile-back">
