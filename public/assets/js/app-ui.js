@@ -195,7 +195,6 @@ app.controller('stateCtrl', ['$rootScope','$scope', '$stateParams', '$state', 'u
 
 	self.search = function() {
 		var term = $('#search_term').val();
-		console.log(term);
 		$state.go('root.search', {'term': term});
 	}
 
@@ -227,7 +226,7 @@ app.controller('searchCtrl', ['$rootScope','$scope', '$stateParams', '$state', '
 			function(response) { 
 				self.data = response.data.data;
 
-				navbarSvc.build(user.employee_type, 'root.search', {}, {});
+				//navbarSvc.build(user.employee_type, 'root.search', {}, {});
 
 				self.navbar = navbarSvc.navbar;
 
