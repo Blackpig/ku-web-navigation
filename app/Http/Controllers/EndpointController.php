@@ -109,7 +109,7 @@ class EndpointController extends Controller
 	    return $this->respondOK($data);
 	}
 
- /**
+ 	/**
      * Get Endpoints fom LANDesk
      * @return JSON 
      */
@@ -142,6 +142,18 @@ class EndpointController extends Controller
 	    		"endpoints" => $endpoints
 	    	];
 	  //  });
+
+    	return $this->respondOK($data);
+    }
+
+    /**
+     * Get Endpoints fom LANDesk
+     * @return JSON 
+     */
+    public function searchEndpoints($term)
+    { 
+
+    	$data = [];
 
     	return $this->respondOK($data);
     }
