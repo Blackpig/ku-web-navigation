@@ -1,1 +1,82 @@
-	Hola
+	<header class="fixed">
+		<div>
+            <top-bar>
+                <ul class="title-area">
+                    <li class="name">
+                        <h1><a ng-href="#">{{ ctrl.navbar.currentLabel}}</a></h1>
+                    </li>                    
+                </ul>
+
+                <top-bar-section>
+                    <!-- Right Nav Section -->
+                    <ul class="right">
+                        <li class="has-form">
+                          <div class="row collapse">
+                            <div class="large-8 small-9 columns">
+                              <input type="text" name="term" placeholder="Search" id="search_term">
+                            </div>
+                            <div class="large-4 small-3 columns">
+      							<a href="" ng-click="ctrl.search()" class="success button expand srch">Go</a>
+    						</div>
+                          </div>
+                        </li>
+                        <li>
+                        	<div style="height:100%">
+                        		<a ng-href="/my-status" style="height:100%"><i class="fa fa-user fa-lg"></i>
+                        		</a>
+                        	</div>
+                        </li>
+
+                       <li>
+                            <div><a ng-href="/{{ ctrl.navbar.home.link }}"><i class="fa fa-th fa-lg"></i></a></div>
+                        </li>
+                    </ul> 
+                </top-bar-section>
+            </top-bar>
+        </div>
+	</header>
+
+	<div class="container">
+		<div class="wall">
+
+			<div ng-if="!ctrl.has_term">
+				Error message
+			</div>
+
+			<div ng-if="ctrl.has_term">
+				
+				<div class="tile menu stamp pack" packery>
+					<div class="tile-body row">
+						<div class="tile-content">
+							<a ng-href="/{{ ctrl.navbar.home.link }}"><i class="fa fa-home fa-4x"></i></a>
+						</div>
+					</div>		
+				</div>
+
+				<div ng-repeat="endpoint in ctrl.data.endpoints" packery>
+					<div class="tile endpoint {{endpoint.color}} pack" >
+		                <div class="tile-body row" ng-class="{'flip': toggleInfo=={{$index}}}">
+		                    <div class="tile-front">
+		                        <div class="tile-content" ng-mouseenter="hasFocus=true"  ng-mouseleave="hasFocus=false">
+		                            <a href="{{endpoint.url}}" target="_blank" ng-class="{hover:hasFocus}">{{endpoint.name}}</a>
+		                        </div>
+		                    </div>
+		                    <div class="tile-back">
+		                        <div class="tile-content">
+		                            <p>{{endpoint.desc}}</p>
+		                        </div>
+		                    </div>
+		                </div>
+		                <div class="tile-icons">
+		                    <ul>
+		                        <li><a href="#"><span aria-haspopup="true" class="has-tip tip-top" tooltip="{{endpoint.name}}"><i class="fa {{endpoint.icon}} fa-lg"></i></span></a></li>
+		                        <li><a href="{{endpoint.url}}" target="_blank" ng-mouseenter="hasFocus=true"  ng-mouseleave="hasFocus=false" ng-class="{hover:hasFocus}"><i class="fa {{endpoint.target_type}} fa-lg"></i></a></li>
+		                        <!-- <li><a href="#" class="bookmark" aria-haspopup="true" class="has-tip" tooltip="Add to My favourites"><i class="fa fa-star fa-lg"></i></a></li>-->
+		                        <li><a href="#" ng-click="ctrl.toggleInfo($index)"><i class="fa fa-info fa-lg"></i></a></li>
+		                    </ul>
+		                </div>
+		            </div>
+				</div>
+			</div>
+		</div>
+	</div>
