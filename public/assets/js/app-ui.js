@@ -205,7 +205,7 @@ app.controller('stateCtrl', ['$rootScope','$scope', '$stateParams', '$state', 'u
 /* State controller - used to build Wall tiles **/
 app.controller('searchCtrl', ['$rootScope','$scope', '$stateParams', '$state', 'user', 'navbarSvc', 'endpointsSvc',
 	function ($rootScope, $scope, $stateParams, $state, user, navbarSvc, endpointsSvc) {
-
+console.log(1);
 	self = this;
 
 	self.term = $stateParams.term;
@@ -217,15 +217,15 @@ app.controller('searchCtrl', ['$rootScope','$scope', '$stateParams', '$state', '
 	self.showback = false;
 	self.user = user;
 
-
+console.log(2);
 	self.build = function()	{
-
+console.log(3);
 		navbarSvc.reset();
 
 		endpointsSvc.getEndpoints('root.search', self.term).then( 
 			function(response) { 
 				self.data = response.data.data;
-
+console.log(4);
 				//navbarSvc.build(user.employee_type, 'root.search', {}, {});
 
 				self.navbar = navbarSvc.navbar;
@@ -253,12 +253,13 @@ app.controller('searchCtrl', ['$rootScope','$scope', '$stateParams', '$state', '
 	}
 
 	self.search = function() {
+		console.log('clicked');
 		var term = $('#search_term').val();
 		$state.go('root.search', {'term': term});
 	}
 
 	self.build();
-	
+	console.log(8);
 }]);
 
 /* Profile controller - used for MyStatus pages and states */
