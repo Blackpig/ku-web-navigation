@@ -72,7 +72,7 @@ class Endpoint extends Model{
             $rs->color = ($rs->color) ? $rs->color : self::assignColour(mt_rand(0,6));
             $endpoints[] = $rs;
         }
-dd($endpoints);
+
 		return $endpoints;
 	}
 

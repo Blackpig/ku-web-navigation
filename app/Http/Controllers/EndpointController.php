@@ -91,12 +91,13 @@ class EndpointController extends Controller
 	    			"label" => "University Organisations"
 				];
     	} else {
-    		//return $this->respondError(500, 'Unknown Tile Type');
+    		return $this->respondError(500, 'Unknown Tile Type');
     	}
 
     	//$data = Cache::remember($id,360, function($id) {
 	    //	return [
-		$data = [		"this"	=> [
+		$data = [		
+				"this"	=> [
 					"guid" => $current->guid,
 	    			"label" => $current->name
 				],
@@ -106,6 +107,6 @@ class EndpointController extends Controller
 	    	];
 	  //  });
 
-    	return $this->respondOK($data);;
+    	return $this->respondOK($data);
     }
 }
