@@ -225,6 +225,7 @@ app.controller('searchCtrl', ['$rootScope','$scope', '$stateParams', '$state', '
 		endpointsSvc.getEndpoints('root.search', self.term).then( 
 			function(response) { 
 				self.data = response.data.data;
+				console.log(self.data);
 
 				//navbarSvc.build(user.employee_type, 'root.search', {}, {});
 
