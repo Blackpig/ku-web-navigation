@@ -317,8 +317,7 @@ app.factory('endpointsSvc',['$http','$q',function($http,$q){
 						return $http.get('/api/channels');
 					}
 				}
-			},
-        };
+			};
 
     return service;
 
