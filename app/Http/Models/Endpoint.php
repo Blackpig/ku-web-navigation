@@ -110,7 +110,14 @@ class Endpoint extends Model{
 	public static function Search($term, $staff_only)
 	{
 		$db = self::Connection();
-		$rs = \DB::select('EXEC sp_searchEndpoints ?, ?', [$term, $staff_only]);
+
+		$endpoints = [];
+ 		
+ 		foreach (\DB::select('EXEC sp_OrgServiceGroup_Endpoints ?,?', [$guid, $organisation_guid]) as $rs) 
+        {
+            $rs->color = ($rs->color) ? $rs->color : self::assignColour(mt_rand(0,6));
+            $endpoints[] = $rs;
+        }
 
 		return $rs;
 

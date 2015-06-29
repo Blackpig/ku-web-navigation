@@ -107,7 +107,7 @@
 	                </div>
 	                <div class="tile-icons">
 	                    <ul>
-	                        <li><a href="#"><span aria-haspopup="true" class="has-tip tip-top" tooltip="{{endpoint.name}}"><i class="fa {{endpoint.icon}} fa-lg"></i></span></a></li>
+	                        <li><a href="#"><span aria-haspopup="true" class="has-tip tip-top" tooltip="{{endpoint.organisation}}"><i class="fa {{endpoint.icon}} fa-lg"></i></span></a></li>
 	                        <li ng-if="endpoint.type=='service-group'"><a  ng-href="/{{ctrl.navbar.home.link | lowercase}}/{{endpoint.guid}}" ng-mouseenter="hasFocus=true"  ng-mouseleave="hasFocus=false" ng-class="{hover:hasFocus}"><i class="fa {{endpoint.target_type}} fa-lg"></i></a></li>
 	                        <li ng-if="endpoint.type=='endpoint'"><a  href="{{endpoint.url}}" target="_blank" ng-mouseenter="hasFocus=true"  ng-mouseleave="hasFocus=false" ng-class="{hover:hasFocus}"><i class="fa {{endpoint.target_type}} fa-lg"></i></a></li>
 	                        <!-- <li><a href="#" class="bookmark" aria-haspopup="true" class="has-tip" tooltip="Add to My favourites"><i class="fa fa-star fa-lg"></i></a></li>-->
