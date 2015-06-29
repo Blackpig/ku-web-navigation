@@ -226,9 +226,8 @@ app.controller('searchCtrl', ['$rootScope','$scope', '$stateParams', '$state', '
 			function(response) { 
 				self.data = response.data.data;
 
-				navbarSvc.search(user.employee_type, self.term, self.data.length);
+				navbarSvc.search(user.employee_type, self.term, self.data.endpoints.length);
 				self.navbar = navbarSvc.navbar;
-				console.log(self.data);
 
 			},
 			function(response) {
