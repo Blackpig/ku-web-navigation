@@ -9,7 +9,7 @@
         <script src="/assets/vendor/foundation/js/vendor/modernizr.js"></script>
         <base href="/">
     </head>
-    <body ng-cloak>
+    <body>
         
         <ui-view name="content"></ui-view>
        
