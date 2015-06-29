@@ -228,7 +228,7 @@ app.controller('searchCtrl', ['$rootScope','$scope', '$stateParams', '$state', '
 
 				navbarSvc.search(user.employee_type, self.term, self.data.length);
 				self.navbar = navbarSvc.navbar;
-				console.log(self.navbar);
+				console.log(self.data);
 
 			},
 			function(response) {
@@ -365,7 +365,7 @@ app.factory('navbarSvc',[function(){
 
 			search: function(userType, term, count) {
 				
-				this.navbar.currentLabel = {"label": 'Search for: ' + term + ' returned ' + count + ' results', "link":null};
+				this.navbar.currentLabel = 'Search for: ' + term + ' returned ' + count + ' results';
 				
 				if ( userType == 0 ) {
 					this.navbar.home = {"label": "University Organisations", "link":"0"};
