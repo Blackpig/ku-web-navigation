@@ -110,6 +110,8 @@ class Endpoint extends Model{
 	public static function Search($term, $staff_only)
 	{
 		$db = self::Connection();
+
+		$endpoints = [];
  		
  		foreach (\DB::select('EXEC sp_searchEndpoints ?, ?', [$term, $staff_only]) as $rs) 
         {
@@ -117,7 +119,7 @@ class Endpoint extends Model{
             $endpoints[] = $rs;
         }
 
-		return $rs;
+		return $endpoints;
 
 	}
 
