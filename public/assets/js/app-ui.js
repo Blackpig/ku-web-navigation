@@ -370,7 +370,7 @@ app.factory('navbarSvc',[function(){
 				} else {
 					this.navbar.home = {"label": "Home", "link":"1"};
 				}
-			}
+			},
 
 			setHome: function(userType, currentState){
 
