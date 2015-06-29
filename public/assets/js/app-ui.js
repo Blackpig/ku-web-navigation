@@ -225,11 +225,8 @@ app.controller('searchCtrl', ['$rootScope','$scope', '$stateParams', '$state', '
 		endpointsSvc.getEndpoints('root.search', self.term).then( 
 			function(response) { 
 				self.data = response.data.data;
-				console.log(self.data);
 
-				//navbarSvc.build(user.employee_type, 'root.search', {}, {});
-
-				self.navbar = navbarSvc.navbar;
+				self.navbar = navbarSvc.search(user.employee_type, self.term, self.data.length);
 
 			},
 			function(response) {
@@ -362,8 +359,18 @@ app.factory('navbarSvc',[function(){
 				this.setHome(userType, currentState);
 				this.setSwitchTo(userType, currentState);
 
-
 			},
+
+			search: function(userType, term, count) {
+				
+				this.navbar.currentLabel = {"label": 'Search for: ' + term + ' returned ' + count + ' results', "link":null};
+				
+				if ( userType == 0 ) {
+					this.navbar.home = {"label": "University Organisations", "link":"0"};
+				} else {
+					this.navbar.home = {"label": "Home", "link":"1"};
+				}
+			}
 
 			setHome: function(userType, currentState){
 
