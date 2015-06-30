@@ -359,6 +359,7 @@ app.factory('navbarSvc',[function(){
 				this.navbar.currentLabel = current.label;
 				this.setHome(userType, currentState);
 				this.setSwitchTo(userType, currentState);
+				console.log(this.navbar);
 
 			},
 
