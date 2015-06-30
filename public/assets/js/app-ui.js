@@ -402,7 +402,7 @@ app.factory('navbarSvc',[function(){
             },
 
             addCrumb: function(crumb){
-            	console.log(crumb);
+            	console.log("crumb==>" + crumb);
             	this.navbar.breadcrumbs.push(crumb);
         		return this.navbar.breadcrumbs;
             }
