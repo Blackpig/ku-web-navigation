@@ -39,8 +39,8 @@ $app->group(['prefix' => 'api'], function($app)
 |
 */
 
-$app->get('layout/{id}'), 'App\Http\Controllers\LayoutController@show');
-$app->update('layout/{id}'), 'App\Http\Controllers\LayoutController@update');
+$app->get('layout/{id}', 'App\Http\Controllers\LayoutController@show');
+$app->update('layout/{id}', 'App\Http\Controllers\LayoutController@update');
 
 /*
 |
