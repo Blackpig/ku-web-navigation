@@ -347,16 +347,15 @@ app.factory('navbarSvc',[function(){
 			},
 
 			build: function(userType, currentState, current, parents) {
-console.log(current);
+
 				for(var i=0, len=parents.length; i < len; i++){
 					if (parents[i].guid !== null && parents[i].label !== null) {
 						this.addCrumb(parents[i]);
 						this.navbar.backLink = parents[i].guid;
 					}
 				}
-console.log('1');
+
 				this.addCrumb(current);
-console.log('2');
 				this.navbar.currentLabel = current.label;
 				this.setHome(userType, currentState);
 				this.setSwitchTo(userType, currentState);
@@ -403,7 +402,7 @@ console.log('2');
             },
 
             addCrumb: function(crumb){
-
+console.log(crumb);
 console.log(this.navbar.breadcrumbs);
             	this.navbar.breadcrumbs.push(crumb);
             	console.log(this.navbar.breadcrumbs);
