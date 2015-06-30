@@ -35,6 +35,15 @@ $app->group(['prefix' => 'api'], function($app)
 
 /*
 |
+| Layout admin - used to layout tiles in an embedded element in LANDesk
+|
+*/
+
+$app->get('layout/{id}'), 'App\Http\Controllers\LayoutController@show');
+$app->update('layout/{id}'), 'App\Http\Controllers\LayoutController@update');
+
+/*
+|
 | Front-end routing - send all requests to front end for Angular to manage routing
 |
 */
