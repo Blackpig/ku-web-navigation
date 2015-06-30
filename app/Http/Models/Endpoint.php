@@ -97,6 +97,21 @@ class Endpoint extends Model{
 		return $endpoints;
 	}
 
+	public static function ChannelServiceGroupEndpoints($id)
+	{
+		$db = self::Connection();
+
+		$endpoints = [];
+
+        foreach (\DB::select('EXEC sp_OrgServiceGroup_Endpoints ?', [$guid]) as $rs) 
+        {
+            $rs->color = ($rs->color) ? $rs->color : self::assignColour(mt_rand(0,6));
+            $endpoints[] = $rs;
+        }
+
+		return $endpoints;
+	}
+
 	public static function Type($guid)
 	{
 		$db = self::Connection();
