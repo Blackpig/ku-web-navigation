@@ -127,14 +127,16 @@
 		            </div>
 		        </div>    
 		        <div ng-if="!ctrl.isrootpage && ctrl.data.has_service_group">
-		        	<div ng-if="$index%3==0 || $index%4.5==0">
-		            	<image-tile size="square"></image-tile>
-		            </div>
-		            <div ng-if="$index%4==0">
-		            	<image-tile size="wide"></image-tile>
-		            </div>
-		            <div ng-if="$index%3.5==0">
-		            	<image-tile size="tall"></image-tile>
+			        <div ng-if="$index>0">
+			        	<div ng-if="$index%3==0 || $index%4.5==0">
+			            	<image-tile size="square"></image-tile>
+			            </div>
+			            <div ng-if="$index%4==0">
+			            	<image-tile size="wide"></image-tile>
+			            </div>
+			            <div ng-if="$index%3.5==0">
+			            	<image-tile size="tall"></image-tile>
+			            </div>
 		            </div>
 		        </div>    
 		        <div ng-if="!ctrl.isrootpage && !ctrl.data.has_service_group">
