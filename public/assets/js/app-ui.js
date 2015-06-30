@@ -354,8 +354,9 @@ console.log(current);
 						this.navbar.backLink = parents[i].guid;
 					}
 				}
-
+console.log('1');
 				this.addCrumb(current);
+console.log('2');
 				this.navbar.currentLabel = current.label;
 				this.setHome(userType, currentState);
 				this.setSwitchTo(userType, currentState);
@@ -402,6 +403,8 @@ console.log(current);
             },
 
             addCrumb: function(crumb){
+
+console.log('3-'+ crumb);
             	this.navbar.breadcrumbs.push(crumb);
         		return this.navbar.breadcrumbs;
             }
