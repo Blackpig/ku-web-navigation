@@ -347,7 +347,7 @@ app.factory('navbarSvc',[function(){
 			},
 
 			build: function(userType, currentState, current, parents) {
-
+console.log(current);
 				for(var i=0, len=parents.length; i < len; i++){
 					if (parents[i].guid !== null && parents[i].label !== null) {
 						this.addCrumb(parents[i]);
@@ -402,7 +402,6 @@ app.factory('navbarSvc',[function(){
             },
 
             addCrumb: function(crumb){
-            	console.log("crumb==>" + crumb);
             	this.navbar.breadcrumbs.push(crumb);
         		return this.navbar.breadcrumbs;
             }
