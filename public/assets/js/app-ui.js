@@ -359,7 +359,6 @@ app.factory('navbarSvc',[function(){
 				this.navbar.currentLabel = current.label;
 				this.setHome(userType, currentState);
 				this.setSwitchTo(userType, currentState);
-				console.log(this.navbar);
 
 			},
 
@@ -403,6 +402,7 @@ app.factory('navbarSvc',[function(){
             },
 
             addCrumb: function(crumb){
+            	console.log(crumb);
             	this.navbar.breadcrumbs.push(crumb);
         		return this.navbar.breadcrumbs;
             }
