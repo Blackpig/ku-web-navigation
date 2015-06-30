@@ -97,7 +97,7 @@ class Endpoint extends Model{
 		return $endpoints;
 	}
 
-	public static function ChannelServiceGroupEndpoints($id)
+	public static function ChannelServiceGroupEndpoints($guid)
 	{
 		$db = self::Connection();
 
