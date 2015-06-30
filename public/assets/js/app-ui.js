@@ -404,8 +404,9 @@ console.log('2');
 
             addCrumb: function(crumb){
 
-console.log(crumb);
+console.log(this.navbar.breadcrumbs);
             	this.navbar.breadcrumbs.push(crumb);
+            	console.log(this.navbar.breadcrumbs);
         		return this.navbar.breadcrumbs;
             }
         };
