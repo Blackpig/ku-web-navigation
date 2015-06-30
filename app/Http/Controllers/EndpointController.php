@@ -121,11 +121,11 @@ class EndpointController extends Controller
     	if ($type == 1) {
     		$current = Endpoint::Organisation($id);
     		$endpoints = Endpoint::ChannelEndpoints($id);
-    		$parents = $this->roots[0];
+    		$parents = $this->roots[1];
     	} elseif ($type == 2) {
     		$current = Endpoint::ServiceGroup($id);
     		$endpoints = Endpoint::ChannelServiceGroupEndpoints($id, $current->organisation_guid);		
-    		$parents = $this->getParents(0, $current);
+    		$parents = $this->getParents(1, $current);
     	} else {
     		return $this->respondError(500, 'Unknown Tile Type');
     	}

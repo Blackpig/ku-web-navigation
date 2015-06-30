@@ -29,23 +29,6 @@ class Endpoint extends Model{
 		return $endpoints;
 	}
 
-	public static function Channels()
-	{
-		$db = self::Connection();
-
-		$endpoints = [];
-		$i = 0;
-
-        foreach (\DB::select('EXEC sp_Channels;') as $rs) 
-        {
-            $rs->color = self::assignColour($i);
-            $endpoints[] = $rs;
-            $i++;
-        }
-
-		return $endpoints;
-	}
-
 	public static function OrganisationEndpoints($guid)
 	{
 		$db = self::Connection();
@@ -68,6 +51,44 @@ class Endpoint extends Model{
 		$endpoints = [];
 
         foreach (\DB::select('EXEC sp_OrgServiceGroup_Endpoints ?,?', [$guid, $organisation_guid]) as $rs) 
+        {
+            $rs->color = ($rs->color) ? $rs->color : self::assignColour(mt_rand(0,6));
+            $endpoints[] = $rs;
+        }
+
+		return $endpoints;
+	}
+
+	public static function Channels()
+	{
+		$db = self::Connection();
+
+		$endpoints = [];
+		$i = 0;
+
+        foreach (\DB::select('EXEC sp_Channels;') as $rs) 
+        {
+            $rs->color = self::assignColour($i);
+            $endpoints[] = $rs;
+            $i++;
+        }
+
+		return $endpoints;
+	}
+
+	public static function ChannelEndpoints($guid)
+	{
+		$db = self::Connection();
+
+		$endpoints = [];
+
+        foreach (\DB::select('EXEC sp_Channel_ServiceGroups ?', [$guid]) as $rs) 
+        {
+            $rs->color = ($rs->color) ? $rs->color : self::assignColour(mt_rand(0,6));
+            $endpoints[] = $rs;
+        }
+
+        foreach (\DB::select('EXEC sp_Channel_Endpoints ?', [$guid]) as $rs) 
         {
             $rs->color = ($rs->color) ? $rs->color : self::assignColour(mt_rand(0,6));
             $endpoints[] = $rs;
