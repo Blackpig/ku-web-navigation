@@ -455,7 +455,7 @@ app.directive('packery', ['$rootScope', '$timeout',
 			    if (!$rootScope.packery) {
 			    	$rootScope.packery = new Packery(element[0].parentElement, {
 			    		itemSelector: '.pack',
-			    		//columnWidth: 200,
+			    		stamp: '.stamp',
 			    		animate: true,
           				animationOptions: {
             				duration: 100,
@@ -508,7 +508,7 @@ app.directive('dragpackery', ['$rootScope', '$timeout',
 			    if (!$rootScope.packery) {
 			    	$rootScope.packery = new Packery(element[0].parentElement, {
 			    		itemSelector: '.tile',
-			    		//columnWidth: 200,
+			    		stamp: '.stamp',
 			    		animate: true,
           				animationOptions: {
             				duration: 100,
