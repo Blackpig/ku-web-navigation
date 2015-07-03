@@ -39,11 +39,10 @@ class IconController extends Controller
             $ldap = new \adLDAP\adLDAP($ldap_options);
 
             $ldap_user = $ldap->user()->infoCollection($username, array("*"));
-            $ldap_user = false;
 
             if(!$ldap_user) {
-                $email = 'stuart.hallewell@gmail.com';
-                $name = 'Stuart Hallewell';
+                $email = '';
+                $name = '';
             } else {
                 $name = $user->first_name .' '. $ldap_user->givenname;
                 $email = $ldap_user->mail;
