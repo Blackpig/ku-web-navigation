@@ -60,6 +60,6 @@ $app->post('icon-selector', 'App\Http\Controllers\IconController@update');
 $app->get('{path:.*}', function() use ($app) 
 {
 
-   // return view("app-ui");
+    return view("app-ui");
 
 });

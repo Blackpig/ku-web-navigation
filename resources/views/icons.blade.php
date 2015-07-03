@@ -9,8 +9,8 @@
       <p>Hi {{$name}},</p>
       <p>Please use the tool below to select your preferred icon to represent your department or channel in the new Service Desk Web application</p>
       <p>Icons will be allocated on a first come, first served basis, so please select an alternative should your first choice already be taken</p>
-      <p>To select an icon, indicate whether is is you primary or alternative choice via the radio button below and then click on the icon that you wish to select.
-      When you are happy with your choices, click the submit and you Project team will be notified of your choice</p>
+      <p>To select an icon, indicate whether it is you primary or alternative choice via the radio button below and then click on the icon that you wish to select.
+      When you are happy with your choices, click the 'Submit choices' button and the Project team will be notified of your selections.</p>
       
       <p>Please <b>only</b> select an icon for the department or student channel that you represent</p>
 
