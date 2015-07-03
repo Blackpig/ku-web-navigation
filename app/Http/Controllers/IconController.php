@@ -66,7 +66,7 @@ class IconController extends Controller
         $data['alt']    = $request->input('alt');
         $data['date']   = date('j/n/Y h:i:s');
 
-        \Mail::send('emails.icon-selector', $data, function($message)
+        \Mail::send('emails.icon-selector', $data, function($message, $data)
         {
             $message->from('s.hallewell@kingston.ac.uk', 'Web Navigation');
             if (env('APP_ENV') == 'local' ) {
