@@ -25,6 +25,4 @@
     <script src="/assets/vendor/foundation/js/foundation.min.js"></script>
     <script src="/assets/vendor/foundation/js/foundation/foundation.topbar.js"></script>    
     <script src="/assets/vendor/foundation/js/foundation/foundation.tooltip.js"></script>
-    <script src="/assets/vendor/metafizzy/packery.pkgd.min.js"></script>
-    <script src="/assets/js/app.js"></script>
 </html>

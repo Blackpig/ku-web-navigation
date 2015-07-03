@@ -40,7 +40,16 @@ $app->group(['prefix' => 'api'], function($app)
 */
 
 $app->get('layout/{id}', 'App\Http\Controllers\LayoutController@show');
-$app->put('layout/{id}', 'App\Http\Controllers\LayoutController@update');
+$app->post('layout/{id}', 'App\Http\Controllers\LayoutController@update');
+
+/*
+|
+| Icon admin - a temporary route to allow departments/channels to select their icon
+|
+*/
+
+$app->get('icon-selector', 'App\Http\Controllers\IconController@show');
+$app->post('icon-selector', 'App\Http\Controllers\IconController@update');
 
 /*
 |
@@ -51,6 +60,6 @@ $app->put('layout/{id}', 'App\Http\Controllers\LayoutController@update');
 $app->get('{path:.*}', function() use ($app) 
 {
 
-    return view("app-ui");
+   // return view("app-ui");
 
 });
