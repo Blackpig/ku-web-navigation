@@ -69,7 +69,7 @@ class IconController extends Controller
         \Mail::send('emails.icon-selector', $data, function($message)
         {
             $message->from('s.hallewell@kingston.ac.uk', 'Web Navigation');
-            if (env('APP_ENV') == 'local') {
+            if (env('APP_ENV') == 'local' || env('APP_ENV') == 'development') {
                 $message->to('stuart@blackpig.eu')->cc('stuart@hunniedesign.com')->bcc('stuart@notoriety.co.uk');
             } else {
                 $message->to('l.middletonhill@kingston.ac.uk')->cc('a.wilden@kingston.ac.uk')->bcc($email);
