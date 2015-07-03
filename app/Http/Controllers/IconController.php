@@ -44,7 +44,7 @@ class IconController extends Controller
                 $email = '';
                 $name = '';
             } else {
-                $name = $$ldap_user->givenname .' '. $ldap_user->sn;
+                $name = $ldap_user->givenname .' '. $ldap_user->sn;
                 $email = $ldap_user->mail;
             }
         }
