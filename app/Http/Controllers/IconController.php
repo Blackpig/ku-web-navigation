@@ -60,19 +60,22 @@ class IconController extends Controller
     {
 
         $data['requester'] = $request->input('requester');
-    	$data['email'] = $address = $request->input('email');
+    	$data['email'] = $request->input('email');
         $data['dept']   = $request->input('dept');
         $data['primary']= $request->input('primary');
         $data['alt']    = $request->input('alt');
         $data['date']   = date('j/n/Y h:i:s');
 
-        \Mail::send('emails.icon-selector', $data, function($message)
+        \Mail::send('emails.icon-selector', $data, function($message) use ($data)
         {
             $message->from('s.hallewell@kingston.ac.uk', 'Web Navigation');
             if (env('APP_ENV') == 'local' ) {
                 $message->to('stuart@hunniedesign.com')->cc('stuart@hunniedesign.com')->bcc('stuart@hunniedesign.com');
             } else {
-                $message->to('l.middletonhill@kingston.ac.uk')->cc('a.wilden@kingston.ac.uk')->bcc($address);
+                $message->to('l.middletonhill@kingston.ac.uk')
+                    ->cc('a.wilden@kingston.ac.uk')
+                    ->bcc($data['email'])
+                    ->subject('Icon Selection for Web Navigation');
             }
 
         });
