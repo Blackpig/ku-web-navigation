@@ -36,9 +36,9 @@ class IconController extends Controller
                 "use_ssl" => true
             ];
 
-           // $ldap = new \adLDAP\adLDAP($ldap_options);
+            $ldap = new \adLDAP\adLDAP($ldap_options);
 
-           // $ldap_user = $ldap->user()->infoCollection($username, array("*"));
+            $ldap_user = $ldap->user()->infoCollection($username, array("*"));
             $ldap_user = false;
 
             if(!$ldap_user) {
