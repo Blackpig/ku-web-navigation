@@ -72,7 +72,7 @@ class IconController extends Controller
             if (env('APP_ENV') == 'local' ) {
                 $message->to('stuart@hunniedesign.com')->cc('stuart@hunniedesign.com')->bcc('stuart@hunniedesign.com');
             } else {
-                $message->to('l.middletonhill@kingston.ac.uk')->cc('a.wilden@kingston.ac.uk')->bcc($email);
+                $message->to('l.middletonhill@kingston.ac.uk')->cc('a.wilden@kingston.ac.uk')->bcc($data['email']);
             }
 
         });
