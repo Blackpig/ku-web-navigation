@@ -256,6 +256,11 @@ app.controller('searchCtrl', ['$rootScope','$scope', '$stateParams', '$state', '
 		$state.go('root.search', {'term': term});
 	}
 
+	self.goToUrl = function($event) {
+		var _t = $event.target;
+		console.log(_t);
+	}
+
 	self.build();
 	
 }]);
@@ -506,15 +511,5 @@ $(document).ready(function(){
 	if (typeof document.body.style.msTransform == "string") {
 		$("body").addClass("ie");
 	}
-
-	/* Makje the tile's containing div the hit area for links */
-	$('.tile-front').click(function(){
-		console.log('wibble');
-		var _t = $(this);
-		console.log(_t)
-		var target = _t.children('a').attr('href');
-		console.log(target);
-		window.location = target;
-	})
 
 });
