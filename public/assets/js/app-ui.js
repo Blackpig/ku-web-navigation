@@ -498,10 +498,21 @@ app.directive('packery', ['$rootScope', '$timeout',
 }
 ]);
 
-// jQuery to set ie class for IE >= 10 as conditional commenst no longer supported
+// jQuery - additional event capture
 
 $(document).ready(function(){
+	
+	/* Check for ie and add a class if detected */
 	if (typeof document.body.style.msTransform == "string") {
 		$("body").addClass("ie");
 	}
+
+	/* Makje the tile's containing div the hit area for links */
+	$('.tile-front').click(function(){
+		var _t = $(this);
+		var target = _t.children('a').attr('href');
+		console.log(target);
+		window.location = target;
+	})
+
 });
