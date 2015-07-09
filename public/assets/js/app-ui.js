@@ -199,7 +199,8 @@ app.controller('stateCtrl', ['$rootScope','$scope', '$stateParams', '$state', 'u
 	}
 
 	self.goToUrl = function($event) {
-		var _t = $event.target;
+		console.log($event);
+		var _t = $event.currentTarget;
 		console.log(_t);
 	}
 
