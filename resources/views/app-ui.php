@@ -1,3 +1,4 @@
+<!doctype html>
 <html class="no-js" lang="en" ng-app="kuwnApp">
     <head>
         <meta charset="UTF-8">
@@ -7,9 +8,9 @@
         <link rel="stylesheet" href="/assets/vendor/foundation/css/foundation.min.css">
         <link rel="stylesheet" href="/assets/vendor/font-awesome/css/font-awesome.min.css">
         <link rel="stylesheet" href="/assets/css/app.css">
-        <!-- [IF IE] -->
-        <link rel="stylesheet" type="text/css" href="app-ie.css" />
-        <!--[endif]-->
+        <!-- [if IE]>
+        <link rel="stylesheet" type="text/css" href="/assets/css/app-ie.css" />
+        <![endif]-->
         <script src="/assets/vendor/foundation/js/vendor/modernizr.js"></script>
         <base href="/">
     </head>

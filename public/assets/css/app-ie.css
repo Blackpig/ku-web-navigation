@@ -1,56 +1,18 @@
-
-/* Tile layout */
-.tile {
-    border: 2px solid #000;
-    margin: 0 5px 10px;
-    width: auto;
-    height: 132px;
-    padding: 2px;
-}
-
 .service-group, .service-group .tile-body, .service-group .tile-content {
-    width: 282px;
+    width: 278px;
 }
 
 .endpoint, .endpoint .tile-body, .endpoint .tile-content {
     width: 130px;
 }
 
-.tile-body {
+.tile-body{
+	height:101px;
+}
+
+.tile-front, .tile-back {
     height:101px;
-}
-
-.tile-front, .tile-back{
-    height: 100%;
-    display: table;
-    backface-visibility: hidden;
-    position: absolute;
-    top:0;
-    left: 0;
-    text-align: center;
-}
-
-.tile-content {
-    padding: 3px 8px;
-}
-
-.tile-icons {
-    height: 30px;
-    margin-top: 1px;
-}
-
-.tile-icons ul li{
-    margin-right: 25px;
-}
-
-
-
-/* My Status Tile */
-.my-status {
-	width: 396px;
-	height: 246px;
-	border: 2px solid #0492d4;
-	padding: 20px;
+	margin:2px;
 }
 
 .my-status .avatar {
@@ -185,7 +147,7 @@
 /* Foundation Overrides */
 
 .top-bar .button {
-	height: initial;
+	height: auto;
 	padding-top: 0.4rem;
 	padding-bottom: 0.4rem;
 }
