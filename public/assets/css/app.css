@@ -626,6 +626,7 @@ a:hover, a:focus{
 .ie .tile-front  {
     height:101px;
 	margin:2px;
+	-ms-transform-style: preserve-3d;
 }
 
 .ie .flip .tile-front {
@@ -635,12 +636,15 @@ a:hover, a:focus{
 
 .ie .tile-back  {
     height:101px;
+    -ms-transform-style: preserve-3d;
+    -ms-transform: rotateY(-180deg);
     transform: rotateY(-180deg);
 }
 
 .ie .flip .tile-back {
 	margin:0;
-	transform: rotateY(0deg);
+	-ms-transform: rotateY(180deg);
+	transform: rotateY(180deg);
 }
 
 .ie .top-bar .button {
