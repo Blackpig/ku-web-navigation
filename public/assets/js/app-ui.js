@@ -198,6 +198,12 @@ app.controller('stateCtrl', ['$rootScope','$scope', '$stateParams', '$state', 'u
 		$state.go('root.search', {'term': term});
 	}
 
+	self.goToUrl = function($event) {
+		var _t = $event.target;
+		console.log(_t);
+	}
+
+
 	self.build();
 	
 }]);
