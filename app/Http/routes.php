@@ -31,6 +31,10 @@ $app->group(['prefix' => 'api'], function($app)
 
     $app->get('search/{term}', 'App\Http\Controllers\EndpointController@searchEndpoints');
 
+    $app->get('layout/{id}', 'App\Http\Controllers\LayoutController@show');
+
+    $app->post('layout/{id}', 'App\Http\Controllers\LayoutController@update');
+
 });
 
 /*
@@ -39,12 +43,16 @@ $app->group(['prefix' => 'api'], function($app)
 |
 */
 
-$app->get('layout/{id}', 'App\Http\Controllers\LayoutController@show');
-$app->post('layout/{id}', 'App\Http\Controllers\LayoutController@update');
+$app->get('layout/{id}', function() use ($app) 
+{
+
+    return view("layout");
+
+});
 
 /*
 |
-| Icon admin - a temporary route to allow departments/channels to select their icon
+| Icon admin - a temporary route to allow departments/channels to select their icon - remove when live
 |
 */
 

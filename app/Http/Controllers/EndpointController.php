@@ -43,7 +43,7 @@ class EndpointController extends Controller
 	    	];
 	    });
 
-    	return $this->respondOK($data);;
+    	return $this->respondOK($data);
     }
 
     /**
