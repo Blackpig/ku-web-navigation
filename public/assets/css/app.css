@@ -606,6 +606,10 @@ a:hover, a:focus{
 
 /* IE > 10 add a class ie to body and apply following styles */
 /* Mirror any changes made here to the app-ie.css .ie classes */
+.ie .tile{
+	perspective:1000;
+}
+
 .ie .service-group, .ie .service-group .tile-body, .ie .service-group .tile-content
  {
     width: 278px;
@@ -626,10 +630,17 @@ a:hover, a:focus{
 
 .ie .flip .tile-front {
 	margin:0;
+	transform: rotateY(-180deg);
 }
 
 .ie .tile-back  {
     height:101px;
+    transform: rotateY(-180deg);
+}
+
+.ie .flip .tile-back {
+	margin:0;
+	transform: rotateY(0deg);
 }
 
 .ie .top-bar .button {
