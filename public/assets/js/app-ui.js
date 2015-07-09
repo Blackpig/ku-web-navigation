@@ -520,4 +520,8 @@ $(document).ready(function(){
 		$("body").addClass("ie");
 	}
 
+	$('.tile-front').click(function(e){
+		console.log('clicked');
+	})
+
 });
