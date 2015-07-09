@@ -1,27 +1,23 @@
-.service-group, .service-group .tile-body, .service-group .tile-content,
-.ie .service-group, .ie .service-group .tile-body, .ie .service-group .tile-content
- {
+/* Additional styles for IE < 10 */
+
+.service-group, .service-group .tile-body, .service-group .tile-content {
     width: 278px;
 }
 
-.endpoint, .endpoint .tile-body, .endpoint .tile-content,
-.ie .endpoint, .ie .endpoint .tile-body, .ie .endpoint .tile-content {
+.endpoint, .endpoint .tile-body, .endpoint .tile-content {
     width: 130px;
 }
 
-.tile-body,
-.ie .tile-body{
+.tile-body{
 	height:101px;
 }
 
-.tile-front, .tile-back,
-.ie .tile-front, .ie .tile-back  {
+.tile-front, .tile-back  {
     height:101px;
 	margin:2px;
 }
 
-.top-bar .button,
-.ie .top-bar .button {
+.top-bar .button {
 	height: auto;
 	padding-top: 0.4rem;
 	padding-bottom: 0.4rem;

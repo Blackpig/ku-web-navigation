@@ -502,6 +502,6 @@ app.directive('packery', ['$rootScope', '$timeout',
 
 $(document).ready(function(){
 	if (typeof document.body.style.msTransform == "string") {
-		$("html").addClass("ie");
+		$("body").addClass("ie");
 	}
 });

@@ -603,3 +603,29 @@ a:hover, a:focus{
 .top-bar-section li:not(.has-form) a:not(.button):hover {
 	background-color: transparent;
 }
+
+/* IE > 10 add a class ie to body and apply following styles */
+.ie .service-group, .ie .service-group .tile-body, .ie .service-group .tile-content
+ {
+    width: 278px;
+}
+
+.ie .endpoint, .ie .endpoint .tile-body, .ie .endpoint .tile-content {
+    width: 130px;
+}
+
+.ie .tile-body{
+	height:101px;
+}
+
+.ie .tile-front, .ie .tile-back  {
+    height:101px;
+	margin:2px;
+}
+
+.ie .top-bar .button {
+	height: auto;
+	padding-top: 0.4rem;
+	padding-bottom: 0.4rem;
+}
+
