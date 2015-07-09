@@ -1,152 +1,27 @@
-.service-group, .service-group .tile-body, .service-group .tile-content {
+.service-group, .service-group .tile-body, .service-group .tile-content,
+.ie .service-group, .ie .service-group .tile-body, .ie .service-group .tile-content
+ {
     width: 278px;
 }
 
-.endpoint, .endpoint .tile-body, .endpoint .tile-content {
+.endpoint, .endpoint .tile-body, .endpoint .tile-content,
+.ie .endpoint, .ie .endpoint .tile-body, .ie .endpoint .tile-content {
     width: 130px;
 }
 
-.tile-body{
+.tile-body,
+.ie .tile-body{
 	height:101px;
 }
 
-.tile-front, .tile-back {
+.tile-front, .tile-back,
+.ie .tile-front, .ie .tile-back  {
     height:101px;
 	margin:2px;
 }
 
-.my-status .avatar {
-	width: 135px;
-	height: 174px;
-}
-
-
-.my-status .avatar img {
-	border-radius: 15px;
-	border: 1px solid #0492d4 ;
-	width: 100px;
-}
-
-.my-status .details{
-	margin-left: 50px;
-}
-
-.my-status .ticker {
-	clear: both;
-	padding-top: 35px;
-}
-
-.my-status .ticker ul {
-	font-size: 9pt;
-}
-
-.my-status .ticker ul li {
-	padding-bottom: 3px;
-	border-bottom: 1px solid gray;
-}
-
-/* My Status Tiles */
-
-.ms-wall .my-status {
-	width: 550px;
-	height: 250px;
-	margin: 0 5px 10px;
-}
-
-.ms-tile {
-    width: 290px;
-    height:140px;
-    border: 1px solid #0492d4;
-    margin: 0 5px 10px;
-}
-
-.ms-tile .tile-body{
-    width: 290px;
-    height: 109px;
-}
-
-.ms-tile .tile-front .tile-content{
-    padding-top: 15px;
-}
-
-.ms-tile .title {
-    width:82px;
-} 
-
-.ms-tile .info {
-    width:192px;
-} 
-
-.ms-tile .info .details{
-    margin-top: 8px;
-} 
-
-.ms-tile .tile-icons {
-	width: 288px;
-	margin: 0 auto;
-}
-
-
-/** Media Queries **/
-
-/* Smaller screens */
-
-@media only screen and (max-width: 960px) {
-
-	.wall {
-		min-width: 600px;
-	}
-	
-}
-
-/* Mobile */
-
-@media handheld, only screen and (max-width: 767px) {
-	
-	.wall {
-		min-width: 0;
-		margin-top: 0 !important;
-	}	
-
-	.my-status {
-		width: 266px;
-		height: 120px;
-		padding: 10px;
-	}
-
-	.my-status .avatar, .my-status .avatar img {
-		width: 60px;
-	}
-
-	.my-status .details{
-		margin-left: 14px;
-	}
-
-	.my-status .ticker{
-		display:none;
-	}
-
-	.service-group-tall {
-		width: 270px;
-		height: 130px;
-	}
-
-	.service-group-tall .tile-content {
-		width: 270px;
-	}
-
-	.service-group-tall .tile-body {
-		height: 80px;
-	}
-
-	.image{
-		display: none;
-	}
-}
-
-/* Foundation Overrides */
-
-.top-bar .button {
+.top-bar .button,
+.ie .top-bar .button {
 	height: auto;
 	padding-top: 0.4rem;
 	padding-bottom: 0.4rem;
