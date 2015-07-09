@@ -21,7 +21,6 @@
 
     </body>
     <script src="/assets/vendor/jquery/jquery-1.11.2.min.js"></script>
-    <script src="/assets/vendor/jquery/jquery-migrate-1.1.0.js"></script>
     <script src="/assets/vendor/angular/angular.js"></script>
     <script src="/assets/vendor/angular-ui/angular-ui-router.min.js"></script>
     <script src="/assets/vendor/pineconellc/mm-foundation-tpls-0.6.0.js"></script>

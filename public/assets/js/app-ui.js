@@ -501,7 +501,7 @@ app.directive('packery', ['$rootScope', '$timeout',
 // jQuery to set ie class for IE >= 10 as conditional commenst no longer supported
 
 $(document).ready(function(){
-	if ($.browser.msie) {
+	if (typeof document.body.style.msTransform == "string") {
 		$("html").addClass("ie");
 	}
 });
