@@ -199,7 +199,7 @@ app.controller('stateCtrl', ['$rootScope','$scope', '$stateParams', '$state', 'u
 	}
 
 	self.goToUrl = function($event) {
-		var _t = $event.currentTarget;
+		var _t = angular.element($event.currentTarget);
 		var kidz = _t.find('a');
 		console.log(kidz);
 	}
