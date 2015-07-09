@@ -18,6 +18,10 @@
 	margin:2px;
 }
 
+.tile-front {
+    height:101px;	margin:2px;
+}
+
 .top-bar .button {
 	height: auto;
 	padding-top: 0.4rem;

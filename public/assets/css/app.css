@@ -624,6 +624,10 @@ a:hover, a:focus{
 	margin:2px;
 }
 
+.ie .tile-back  {
+    height:101px;
+}
+
 .ie .top-bar .button {
 	height: auto;
 	padding-top: 0.4rem;
