@@ -200,8 +200,9 @@ app.controller('stateCtrl', ['$rootScope','$scope', '$stateParams', '$state', 'u
 
 	self.goToUrl = function($event) {
 		var _t = angular.element($event.currentTarget);
-		var kidz = _t.find('a');
-		console.log(kidz);
+		var _a = _t.find('a');
+		var _url = _a.attr('href');
+		console.log(_url);
 	}
 
 
