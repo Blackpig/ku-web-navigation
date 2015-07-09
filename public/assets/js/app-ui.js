@@ -509,7 +509,9 @@ $(document).ready(function(){
 
 	/* Makje the tile's containing div the hit area for links */
 	$('.tile-front').click(function(){
+		console.log('wibble');
 		var _t = $(this);
+		console.log(_t)
 		var target = _t.children('a').attr('href');
 		console.log(target);
 		window.location = target;
