@@ -1,4 +1,5 @@
-/* Additional styles for IE < 10 */
+/* Additional styles for IE < 10 
+/* Mirror any changes made here to the bottom of the app.css .ie classes */
 
 .service-group, .service-group .tile-body, .service-group .tile-content {
     width: 278px;
@@ -12,7 +13,7 @@
 	height:101px;
 }
 
-.tile-front, .tile-back  {
+.tile-front {
     height:101px;
 	margin:2px;
 }
