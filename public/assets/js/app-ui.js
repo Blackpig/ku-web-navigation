@@ -202,7 +202,7 @@ app.controller('stateCtrl', ['$rootScope','$scope', '$stateParams', '$state', 'u
 		var _t = angular.element($event.currentTarget);
 		var _a = _t.find('a');
 		var _url = _a.attr('href');
-		console.log(_url);
+		window.location = _url;
 	}
 
 
