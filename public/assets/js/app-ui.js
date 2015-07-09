@@ -198,14 +198,6 @@ app.controller('stateCtrl', ['$rootScope','$scope', '$stateParams', '$state', 'u
 		$state.go('root.search', {'term': term});
 	}
 
-	self.goToUrl = function($event) {
-		var _t = angular.element($event.currentTarget);
-		var _a = _t.find('a');
-		console.log(_a);
-		_a.trigger("click");
-	}
-
-
 	self.build();
 	
 }]);
@@ -262,11 +254,6 @@ app.controller('searchCtrl', ['$rootScope','$scope', '$stateParams', '$state', '
 	self.search = function() {
 		var term = $('#search_term').val();
 		$state.go('root.search', {'term': term});
-	}
-
-	self.goToUrl = function($event) {
-		var _t = $event.target;
-		console.log(_t);
 	}
 
 	self.build();

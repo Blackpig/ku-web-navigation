@@ -129,6 +129,10 @@ z-index: 2;
 	width: 270px;
 }
 
+.tile-menu .tile-content a {
+	height: 78px;
+}
+
 .tile-content a:hover, .tile-content a.hover {
     text-shadow: -1px 1px 8px #ffc, 1px -1px 8px #fff;
 }
