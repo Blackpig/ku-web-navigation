@@ -634,7 +634,6 @@ a:hover, a:focus{
 }
 
 .ie .flip .tile-front {
-	margin:0;
 	transform: rotateY(-180deg);
 }
 
@@ -646,7 +645,7 @@ a:hover, a:focus{
 }
 
 .ie .flip .tile-back {
-	margin:0;
+	margin:2px;
 	-ms-transform: rotateY(0deg);
 	transform: rotateY(0deg);
 }
