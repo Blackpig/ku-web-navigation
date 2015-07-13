@@ -33,7 +33,7 @@ $(document).ready(function(){
 		e.preventDefault();
 
 		var layout = new Array();
-		$('.pack').each(function(i, item){
+		$('.draggable').each(function(i, item){
 			layout.push(item.data('guid'));
 
 		})
