@@ -50,6 +50,10 @@ class LayoutController extends Controller
         try{
             $layout = Layout::find($id);
 
+            if (!$layout) {
+                $layout = new Layout();
+            }
+
             $layout->id = $id;
             $layout->layout = $request->input('layout');
 
