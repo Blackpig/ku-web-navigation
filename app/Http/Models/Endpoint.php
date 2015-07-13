@@ -46,7 +46,7 @@ class Endpoint extends Model{
             $endpoints[] = $rs;
         }
 
-        $endpoints = $this->arrangeToLayout($layout, $endpoints);
+        $endpoints = $self->arrangeToLayout($layout, $endpoints);
 
 		return $endpoints;
 	}
