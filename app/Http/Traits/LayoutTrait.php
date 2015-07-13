@@ -30,12 +30,12 @@ trait LayoutTrait
 		// Turn the collection into a keyed collection by guid
 		
 		foreach($arrange as $item) {
-			$keyed_arrange[$item->guid] = $item;
+			$keyed_arrange["$item->guid"] = $item;
 		}
 		//Arrange according to the layout
 
 		$layout = json_decode($layout->layout, true);
-var_dump(array_keys($keyed_arrange));
+
 		foreach($layout as $key) {
 			$item = $keyed_arrange[$key];
 
