@@ -52,7 +52,7 @@
       @foreach ($data['endpoints'] as $endpoint)
 
         @if ($endpoint->always_show) 
-        <div class="tile {{$endpoint->type}} {{$endpoint->color}} stamp" >
+        <div class="tile {{$endpoint->type}} {{$endpoint->color}} stamp left" >
         @else
         <div class="tile {{$endpoint->type}} {{$endpoint->color}} pack draggable" >
         @endif
