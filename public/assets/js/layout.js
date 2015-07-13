@@ -15,7 +15,7 @@ $(document).ready(function(){
             		duration: 100,
             		queue: true
           			},
-          		"columnWidth": 282
+          		"columnWidth": 140
           		}
 		);
 
