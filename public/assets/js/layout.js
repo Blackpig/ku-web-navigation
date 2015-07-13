@@ -39,6 +39,10 @@ $(document).ready(function(){
 
 		})
 
+		var els = wall.packery('getItemElements');
+
+		console.log(els);
+
 		console.log(layout);
 
 	});
