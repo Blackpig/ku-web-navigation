@@ -24,7 +24,6 @@ $(document).ready(function(){
 	
 	// Add drag and drop functionality to adjustable tiles
 	wall.find('.draggable').each(function(i, item){
-		console.log(item);
 		var dragTile = new Draggabilly( item );
 		wall.packery('bindDraggabillyEvents', dragTile)
 	});
