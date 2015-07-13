@@ -16,7 +16,8 @@ $(document).ready(function(){
             		queue: true
           			},
           		"columnWidth": 70,
-          		"rowHeight": 70
+          		"rowHeight": 70,
+          		"gutter": 10
           		}
 		);
 
