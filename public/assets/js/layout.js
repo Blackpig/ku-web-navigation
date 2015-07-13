@@ -29,6 +29,20 @@ $(document).ready(function(){
 	});
 
 
+	$('#save-layout').click(e) {
+		e.preventDefault();
+		
+		var layout = new Array();
+		$('.pack').each(function(i, item){
+			layout[] = item.data('guid');
+
+		})
+
+		console.log(layout);
+
+	}
+
+
 	// Initialise Foundation
 	$(document).foundation();
 

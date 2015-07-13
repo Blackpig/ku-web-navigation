@@ -13,11 +13,12 @@
       <section class="top-bar-section">
         <!-- Right Nav Section -->
         <ul class="right">
+        <li class="has-form">
+          <a href="#" class="button" id="save-layout">Save Layout</a>
+        </li>
          <li>
             <div style="height:100%">
-              <a href="#" data-reveal-id="helpModal" style="height:100%">Help <i class="fa fa-question fa-lg"></i>
-
-              </a>
+              <a href="#" data-reveal-id="helpModal" style="height:100%">Help <i class="fa fa-question fa-lg"></i></a>
             </div>
           </li>
         </ul>
@@ -52,7 +53,7 @@
       @foreach ($data['endpoints'] as $endpoint)
 
         @if ($endpoint->always_show) 
-        <div class="tile {{$endpoint->type}} {{$endpoint->color}} stamp left" >
+        <div class="tile {{$endpoint->type}} {{$endpoint->color}} stamp left" data-guid="{{$endpoint->guid}}">
         @else
         <div class="tile {{$endpoint->type}} {{$endpoint->color}} pack draggable" >
         @endif
