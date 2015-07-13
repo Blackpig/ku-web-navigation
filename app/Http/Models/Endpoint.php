@@ -44,7 +44,6 @@ class Endpoint extends Model{
             $endpoints[] = $rs;
         }
 
-
         $endpoints = self::arrangeToLayout($guid, $endpoints);
 
 		return $endpoints;
@@ -61,6 +60,8 @@ class Endpoint extends Model{
             $rs->color = ($rs->color) ? $rs->color : self::assignColour(mt_rand(0,6));
             $endpoints[] = $rs;
         }
+
+		$endpoints = self::arrangeToLayout($guid, $endpoints);
 
 		return $endpoints;
 	}
@@ -100,6 +101,8 @@ class Endpoint extends Model{
             $endpoints[] = $rs;
         }
 
+        $endpoints = self::arrangeToLayout($guid, $endpoints);
+
 		return $endpoints;
 	}
 
@@ -114,6 +117,8 @@ class Endpoint extends Model{
             $rs->color = ($rs->color) ? $rs->color : self::assignColour(mt_rand(0,6));
             $endpoints[] = $rs;
         }
+
+        $endpoints = self::arrangeToLayout($guid, $endpoints);
 
 		return $endpoints;
 	}
@@ -141,7 +146,7 @@ class Endpoint extends Model{
 	}
 
 	public static function ServiceGroup($guid)
-	{ dd($guid);
+	{ 
 		$db = self::Connection();
 		$rs = \DB::select('EXEC sp_getServiceGroupByGUID ?', [$guid]);
 		
