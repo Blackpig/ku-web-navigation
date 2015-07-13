@@ -53,9 +53,9 @@
       @foreach ($data['endpoints'] as $endpoint)
 
         @if ($endpoint->always_show) 
-        <div class="tile {{$endpoint->type}} {{$endpoint->color}} stamp left" data-guid="{{$endpoint->guid}}">
+        <div class="tile {{$endpoint->type}} {{$endpoint->color}} stamp left">
         @else
-        <div class="tile {{$endpoint->type}} {{$endpoint->color}} pack draggable" >
+        <div class="tile {{$endpoint->type}} {{$endpoint->color}} pack draggable" data-guid="{{$endpoint->guid}}">
         @endif
           <div class="tile-body row">
               <div class="tile-front">
