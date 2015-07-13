@@ -35,7 +35,7 @@ trait LayoutTrait
 		//Arrange according to the layout
 
 		$layout = json_decode($layout->layout, true);
-
+var_dump(array_keys($keyed_arrange));
 		foreach($layout as $key) {
 			$item = $keyed_arrange[$key];
 
