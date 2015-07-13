@@ -8,8 +8,6 @@ trait LayoutTrait
 	public static function arrangeToLayout($layout=null, $endpoints)
 	{
 
-		dd($layout);
-
 		if (!$layout) return $endpoints;
 
 		$show_always = collect([]);
@@ -33,6 +31,7 @@ trait LayoutTrait
 		//Arrange according to the layout
 
 		$layout = json_decode($layout->layout, true);
+		dd($layout);
 
 		foreach($layout as $key) {
 
