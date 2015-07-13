@@ -1,19 +1,24 @@
 <?php namespace App\Http\Traits;
 
 use Illuminate\Http\Request;
+use \App\Http\Models\Layout;
 
 trait LayoutTrait
 {
 	
-	public static function arrangeToLayout($layout=null, $endpoints)
+	public static function arrangeToLayout($guid=false, $endpoints)
 	{
 
-		if (!$layout) return $endpoints;
+		if (!$guid) return collect($endpoints);
+
+		$layout = Layout::find($guid);
+
+		if (!$layout) return collect($endpoints);
 
 		$show_always = collect([]);
+		$endpoints = collect($endpoints);
 
 		//always show tiles appear at the top of each page - filter them into our array
-
 		$show_always = $endpoints->filter(function ($endpoint) {
     		return $endpoint->always_show == 1;
 		});

@@ -1,7 +1,6 @@
 <?php namespace App\Http\Models;
 
 use Illuminate\Database\Eloquent\Model;
-use \App\Http\Models\Layout;
 
 class Endpoint extends Model{
 
@@ -38,8 +37,6 @@ class Endpoint extends Model{
 
 		$endpoints = [];
 
-		$layout = Layout::find($guid);
-
         foreach (\DB::select('EXEC sp_Organisation_Endpoints ?,?', [$guid,'0']) as $rs) 
         {
             $rs->color = ($rs->color) ? $rs->color : self::assignColour(mt_rand(0,6));
@@ -48,7 +45,7 @@ class Endpoint extends Model{
         }
 
 
-        $endpoints = self::arrangeToLayout($layout, $endpoints);
+        $endpoints = self::arrangeToLayout($guid, $endpoints);
 
 		return $endpoints;
 	}
