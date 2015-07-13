@@ -9,6 +9,8 @@ use Cache;
 class LayoutController extends Controller
 {
 
+     use \App\Http\Traits\HttpResponseTrait;
+
     /**
      * Get Endpoints for the Service Group
      * @return JSON 
