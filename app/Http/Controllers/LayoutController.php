@@ -3,6 +3,7 @@
 use App\Http\Controllers\Controller;
 use \App\Http\Models\Endpoint;
 use \App\Http\Models\Layout;
+use Illuminate\Http\Request
 use Cache;
 
 class LayoutController extends Controller
@@ -44,7 +45,7 @@ class LayoutController extends Controller
      * Get Endpoints for the Service Group
      * @return JSON 
      */
-    public function update($id)
+    public function update($id, Request $request)
     {
 
         try{
