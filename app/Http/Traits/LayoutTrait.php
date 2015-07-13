@@ -26,13 +26,13 @@ trait LayoutTrait
 		$arrange = $endpoints->filter(function ($endpoint) {
     		return $endpoint->always_show == 0;
 		});
-	
+	dd($arrange);
 		// Turn the collection into a keyed collection by guid
 		
 		foreach($arrange as $item) {
 			$keyed_arrange[$item->guid] = $item;
 		}
-dd($keyed_arrange);
+
 		//Arrange according to the layout
 
 		$layout = json_decode($layout->layout, true);
