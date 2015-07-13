@@ -36,10 +36,12 @@ trait LayoutTrait
 
 		$layout = json_decode($layout->layout, true);
 
-var_dump($keyed_arrange);var_dump($layout);
 		foreach($layout as $key) {
+			$item = $keyed_arrange[$key];
 
-			$ordered[] = $keyed_arrange["$key"];
+			echo "$key ===> $item->guid<br>";
+
+			$ordered[] = $keyed_arrange[$key];
 		}
 
 		$arranged = $show_always->merge($ordered);
