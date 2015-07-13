@@ -37,7 +37,7 @@ class LayoutController extends Controller
 
         if ($type == 'csg') {
             $data['current'] = Endpoint::ServiceGroup($id);
-            $data['endpoints'] = Endpoint::ChannelServiceGroupEndpoints($id, $current->organisation_guid);    
+            $data['endpoints'] = Endpoint::ChannelServiceGroupEndpoints($id, $data['current']->organisation_guid);    
         }
 
         return view('admin.layout', ['data'=>$data]);
