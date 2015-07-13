@@ -35,7 +35,7 @@ $(document).ready(function(){
 		var layout = new Array();
 		var tiles = wall.packery('getItemElements');
 		console.log(tiles);
-		tiles.each(function(i, item){
+		$.each(tiles,function(i, item){
 			console.log($(item));
 			layout.push($(item).data('guid'));
 
