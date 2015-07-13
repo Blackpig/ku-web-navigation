@@ -51,10 +51,10 @@ class LayoutController extends Controller
             $layout = Layout::find($id);
 
             if (!$layout) {
-                $layout = new Layout();
+                $layout = new Layout;
+                $layout->id = $id;
             }
 
-            $layout->id = $id;
             $layout->layout = $request->input('layout');
 
             $layout->save();
