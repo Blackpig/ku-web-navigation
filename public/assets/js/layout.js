@@ -34,7 +34,7 @@ $(document).ready(function(){
 
 		var layout = new Array();
 		$('.pack').each(function(i, item){
-			layout[] = item.data('guid');
+			layout.push(item.data('guid'));
 
 		})
 
