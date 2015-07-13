@@ -14,7 +14,8 @@ $(document).ready(function(){
           		animationOptions: {
             		duration: 100,
             		queue: true
-          			}
+          			},
+          		"columnWidth": 282
           		}
 		);
 
