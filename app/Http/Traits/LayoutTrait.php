@@ -32,7 +32,7 @@ trait LayoutTrait
 		foreach($arrange as $item) {
 			$keyed_arrange[$item->guid] = $item;
 		}
-
+dd($keyed_arrange);
 		//Arrange according to the layout
 
 		$layout = json_decode($layout->layout, true);
