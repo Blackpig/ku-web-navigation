@@ -88,8 +88,21 @@
     <input type="hidden" id="currentGUID" value={{$data["current"]->guid}}
 @stop
 
+<!-- Modals -->
 <div id="helpModal" class="reveal-modal" data-reveal aria-labelledby="Help" aria-hidden="true" role="dialog">
   <h1> Help! </h1>
+  <a class="close-reveal-modal" aria-label="Close">&#215;</a>
+</div>
+
+<div id="layoutDone" class="reveal-modal" data-reveal aria-labelledby="Layout Success" aria-hidden="true" role="dialog">
+  <h2>Success!</h2>
+  <p>Your layout has been saved</p>
+  <a class="close-reveal-modal" aria-label="Close">&#215;</a>
+</div>
+
+<div id="layoutFail" class="reveal-modal" data-reveal aria-labelledby="Layout Fail" aria-hidden="true" role="dialog">
+  <h2>Oh no!</h2>
+  <p>Something has gone wrong.  Please try aagain. If the problem persists please contact the IT department</p>
   <a class="close-reveal-modal" aria-label="Close">&#215;</a>
 </div>
 
