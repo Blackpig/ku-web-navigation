@@ -5,7 +5,7 @@ use Illuminate\Http\Request;
 trait LayoutTrait
 {
 	
-	public function arrangeToLayout($layout=null, $endpoints)
+	public static function arrangeToLayout($layout=null, $endpoints)
 	{
 
 		dd($layout);
