@@ -42,7 +42,7 @@ class Endpoint extends Model{
         {
             $rs->color = ($rs->color) ? $rs->color : self::assignColour(mt_rand(0,6));
             
-            if ($i <= 4) {
+            if ($i <= 7) {
             	$rs->always_show = 1;
             	$rs->color = 'purple';
             };
