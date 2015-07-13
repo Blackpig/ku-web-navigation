@@ -58,9 +58,9 @@ class LayoutController extends Controller
             Cache::forget($id);
 
          return $this->respondOK();
-         
+
      } catch(Exception $e) {
-        return $this->respondError(500, "Layout update failed with: " $e->getMessage());
+        return $this->respondError(500, "Layout update failed with: " . $e->getMessage());
      }
 
     }
