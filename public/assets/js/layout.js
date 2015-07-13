@@ -34,8 +34,8 @@ $(document).ready(function(){
 
 		var layout = new Array();
 		$('.draggable').each(function(i, item){
-			console.log(item);
-			layout.push(item.data('guid'));
+			console.log($(item);
+			layout.push($(item).data('guid'));
 
 		})
 
