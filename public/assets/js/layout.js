@@ -44,7 +44,7 @@ $(document).ready(function(){
 		var url = 'layout/' + $('#guid').val();
 		var data = {'layout': layout};
 
-		$.post({url, data)
+		$.post(url, data)
 			.done(function(){
 				$('#layoutDone').foundation('reveal', 'open');
 			})
