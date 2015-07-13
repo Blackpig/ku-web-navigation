@@ -39,8 +39,6 @@ trait LayoutTrait
 		foreach($layout as $key) {
 			$item = $keyed_arrange[$key];
 
-			echo "$key ===> $item->guid<br>";
-
 			$ordered[] = $keyed_arrange[$key];
 		}
 
