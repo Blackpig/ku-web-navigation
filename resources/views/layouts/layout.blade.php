@@ -8,6 +8,11 @@
         <link rel="stylesheet" href="/assets/vendor/foundation/css/foundation.min.css">
         <link rel="stylesheet" href="/assets/vendor/font-awesome/css/font-awesome.min.css">
         <link rel="stylesheet" href="/assets/css/app.css">
+        <style>
+            #save-layout {
+                padding: 0.4rem 0.5rem;
+            }
+        </style>
         <script src="/assets/vendor/foundation/js/vendor/modernizr.js"></script>
         <base href="/">
     </head>
