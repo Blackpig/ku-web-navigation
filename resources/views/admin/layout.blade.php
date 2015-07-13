@@ -69,7 +69,7 @@
           <div class="tile-icons">
               <ul>
                   <li><a href="#" class="nolink"><i class="fa {{$endpoint->icon}} fa-lg"></i></a></li>
-                   @if ($endpoint-->type=='service-group') 
+                   @if ($endpoint->type=='service-group') 
                   <li><a href="#" class="nolink"><i class="fa {{$endpoint->target_type}} fa-lg"></i></a></li>
                   @else
                   <li ><a href="#" class="nolink"><i class="fa {{$endpoint->target_type}} fa-lg"></i></a></li>
