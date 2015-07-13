@@ -50,6 +50,9 @@ class LayoutController extends Controller
     public function update($id, Request $request)
     {
 
+        echo "id->>$id";
+        dd($request);
+
         try{
             $layout = Layout::find($id);
 
