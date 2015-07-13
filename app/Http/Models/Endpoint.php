@@ -138,7 +138,7 @@ class Endpoint extends Model{
 	}
 
 	public static function ServiceGroup($guid)
-	{
+	{ dd($guid);
 		$db = self::Connection();
 		$rs = \DB::select('EXEC sp_getServiceGroupByGUID ?', [$guid]);
 		
