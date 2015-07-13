@@ -33,15 +33,11 @@ $(document).ready(function(){
 		e.preventDefault();
 
 		var layout = new Array();
-		$('.draggable').each(function(i, item){
+		wall.packery('getItemElements').each(function(i, item){
 			console.log($(item));
 			layout.push($(item).data('guid'));
 
 		})
-
-		var els = wall.packery('getItemElements');
-
-		console.log(els);
 
 		console.log(layout);
 
