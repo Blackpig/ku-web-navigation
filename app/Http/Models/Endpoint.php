@@ -38,11 +38,15 @@ class Endpoint extends Model{
 
 		$endpoints = [];
 
+		$layout = Layout::find($guid);
+
         foreach (\DB::select('EXEC sp_Organisation_Endpoints ?,?', [$guid,'0']) as $rs) 
         {
             $rs->color = ($rs->color) ? $rs->color : self::assignColour(mt_rand(0,6));
             $endpoints[] = $rs;
         }
+
+        $endpoints = $this->arrangeToLayout($layout, $endpoints);
 
 		return $endpoints;
 	}
