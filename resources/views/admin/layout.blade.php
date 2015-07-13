@@ -85,6 +85,7 @@
       @endforeach
       </div>
     </div>
+    <input type="hidden" id="currentGUID" value={{$data["current"]->guid}}
 @stop
 
 <div id="helpModal" class="reveal-modal" data-reveal aria-labelledby="Help" aria-hidden="true" role="dialog">

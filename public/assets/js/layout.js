@@ -41,7 +41,17 @@ $(document).ready(function(){
 
 		})
 
+		var url = 'layout/' + $('#guid').val();
+		var data = {'layout': layout};
 
+		$.post({url, data)
+			.done(function(){
+				$('#layoutDone').foundation('reveal', 'open');
+			})
+
+			.fail(function(){
+				$('#layoutFail').foundation('reveal', 'open');
+			})
 	});
 
 

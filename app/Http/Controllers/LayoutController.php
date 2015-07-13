@@ -13,27 +13,26 @@ class LayoutController extends Controller
      */
     public function show($type, $id)
     { 
-        $data = [];
 
         $data['endpoints'] =[];
 
         if ($type == 'organisation') {
-            $current = Endpoint::Organisation($id);
+            $data['current'] = Endpoint::Organisation($id);
             $data['endpoints'] = Endpoint::OrganisationEndpoints($id);
         }
 
         if ($type == 'channel') {
-            $current = Endpoint::Organisation($id);
+            $data['current'] = Endpoint::Organisation($id);
             $data['endpoints'] = Endpoint::ChannelEndpoints($id);
         }
 
         if ($type == 'osg') {
-            $current = Endpoint::ServiceGroup($id);
-            $data['endpoints'] = Endpoint::OrganisationServiceGroupEndpoints($id, $current->organisation_guid);     
+            $data['current'] = Endpoint::ServiceGroup($id);
+            $data['endpoints'] = Endpoint::OrganisationServiceGroupEndpoints($id, $data['current']->organisation_guid);     
         }
 
         if ($type == 'csg') {
-            $current = Endpoint::ServiceGroup($id);
+            $data['current'] = Endpoint::ServiceGroup($id);
             $data['endpoints'] = Endpoint::ChannelServiceGroupEndpoints($id, $current->organisation_guid);    
         }
 
