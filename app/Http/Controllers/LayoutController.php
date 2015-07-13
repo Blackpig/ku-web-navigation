@@ -3,6 +3,7 @@
 use App\Http\Controllers\Controller;
 use \App\Http\Models\Endpoint;
 use \App\Http\Models\Layout;
+use Cache;
 
 class LayoutController extends Controller
 {
@@ -43,11 +44,25 @@ class LayoutController extends Controller
      * Get Endpoints for the Service Group
      * @return JSON 
      */
-    public function update()
+    public function update($id)
     {
 
+        try{
+            $layout = Layout::find($id);
 
-    	return view('layout');
+            $layout->id = $id;
+            $layout->layout = $request->input('layout');
+
+            $layout->save();
+
+            Cache::forget($id);
+
+         return $this->respondOK();
+         
+     } catch(Exception $e) {
+        return $this->respondError(500, "Layout update failed with: " $e->getMessage());
+     }
+
     }
 
    
