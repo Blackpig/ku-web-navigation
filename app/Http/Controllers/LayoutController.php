@@ -18,12 +18,12 @@ class LayoutController extends Controller
         $data['endpoints'] =[];
 
         if ($type == 'organisation') {
-            $current = Endpoint::ServiceGroup($id);
+            $current = Endpoint::getOrganisationByGUID($id);
             $endpoints = Endpoint::OrganisationEndpoints($id);
         }
 
         if ($type == 'channel') {
-            $current = Endpoint::ServiceGroup($id);
+            $current = Endpoint::getOrganisationByGUID($id);
             $endpoints = Endpoint::ChannelEndpoints($id);
         }
 
