@@ -16,6 +16,7 @@
         <li class="has-form">
           <a href="#" class="button" id="save-layout">Save Layout</a>
         </li>
+        <li class="divider"></li>
          <li>
             <div style="height:100%">
               <a href="#" data-reveal-id="helpModal" style="height:100%">Help <i class="fa fa-question fa-lg"></i></a>

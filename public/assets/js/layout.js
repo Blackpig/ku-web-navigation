@@ -23,8 +23,8 @@ $(document).ready(function(){
 
 	
 	// Add drag and drop functionality to adjustable tiles
-	wall.find('.draggable').each(function(i, item){
-		var dragTile = new Draggabilly( item );
+	wall.find('.draggable').each(function(i, tile){
+		var dragTile = new Draggabilly( tile );
 		wall.packery('bindDraggabillyEvents', dragTile)
 	});
 
@@ -34,14 +34,13 @@ $(document).ready(function(){
 
 		var layout = new Array();
 		var tiles = wall.packery('getItemElements');
-		console.log(tiles);
-		$.each(tiles,function(i, item){
-			console.log($(item));
-			layout.push($(item).data('guid'));
+		
+		$.each(tiles,function(i, tile){
+
+			layout.push($(tile).data('guid'));
 
 		})
 
-		console.log(layout);
 
 	});
 
