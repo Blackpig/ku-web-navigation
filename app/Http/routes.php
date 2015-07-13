@@ -31,10 +31,6 @@ $app->group(['prefix' => 'api'], function($app)
 
     $app->get('search/{term}', 'App\Http\Controllers\EndpointController@searchEndpoints');
 
-    $app->get('layout/{id}', 'App\Http\Controllers\LayoutController@show');
-
-    $app->post('layout/{id}', 'App\Http\Controllers\LayoutController@update');
-
 });
 
 /*

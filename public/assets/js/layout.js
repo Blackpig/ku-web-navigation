@@ -41,7 +41,7 @@ $(document).ready(function(){
 
 		})
 
-		var url = 'layout/' + $('#guid').val();
+		var url = 'layout/' + $('#currentGUID').val();
 		var data = {'layout': layout};
 
 		$.post(url, data)
