@@ -17,7 +17,7 @@ $(document).ready(function(){
           			},
           		"columnWidth": 70,
           		"rowHeight": 70,
-          		"gutter": 10
+          		"gutter": 5
           		}
 		);
 
