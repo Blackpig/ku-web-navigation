@@ -56,7 +56,7 @@ class LayoutController extends Controller
                 $layout->id = $id;
             }
 
-            $layout->layout = $request->input('layout');
+            $layout->layout = json_encode($request->input('layout'));
 
             $layout->save();
 
