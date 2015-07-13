@@ -15,8 +15,8 @@ $(document).ready(function(){
             		duration: 100,
             		queue: true
           			},
-          		"columnWidth": 90,
-          		"rowHeight": 90
+          		"columnWidth": 70,
+          		"rowHeight": 70
           		}
 		);
 
