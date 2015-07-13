@@ -38,7 +38,7 @@ trait LayoutTrait
 
 		foreach($layout as $key) {
 
-			$ordered[] = $keyed_arrange[$key];
+			$ordered[] = $keyed_arrange["$key"];
 		}
 
 		$arranged = $show_always->merge($ordered);
