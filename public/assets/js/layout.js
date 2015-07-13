@@ -33,7 +33,8 @@ $(document).ready(function(){
 		e.preventDefault();
 
 		var layout = new Array();
-		wall.packery('getItemElements').each(function(i, item){
+		var tiles = wall.packery('getItemElements');
+		tiles.each(function(i, item){
 			console.log($(item));
 			layout.push($(item).data('guid'));
 
