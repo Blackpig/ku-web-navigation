@@ -43,12 +43,9 @@ $app->group(['prefix' => 'api'], function($app)
 |
 */
 
-$app->get('layout/{id}', function() use ($app) 
-{
+$app->get('layout/{type}/{id}', 'App\Http\Controllers\LayoutController@show'); 
+$app->post('layout/{id}', 'App\Http\Controllers\LayoutController@update'); 
 
-    return view("layout");
-
-});
 
 /*
 |

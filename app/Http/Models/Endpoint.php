@@ -1,8 +1,11 @@
 <?php namespace App\Http\Models;
 
 use Illuminate\Database\Eloquent\Model;
+use \App\Http\Models\Layout;
 
 class Endpoint extends Model{
+
+	use \App\Http\Traits\LayoutTrait;
 
 	/**
 	 * The database table used by the model.
