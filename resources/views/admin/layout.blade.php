@@ -30,22 +30,24 @@
 
 @section('content')
     <div id="wall" class="packery">
-      <div class="tile menu stamp">
-        <div class="tile-body row">
-          <div class="tile-content">
-            <i class="fa fa-home fa-4x"></i>
-          </div>
-        </div>    
-      </div>
-        
-      <div class="tile menu stamp">  
-        <div class="tile-body row">
-          <div class="tile-content">
-            <a href="#" class="nolink"><i class="fa fa-step-backward fa-4x"></i></a>
-          </div>
+      <div class="clearfix">
+        <div class="tile menu stamp left">
+          <div class="tile-body row">
+            <div class="tile-content">
+              <i class="fa fa-home fa-4x"></i>
+            </div>
+          </div>    
+        </div>
+          
+        <div class="tile menu stamp left">  
+          <div class="tile-body row">
+            <div class="tile-content">
+              <a href="#" class="nolink"><i class="fa fa-step-backward fa-4x"></i></a>
+            </div>
+          </div>  
         </div>  
-      </div>  
-
+      </div>
+      
       <div>
       @foreach ($data['endpoints'] as $endpoint)
 
