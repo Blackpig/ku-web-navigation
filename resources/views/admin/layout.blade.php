@@ -30,7 +30,7 @@
 
 @section('content')
     <div id="wall" class="packery">
-      <div class="clearfix">
+      
         <div class="tile menu stamp left">
           <div class="tile-body row">
             <div class="tile-content">
@@ -46,7 +46,7 @@
             </div>
           </div>  
         </div>  
-      </div>
+
 
       <div>
       @foreach ($data['endpoints'] as $endpoint)
