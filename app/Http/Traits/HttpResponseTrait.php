@@ -5,7 +5,7 @@ use Illuminate\Http\Request;
 trait HttpResponseTrait
 {
 	
-	public function respondOK($data, $code=200)
+	public function respondOK($data=[], $code=200)
 	{
 		$response = [
 		'code' => $code,
