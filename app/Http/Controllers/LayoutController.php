@@ -3,7 +3,7 @@
 use App\Http\Controllers\Controller;
 use \App\Http\Models\Endpoint;
 use \App\Http\Models\Layout;
-use Illuminate\Http\Request
+use Illuminate\Http\Request;
 use Cache;
 
 class LayoutController extends Controller
