@@ -29,9 +29,9 @@ $(document).ready(function(){
 	});
 
 
-	$('#save-layout').click(e) {
+	$('#save-layout').click(function(e) {
 		e.preventDefault();
-		
+
 		var layout = new Array();
 		$('.pack').each(function(i, item){
 			layout[] = item.data('guid');
@@ -40,7 +40,7 @@ $(document).ready(function(){
 
 		console.log(layout);
 
-	}
+	});
 
 
 	// Initialise Foundation
