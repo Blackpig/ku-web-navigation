@@ -36,9 +36,7 @@ class LayoutController extends Controller
             $data['endpoints'] = Endpoint::ChannelServiceGroupEndpoints($id, $current->organisation_guid);    
         }
 
-        $pageTitle = $current->name;
-
-        return view('admin.layout', ['data'=>$data, 'pageTitle'=>$pageTitle]);
+        return view('admin.layout', ['data'=>$data]);
     }
 
     /**
