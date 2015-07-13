@@ -14,7 +14,7 @@
         <!-- Right Nav Section -->
         <ul class="right">
         <li class="has-form">
-          <a href="#" class="button" id="save-layout">Save Layout</a>
+          <a href="#" class="button radius success" id="save-layout">Save Layout</a>
         </li>
          <li>
             <div style="height:100%">
@@ -32,15 +32,15 @@
 @section('content')
     <div id="wall" class="packery">
       
-        <div class="tile menu stamp left">
+        <div class="tile menu stamp left no-drag">
           <div class="tile-body row">
             <div class="tile-content">
-              <i class="fa fa-home fa-4x"></i>
+              <a href="#" class="nolink"><i class="fa fa-home fa-4x"></i></a>
             </div>
           </div>    
         </div>
           
-        <div class="tile menu stamp left">  
+        <div class="tile menu stamp left no-drag">  
           <div class="tile-body row">
             <div class="tile-content">
               <a href="#" class="nolink"><i class="fa fa-step-backward fa-4x"></i></a>
@@ -53,7 +53,7 @@
       @foreach ($data['endpoints'] as $endpoint)
 
         @if ($endpoint->always_show) 
-        <div class="tile {{$endpoint->type}} {{$endpoint->color}} stamp left">
+        <div class="tile {{$endpoint->type}} {{$endpoint->color}} stamp left no-drag">
         @else
         <div class="tile {{$endpoint->type}} {{$endpoint->color}} pack draggable" data-guid="{{$endpoint->guid}}">
         @endif

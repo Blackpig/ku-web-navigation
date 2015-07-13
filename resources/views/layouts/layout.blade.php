@@ -12,6 +12,10 @@
             #save-layout {
                 padding: 0.4rem 0.5rem;
             }
+
+            .no-drag {
+                cursor: not-allowed;
+            }
         </style>
         <script src="/assets/vendor/foundation/js/vendor/modernizr.js"></script>
         <base href="/">
