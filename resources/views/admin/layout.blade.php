@@ -90,7 +90,12 @@
 
 <!-- Modals -->
 <div id="helpModal" class="reveal-modal" data-reveal aria-labelledby="Help" aria-hidden="true" role="dialog">
-  <h1> Help! </h1>
+  <h2>Help!</h2>
+  <p>Use the page below to drag and drop endpoint or service group tiles into your preferred arrangement. When you are happy with the layout of the tiles hit the 'Save Layoit' button in the menu bar.</p>
+  <p>Please note there may be some Endpoints that have been create as 'Always Show'. These endpoint tiles will display in all the pages in a hierarchy e.g. A tile called 'LALS Feedback' which is marked as 'Always Show' would
+  appear in the Library and Learning Services page and all subsequent pages in that Faculty's tree.  <em>You will not be able to move or arrange tiles marked as 'Always Show'</em>, they will always appear at the top of the page in alphabetical order.<p>
+  <p>Additionally, when the page is presented to the user, images will be inserted into the page. To simpify the layout process, these images are not included</p>
+  <p>Finally, you are arranging the tiles for viewing on a laptop/computer screen. Phone and tablet sized screens will adjust the layout automatically, however, the order which the tiles are displayed should remain consistent to the layout you arrange here</p>
   <a class="close-reveal-modal" aria-label="Close">&#215;</a>
 </div>
 
@@ -102,7 +107,7 @@
 
 <div id="layoutFail" class="reveal-modal" data-reveal aria-labelledby="Layout Fail" aria-hidden="true" role="dialog">
   <h2>Oh no!</h2>
-  <p>Something has gone wrong.  Please try aagain. If the problem persists please contact the IT department</p>
+  <p>Something has gone wrong.  Please try again. If the problem persists please contact the IT department</p>
   <a class="close-reveal-modal" aria-label="Close">&#215;</a>
 </div>
 
