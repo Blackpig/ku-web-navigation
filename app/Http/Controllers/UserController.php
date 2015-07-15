@@ -107,7 +107,7 @@ class UserController extends Controller
 
             if (strtolower($exists[0]) != "http/1.1 404 not found") {
                 $hash = md5($id, env('APP_KEY'));
-                $local = public_path() . "public/assets/images/user/{$hash}.jpg";
+                $local = "public/assets/images/user/{$hash}.jpg";
                 if (copy($image, $local)) {
                     return $local;
                 }
