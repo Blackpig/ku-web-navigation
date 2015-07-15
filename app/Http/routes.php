@@ -33,7 +33,7 @@ $app->group(['prefix' => 'api'], function($app)
 
 });
 
-$app->get('swh/{id}', 'App\Http\Controllers\UserController@getUserImage')->use($app); 
+$app->get('swh/{id}', 'App\Http\Controllers\UserController@getUserImage') use ($app); 
 
 /*
 |
