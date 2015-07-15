@@ -105,7 +105,7 @@ class UserController extends Controller
 
             $exists = @get_headers($image);
 
-            echo \Laravel\Lumen\Application::basePath();
+            echo \Laravel\Lumen\Application->basePath();
 
             if (strtoupper($exists[0]) == "HTTP/1.1 200 OK") {
                 $hash = md5($id, env('APP_KEY'));
