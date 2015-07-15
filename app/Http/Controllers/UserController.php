@@ -65,10 +65,15 @@ class UserController extends Controller
             $user->homedir = $ldap_user->homedirectory;
             $user->department = $ldap_user->departmentnumber;
             $user->gender = $ldap_user->extensionAttribute1;
-            //$user->avatar = $this->getUserImage($username, $user->gender);
+            //$user->avatar = $this->getUserImage($user->id, $user->gender);
             $user->save();
             
             $user = User::find($username);
+        }
+
+        if (strpos($user->avatar, 'avatar_') !== 0 ) {
+            $user->avatar = $this->getUserImage($user->id, $user->gender);
+            $user->save();
         }
 
         \Auth::login($user);
@@ -92,19 +97,18 @@ class UserController extends Controller
 
         if ($id) {
 
-            $type = (strtoupper(substr($id, 0, 2)) == "KU") ? 'staff' : 'student';
+            $type = (strtoupper(substr($id, 0, 2)) == "KU") ? 'staff' : 'students';
 
             $id = str_replace(["K","KU"],["",""],$id);
 
             $image = "https://kusdpw.kingston.ac.uk/data/{$type}/{$id}.jpg";
-            echo $image."<br>";
-            
-            $image_exists = @get_headers($image);
 
-            dd($image_exists);
-
-            if ($image_exists[0]) {
-                return $image;
+            if (strtolower($image_exists[0]) != "http/1.1 404 not found") {
+                $hash = md5($id, env('APP_KEY'));
+                $local = "/assets/images/user/{$hash}.jpg";
+                if (copy($image, $local)) {
+                    return $local;
+                }
             }
         }
 
