@@ -87,6 +87,8 @@ class UserController extends Controller
 
     public function getUserImage($id=false, $gender='')
     {
+        echo $id;
+            
         $default = "../assets/images/avatar_{$gender}.png";
 
         if ($id) {
