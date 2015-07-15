@@ -112,7 +112,7 @@ class UserController extends Controller
 
             $exists = @get_headers($image);
 
-            echo base_path();
+            echo $this->app->publicPath();
 
             if (strtoupper($exists[0]) == "HTTP/1.1 200 OK") {
                 $hash = md5($id, env('APP_KEY'));
