@@ -71,10 +71,10 @@ class UserController extends Controller
             $user = User::find($username);
         }
 
-        if (strpos($user->avatar, 'avatar_') !== 0 ) {
+        /*if (strpos($user->avatar, 'avatar_') !== 0 ) {
             $user->avatar = $this->getUserImage($user->id, $user->gender);
             $user->save();
-        }
+        }*/
 
         \Auth::login($user);
         
