@@ -105,9 +105,9 @@ class UserController extends Controller
             $exists = @get_headers($image);
 
             if (strtoupper($exists[0]) == "HTTP/1.1 200 OK") {
-                $hash = md5($id, env('APP_KEY'));
+                $hash = time();
                 $local = base_path() . "/public/assets/images/user/{$hash}.jpg";
-                
+
                 if (copy($image, $local)) {
                     return $local;
                 }
