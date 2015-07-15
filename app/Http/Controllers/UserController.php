@@ -65,7 +65,7 @@ class UserController extends Controller
             $user->homedir = $ldap_user->homedirectory;
             $user->department = $ldap_user->departmentnumber;
             $user->gender = $ldap_user->extensionAttribute1;
-            $user->avatar = $this->getUserImage($username, $user->gender);
+            //$user->avatar = $this->getUserImage($username, $user->gender);
             $user->save();
             
             $user = User::find($username);
@@ -88,7 +88,7 @@ class UserController extends Controller
     public function getUserImage($id=false, $gender='')
     {
         echo $id;
-            
+
         $default = "../assets/images/avatar_{$gender}.png";
 
         if ($id) {
