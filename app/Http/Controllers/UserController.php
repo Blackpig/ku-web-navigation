@@ -103,7 +103,9 @@ class UserController extends Controller
 
             $image = "https://kusdpw.kingston.ac.uk/data/{$type}/{$id}.jpg";
 
-            if (strtolower($image_exists[0]) != "http/1.1 404 not found") {
+            $exists = @get_headers($image);
+
+            if (strtolower($exists[0]) != "http/1.1 404 not found") {
                 $hash = md5($id, env('APP_KEY'));
                 $local = "/assets/images/user/{$hash}.jpg";
                 if (copy($image, $local)) {
