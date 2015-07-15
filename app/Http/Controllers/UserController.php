@@ -97,8 +97,9 @@ class UserController extends Controller
             $id = str_replace(["K","KU"],["",""],$id);
 
             $image = "https://kusdpw.kingston.ac.uk/data/{$type}/{$id}.jpg";
+            echo $image."<br>";
             
-            $image_exists = @get_headers($image_url);
+            $image_exists = @get_headers($image);
 
             dd($image_exists);
 
