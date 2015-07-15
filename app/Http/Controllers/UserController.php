@@ -85,19 +85,21 @@ class UserController extends Controller
 
     }
 
-    private function getUserImage($id=false, $gender='')
+    public function getUserImage($id=false, $gender='')
     {
         $default = "../assets/images/avatar_{$gender}.png";
 
         if ($id) {
 
-            $type = (strtoupper(substr($id, 0, 2)) == "KU") ? 'STAFF' : 'STUDENT';
+            $type = (strtoupper(substr($id, 0, 2)) == "KU") ? 'staff' : 'student';
 
             $id = str_replace(["K","KU"],["",""],$id);
 
-            $image = "\\kucompic.kingston.ac.uk\IDPro7dataSettings\KU_{$type}_IDCARD\Images\\{$id}.jpg";
-
+            $image = "https://kusdpw.kingston.ac.uk/data/{$type}/{$id}.jpg";
+            
             $image_exists = @getimagesize($image_url);
+
+            dd($image_exists);
 
             if ($image_exists[0]) {
                 return $image;
