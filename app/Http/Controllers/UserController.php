@@ -2,19 +2,11 @@
 
 use App\Http\Controllers\Controller;
 use \App\Http\Models\User;
-use Illuminate\Contracts\Foundation\Application;
-
 class UserController extends Controller
 {
 
     use \App\Http\Traits\HttpResponseTrait;
-    protected $app;
-
-     public function __construct(Application $app)
-    {
-        $this->app = $app;
-    }
-
+    
     /**
      * Load user Details
      * @return JSON 
@@ -112,11 +104,10 @@ class UserController extends Controller
 
             $exists = @get_headers($image);
 
-            echo $this->app->public_path();
-
             if (strtoupper($exists[0]) == "HTTP/1.1 200 OK") {
                 $hash = md5($id, env('APP_KEY'));
-                $local = "/public/assets/images/user/{$hash}.jpg";
+                $local = base_path() . "/public/assets/images/user/{$hash}.jpg";
+                
                 if (copy($image, $local)) {
                     return $local;
                 }
