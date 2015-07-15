@@ -87,7 +87,6 @@ class UserController extends Controller
 
     public function getUserImage($id=false, $gender='')
     {
-        echo $id;
 
         $default = "../assets/images/avatar_{$gender}.png";
 
@@ -99,7 +98,7 @@ class UserController extends Controller
 
             $image = "https://kusdpw.kingston.ac.uk/data/{$type}/{$id}.jpg";
             
-            $image_exists = @getimagesize($image_url);
+            $image_exists = @get_headers($image_url);
 
             dd($image_exists);
 
