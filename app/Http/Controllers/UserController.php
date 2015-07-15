@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\Controller;
 use \App\Http\Models\User;
+use Laravel\Lumen\Application as app;
 
 class UserController extends Controller
 {
