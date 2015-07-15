@@ -64,16 +64,16 @@ class UserController extends Controller
             $user->homedir = $ldap_user->homedirectory;
             $user->department = $ldap_user->departmentnumber;
             $user->gender = $ldap_user->extensionAttribute1;
-            //$user->avatar = $this->getUserImage($user->id, $user->gender);
+            $user->avatar = $this->getUserImage($user->id, $user->gender);
             $user->save();
             
             $user = User::find($username);
         }
 
-        /*if (strpos($user->avatar, 'avatar_') !== 0 ) {
+        if (strpos($user->avatar, 'avatar_') !== 0 ) {
             $user->avatar = $this->getUserImage($user->id, $user->gender);
             $user->save();
-        }*/
+        }
 
         \Auth::login($user);
         
@@ -89,7 +89,7 @@ class UserController extends Controller
 
     }
 
-    public function getUserImage($id=false, $gender='')
+    private function getUserImage($id=false, $gender='')
     {
 
         $default = "../assets/images/avatar_{$gender}.png";

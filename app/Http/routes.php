@@ -33,8 +33,6 @@ $app->group(['prefix' => 'api'], function($app)
 
 });
 
-$app->get('swh/{id}', 'App\Http\Controllers\UserController@getUserImage'); 
-
 /*
 |
 | Layout admin - used to layout tiles in an embedded element in LANDesk
