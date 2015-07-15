@@ -2,12 +2,18 @@
 
 use App\Http\Controllers\Controller;
 use \App\Http\Models\User;
-use Laravel\Lumen\Application as app;
+use Illuminate\Contracts\Foundation\Application;
 
 class UserController extends Controller
 {
 
     use \App\Http\Traits\HttpResponseTrait;
+    protected $app;
+
+     public function __construct(Application $app)
+    {
+        $this->app = $app;
+    }
 
     /**
      * Load user Details
@@ -106,7 +112,7 @@ class UserController extends Controller
 
             $exists = @get_headers($image);
 
-            echo app::basePath();
+            echo $this->app->basePath();
 
             if (strtoupper($exists[0]) == "HTTP/1.1 200 OK") {
                 $hash = md5($id, env('APP_KEY'));
