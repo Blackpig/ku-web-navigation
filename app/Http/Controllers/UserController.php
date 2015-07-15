@@ -109,6 +109,7 @@ class UserController extends Controller
                 $local = base_path() . "/public/assets/images/user/{$hash}.jpg";
 
                 if (copy($image, $local)) {
+                    $local = str_replace(base_path() . "/public", "..", $local);
                     return $local;
                 }
             }
