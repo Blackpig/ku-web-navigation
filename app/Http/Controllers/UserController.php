@@ -105,9 +105,11 @@ class UserController extends Controller
 
             $exists = @get_headers($image);
 
-            if (strtolower($exists[0]) != "http/1.1 404 not found") {
+            echo Laravel\Lumen\Application::basePath();
+
+            if (strtoupper($exists[0]) == "HTTP/1.1 200 OK") {
                 $hash = md5($id, env('APP_KEY'));
-                $local = "public/assets/images/user/{$hash}.jpg";
+                $local = "/public/assets/images/user/{$hash}.jpg";
                 if (copy($image, $local)) {
                     return $local;
                 }
