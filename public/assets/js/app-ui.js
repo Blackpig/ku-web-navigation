@@ -261,12 +261,30 @@ app.controller('searchCtrl', ['$rootScope','$scope', '$stateParams', '$state', '
 }]);
 
 /* Profile controller - used for MyStatus pages and states */
-app.controller('profileCtrl', ['$scope', '$state', 'user',
-	function ($scope, $state, user) {
+app.controller('profileCtrl', ['$scope', '$state', 'user', 'navbarSvc',
+	function ($scope, $state, user, navbarSvc) {
+
+		self = this;
+		self.user = user;
+		var parents = [];
+		var current = []
+
+		if ($state.current.name !== 'root.my-status') {
+			parents['guid'] = null;
+			parents['link'] = null;
+		}
+
+		navbarSvc.build(user.employee_type, $state.current.name, current, parents);
+
+		self.navbar = navbarSvc.navbar;
+
+		self.toggleInfo = function(toggleInfo){
+			$scope.toggleInfo = (!$scope.toggleInfo) ? toggleInfo : null;
+		}
 	
 }]);
 
-/* Profile controller - used for MyStatus pages and states */
+/* Error controller - used for disp[laying error page and messages */
 app.controller('errorCtrl', ['$rootScope', '$scope',
 	function ($rootScope, $scope) {
 
@@ -378,12 +396,17 @@ app.factory('navbarSvc',[function(){
 				var label;
 				var link;
 
-				if (userType == 0) {
-					label = (currentState == 'root.staff') ? "University Organisations" : "Student Channels";
-					link = (currentState == 'root.staff') ? "0" : "1";
+				if (currentState == 'root.staff' || currentState == 'root.stusent') {
+					if (userType == 0) {
+						label = (currentState == 'root.staff') ? "University Organisations" : "Student Channels";
+						link = (currentState == 'root.staff') ? "0" : "1";
+					} else {
+						label = "Home";
+						link = "1";
+					}
 				} else {
-					label = "Home";
-					link = "1";
+					label = "My Status";
+					link = "root.my-status";
 				}
             	
             	this.navbar.home = {"label": label, "link":link};

@@ -1,13 +1,12 @@
             <div class="ms-tile pack" packery>
-                <div class="">
-                    <div class="tile-body row" >
+                    <div class="tile-body row" ng-class="{'flip': toggleInfo=='my-library'}">
                         <div class="tile-front">
                             <div class="tile-content" >
                                 <div class="title">
-                                     <a ng-href="my-tickets"><i class="fa fa-Book fa-3x"></i></a>
+                                     <a ng-href="my-library"><i class="fa fa-Book fa-3x"></i></a>
                                 </div>
                                 <div class="info">
-                                    <a ng-href="my-tickets">My Library</a>
+                                    <a ng-href="my-library">My Library</a>
                                     <div class="details">
                                         <p>&nbsp;</p>
                                     </div>
@@ -22,8 +21,7 @@
                     </div>
                     <div class="tile-icons">
                         <ul>
-                            <li><a href="#" ng-click="ctrl.toggleInfo($index)"><i class="fa fa-info fa-lg"></i></a></li>
+                            <li><a href="#" ng-click="ctrl.toggleInfo('my-library')"><i class="fa fa-info fa-lg"></i></a></li>
                         </ul>
                     </div>
-                </div>
             </div>
