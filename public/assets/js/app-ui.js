@@ -122,7 +122,7 @@ var app = angular.module('kuwnApp', ['ui.router', 'mm.foundation'])
 
 						views: {
 							'content@': {
-								templateUrl: '/assets/js/app/views/my-status/my-tickets.html',
+								templateUrl: '/assets/js/app/views/partials/my-status/my-tickets.html',
 								controller: 'profileCtrl as ctrl'
 							}
 						}
