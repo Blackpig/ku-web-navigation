@@ -474,6 +474,7 @@ z-index: 2;
 
 .ms-tile .tile-content a{
     color: #0492d4;
+    height: initial;
 }
 
 .ms-tile .tile-front{
