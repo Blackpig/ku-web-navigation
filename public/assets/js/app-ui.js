@@ -524,10 +524,13 @@ app.directive('packery', ['$rootScope', '$timeout',
 // jQuery - additional event capture
 
 $(document).ready(function(){
-	
+	console.log(typeof document.body.style.msTransform);
 	/* Check for ie and add a class if detected */
 	if (typeof document.body.style.msTransform == "string") {
+		console.log('hola');
 		$("body").addClass("ie");
+	} else {
+		console.log('ohnoes');
 	}
 
 	$('.tile-front').click(function(e){
