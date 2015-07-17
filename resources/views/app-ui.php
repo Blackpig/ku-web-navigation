@@ -15,7 +15,6 @@
         
         <div ui-view name="content"></div>
        
-
     </body>
     <script src="/assets/vendor/jquery/jquery-1.11.2.min.js"></script>
     <script src="/assets/vendor/angular/angular.js"></script>
