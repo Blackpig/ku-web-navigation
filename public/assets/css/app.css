@@ -645,8 +645,8 @@ a:hover, a:focus{
 	height: 109px;
 }
 
-.ie .ms-tile.tile-info{
-	width: 184px;
+.ie .ms-tile .tile-info{
+	width: 188px;
 }
 
 .ie .ms-tile .tile-content a {
