@@ -1,0 +1,27 @@
+        <div>
+            <top-bar>
+                <ul class="title-area">
+                    <li class="name">
+                        <h1><a ng-href="/{{ ctrl.navbar.home.link }}">{{ ctrl.navbar.home.label }}</a></h1>
+                    </li>                    
+                </ul>
+
+                <top-bar-section>
+                    <!-- Right Nav Section -->
+                    <ul class="right">
+                        <li>
+                            <div><a ng-href="/{{ ctrl.navbar.home.link }}"><i class="fa fa-th fa-lg"></i></a></div>
+                        </li>
+                        <li has-dropdown>
+                            <div><a href="#"><i class="fa fa-ellipsis-h fa-lg"></i></a></div>
+                            <ul top-bar-dropdown>
+                                <li><a ng-href="/{{ ctrl.navbar.home.link }}">{{ ctrl.navbar.home.label }}</a></li>
+                                <li ng-repeat="crumb in navBarCtrl.navbar.breadcrumbs">
+                                    <a ng-href="/{{ ctrl.navbar.home.link }}/{{ crumb.link }}">{{ crumb.label }}</a>
+                                </li>
+                            </ul>
+                        </li>
+                    </ul> 
+                </top-bar-section>
+            </top-bar>
+        </div>

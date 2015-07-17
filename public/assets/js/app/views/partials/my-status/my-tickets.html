@@ -1,0 +1,19 @@
+	
+  	<header class="fixed">
+		<ng-include src="'assets/js/app/views/partials/my_status/top-bar.html'"></ng-include>
+	</header>
+
+	<div class="container">
+		<div class="ms-wall">
+            <div class="tile menu stamp pack" packery>
+                <div class="tile-body row">
+                    <div class="tile-content">
+                        <a ng-href="/my-status"><i class="fa fa-home fa-4x"></i></a>
+                    </div>
+                </div>      
+            </div>
+			<ng-include src="'assets/js/app/views/partials/my_status/my-tickets/quemis.html'"></ng-include>
+            <ng-include src="'assets/js/app/views/partials/my_status/my-tickets/service-desk.html'"></ng-include>
+            <ng-include src="'assets/js/app/views/partials/my_status/my-tickets/esd.html'"></ng-include>
+        </div>
+	</div>
