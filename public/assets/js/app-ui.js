@@ -113,8 +113,8 @@ var app = angular.module('kuwnApp', ['ui.router', 'mm.foundation'])
 						
 					})
 
-					.state('root.my-status.my-tickets', {
-						url: 'my-status/mytickets',
+					.state('root.my-tickets', {
+						url: 'my-status/my-tickets',
 
 					    params: {
 					     	tileid: { value:null, squash:true }
