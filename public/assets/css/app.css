@@ -624,7 +624,6 @@ a:hover, a:focus{
 }
 
 /* IE > 10 add a class ie to body and apply following styles */
-/* Mirror any changes made here to the app-ie.css .ie classes */
 .ie .tile{
 	perspective:1000;
 }
@@ -640,6 +639,18 @@ a:hover, a:focus{
 
 .ie .tile-body{
 	height:101px;
+}
+
+.ie .ms-tile-body {
+	height: 109px;
+}
+
+.ie .ms-tile-info{
+	width: 188px;
+}
+
+.ie .ms-tile-content a {
+	height: inherit;
 }
 
 .ie .tile-front  {
