@@ -470,6 +470,10 @@ z-index: 2;
     padding-top: 15px;
 }
 
+.ms-tile .tile-back .tile-content {
+	width: 274px;
+}
+
 .ms-tile .title {
     text-align: center;
     width:82px;

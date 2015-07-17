@@ -200,7 +200,6 @@ app.controller('profileCtrl', ['$scope', '$state', 'user', 'navbarSvc',
 		self.navbar = navbarSvc.navbar;
 
 		self.toggleInfo = function(toggleInfo){
-			console.log(toggleInfo + " clicked");
 			$scope.toggleInfo = (!$scope.toggleInfo) ? toggleInfo : null;
 		}
 	
