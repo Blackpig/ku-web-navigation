@@ -13,7 +13,7 @@
     </head>
     <body>
         
-        <ui-view name="content"></ui-view>
+        <div ui-view name="content"></div>
        
 
     </body>
