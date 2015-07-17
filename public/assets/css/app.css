@@ -641,15 +641,15 @@ a:hover, a:focus{
 	height:101px;
 }
 
-.ie .ms-tile-body {
+.ie .ms-tile .tile-body {
 	height: 109px;
 }
 
-.ie .ms-tile-info{
+.ie .ms-tile.tile-info{
 	width: 188px;
 }
 
-.ie .ms-tile-content a {
+.ie .ms-tile .tile-content a {
 	height: inherit;
 }
 
