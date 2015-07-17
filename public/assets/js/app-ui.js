@@ -113,6 +113,22 @@ var app = angular.module('kuwnApp', ['ui.router', 'mm.foundation'])
 						
 					})
 
+					.state('root.my-status.my-tickets', {
+						url: 'my-status/mytickets',
+
+					    params: {
+					     	tileid: { value:null, squash:true }
+					    },
+
+						views: {
+							'content@': {
+								templateUrl: '/assets/js/app/views/my-status/my-tickets.html',
+								controller: 'profileCtrl as ctrl'
+							}
+						}
+						
+					})
+
 					.state('error', {
 						url: 'error',
 					    views: {
