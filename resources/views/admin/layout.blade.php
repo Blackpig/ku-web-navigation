@@ -30,8 +30,8 @@
 @stop
 
 @section('content')
-    <div class="wall packery">
-      
+    <div class="wall">
+      <div class="packery">
         <div class="tile menu stamp left no-drag">
           <div class="tile-body row">
             <div class="tile-content">
@@ -83,6 +83,7 @@
           </div>
         </div>
       @endforeach
+      </div>
       </div>
     </div>
 
