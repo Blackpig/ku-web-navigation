@@ -28,14 +28,6 @@ p {
 	height: ;
 }
 
-.mask {
-	background: #fff;
-	height: 100vh;
-	width: 100vw;
-	z-index: 100;
-	position: absolute;
-}
-
 .wall, .ms-wall {
 	padding-left: 20px;
 	padding-right: 20px;
