@@ -30,7 +30,7 @@
 @stop
 
 @section('content')
-    <div id="wall" class="packery">
+    <div class="wall packery">
       
         <div class="tile menu stamp left no-drag">
           <div class="tile-body row">
