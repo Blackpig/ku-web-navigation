@@ -468,6 +468,9 @@ app.directive('imageTile',[
 				
 				var sizes = ['tall', 'wide', 'square'];
 				var maxId = 16;
+
+				var wide = [];
+				wide.length = 36; 
 				
 				if (attrs.size == undefined || attrs.size=='') {
 					var idx = Math.floor(Math.random()*3);
@@ -479,7 +482,9 @@ app.directive('imageTile',[
 				if (scope.imageSize == 'tall') {
 					maxId = 16;
 				} else if (scope.imageSize == 'wide') {
-					maxId = 38;					
+					maxId = 38;		
+					wide.pop();
+					console.log(wide.length);			
 				} else if (scope.imageSize == 'square') {
 					maxId = 17;
 				}
