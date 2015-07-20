@@ -1,7 +1,7 @@
 <?php namespace App\Http\Controllers;
 
 use App\Http\Controllers\Controller;
-use \App\Http\Controllers\UserController as auth;
+use \App\Http\Controllers\UserController as User;
 use \App\Http\Models\Endpoint;
 use \App\Http\Models\Layout;
 use Illuminate\Http\Request;
@@ -57,7 +57,7 @@ class LayoutController extends Controller
      * Set the Layout 
      * @return Response 
      */
-    public function update($id, Request $request)
+    public function update($id, Request $request, User $user)
     {
 
         try{
@@ -70,8 +70,8 @@ class LayoutController extends Controller
 
             $layout->layout = json_encode($request->input('layout'));
 
-            $user = $auth->authenticate(false);
-            $layout->updated_by = $user->full_name;
+            $editor = $user->authenticate(false);
+            $layout->updated_by = $editor->full_name;
 
             $layout->save();
 
