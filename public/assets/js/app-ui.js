@@ -467,7 +467,7 @@ app.directive('imageTile',[
 				scope.element = element;
 				
 				var sizes = ['tall', 'wide', 'square'];
-				var maxId = 0;
+				var maxId = 16;
 				
 				if (attrs.size == undefined || attrs.size=='') {
 					var idx = Math.floor(Math.random()*3);
