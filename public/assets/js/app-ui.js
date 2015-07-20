@@ -467,6 +467,7 @@ app.directive('imageTile',[
 				scope.element = element;
 				
 				var sizes = ['tall', 'wide', 'square'];
+				var maxId = 0;
 				
 				if (attrs.size == undefined || attrs.size=='') {
 					var idx = Math.floor(Math.random()*3);
@@ -475,8 +476,16 @@ app.directive('imageTile',[
 					scope.imageSize = attrs.size;
 				}
 
-				if (attrs.id == undefined || attrs.id == '' || attrs.id > 8 || attrs.id == 0) {
-					scope.id = Math.floor((Math.random()*8)+1);
+				if (scope.imageSize == 'tall') {
+					maxId = 16;
+				} else if (scope.imageSize == 'wide') {
+					maxId = 38;					
+				} else if (scope.imageSize == 'square') {
+					maxId = 17;
+				}
+
+				if (attrs.id == undefined || attrs.id == '' || attrs.id > maxId || attrs.id == 0) {
+					scope.id = Math.floor((Math.random()*maxId)+1);
 				} else {
 					scope.id = attrs.id;
 				}
