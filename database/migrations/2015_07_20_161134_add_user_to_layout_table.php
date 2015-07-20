@@ -12,7 +12,11 @@ class AddUserToLayoutTable extends Migration
      */
     public function up()
     {
-        $table->string('updated_by',100)->after('layout');
+        Schema::table('layouts', function(Blueprint $table)
+        {
+            $table->string('updated_by',100)->after('layout');
+
+        });
     }
 
     /**
@@ -22,7 +26,10 @@ class AddUserToLayoutTable extends Migration
      */
     public function down()
     {
-        
+         Schema::table('layouts', function(Blueprint $table)
+        {
             $table->dropColumn('updated_by');
-    }
+
+        });
+     }
 }
