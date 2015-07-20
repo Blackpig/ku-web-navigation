@@ -105,7 +105,8 @@
   <p>Please note there may be some Endpoints that have been create as 'Always Show'. These endpoint tiles will display in all the pages in a hierarchy e.g. A tile called 'LALS Feedback' which is marked as 'Always Show' would
   appear in the Library and Learning Services page and all subsequent pages in that Faculty's tree.  <em>You will not be able to move or arrange tiles marked as 'Always Show'</em>, they will always appear at the top of the page in alphabetical order.<p>
   <p>Additionally, when the page is presented to the user, images will be inserted into the page. To simpify the layout process, these images are not included here.</p>
-  <p>Finally, you are arranging the tiles for viewing on a laptop/computer screen. Phone and tablet sized screens will adjust the layout automatically, however, the order which the tiles are displayed should remain consistent to the layout you arrange here.</p>
+ <p>You are arranging the tiles for viewing on a laptop/computer screen. Phone and tablet sized screens will adjust the layout automatically, however, the order which the tiles are displayed should remain consistent to the layout you arrange here.</p>
+  <p>Finally, the footer indicating who the last person to update the layout was will not be shown to the users.</p>
   <a class="close-reveal-modal" aria-label="Close">&#215;</a>
 </div>
 

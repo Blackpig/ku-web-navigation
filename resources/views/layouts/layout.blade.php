@@ -16,6 +16,13 @@
             .no-drag {
                 cursor: not-allowed;
             }
+
+            footer {
+                background: #000;
+                color: #fff;
+                height: 35px;
+                text-align: center;
+            }
         </style>
         <script src="/assets/vendor/foundation/js/vendor/modernizr.js"></script>
         <base href="/">
