@@ -19,9 +19,12 @@
 
             footer {
                 background: #000;
-                color: #fff;
+                color: #333;
                 height: 35px;
                 text-align: center;
+                vertical-align: middle;
+                font-size: 9pt;
+                margin-top: 50px;
             }
         </style>
         <script src="/assets/vendor/foundation/js/vendor/modernizr.js"></script>
