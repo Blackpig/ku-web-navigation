@@ -18,12 +18,13 @@
             }
 
             footer {
-                background: #000;
-                color: #333;
+                background: #333;
+                color: #fff;
                 height: 35px;
                 text-align: center;
                 vertical-align: middle;
-                font-size: 9pt;
+                font-size: 8pt;
+                line-height:12pt;
                 margin-top: 50px;
             }
         </style>
