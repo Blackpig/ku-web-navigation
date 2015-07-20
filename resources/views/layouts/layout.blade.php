@@ -21,17 +21,14 @@
                 background: #333;
                 color: #fff;
                 height: 35px;
+                width: 100%;
                 text-align: center;
-                vertical-align: middle;
-            }
-
-            footer .row {
-                margin-top: 50px;                
+                margin-top: 50px;   
             }
 
             footer p {
-                font-size: 8pt;
-                line-height:12pt;
+                font-size: 9pt;
+                line-height:28pt;
             }
 
         </style>

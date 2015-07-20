@@ -86,14 +86,12 @@
       </div>
     </div>
 
-    <footer class="row">
-      <div class="medium-10 medium-offset-1 columns">
+    <footer>
       @if ($data['updated_by']) 
         <p>This layout was last updated by {{$data['updated_by']}} at {{ date('H:i', strtotime($data['updated_at']))}} on {{ date('F d, Y', strtotime($data['updated_at'])) }}</p>
       @else
         <p>Creating a new layout.</p>
       @endif
-      </div>
     </footer>
     <input type="hidden" id="currentGUID" value={{$data["current"]->guid}}
 @stop
