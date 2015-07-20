@@ -412,7 +412,7 @@ app.factory('navbarSvc',[function(){
 				var label;
 				var link;
 
-				if (currentState == 'root.staff' || currentState == 'root.stusent') {
+				if (currentState == 'root.staff' || currentState == 'root.student') {
 					if (userType == 0) {
 						label = (currentState == 'root.staff') ? "University Organisations" : "Student Channels";
 						link = (currentState == 'root.staff') ? "0" : "1";
