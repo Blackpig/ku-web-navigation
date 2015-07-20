@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\Controller;
 use \App\Http\Models\User;
+
 class UserController extends Controller
 {
 
@@ -11,7 +12,7 @@ class UserController extends Controller
      * Load user Details
      * @return JSON 
      */
-    public function authenticate()
+    public function authenticate($api = true)
     {	
         if (env('APP_ENV') == 'local') {
             $username = "K1068743";
@@ -77,8 +78,12 @@ class UserController extends Controller
         }
 
         \Auth::login($user);
-        
-        return $this->respondOK($user);
+
+        if ($api) {
+            return $this->respondOK($user);
+        } else {
+            return $user;
+        }
     }
 
     private function getEmployeeType($type) {
