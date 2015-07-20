@@ -69,7 +69,7 @@ class LayoutController extends Controller
 
             $layout->layout = json_encode($request->input('layout'));
 
-            $user = $request->user;
+            $user = $request->user();
             $layout->updated_by = $user->full_name;
 
             $layout->save();
