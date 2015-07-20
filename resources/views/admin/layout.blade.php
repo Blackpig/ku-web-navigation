@@ -87,7 +87,7 @@
     </div>
 
     <footer class="row">
-      <div class="medium-8 medium-offset-2 columns">
+      <div class="medium-10 medium-offset-1 columns">
       @if ($data['updated_by']) 
         <p>This layout was last updated by {{$data['updated_by']}} at {{ date('H:i', strtotime($data['updated_at']))}} on {{ date('F d, Y', strtotime($data['updated_at'])) }}</p>
       @else
