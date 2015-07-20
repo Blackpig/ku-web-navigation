@@ -23,10 +23,14 @@
                 height: 35px;
                 text-align: center;
                 vertical-align: middle;
-                font-size: 8pt;
-                line-height:12pt;
                 margin-top: 50px;
             }
+
+            footer p {
+                font-size: 8pt;
+                line-height:12pt;
+            }
+            
         </style>
         <script src="/assets/vendor/foundation/js/vendor/modernizr.js"></script>
         <base href="/">
