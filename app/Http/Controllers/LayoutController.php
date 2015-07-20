@@ -40,12 +40,21 @@ class LayoutController extends Controller
             $data['endpoints'] = Endpoint::ChannelServiceGroupEndpoints($id, $data['current']->organisation_guid);    
         }
 
+        $layout = Layout::find($id);
+        if ($layout) {
+            $data['updated_by'] = $layout->updated_by;
+            $data['updated_at'] = $layout->updated_at;
+        } else {
+            $data['updated_by'] = false;
+            $data['updated_at'] = false;
+        }
+
         return view('admin.layout', ['data'=>$data]);
     }
 
     /**
-     * Get Endpoints for the Service Group
-     * @return JSON 
+     * Set the Layout 
+     * @return Response 
      */
     public function update($id, Request $request)
     {
@@ -59,6 +68,9 @@ class LayoutController extends Controller
             }
 
             $layout->layout = json_encode($request->input('layout'));
+
+            $user = $request->user;
+            $layout->updated_by = $user->full_name;
 
             $layout->save();
 

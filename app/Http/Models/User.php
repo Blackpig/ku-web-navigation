@@ -31,4 +31,13 @@ class User extends Model implements AuthenticatableContract {
 	 */
 	protected $hidden = ['password', 'remember_token'];
 
+	/**
+	 * Return the Full Name getter
+	 *
+	 * @return string
+	 */
+	public function getFullNameAttribute() {
+		return ucfirst($this->first_name) . ' ' . ucfirst($this->last_name);
+	}
+
 }
