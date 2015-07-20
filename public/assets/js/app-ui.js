@@ -507,7 +507,7 @@ app.directive('packery', ['$rootScope', '$timeout',
 		    	var orderItems = function() {
 		    		var itemElems = $rootScope.packery.getItemElements();
 		    		console.log('layout complete');
-		    		$('#wall').removeClass('hide');
+		    		$('.mask').addClass('hide');
 		    	};
 
 		    	$rootScope.packery.on('layoutComplete', orderItems);
