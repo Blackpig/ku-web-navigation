@@ -71,7 +71,7 @@ class LayoutController extends Controller
             $layout->layout = json_encode($request->input('layout'));
 
             $editor = $user->authenticate(false);
-            $layout->updated_at = $editor->full_name;
+            $layout->updated_by = $editor->full_name;
 
             $layout->save();
 
