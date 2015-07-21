@@ -54,6 +54,19 @@ $app->post('icon-selector', 'App\Http\Controllers\IconController@update');
 
 /*
 |
+| iFrame routing
+|
+*/
+
+$app->get('routing/staffspace', function() use ($app)
+{
+
+	return view("routes.staffspace");
+
+});
+
+/*
+|
 | Front-end routing - send all requests to front end for Angular to manage routing
 |
 */

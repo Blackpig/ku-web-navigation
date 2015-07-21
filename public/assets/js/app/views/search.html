@@ -49,7 +49,7 @@
 				</div>
 
 				<div ng-repeat="endpoint in ctrl.data.endpoints" packery>
-					<div class="tile endpoint {{endpoint.color}} pack" >
+					<div class="tile endpoint {{ endpoint.color }} pack" >
 		                <div class="tile-body row" ng-class="{'flip': toggleInfo=={{$index}}}">
 		                    <div class="tile-front">
 		                        <div class="tile-content" ng-mouseenter="hasFocus=true"  ng-mouseleave="hasFocus=false">
