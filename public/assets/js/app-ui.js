@@ -482,9 +482,7 @@ app.directive('imageTile',[
 				if (scope.imageSize == 'tall') {
 					maxId = 16;
 				} else if (scope.imageSize == 'wide') {
-					maxId = 38;		
-					wide.pop();
-					console.log(wide.length);			
+					maxId = 38;				
 				} else if (scope.imageSize == 'square') {
 					maxId = 17;
 				}

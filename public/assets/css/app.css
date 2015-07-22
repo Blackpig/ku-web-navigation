@@ -384,6 +384,11 @@ z-index: 2;
 	padding: 20px;
 }
 
+.my-status p.small{
+	font-size:10pt;
+	line-height:1.4
+}
+
 .my-status a {
 	font-size: 18pt;
 }
@@ -391,6 +396,10 @@ z-index: 2;
 .my-status .avatar {
 	width: 135px;
 	height: 174px;
+}
+
+.my-status .details {
+	width: 235px;
 }
 
 .my-status a:hover {
@@ -419,6 +428,29 @@ z-index: 2;
 .my-status .ticker ul li {
 	padding-bottom: 3px;
 	border-bottom: 1px solid gray;
+}
+
+.my-status .icon-list {
+	margin-top:25px;
+	text-align:center;
+}
+
+.my-status .icon-list ul {
+	list-style: none;
+	margin:0;
+}
+
+.my-status .icon-list ul li{
+	display: inline;
+	margin-left: 6px;
+}
+
+.my-status .icon-list ul li:first-of-type{
+	margin-left: 0;
+}
+
+.my-status .icon-list ul li a .fa{
+	color: #0492d4;
 }
 
 /* Image Tiles */

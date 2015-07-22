@@ -58,12 +58,52 @@
 				<div class="tile my-status pack">
 
 					<div class="tile-body">
-						<div class="avatar left">
-							<a ng-href="/my-status"><img src="{{ctrl.user.avatar}}"></a>
+						<div class="clearfix">
+							<div class="avatar left">
+								<a ng-href="/my-status"><img src="../assets/images/avatar_m.png"></a>
+							</div>
+							<div class="details left">
+								<a ng-href="/my-status">My Status</a>
+								<p>Welcome back {{ctrl.user.first_name}}</p>
+								<p class="small">The My Status page gives you access to all the information and tools that will help make your life simpler whilst at Kingston University</p>
+							</div>
 						</div>
-						<div class="details left">
-							<a ng-href="/my-status">My Status</a>
-							<p>Welcome back {{ctrl.user.first_name}}</p>
+						<div class="icon-list">
+							<ul>
+								<li>
+									<a ng-href="/my-status/my-tickets"><i class="fa fa-lg fa-tags"></i></a>
+								</li>
+								<li>
+									<a href="#"><i class="fa fa-lg fa-print"></i></a>
+								</li>
+								<li>
+									<a href="#"><i class="fa fa-lg fa-laptop"></i></a>
+								</li>
+								<li>
+									<a href="#"><i class="fa fa-lg fa-unlock-alt"></i></a>
+								</li>
+								<li>
+									<a href="#"><i class="fa fa-lg fa-usd"></i></a>
+								</li>
+								<li>
+									<a href="#"><i class="fa fa-lg fa-cubes"></i></a>
+								</li>
+								<li>
+									<a href="#"><i class="fa fa-lg fa-sign-in"></i></a>
+								</li>
+								<li>
+									<a href="#"><i class="fa fa-lg fa-truck"></i></a>
+								</li>
+								<li>
+									<a href="#"><i class="fa fa-lg fa-book"></i></a>
+								</li>
+								<li>
+									<a href="#"><i class="fa fa-lg fa-calendar"></i></a>
+								</li>
+								<li>
+									<a href="#"><i class="fa fa-lg fa-envelope-open"></i></a>
+								</li>
+							</ul>
 						</div>
 					</div>
 				</div>
@@ -78,7 +118,7 @@
 			<div class="tile menu stamp pack" ng-if="!ctrl.isrootpage" packery>
 				<div class="tile-body row">
 					<div class="tile-content">
-						<a ng-href="/{{ ctrl.navbar.home.link }}"><i class="fa fa-home fa-4x"></i></a>
+						<a ng-href="/{{ ctrl.navbar.home.link }}"><i class="fa fa-lg fa-home fa-4x"></i></a>
 					</div>
 				</div>		
 			</div>
