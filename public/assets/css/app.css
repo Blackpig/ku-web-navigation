@@ -357,15 +357,21 @@ z-index: 2;
 	background: linear-gradient(20deg,  #000 0%,#706f6f 100%);
 	filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#000', endColorstr='#706f6f',GradientType=1 );
 }
+
+.tile.ms-menu .tile-body{
+	width:100%;
+	height: 100%;
+	display: table;
+	background: #0492D4;
 }
 
-.tile.menu .tile-content{
+.tile.menu .tile-content, .tile.ms-menu .tile-content{
 	display: table-cell;
     vertical-align: middle;
     cursor: pointer;
 }
 
-.tile.menu a {
+.tile.menu a, .tile.ms-menu a  {
 	display:block;
 	/*height: 132px;
 	width:132px;*/
