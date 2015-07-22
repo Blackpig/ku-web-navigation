@@ -594,9 +594,12 @@ z-index: 2;
 
 	.my-status .details{
 		margin-left: 14px;
+		width: inherit;
 	}
 
-	.my-status .ticker{
+
+
+	.my-status .ticker, .my-status .icon-list, .my-status .details p.small{
 		display:none;
 	}
 
