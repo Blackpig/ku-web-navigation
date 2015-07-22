@@ -422,7 +422,7 @@ app.factory('navbarSvc',[function(){
 					}
 				} else {
 					label = "My Status";
-					link = "root.my-status";
+					link = "my-status";
 				}
             	
             	this.navbar.home = {"label": label, "link":link};
