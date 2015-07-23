@@ -80,6 +80,12 @@ $app->get('routes/my-kingston', function() use ($app)
 */
 
 //$app->get('swh', 'App\Http\Controllers\SwhController@authenticate');
+$app->get('images', function() use ($app)
+{
+
+	return view("images");
+
+});
 
 /*
 |
