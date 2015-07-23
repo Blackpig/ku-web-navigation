@@ -386,14 +386,14 @@ z-index: 2;
 	background: #0492D4;
 }
 
-a.button.manage-my-account {
+a.button.manage-my-status {
 	font-size: 10pt;
 	background: #0492d4;
 	border: 1px solid #0492d4;
 	color: #fff;
 }
 
-a.button.manage-my-account:hover {
+a.button.manage-my-status:hover {
 	background: #fff;
 	color: #0492d4;
 }
