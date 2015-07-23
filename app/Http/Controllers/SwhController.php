@@ -14,11 +14,8 @@ class SwhController extends Controller
      */
     public function authenticate($api = true)
     {	
-        if (env('APP_ENV') == 'local') {
-            $username = "K1068743";
-        } else {
-            $username = str_replace("@KUDS.KINGSTON.AC.UK", "", strtoupper($_SERVER['PHP_AUTH_USER'])); 
-        }
+        
+        $username = "ku12307";
 
         
         if (!$username) {
@@ -71,6 +68,7 @@ class SwhController extends Controller
             
             $user = User::find($username);
         }
+        echo 'Use default avatar' . strpos($user->avatar, 'avatar_');
 
         if (strpos($user->avatar, 'avatar_') !== 0 ) {
             $user->avatar = $this->getUserImage($user->id, strtolower($user->gender));
@@ -108,7 +106,11 @@ class SwhController extends Controller
 
             $image = "https://kusdpw.kingston.ac.uk/data/{$type}/{$id}.jpg";
 
+            echo "<br/>Image path " . $image;
+
             $exists = @get_headers($image);
+
+            echo $exists[0];
 
             if (strtoupper($exists[0]) == "HTTP/1.1 200 OK") {
                 $hash = time();
