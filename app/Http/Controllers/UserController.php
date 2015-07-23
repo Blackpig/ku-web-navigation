@@ -104,7 +104,7 @@ class UserController extends Controller
 
             $type = (strtoupper(substr($id, 0, 2)) == "KU") ? 'staff' : 'students';
 
-            $id = str_replace(["K","KU"],["",""],$id);
+            $id = str_replace(["K","KU","k","ku"],["","","",""],$id);
 
             $image = "https://kusdpw.kingston.ac.uk/data/{$type}/{$id}.jpg";
 
