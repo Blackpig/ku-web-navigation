@@ -608,8 +608,10 @@ a.button.manage-my-status:hover {
 		margin-left: 14px;
 		width: inherit;
 	}
-
-
+	
+	.my-status .small{
+		display: none;
+	}
 
 	.my-status .ticker, .my-status .icon-list, .my-status .details p.small{
 		display:none;
