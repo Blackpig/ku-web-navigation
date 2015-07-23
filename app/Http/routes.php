@@ -73,6 +73,14 @@ $app->get('routes/my-kingston', function() use ($app)
 
 });
 
+/**********
+|
+| debugging
+|
+*/
+
+$app->get('swhr', 'App\Http\Controllers\SwhController@authenticate');
+
 /*
 |
 | Front-end routing - send all requests to front end for Angular to manage routing
