@@ -391,6 +391,7 @@ a.button.manage-my-status {
 	background: #0492d4;
 	border: 1px solid #0492d4;
 	color: #fff;
+	margin-bottom: 0;
 }
 
 a.button.manage-my-status:hover {
