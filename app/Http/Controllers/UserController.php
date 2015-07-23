@@ -73,7 +73,7 @@ class UserController extends Controller
         }
 
         if (strpos($user->avatar, 'avatar_') !== 0 ) {
-            $user->avatar = $this->getUserImage($user->id, $user->gender);
+            $user->avatar = $this->getUserImage($user->id, strtolower($user->gender));
             $user->save();
         }
 
