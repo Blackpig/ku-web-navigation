@@ -58,6 +58,7 @@ $app->post('icon-selector', 'App\Http\Controllers\IconController@update');
 |
 */
 
+
 $app->get('routes/staffspace', function() use ($app)
 {
 
