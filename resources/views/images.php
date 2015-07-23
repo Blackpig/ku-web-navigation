@@ -8,7 +8,8 @@
         <base href="/">
         <style>
             .left {float:left;}
-            img {margin:5px;}
+            .clear {clear:both;}
+            img {margin:15px;}
         </style>
     </head>
     <body>
@@ -19,52 +20,35 @@
 
                 $i = 1;
                 do {
-
-                    if ($i%5 == 0) {
-                        echo '</div><div><img src="../assets/images/img-wide-'.$i.'.jpg" class="left">';
-                    } else {
-
-                        echo '<img src="../assets/images/img-wide-'.$i.'.jpg" class="left">';
-                    }
-                $i++
+                    echo '<img src="../assets/images/img-wide-'.$i.'.jpg" class="left">';
+                    $i++;
                 } while ($i <= 38);
             ?>
             </div>
         </div>
-        <div>
+
+        <div class="clear">
             <h1>Portrait</h1>
             <div>
             <?php
 
                 $i = 1;
                 do {
-
-                    if ($i%5 == 0) {
-                        echo  '</div><div><img src="../assets/images/img-tall-'.$i.'.jpg" class="left">';
-                    } else {
-
-                        echo '<img src="../assets/images/img-tall-'.$i.'.jpg" class="left">';
-                    }
-                $i++
-                } while ($i <= 16);
+                    echo '<img src="../assets/images/img-tall-'.$i.'.jpg" class="left">';
+                    $i++;
+                } while ($i <= 15);
             ?>
             </div>
         </div>
-        <div>
+        <div class="clear">
             <h1>Square</h1>
             <div>
             <?php
 
                 $i = 1;
                 do {
-
-                    if ($i%5 == 0) {
-                        echo '</div><div><img src="../assets/images/img-square-'.$i.'.jpg" class="left">';
-                    } else {
-
-                        echo '<img src="../assets/images/img-square-'.$i.'.jpg" class="left">';
-                    }
-                $i++
+                    echo '<img src="../assets/images/img-square-'.$i.'.jpg" class="left">';
+                    $i++;
                 } while ($i <= 18);
             ?>
             </div>
