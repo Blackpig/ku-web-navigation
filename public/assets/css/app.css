@@ -615,7 +615,7 @@ a.button.manage-my-status:hover {
 	
 	.my-status .details a.button.manage-my-status{
 		font-size: 11pt;
-		padding: 16px 8px;
+		padding: 8px 16px;
 		postion: absolute;
 		top: 80px;
 		left: 75px;
