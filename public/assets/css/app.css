@@ -606,9 +606,17 @@ a.button.manage-my-status:hover {
 
 	.my-status .details{
 		margin-left: 14px;
-		width: inherit;
+		width: 180px;
+	}
+
+	.my-status .details .welcome{
+		font-size: 11pt;
 	}
 	
+	.my-status .details .manage-my-account{
+		font-size: 11pt;
+	}
+
 	.my-status .small{
 		display: none;
 	}
