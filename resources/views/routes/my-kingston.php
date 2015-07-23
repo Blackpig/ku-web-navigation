@@ -9,7 +9,7 @@
         <link rel="stylesheet" type="text/css" href="/assets/vendor/slick/slick.css"/>
         <link rel="stylesheet" type="text/css" href="/assets/css/routes.css"/>
         <script src="/assets/vendor/foundation/js/vendor/modernizr.js"></script>
-        <link href='http://fonts.googleapis.com/css?family=Roboto:400' rel='stylesheet' type='text/css'>
+        <link href='https://fonts.googleapis.com/css?family=Roboto:400' rel='stylesheet' type='text/css'>
         <base href="/">
         <style>
         </style>
@@ -94,7 +94,7 @@
 
         function openKUPlayer() {
             var url = 'https://kuplayer.kingston.ac.uk';
-            
+
             $("<a>").attr("href", url).attr("target", "_blank")[0].click();
         }
 
