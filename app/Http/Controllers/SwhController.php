@@ -15,7 +15,7 @@ class SwhController extends Controller
     public function authenticate($api = true)
     {	
         
-        $username = "ku12307";
+        $username = "K1068743";
 
         
         if (!$username) {
@@ -100,9 +100,11 @@ class SwhController extends Controller
 
         if ($id) {
 
-            $type = (strtoupper(substr($id, 0, 2)) == "KU") ? 'staff' : 'students';
+            $id = strtoupper($id);
 
-            $id = str_replace(["KU","K","ku","k"],["","","",""],$id);
+            $type = (substr($id, 0, 2) == "KU") ? 'staff' : 'students';
+
+            $id = str_replace(["KU","K"],["",""],$id);
 
             $image = "https://kusdpw.kingston.ac.uk/data/{$type}/{$id}.jpg";
 
