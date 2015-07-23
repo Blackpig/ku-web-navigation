@@ -58,10 +58,17 @@ $app->post('icon-selector', 'App\Http\Controllers\IconController@update');
 |
 */
 
-$app->get('routing/staffspace', function() use ($app)
+$app->get('routes/staffspace', function() use ($app)
 {
 
 	return view("routes.staffspace");
+
+});
+
+$app->get('routes/my-kingston', function() use ($app)
+{
+
+	return view("routes.my-kingston");
 
 });
 
