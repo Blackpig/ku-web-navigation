@@ -21,7 +21,7 @@
                 do {
 
                     if ($i%5 == 0) {
-                        echo echo '</div><div><img src="../assets/images/img-wide-'.$i.'.jpg" class="left">';
+                        echo '</div><div><img src="../assets/images/img-wide-'.$i.'.jpg" class="left">';
                     } else {
 
                         echo '<img src="../assets/images/img-wide-'.$i.'.jpg" class="left">';
@@ -40,7 +40,7 @@
                 do {
 
                     if ($i%5 == 0) {
-                        echo echo '</div><div><img src="../assets/images/img-tall-'.$i.'.jpg" class="left">';
+                        echo  '</div><div><img src="../assets/images/img-tall-'.$i.'.jpg" class="left">';
                     } else {
 
                         echo '<img src="../assets/images/img-tall-'.$i.'.jpg" class="left">';
@@ -59,7 +59,7 @@
                 do {
 
                     if ($i%5 == 0) {
-                        echo echo '</div><div><img src="../assets/images/img-square-'.$i.'.jpg" class="left">';
+                        echo '</div><div><img src="../assets/images/img-square-'.$i.'.jpg" class="left">';
                     } else {
 
                         echo '<img src="../assets/images/img-square-'.$i.'.jpg" class="left">';
