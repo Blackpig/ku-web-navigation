@@ -386,6 +386,18 @@ z-index: 2;
 	background: #0492D4;
 }
 
+a.button.manage-my-account {
+	font-size: 10pt;
+	background: #0492d4;
+	border: 1px solid #0492d4;
+	color: #fff;
+}
+
+a.button.manage-my-account:hover {
+	background: #fff;
+	color: #0492d4;
+}
+
 .my-status {
 	width: 396px;
 	height: 246px;
