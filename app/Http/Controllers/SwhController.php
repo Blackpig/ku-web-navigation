@@ -102,7 +102,7 @@ class SwhController extends Controller
 
             $type = (strtoupper(substr($id, 0, 2)) == "KU") ? 'staff' : 'students';
 
-            $id = str_replace(["K","KU","k","ku"],["","","",""],$id);
+            $id = str_replace(["KU","K","ku","k"],["","","",""],$id);
 
             $image = "https://kusdpw.kingston.ac.uk/data/{$type}/{$id}.jpg";
 
