@@ -215,7 +215,7 @@ app.controller('stateCtrl', ['$rootScope','$scope', '$stateParams', '$state', 'u
 	}
 
 	self.switch = function(i) {
-		$('body').css('background', 'url(../images/bg-page-' + i + '4.jpg');
+		$('body').css('background', 'url(../assets/images/bg-page-' + i + '.jpg');
 	}
 
 	self.build();
