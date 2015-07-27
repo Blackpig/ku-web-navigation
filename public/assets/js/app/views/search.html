@@ -13,7 +13,7 @@
                         <li class="has-form">
                           <div class="row collapse">
                             <div class="large-8 small-9 columns">
-                              <input type="text" name="term" placeholder="Search" id="search_term">
+                              <input type="text" name="term" placeholder="Search" id="search_term" ng-keyup="$event.keyCode == 13 && ctrl.search()">
                             </div>
                             <div class="large-4 small-3 columns">
       							<a href="" ng-click="ctrl.search()" class="success button expand srch">Go</a>
