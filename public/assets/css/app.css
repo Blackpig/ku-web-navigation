@@ -3,7 +3,7 @@ body {
 	background: #d9e2ea;
 	box-sizing: content-box;
 	font-family: sans-serif;
-	background: #000 url('../images/bg-page-1.jpg') no-repeat center center fixed;
+	background: #000 url('../images/bg-page-4.jpg') no-repeat center center fixed;
 	background-size: cover; 
 }
 
@@ -376,34 +376,34 @@ z-index: 2;
 
 /* My Status Tile */
 .ms-wall .tile.menu{
-	border-color: #0492D4;
+	border-color: #0a0159;
 }
 
 .ms-wall .tile.menu .tile-body{
 	width:100%;
 	height: 100%;
 	display: table;
-	background: #0492D4;
+	background: #0a0159;
 }
 
 a.button.manage-my-status {
 	font-size: 10pt;
-	background: #0492d4;
-	border: 1px solid #0492d4;
+	background: #0a0159;
+	border: 1px solid #0a0159;
 	color: #fff;
 	margin-bottom: 0;
 }
 
 a.button.manage-my-status:hover {
 	background: #fff;
-	color: #0492d4;
+	color: #0a0159;
 }
 
 .my-status {
 	width: 396px;
 	height: 246px;
 	background: #fff;
-	border: 2px solid #0492d4;
+	border: 2px solid #0a0159;
 	padding: 20px;
 }
 
@@ -426,12 +426,12 @@ a.button.manage-my-status:hover {
 }
 
 .my-status a:hover {
-	color: #0492d4;
+	color: #0a0159;
 }
 
 .my-status .avatar img {
 	border-radius: 15px;
-	border: 1px solid #0492d4 ;
+	border: 1px solid #0a0159 ;
 }
 
 .my-status .details{
@@ -473,7 +473,7 @@ a.button.manage-my-status:hover {
 }
 
 .my-status .icon-list ul li a .fa{
-	color: #0492d4;
+	color: #0a0159;
 }
 
 /* Image Tiles */
