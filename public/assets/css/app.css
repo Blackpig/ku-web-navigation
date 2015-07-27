@@ -511,14 +511,14 @@ a.button.manage-my-status:hover {
     width: 290px;
     height:140px;
     background-color: #fff;
-    border: 1px solid #0492d4;
+    border: 1px solid #0a0159;
     margin: 0 5px 10px;
 }
 
 .ms-tile .tile-body{
     width: 290px;
     height: 109px;
-    color: #0492d4;
+    color: #0a0159;
 }
 
 .ms-tile .tile-content p{
@@ -527,7 +527,7 @@ a.button.manage-my-status:hover {
 }
 
 .ms-tile .tile-content a{
-    color: #0492d4;
+    color: #0a0159;
     height: initial;
 }
 
@@ -564,7 +564,7 @@ a.button.manage-my-status:hover {
 }
 
 .ms-tile .tile-icons {
-	background: #0492d4;
+	background: #0a0159;
 	width: 288px;
 	margin: 0 auto;
 }
