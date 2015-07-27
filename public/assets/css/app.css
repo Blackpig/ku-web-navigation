@@ -414,6 +414,7 @@ a.button.manage-my-status:hover {
 
 .my-status a {
 	font-size: 18pt;
+	color: #0a0159;
 }
 
 .my-status .avatar {
