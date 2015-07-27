@@ -160,7 +160,7 @@ class Endpoint extends Model{
 
 		$endpoints = [];
  		
- 		foreach (\DB::select('EXEC sp_searchEndpoints ?, ?', [$term, $staff_only]) as $rs) 
+ 		foreach (\DB::select('EXEC sp_searchEndpoints ?, ?', [urldecode($term), $staff_only]) as $rs) 
         {
             $rs->color = ($rs->color) ? $rs->color : self::assignColour(mt_rand(0,6));
             $endpoints[] = $rs;
