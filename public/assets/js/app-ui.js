@@ -214,6 +214,10 @@ app.controller('stateCtrl', ['$rootScope','$scope', '$stateParams', '$state', 'u
 		$state.go('root.search', {'term': term});
 	}
 
+	self.switch = function(i) {
+		$('body').css('background', 'url(../images/bg-page-' + i + '4.jpg');
+	}
+
 	self.build();
 	
 }]);
