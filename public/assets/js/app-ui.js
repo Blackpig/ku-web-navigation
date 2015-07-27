@@ -301,6 +301,10 @@ app.controller('profileCtrl', ['$scope', '$state', 'user', 'navbarSvc',
 		self.toggleInfo = function(toggleInfo){
 			$scope.toggleInfo = (!$scope.toggleInfo) ? toggleInfo : null;
 		}
+
+		self.switch = function(i) {
+		$('body').css('background', 'url(../assets/images/bg-page-' + i + '.jpg');
+	}
 	
 }]);
 
