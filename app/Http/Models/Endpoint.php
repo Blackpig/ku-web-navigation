@@ -28,7 +28,7 @@ class Endpoint extends Model{
             $i++;
         }
 
-		return $endpoints;
+		return collect($endpoints);
 	}
 
 	public static function OrganisationEndpoints($guid)
