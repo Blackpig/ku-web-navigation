@@ -92,7 +92,7 @@ class SwhController extends Controller
          $type = strtoupper($type);
         var_dump($type);
         $staff_types = explode(",", strtoupper(env('STAFF_TYPES')));
-        var_dump($staff_type);
+        var_dump($staff_types);
 
         var_dump(in_array($type, $staff_types));
 
