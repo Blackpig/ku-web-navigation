@@ -19,7 +19,7 @@
                 </div>
             </div>
 			<ng-include src="'assets/js/app/views/partials/my-status/tiles/my-tickets.html'"></ng-include>
-            <ng-if="ctrl.user.employee_type='1'" ng-include src="'assets/js/app/views/partials/my-status/tiles/my-print-account.html'"></ng-include>
+            <span ng-if="ctrl.user.employee_type='1'"><ng-include src="'assets/js/app/views/partials/my-status/tiles/my-print-account.html'"></ng-include></span>
             <ng-include src="'assets/js/app/views/partials/my-status/tiles/my-mail.html'"></ng-include> 
             <ng-if="ctrl.user.employee_type='1'"ng-include src="'assets/js/app/views/partials/my-status/tiles/my-studyspace.html'"></ng-include>
             <ng-include src="'assets/js/app/views/partials/my-status/tiles/my-library.html'"></ng-include>
