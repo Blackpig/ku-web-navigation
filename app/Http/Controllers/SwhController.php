@@ -46,7 +46,6 @@ class SwhController extends Controller
 
             $ldap_user = $ldap->user()->infoCollection($username, array("*"));
 
-dd($ldap_user);
 
             if(!$ldap_user) {
 
@@ -66,7 +65,9 @@ dd($ldap_user);
             $user->department = $ldap_user->departmentnumber;
             $user->gender = strtolower($ldap_user->extensionAttribute1);
             $user->avatar = $this->getUserImage($user->id, $user->gender);
-            $user->save();
+            //$user->save();
+            //
+            dd('');
             
             $user = User::find($username);
         }
@@ -88,8 +89,12 @@ dd($ldap_user);
 
     private function getEmployeeType($type) {
 
-        $type = strtoupper($type);
+         $type = strtoupper($type);
+        var_dump($type);
         $staff_types = explode(",", strtoupper(env('STAFF_TYPES')));
+        var_dump($staff_type);
+
+        var_dump(in_array($type, $staff_types));
 
         return in_array($type, $staff_types) ? 0 : 1;
 
