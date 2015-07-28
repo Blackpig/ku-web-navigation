@@ -257,17 +257,17 @@ class EndpointController extends Controller
                 $mods = [3.5, 3.5, 6, 9];
             }
                 
-            if( ($i%$mods[0] == 0 || $i%$mods[1]==0) && $max_images < $image_count && $square->count() > 0) {
+            if (($i%$mods[0] == 0 || $i%$mods[1]==0) && $max_images < $image_count && $square->count() > 0) {
                 $return_endpoints->push($this->makeImageEndpoint('square',$square-pop()));
                 $image_count++;
             }
 
-            if( ($i%$mods[2] == 0 && $max_images < $image_count && $wide->count() > 0) {
+            if ($i%$mods[2] == 0 && $max_images < $image_count && $wide->count() > 0) {
                 $return_endpoints->push($this->makeImageEndpoint('wide',$wide-pop()));
                 $image_count++;
             }
 
-            if( ($i%$mods[3] == 0 && $max_images < $image_count && $tall->count() > 0) {
+            if ($i%$mods[3] == 0 && $max_images < $image_count && $tall->count() > 0) {
                 $return_endpoints->push($this->makeImageEndpoint('tall',$tall-pop()));
                 $image_count++;
             }
