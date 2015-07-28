@@ -274,10 +274,10 @@ class EndpointController extends Controller
 
         }
 
-        if ($square->count() > 0)
+        if ($square->count() > 0) {
             $return_endpoints->push($this->makeImageEndpoint('square',$square-pop()));
         } elseif ($wide->count() > 0) {
-                    $return_endpoints->push($this->makeImageEndpoint('wide',$wide-pop()));
+            $return_endpoints->push($this->makeImageEndpoint('wide',$wide-pop()));
         }
         
         return $return_endpoints;
