@@ -243,7 +243,6 @@ class EndpointController extends Controller
         }
 
         $max_images = floor($endpoint_count/$denominator) + (9 - $denominator);
-        echo $max_images;
 
         // Assign images
         for ($i=0; $i<$endpoint_count; $i++) {
@@ -285,6 +284,8 @@ class EndpointController extends Controller
     }
 
     private function makeImageEndpoint($size, $id) {
+
+        echo "$size -- $id  ";
 
         $image = new \stdClass;
         $image->type = "image";
