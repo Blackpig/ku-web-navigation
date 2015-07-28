@@ -303,7 +303,7 @@ app.controller('profileCtrl', ['$scope', '$state', 'user', 'navbarSvc',
 		}
 
 		self.switch = function(i) {
-		$('body').css('background', 'url(../assets/images/bg-page-' + i + '.jpg');
+		$('body').css('background', '#000 url(../assets/images/bg-page-' + i + '.jpg');
 	}
 	
 }]);
@@ -488,7 +488,7 @@ app.directive('imageTile',[
 				}
 
 				if (scope.imageSize == 'tall') {
-					maxId = 16;
+					maxId = 15;
 				} else if (scope.imageSize == 'wide') {
 					maxId = 38;				
 				} else if (scope.imageSize == 'square') {
