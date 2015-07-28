@@ -15,7 +15,7 @@ class SwhController extends Controller
     public function authenticate($api = true)
     {	
         
-        $username = "KU12307";
+        $username = "K1068743";
 
         
         if (!$username) {
@@ -65,9 +65,7 @@ class SwhController extends Controller
             $user->department = $ldap_user->departmentnumber;
             $user->gender = strtolower($ldap_user->extensionAttribute1);
             $user->avatar = $this->getUserImage($user->id, $user->gender);
-            //$user->save();
-            //
-            dd('');
+            $user->save();
             
             $user = User::find($username);
         }
@@ -89,12 +87,8 @@ class SwhController extends Controller
 
     private function getEmployeeType($type) {
 
-         $type = strtoupper($type);
-        var_dump($type);
+        $type = strtoupper($type);
         $staff_types = explode(",", strtoupper(env('STAFF_TYPES')));
-        var_dump($staff_types);
-
-        var_dump(in_array($type, $staff_types));
 
         return in_array($type, $staff_types) ? 0 : 1;
 
