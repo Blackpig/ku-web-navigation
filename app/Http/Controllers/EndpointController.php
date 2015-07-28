@@ -236,7 +236,7 @@ class EndpointController extends Controller
         // Assign the first image for home pages
         if ($is_index) {
             $denominator = 3;
-            $return_endpoints->push($this->makeImageEndpoint('tall',$tall-pop()));
+            $return_endpoints->push($this->makeImageEndpoint('tall',$tall->pop()));
         } elseif ($has_service_group) {
             $denominator = 4;
         } else {
