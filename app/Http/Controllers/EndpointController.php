@@ -220,7 +220,6 @@ class EndpointController extends Controller
         $square = collect(range(1,18));
         $tall   = collect(range(1,15));
         $wide   = collect(range(1,38));
-        $sizes  =  collect('square', 'tall', 'wide');
 
         // Shuffle them up
         $square = $square->shuffle();
@@ -244,6 +243,7 @@ class EndpointController extends Controller
         }
 
         $max_images = floor($endpoint_count/$denominator) + (9 - $denominator);
+        echo $max_images;
 
         // Assign images
         for ($i=0; $i<$endpoint_count; $i++) {
