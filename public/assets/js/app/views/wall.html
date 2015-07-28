@@ -73,7 +73,7 @@
 								<li>
 									<a ng-href="/my-status/my-tickets" title="My Tickets"><i class="fa fa-lg fa-tags"></i></a>
 								</li>
-								<li>
+								<li ng-if="ctrl.user.employee_type=='1'">
 									<a href="#" title="My Print Account"><i class="fa fa-lg fa-print"></i></a>
 								</li>
 								<li>
@@ -82,16 +82,19 @@
 								<li>
 									<a href="#" title="My Door Access"><i class="fa fa-lg fa-unlock-alt"></i></a>
 								</li>
-								<li>
-									<a href="#" title="My Fees"><i class="fa fa-lg fa-usd"></i></a>
+								<li ng-if="ctrl.user.employee_type=='1'">
+									<a href="#" title="My Studyspace"><i class="fa fa-lg fa-briefcase"></i></a>
 								</li>
-								<li>
-									<a href="#" title="My Room Bookings"><i class="fa fa-lg fa-cubes"></i></a>
+								<li ng-if="ctrl.user.employee_type=='1'">
+									<a href="#" title="My Modules"><i class="fa fa-lg fa-cubes"></i></a>
 								</li>
-								<li>
-									<a href="#" title="My Modules"><i class="fa fa-lg fa-sign-in"></i></a>
+								<li ng-if="ctrl.user.employee_type=='1'">
+									<a href="#" title="My Room Bookings"><i class="fa fa-lg fa-sign-in"></i></a>
 								</li>
-								<li>
+								<li ng-if="ctrl.user.employee_type=='0'">
+									<a href="#" title="Room Bookings"><i class="fa fa-lg fa-sign-in"></i></a>
+								</li>
+								<li ng-if="ctrl.user.employee_type=='1'">
 									<a href="#" title="My Equipment Loans"><i class="fa fa-lg fa-truck"></i></a>
 								</li>
 								<li>
@@ -102,6 +105,12 @@
 								</li>
 								<li>
 									<a href="#" title="My Mail"><i class="fa fa-lg fa-envelope-open"></i></a>
+								</li>
+								<li ng-if="ctrl.user.employee_type=='0'">
+									<a href="#" title="HR Yourself"><i class="fa fa-lg fa-user"></i></a>
+								</li>
+								<li ng-if="ctrl.user.employee_type=='0'">
+									<a href="#" title="KU OPS"><i class="fa fa-lg fa-shopping-cart"></i></a>
 								</li>
 							</ul>
 						</div>
