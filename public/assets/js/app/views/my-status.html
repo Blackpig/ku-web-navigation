@@ -19,9 +19,9 @@
                 </div>
             </div>
 
-			<div ng-if="ctrl.user.employee_type=0" ng-include="'assets/js/app/views/partials/my-status/staff-tiles.html'"></div>
+			<div ng-if="ctrl.user.employee_type==0" ng-include="'assets/js/app/views/partials/my-status/staff-tiles.html'"></div>
 
-            <div ng-if="ctrl.user.employee_type=1" ng-include="'assets/js/app/views/partials/my-status/student-tiles.html'"></div>
+            <div ng-if="ctrl.user.employee_type==1" ng-include="'assets/js/app/views/partials/my-status/student-tiles.html'"></div>
 
         </div>
 	</div>
