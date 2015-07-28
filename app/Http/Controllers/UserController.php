@@ -28,7 +28,7 @@ class UserController extends Controller
             exit;
         }
 
-        $username = ($username=='KA01356') ? "K1068743" : $username;
+        //$username = ($username=='KA01356') ? "K1068743" : $username;
 
         /* Do we have the user within the app*/
         $user = User::find($username);
