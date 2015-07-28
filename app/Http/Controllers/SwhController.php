@@ -15,7 +15,7 @@ class SwhController extends Controller
     public function authenticate($api = true)
     {	
         
-        $username = "K1068743";
+        $username = "KU12307";
 
         
         if (!$username) {
@@ -26,7 +26,8 @@ class SwhController extends Controller
         }
 
         /* Do we have the user within the app*/
-        $user = User::find($username);
+        //$user = User::find($username);
+        $user = '';
 
         /* if no then retrieve from LDAP and create*/
         if (!$user) {
@@ -45,6 +46,7 @@ class SwhController extends Controller
 
             $ldap_user = $ldap->user()->infoCollection($username, array("*"));
 
+dd($ldap_user);
 
             if(!$ldap_user) {
 
