@@ -73,6 +73,13 @@ $app->get('routes/my-kingston', function() use ($app)
 
 });
 
+$app->get('routes/my-kingston-1', function() use ($app)
+{
+
+	return view("routes.my-kingston-1");
+
+});
+
 /**********
 |
 | debugging

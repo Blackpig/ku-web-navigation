@@ -43,6 +43,8 @@ class EndpointController extends Controller
 	    	];
 	    });
 
+        $data['endpoints'] = $this->insertImages($data['endpoints'], true, $data['has_service_group']);
+
     	return $this->respondOK($data);
     }
 
@@ -79,6 +81,9 @@ class EndpointController extends Controller
 	    		"endpoints" => $endpoints
 	    	];
 	  //  });
+
+
+
 
     	return $this->respondOK($data);
     }
@@ -203,6 +208,90 @@ class EndpointController extends Controller
      	}
 
      	return false;
+
+    }
+
+    private function insertImages($endpoints, $is_index, $has_service_group)
+    {
+
+        $return_endpoints = collect([]);
+
+        // Create arrays to ho,d the max number of images at each size
+        $square = collect(range(1,18));
+        $tall   = collect(range(1,15));
+        $wide   = collect(range(1,38));
+        $sizes  =  collect('square', 'tall', 'wide');
+
+        // Shuffle them up
+        $square = $square->shuffle();
+        $tall   = $tall->shuffle();
+        $wide   = $wide->shuffle();
+
+        // Reverse our endpoints - we will then use pop() instead of shift() as this is more efficient
+        $endpoints = $endpoints->reverse();
+        $endpoint_count = $endpoints->count();
+        $image_count = 0;
+
+        // Determine the max no images to display per page
+        // Assign the first image for home pages
+        if ($is_index) {
+            $denominator = 3;
+            $return_endpoints->push($this->makeImageEndpoint('tall',$tall-pop()));
+        } elseif ($has_service_group) {
+            $denominator = 4;
+        } else {
+            $denominator = 5;
+        }
+
+        $max_images = floor($endpoint_count/$denominator) + (9 - $denominator);
+
+        // Assign images
+        for ($i=0; $i<=$endpoint_count; $i++) {
+            $return_endpoints->push($endpoints->pop());
+
+            if ($is_index) {
+                $mods = [3.5, 5, 6, 9];
+            } elseif ($has_service_group) {
+                $mods = [];                
+            } else {
+                $mods = []
+            }
+                
+            if( ($i%$mods[0] == 0 || $i%$mods[1]==0) && $max_images < $image_count && $square->count() > 0) {
+                $return_endpoints->push($this->makeImageEndpoint('square',$square-pop()));
+                $image_count++;
+            }
+
+            if( ($i%$mods[2] == 0 && $max_images < $image_count && $wide->count() > 0) {
+                $return_endpoints->push($this->makeImageEndpoint('wide',$wide-pop()));
+                $image_count++;
+            }
+
+            if( ($i%$mods[3] == 0 && $max_images < $image_count && $tall->count() > 0) {
+                $return_endpoints->push($this->makeImageEndpoint('tall',$tall-pop()));
+                $image_count++;
+            }
+
+        }
+
+        if ($square->count() > 0)
+            $return_endpoints->push($this->makeImageEndpoint('square',$square-pop()));
+        } elseif ($widee->count() > 0)
+            $return_endpoints->push($this->makeImageEndpoint('wide',$wide-pop()));
+        }
+        
+        return $return_endpoints;
+
+    }
+
+    private function makeImageEndpoint($size, $id) {
+
+        $image = new stdClass();
+        $image->type = "image";
+        $image->size = $size;
+        $image->id = $id;
+
+        return $image;
 
     }
 }
