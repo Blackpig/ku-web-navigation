@@ -258,26 +258,26 @@ class EndpointController extends Controller
             }
                 
             if (($i%$mods[0] == 0 || $i%$mods[1]==0) && $max_images < $image_count && $square->count() > 0) {
-                $return_endpoints->push($this->makeImageEndpoint('square',$square-pop()));
+                $return_endpoints->push($this->makeImageEndpoint('square',$square->pop()));
                 $image_count++;
             }
 
             if ($i%$mods[2] == 0 && $max_images < $image_count && $wide->count() > 0) {
-                $return_endpoints->push($this->makeImageEndpoint('wide',$wide-pop()));
+                $return_endpoints->push($this->makeImageEndpoint('wide',$wide->pop()));
                 $image_count++;
             }
 
             if ($i%$mods[3] == 0 && $max_images < $image_count && $tall->count() > 0) {
-                $return_endpoints->push($this->makeImageEndpoint('tall',$tall-pop()));
+                $return_endpoints->push($this->makeImageEndpoint('tall',$tall->pop()));
                 $image_count++;
             }
 
         }
 
         if ($square->count() > 0) {
-            $return_endpoints->push($this->makeImageEndpoint('square',$square-pop()));
+            $return_endpoints->push($this->makeImageEndpoint('square',$square->pop()));
         } elseif ($wide->count() > 0) {
-            $return_endpoints->push($this->makeImageEndpoint('wide',$wide-pop()));
+            $return_endpoints->push($this->makeImageEndpoint('wide',$wide->pop()));
         }
         
         return $return_endpoints;
