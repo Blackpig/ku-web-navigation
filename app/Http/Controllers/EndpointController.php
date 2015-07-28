@@ -246,7 +246,7 @@ class EndpointController extends Controller
         $max_images = floor($endpoint_count/$denominator) + (9 - $denominator);
 
         // Assign images
-        for ($i=0; $i<=$endpoint_count; $i++) {
+        for ($i=0; $i<$endpoint_count; $i++) {
             $return_endpoints->push($endpoints->pop());
 
             if ($is_index) {
