@@ -21,28 +21,24 @@
 
 			<div ng-include="'assets/js/app/views/partials/my-status/tiles/my-tickets.html'"></div>
 
-            <!-- <span ng-if="ctrl.user.employee_type='1'"> -->
-                <div ng-if="ctrl.user.employee_type='1'" ng-include="'assets/js/app/views/partials/my-status/tiles/my-print-account.html'"></div>
-           <!--  </span> -->
+            <div ng-if="ctrl.user.employee_type='1'" ng-include="'assets/js/app/views/partials/my-status/tiles/my-print-account.html'"></div>
 
-            <ng-include src="'assets/js/app/views/partials/my-status/tiles/my-mail.html'"></ng-include> 
+            <div ng-include="'assets/js/app/views/partials/my-status/tiles/my-mail.html'"></div> 
 
-            <span ng-if="ctrl.user.employee_type='1'">
-                <ng-if="ctrl.user.employee_type='1'" ng-include src="'assets/js/app/views/partials/my-status/tiles/my-studyspace.html'"></ng-include>
-            </span>
+            <div ng-if="ctrl.user.employee_type='1'" ng-include="'assets/js/app/views/partials/my-status/tiles/my-studyspace.html'"></div>
 
-            <ng-include src="'assets/js/app/views/partials/my-status/tiles/my-library.html'"></ng-include>
+            <div ng-include="'assets/js/app/views/partials/my-status/tiles/my-library.html'"></div>
 
-            <span ng-if="ctrl.user.employee_type='1'"><ng-if="ctrl.user.employee_type='1'" ng-include src="'assets/js/app/views/partials/my-status/tiles/my-room-bookings.html'"></ng-include>
+            <div ng-if="ctrl.user.employee_type='1'" ng-include="'assets/js/app/views/partials/my-status/tiles/my-room-bookings.html'"></div>
 
-            <ng-include src="'assets/js/app/views/partials/my-status/tiles/my-timetable.html'"></ng-include>
+            <div ng-include="'assets/js/app/views/partials/my-status/tiles/my-timetable.html'"></div>
 
-            <span ng-if="ctrl.user.employee_type='1'"><ng-if="ctrl.user.employee_type='1'" ng-include src="'assets/js/app/views/partials/my-status/tiles/my-equipment-loans.html'"></ng-include>
+            <div ng-if="ctrl.user.employee_type='1'" ng-include="'assets/js/app/views/partials/my-status/tiles/my-equipment-loans.html'"></div>
 
-            <span ng-if="ctrl.user.employee_type='1'"><ng-if="ctrl.user.employee_type='1'" ng-include src="'assets/js/app/views/partials/my-status/tiles/my-modules.html'"></ng-include>
+            <div ng-if="ctrl.user.employee_type='1'" ng-include="'assets/js/app/views/partials/my-status/tiles/my-modules.html'"></div>
 
-            <ng-include src="'assets/js/app/views/partials/my-status/tiles/my-door-access.html'"></ng-include>
+            <div ng-include="'assets/js/app/views/partials/my-status/tiles/my-door-access.html'"></div>
 
-            <ng-include src="'assets/js/app/views/partials/my-status/tiles/my-it-account.html'"></ng-include>
+            <div ng-include="'assets/js/app/views/partials/my-status/tiles/my-it-account.html'"></div>
         </div>
 	</div>
