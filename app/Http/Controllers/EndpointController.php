@@ -250,11 +250,11 @@ class EndpointController extends Controller
             $return_endpoints->push($endpoints->pop());
 
             if ($is_index) {
-                $mods = [3.5, 5, 6, 9];
+                $mods = ["3.5", "5", "6", "9"];
             } elseif ($has_service_group) {
-                $mods = [3.5, 3.5, 6, 9];                
+                $mods = ["3.5", "3.5", "6", "9"];                
             } else {
-                $mods = [3.5, 3.5, 6, 9];
+                $mods = ["3.5", "3.5", "6", "9"];
             }
                 
             if (($i%$mods[0] == 0 || $i%$mods[1]==0) && $max_images < $image_count && $square->count() > 0) {
