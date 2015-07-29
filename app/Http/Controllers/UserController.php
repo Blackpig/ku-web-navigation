@@ -1,7 +1,7 @@
 <?php namespace App\Http\Controllers;
 
 use App\Http\Controllers\Controller;
-use \App\Http\Models\User;
+use App\Http\Models\User;
 
 class UserController extends Controller
 {

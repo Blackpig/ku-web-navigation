@@ -2,7 +2,7 @@
 
 use App\Http\Controllers\Controller;
 use Cache;
-use \App\Http\Models\Endpoint;
+use App\Http\Models\Endpoint;
 
 class EndpointController extends Controller
 {
