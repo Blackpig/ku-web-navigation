@@ -14,7 +14,7 @@ class Endpoint extends Model{
 	protected $table = null;
 	protected $connection = 'landesk';
 
-	public static function Organisations()
+	public function scopeOrganisations()
 	{
 		$db = self::Connection();
 
