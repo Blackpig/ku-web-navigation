@@ -218,7 +218,7 @@ class EndpointController extends Controller
 
         // Create arrays to ho,d the max number of images at each size
         $square = collect(range(1,18));
-        $tall   = collect(range(1,15));
+        $tall   = collect(range(1,14));
         $wide   = collect(range(1,38));
 
         // Shuffle them up
