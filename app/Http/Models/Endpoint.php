@@ -136,7 +136,7 @@ class Endpoint extends Model{
 
 	}
 
-	public function scopeOrganisation($guid)
+	public function scopeOrganisation($query,$guid)
 	{
 		$db = self::Connection();
 		$rs = \DB::select('EXEC sp_getOrganisationByGUID ?', [$guid]);
