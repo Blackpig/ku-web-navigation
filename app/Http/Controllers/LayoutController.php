@@ -1,9 +1,9 @@
 <?php namespace App\Http\Controllers;
 
 use App\Http\Controllers\Controller;
-use \App\Http\Controllers\UserController as User;
-use \App\Http\Models\Endpoint;
-use \App\Http\Models\Layout;
+use App\Http\Controllers\UserController as User;
+use App\Http\Models\Endpoint;
+use App\Http\Models\Layout;
 use Illuminate\Http\Request;
 use Cache;
 
