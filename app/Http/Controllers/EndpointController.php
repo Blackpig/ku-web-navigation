@@ -285,8 +285,6 @@ class EndpointController extends Controller
 
     private function makeImageEndpoint($size, $id) {
 
-        echo "$size -- $id  ";
-
         $image = new \stdClass;
         $image->type = "image";
         $image->size = $size;
