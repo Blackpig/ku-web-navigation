@@ -245,7 +245,9 @@ class EndpointController extends Controller
             $denominator = 5;
         }
 
-        $max_images = floor($endpoint_count/$denominator) + (9 - $denominator);
+        $constant = ($endpoint_count <= 10) ? 0 : 9 - $denominator;
+
+        $max_images = floor($endpoint_count/$denominator) + $constant;
 
         // Assign images
         for ($i=0; $i<$endpoint_count; $i++) {
