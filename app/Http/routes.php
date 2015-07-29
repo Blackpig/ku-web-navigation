@@ -86,7 +86,7 @@ $app->get('routes/my-kingston-1', function() use ($app)
 |
 */
 
-//$app->get('swh', 'App\Http\Controllers\SwhController@authenticate');
+$app->get('swh', 'App\Http\Controllers\SwhController@images');
 
 $app->get('images', function() use ($app)
 {
