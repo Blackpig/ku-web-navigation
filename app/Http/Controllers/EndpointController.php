@@ -82,8 +82,7 @@ class EndpointController extends Controller
 	    	];
 	  //  });
 
-
-
+        $data['endpoints'] = $this->insertImages($data['endpoints'], false, $data['has_service_group']);
 
     	return $this->respondOK($data);
     }
@@ -110,6 +109,8 @@ class EndpointController extends Controller
 	    		"endpoints" => Endpoint::Channels()
 		    ];
 	    });
+
+         $data['endpoints'] = $this->insertImages($data['endpoints'], true, $data['has_service_group']);
 
 	    return $this->respondOK($data);
 	}
@@ -147,6 +148,8 @@ class EndpointController extends Controller
 	    		"endpoints" => $endpoints
 	    	];
 	  //  });
+
+        $data['endpoints'] = $this->insertImages($data['endpoints'], false, $data['has_service_group']);
 
     	return $this->respondOK($data);
     }
