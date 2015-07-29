@@ -31,7 +31,7 @@ class Endpoint extends Model{
 		return collect($endpoints);
 	}
 
-	public function scopeOrganisationEndpoints($guid)
+	public function scopeOrganisationEndpoints($query, $guid)
 	{
 		$db = self::Connection();
 
@@ -49,7 +49,7 @@ class Endpoint extends Model{
 		return collect($endpoints);
 	}
 
-	public function scopeOrganisationServiceGroupEndpoints($guid, $organisation_guid)
+	public function scopeOrganisationServiceGroupEndpoints($query, $guid, $organisation_guid)
 	{
 		$db = self::Connection();
 
@@ -83,7 +83,7 @@ class Endpoint extends Model{
 		return collect($endpoints);
 	}
 
-	public function scopeChannelEndpoints($guid)
+	public function scopeChannelEndpoints($query, $guid)
 	{
 		$db = self::Connection();
 
@@ -106,7 +106,7 @@ class Endpoint extends Model{
 		return collect($endpoints);
 	}
 
-	public function scopeChannelServiceGroupEndpoints($guid)
+	public function scopeChannelServiceGroupEndpoints($query, $guid)
 	{
 		$db = self::Connection();
 
@@ -123,7 +123,7 @@ class Endpoint extends Model{
 		return collect($endpoints);
 	}
 
-	public static function Type($guid)
+	public function scopeType($query, $guid)
 	{
 		$db = self::Connection();
 		$rs = \DB::select('EXEC sp_getObjectTypeByGUID ?', [$guid]);
@@ -145,7 +145,7 @@ class Endpoint extends Model{
 
 	}
 
-	public function scopeServiceGroup($guid)
+	public function scopeServiceGroup($query, $guid)
 	{ 
 		$db = self::Connection();
 		$rs = \DB::select('EXEC sp_getServiceGroupByGUID ?', [$guid]);
@@ -154,7 +154,7 @@ class Endpoint extends Model{
 
 	}
 
-	public function scopeSearch($term, $staff_only)
+	public function scopeSearch($query, $term, $staff_only)
 	{
 		$db = self::Connection();
 
