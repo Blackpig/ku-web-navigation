@@ -80,6 +80,27 @@ $app->get('routes/my-kingston-1', function() use ($app)
 
 });
 
+$app->get('routes/my-kingston-2', function() use ($app)
+{
+
+	return view("routes.my-kingston-2");
+
+});
+
+$app->get('routes/my-kingston-3', function() use ($app)
+{
+
+	return view("routes.my-kingston-3");
+
+});
+
+$app->get('routes/my-kingston-4', function() use ($app)
+{
+
+	return view("routes.my-kingston-4");
+
+});
+
 /**********
 |
 | debugging

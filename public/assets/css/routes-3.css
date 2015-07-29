@@ -1,0 +1,146 @@
+
+body { 
+	background: #000;
+	font-family: 'Roboto', sans-serif;
+}
+
+
+.my-kingston {
+	width: 370px;
+	height: 620px;
+	background: #fff;
+	overflow: hidden;
+
+	/* temporary for demo */
+	  position: fixed;
+	  top: 50%;
+	  left: 50%;
+	  transform: translate(-50%, -50%);
+	/* temporary for demo */  	
+}
+
+.slide {
+	width: 370px;
+	height: 620px;
+	cursor: pointer;
+}
+
+.question {
+	font-size: 18pt;
+	line-height: 24pt;
+	background: rgba(255, 255, 255, 0.85);
+	color: #0492D4;
+	margin: 0;
+}
+
+#im-1 .question {color: #8f0011;}
+#im-2 .question {color: #c54900;}
+#im-3 .question {color: #d99f00;}
+#im-4 .question {color: #4b8400;}
+#im-5 .question {color: #007676;}
+#im-6 .question {color: #9d005c;}
+#im-7 .question {color: #7301df;}
+
+
+.question span{
+	color: #000;
+}
+
+.button {
+
+}
+
+.answer {
+	display: block;
+	position: relative;
+	top: 380px;
+	left: 120px;
+	width: 250px;
+	height:70px;
+	background: #fff;
+}
+
+.answer img{
+	width: 70px;
+	width:70px;
+	float: left;
+}
+
+.answer p{
+	float: left;
+	margin:10px 0 0 20px;
+	font-size: 18pt;
+	line-height: 20pt;
+}
+
+.answer p .take-me{
+	font-size: 12pt;
+	font-style: italic;
+}
+
+.answer p .take-me i {
+	margin-left: 8px;
+}
+
+.answer a{
+	color: #0492D4;
+}
+
+#im-1 .question {
+	text-align: right;
+	padding-right: 25px;
+	margin-right: 30px;
+}
+
+#im-2 .question {
+	text-align: right;
+	padding-right: 25px;
+	padding-left: 90px;
+	margin-right: 30px;
+}
+
+#im-3 .question, #im-6 .question {
+	text-align: right;
+	padding-right: 25px;
+	margin-right: 30px;
+}
+
+#im-4 .question, #im-7 .question {
+	text-align: right;
+	padding-right: 25px;
+	margin-right: 74px;
+}
+
+
+.my-kingston #im-1 {
+	background: transparent url('/assets/images/routes/mk-slide-1.jpg') no-repeat;
+	padding-top:35px;
+}
+
+.my-kingston #im-2 {
+	background: transparent url('/assets/images/routes/mk-slide-2.jpg') no-repeat;
+	padding-top:35px;
+}
+
+.my-kingston #im-3 {
+	background: transparent url('/assets/images/routes/mk-slide-3.jpg') no-repeat;
+	padding-top:65px;
+}
+
+.my-kingston #im-4 {
+	background: transparent url('/assets/images/routes/mk-slide-4.jpg') no-repeat;
+	padding-top:55px;
+}
+
+.my-kingston #im-5 {
+	background: transparent url('/assets/images/routes/mk-slide-5.jpg') no-repeat;
+	padding-top:35px;
+}
+
+.my-kingston #im-6 {
+	background: transparent url('/assets/images/routes/mk-slide-2.jpg') no-repeat;
+}
+
+.my-kingston #im-7 {
+	background: transparent url('/assets/images/routes/mk-slide-3.jpg') no-repeat;
+}
