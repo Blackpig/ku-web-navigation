@@ -46,7 +46,7 @@ class Endpoint extends Model{
 
         $endpoints = self::arrangeToLayout($guid, $endpoints);
 
-		return $endpoints;
+		return collect($endpoints);
 	}
 
 	public static function OrganisationServiceGroupEndpoints($guid, $organisation_guid)
@@ -63,7 +63,7 @@ class Endpoint extends Model{
 
 		$endpoints = self::arrangeToLayout($guid, $endpoints);
 
-		return $endpoints;
+		return collect($endpoints);
 	}
 
 	public static function Channels()
@@ -80,7 +80,7 @@ class Endpoint extends Model{
             $i++;
         }
 
-		return $endpoints;
+		return collect($endpoints);
 	}
 
 	public static function ChannelEndpoints($guid)
@@ -103,7 +103,7 @@ class Endpoint extends Model{
 
         $endpoints = self::arrangeToLayout($guid, $endpoints);
 
-		return $endpoints;
+		return collect($endpoints);
 	}
 
 	public static function ChannelServiceGroupEndpoints($guid)
@@ -120,7 +120,7 @@ class Endpoint extends Model{
 
         $endpoints = self::arrangeToLayout($guid, $endpoints);
 
-		return $endpoints;
+		return collect($endpoints);
 	}
 
 	public static function Type($guid)
@@ -166,7 +166,7 @@ class Endpoint extends Model{
             $endpoints[] = $rs;
         }
 
-		return $endpoints;
+		return collect($endpoints);
 
 	}
 
