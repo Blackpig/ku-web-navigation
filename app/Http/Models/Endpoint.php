@@ -66,7 +66,7 @@ class Endpoint extends Model{
 		return collect($endpoints);
 	}
 
-	public static function Channels()
+	public function Channels()
 	{
 		$db = self::Connection();
 
