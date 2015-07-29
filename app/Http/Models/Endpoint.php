@@ -123,7 +123,7 @@ class Endpoint extends Model{
 		return collect($endpoints);
 	}
 
-	public function scopeType($guid)
+	public static function Type($guid)
 	{
 		$db = self::Connection();
 		$rs = \DB::select('EXEC sp_getObjectTypeByGUID ?', [$guid]);
