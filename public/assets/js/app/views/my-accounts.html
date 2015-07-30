@@ -1,6 +1,6 @@
 	
   	<header class="fixed">
-		<ng-include src="'assets/js/app/views/partials/my-status/top-bar.html'"></ng-include>
+		<ng-include src="'assets/js/app/views/partials/my-accounts/top-bar.html'"></ng-include>
 	</header>
 
 	<div class="container">
@@ -9,19 +9,19 @@
                 <div class="profile">
                     <div class="tile-body">
                         <div class="avatar left">
-                            <a ng-href="/my-status"><img src="{{ctrl.user.avatar}}"></a>
+                            <a ng-href="/my-accounts"><img src="{{ctrl.user.avatar}}"></a>
                         </div>
                         <div class="details left">
-                            <a ng-href="/my-status">My Status</a>
+                            <a ng-href="/my-accounts">My Accounts</a>
                             <p>Welcome back {{ctrl.user.first_name}}</p>
                         </div>
                     </div>
                 </div>
             </div>
 
-			<div ng-if="ctrl.user.employee_type==0" ng-include="'assets/js/app/views/partials/my-status/staff-tiles.html'"></div>
+			<div ng-if="ctrl.user.employee_type==0" ng-include="'assets/js/app/views/partials/my-accounts/staff-tiles.html'"></div>
 
-            <div ng-if="ctrl.user.employee_type==1" ng-include="'assets/js/app/views/partials/my-status/student-tiles.html'"></div>
+            <div ng-if="ctrl.user.employee_type==1" ng-include="'assets/js/app/views/partials/my-accounts/student-tiles.html'"></div>
 
         </div>
 	</div>
