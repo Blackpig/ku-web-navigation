@@ -301,7 +301,6 @@ app.controller('profileCtrl', ['$scope', '$state', 'user', 'navbarSvc',
 		self.toggleInfo = function(toggleInfo){
 			$scope.toggleInfo = (!$scope.toggleInfo) ? toggleInfo : null;
 		}
-	}
 	
 }]);
 
