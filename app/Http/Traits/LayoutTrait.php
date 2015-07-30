@@ -37,9 +37,13 @@ trait LayoutTrait
 		$layout = json_decode($layout->layout, true);
 
 		foreach($layout as $key) {
-			$ordered[] = $keyed_arrange[$key];
-			//remove the entry from the array
-			unset($keyed_arrange[$key]);
+			// Check that the tile/endpoint referenced by the layout 
+			// still exists in the containing group
+			if (array_key_exists($key, $keyed_arrange)) {
+					$ordered[] = $keyed_arrange[$key];
+				//remove the entry from the array
+				unset($keyed_arrange[$key]);
+			}
 		}
 
 		// If there are any entries left - new endpoints have been added since 
