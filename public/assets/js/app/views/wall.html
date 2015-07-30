@@ -23,7 +23,7 @@
                         </li>
                         <li>
                         	<div style="height:100%">
-                        		<a ng-href="/my-status" style="height:100%"><i class="fa fa-user fa-lg"></i>
+                        		<a ng-href="/my-accounts" style="height:100%"><i class="fa fa-user fa-lg"></i>
                         		</a>
                         	</div>
                         </li>
@@ -60,18 +60,18 @@
 					<div class="tile-body">
 						<div class="clearfix">
 							<div class="avatar left">
-								<a ng-href="/my-status"><img src="{{ctrl.user.avatar}}"></a>
+								<a ng-href="/my-accounts"><img src="{{ctrl.user.avatar}}"></a>
 							</div>
 							<div class="details left">
-								<a ng-href="/my-status" class="welcome">Welcome back {{ctrl.user.first_name}}</a>
+								<a ng-href="/my-accounts" class="welcome">Welcome back {{ctrl.user.first_name}}</a>
 								<p class="small">Click the button below to manage your accounts. Alternatively jump straight to the relevant account via its icon below.</p>
-								<a ng-href="/my-status" class="button manage-my-status">Manage My Account</a>
+								<a ng-href="/my-accounts" class="button manage-my-status">Manage My Account</a>
 							</div>
 						</div>
 						<div class="icon-list">
 							<ul>
 								<li>
-									<a ng-href="/my-status/my-tickets" title="My Tickets"><i class="fa fa-lg fa-tags"></i></a>
+									<a ng-href="/my-accounts/my-tickets" title="My Tickets"><i class="fa fa-lg fa-tags"></i></a>
 								</li>
 								<li ng-if="ctrl.user.employee_type=='1'">
 									<a href="https://kupcutapp01.kingston.ac.uk:9192" target="_blank" title="My Print Account"><i class="fa fa-lg fa-print"></i></a>
