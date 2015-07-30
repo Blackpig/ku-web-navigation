@@ -12,7 +12,7 @@ var app = angular.module('kuwnApp', ['ui.router', 'mm.foundation'])
 			/*Enable HTML5 mode */
 			$locationProvider.html5Mode(true);
 
-			$urlRouterProvider.otherwise('/');
+			//$urlRouterProvider.otherwise('/');
 
 			$stateProvider
 
@@ -97,8 +97,8 @@ var app = angular.module('kuwnApp', ['ui.router', 'mm.foundation'])
 						
 					})
 
-					.state('root.my-status', {
-						url: 'my-status',
+					.state('root.my-accounts', {
+						url: 'my-accounts',
 
 					    params: {
 					     	tileid: { value:null, squash:true }
@@ -106,7 +106,7 @@ var app = angular.module('kuwnApp', ['ui.router', 'mm.foundation'])
 
 						views: {
 							'content@': {
-								templateUrl: '/assets/js/app/views/my-status.html',
+								templateUrl: '/assets/js/app/views/my-accounts.html',
 								controller: 'profileCtrl as ctrl'
 							}
 						}
@@ -114,7 +114,7 @@ var app = angular.module('kuwnApp', ['ui.router', 'mm.foundation'])
 					})
 
 					.state('root.my-tickets', {
-						url: 'my-status/my-tickets',
+						url: 'my-accounts/my-tickets',
 
 					    params: {
 					     	tileid: { value:null, squash:true }
@@ -122,7 +122,7 @@ var app = angular.module('kuwnApp', ['ui.router', 'mm.foundation'])
 
 						views: {
 							'content@': {
-								templateUrl: '/assets/js/app/views/partials/my-status/my-tickets.html',
+								templateUrl: '/assets/js/app/views/partials/my-accounts/my-tickets.html',
 								controller: 'profileCtrl as ctrl'
 							}
 						}
@@ -280,7 +280,7 @@ app.controller('searchCtrl', ['$rootScope','$scope', '$stateParams', '$state', '
 	
 }]);
 
-/* Profile controller - used for MyStatus pages and states */
+/* Profile controller - used for My Accounts pages and states */
 app.controller('profileCtrl', ['$scope', '$state', 'user', 'navbarSvc',
 	function ($scope, $state, user, navbarSvc) {
 
@@ -289,7 +289,7 @@ app.controller('profileCtrl', ['$scope', '$state', 'user', 'navbarSvc',
 		var parents = [];
 		var current = []
 
-		if ($state.current.name !== 'root.my-status') {
+		if ($state.current.name !== 'root.my-accounts') {
 			parents['guid'] = null;
 			parents['link'] = null;
 		}
@@ -429,8 +429,8 @@ app.factory('navbarSvc',[function(){
 						link = "1";
 					}
 				} else {
-					label = "My Status";
-					link = "my-status";
+					label = "My Accounts";
+					link = "my-accounts";
 				}
             	
             	this.navbar.home = {"label": label, "link":link};
@@ -461,48 +461,6 @@ app.factory('navbarSvc',[function(){
 
 
 /*** DIRECTIVES ***/
-
-/* Tile Image - create a tile image */
-app.directive('imageTile',[
-	function(){
-		return {
-			restrict: 'AE',
-			template: '<div class="tile image {{imageSize}} pack"><img src="../assets/images/img-{{imageSize}}-{{id}}.jpg" /></div>',
-			replace: true,
-			scope: {},
-			link: function(scope, element, attrs) {
-				
-				scope.element = element;
-				
-				var sizes = ['tall', 'wide', 'square'];
-				var maxId = 16;
-
-				var wide = [];
-				wide.length = 36; 
-				
-				if (attrs.size == undefined || attrs.size=='') {
-					var idx = Math.floor(Math.random()*3);
-					scope.imageSize = sizes[idx];
-				} else {
-					scope.imageSize = attrs.size;
-				}
-
-				if (scope.imageSize == 'tall') {
-					maxId = 15;
-				} else if (scope.imageSize == 'wide') {
-					maxId = 38;				
-				} else if (scope.imageSize == 'square') {
-					maxId = 17;
-				}
-
-				if (attrs.id == undefined || attrs.id == '' || attrs.id > maxId || attrs.id == 0) {
-					scope.id = Math.floor((Math.random()*maxId)+1);
-				} else {
-					scope.id = attrs.id;
-				}
-			}
-		}
-}])
 
 /* Packery - adds the Packery library to the page */
 app.directive('packery', ['$rootScope', '$timeout',
