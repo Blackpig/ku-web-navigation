@@ -59,7 +59,7 @@ $app->post('icon-selector', 'App\Http\Controllers\IconController@update');
 */
 
 
-$app->get('routes/staffspace', function() use ($app)
+/*$app->get('routes/staffspace', function() use ($app)
 {
 
 	return view("routes.staffspace");
@@ -99,7 +99,7 @@ $app->get('routes/my-kingston-4', function() use ($app)
 
 	return view("routes.my-kingston-4");
 
-});
+});*/
 
 /**********
 |
@@ -107,7 +107,7 @@ $app->get('routes/my-kingston-4', function() use ($app)
 |
 */
 
-$app->get('swh', 'App\Http\Controllers\SwhController@images');
+$app->get('swh', 'App\Http\Controllers\SwhController@authenticate');
 
 $app->get('images', function() use ($app)
 {

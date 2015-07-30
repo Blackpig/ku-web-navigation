@@ -53,7 +53,7 @@ class SwhController extends Controller
                 return $this->respondError(401);
                 exit;
             }
-
+            dd($ldap_user);
             $user = new User;
             $user->id = $username;
             $user->first_name = $ldap_user->givenname;
