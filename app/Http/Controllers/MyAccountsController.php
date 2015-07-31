@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\Controller;
 use App\Http\Models\Ticket;
+use App\Http\Models\User
 
 class MyAccountsController extends Controller
 {
@@ -21,6 +22,10 @@ class MyAccountsController extends Controller
      */
     public function myTickets()
     {
+
+        // TEMP FOR TESTING !!!!!
+        $user = User::find('ka01356');
+        \Auth::login($user);
 
         if (\Auth::check()) {
             $user_id = \Auth::user()->id;
