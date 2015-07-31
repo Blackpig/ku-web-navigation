@@ -17,7 +17,13 @@ class UserController extends Controller
         if (env('APP_ENV') == 'local') {
             $username = "K1068743";
         } else {
-            $username = str_replace("@KUDS.KINGSTON.AC.UK", "", strtoupper($_SERVER['PHP_AUTH_USER'])); 
+            if (array_key_exists('PHP_AUTH_USER', $_SERVER)) {
+                $username = str_replace("@KUDS.KINGSTON.AC.UK", "", strtoupper($_SERVER['PHP_AUTH_USER'])); 
+            } else {
+                 \Log::error('API Error 401 - Authentication',["context"=>"User not authenticated or session expired. Pleasereload the page"]);
+                return $this->respondError(401);
+                exit;
+            }
         }
 
         
