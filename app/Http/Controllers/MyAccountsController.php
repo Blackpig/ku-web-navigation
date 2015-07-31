@@ -40,7 +40,7 @@ class MyAccountsController extends Controller
                     "label" => "My Tickets"
                 ],
 	  			"parents" => $this->roots[0],
-	    		"tickets" => Tickets::Summary($user_id, 30)
+	    		"tickets" => Ticket::Summary($user_id, 30)
 	    	];
 
     	return $this->respondOK($data);
