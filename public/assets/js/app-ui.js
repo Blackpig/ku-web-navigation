@@ -12,7 +12,7 @@ var app = angular.module('kuwnApp', ['ui.router', 'mm.foundation'])
 			/*Enable HTML5 mode */
 			$locationProvider.html5Mode(true);
 
-			//$urlRouterProvider.otherwise('/');
+			$urlRouterProvider.otherwise('/');
 
 			$stateProvider
 
