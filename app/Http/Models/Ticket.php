@@ -17,8 +17,8 @@ class Ticket extends Model{
 	{
 	
 		$service_desk = $this->getServiceDesk($id, $count);
-		$esd = $this->getESD($id, $count);
-		$quemis = $this->getQuemis($id, $count);
+		/*$esd = $this->getESD($id, $count);
+		$quemis = $this->getQuemis($id, $count);*/
 
 		$tickets = $service_desk;
 
@@ -29,10 +29,9 @@ class Ticket extends Model{
 	{
 		DB::connection('landesk');
 
-		$rs = \DB::select('EXEC sp_getTicketsByID ?, ?', [$id, $count]);
+		$rs = DB::select('EXEC sp_getTicketsByID ?, ?', [$id, $count]);
 
-		return $rs[0];
-		return true;		
+		return $rs[0];	
 	}
 
 	private function getESD($id, $count=false)
