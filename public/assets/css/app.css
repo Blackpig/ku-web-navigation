@@ -100,14 +100,16 @@ p {
     left: 0;
     text-align: center;
 
-    /* fix for chrome < 22 */
-    -webkit-transform: rotateY(0deg);
+
 }
 
 .tile-front {
 	z-index: 2;
     /* for firefox 31 */
-    transform: rotateY(0deg);
+    transform: rotateY(0deg); 
+
+    /* fix for chrome < 22 */
+    -webkit-transform: rotateY(0deg);
 }
 
 /* back, initially hidden pane */
