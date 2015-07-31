@@ -28,12 +28,9 @@ class Ticket extends Model{
 	private function getServiceDesk($id, $count=false)
 	{
 
-		echo "id->$id, count->$count";
-
 		DB::connection('landesk');
 
 		$rs = DB::select('EXEC sp_getTicketsByID ?, ?', [$id, $count]);
-		dd($rs);
 		return $rs[0];	
 	}
 
