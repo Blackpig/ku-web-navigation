@@ -36,7 +36,7 @@ class MyAccountsController extends Controller
             return $this->respondError(401, 'Please sign to access this service.');
         }*/
 
-        $user_id = 'ku12307';
+        $user_id = 'KU12307';
 
 
     	$data = [
