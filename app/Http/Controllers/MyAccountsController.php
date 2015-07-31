@@ -26,7 +26,7 @@ class MyAccountsController extends Controller
 
 
    
-        /*// TEMP FOR TESTING !!!!!
+        // TEMP FOR TESTING !!!!!
         $user = User::find('ka01356');
         \Auth::login($user);
 
@@ -35,6 +35,8 @@ class MyAccountsController extends Controller
         } else {
             return $this->respondError(401, 'Please sign to access this service.');
         }
+
+        $user_id = 'ku12307';
 
 
     	$data = [

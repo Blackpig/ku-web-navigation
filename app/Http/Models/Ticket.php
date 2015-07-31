@@ -28,6 +28,10 @@ class Ticket extends Model{
 	private function getServiceDesk($id, $count=false)
 	{
 		DB::connection('landesk');
+
+		$rs = \DB::select('EXEC sp_getTicketsByID ?, ?', [$id, $count]);
+
+		return $rs[0];
 		return true;		
 	}
 
