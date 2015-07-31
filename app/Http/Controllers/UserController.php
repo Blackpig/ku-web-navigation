@@ -13,7 +13,7 @@ class UserController extends Controller
      * @return JSON 
      */
     public function authenticate($api = true)
-    {	
+    {	dd($_SERVER);
         if (env('APP_ENV') == 'local') {
             $username = "K1068743";
         } else {
