@@ -30,7 +30,7 @@ class Ticket extends Model{
 		DB::connection('landesk');
 
 		$rs = DB::select('EXEC sp_getTicketsByID ?, ?', [$id, $count]);
-
+		dd($rs);
 		return $rs[0];	
 	}
 
