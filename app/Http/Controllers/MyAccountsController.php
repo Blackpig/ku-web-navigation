@@ -22,9 +22,7 @@ class MyAccountsController extends Controller
      */
     public function myTickets()
     {
-        echo phpinfo();
-        dd();
-
+      
         // TEMP FOR TESTING !!!!!
         $user = User::find('ka01356');
         \Auth::login($user);

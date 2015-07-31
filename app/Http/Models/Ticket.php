@@ -17,22 +17,31 @@ class Ticket extends Model{
 	{
 	
 		$service_desk = $this->getServiceDesk($id, $count);
-		$service_desk = $self->getServiceDesk($id, $count);
-		$service_desk = self::getServiceDesk($id, $count);
-		$service_desk = static::getServiceDesk($id, $count);
+		$esd = $self->getESD($id, $count);
+		$quemis = $self->getQuemis($id, $count);
 
 		$tickets = $service_desk;
 
 		return collect($tickets);
 	}
 
-	private function getServiceDesk($id, $count=30)
+	private function getServiceDesk($id, $count=false)
 	{
 		DB::connection('landesk');
-		return true;
-
-
-
-		
+		return true;		
 	}
+
+	private function getESD($id, $count=false)
+	{
+		DB::connection('landesk');
+		return true;		
+	}
+
+	private function getQuemis($id, $count=false)
+	{
+		DB::connection('landesk');
+		return true;		
+	}
+
+
 }
