@@ -17,8 +17,8 @@ class Ticket extends Model{
 	{
 	
 		$service_desk = $this->getServiceDesk($id, $count);
-		$esd = $self->getESD($id, $count);
-		$quemis = $self->getQuemis($id, $count);
+		$esd = $this->getESD($id, $count);
+		$quemis = $this->getQuemis($id, $count);
 
 		$tickets = $service_desk;
 
