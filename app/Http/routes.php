@@ -107,7 +107,7 @@ $app->get('routes/my-kingston-4', function() use ($app)
 |
 */
 
-$app->get('swh', 'App\Http\Controllers\SwhController@authenticate');
+$app->get('swh', 'App\Http\Controllers\MyAccountsController@MyTickets');
 
 $app->get('images', function() use ($app)
 {
