@@ -31,7 +31,7 @@ class Ticket extends Model{
 		DB::connection('landesk');
 
 		$rs = DB::select('EXEC sp_getTicketsByID ?, ?', [$id, $count]);
-		return $rs[0];	
+		return $rs;	
 	}
 
 	private function getESD($id, $count=false)
