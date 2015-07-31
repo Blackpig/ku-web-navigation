@@ -21,7 +21,7 @@ class Ticket extends Model{
 		$service_desk = self::getServiceDesk($id, $count);
 		$service_desk = static::getServiceDesk($id, $count);
 
-		$tickets = $service_desk
+		$tickets = $service_desk;
 
 		return collect($tickets);
 	}
