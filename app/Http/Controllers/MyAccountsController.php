@@ -2,7 +2,7 @@
 
 use App\Http\Controllers\Controller;
 use App\Http\Models\Ticket;
-use App\Http\Models\User
+use App\Http\Models\User;
 
 class MyAccountsController extends Controller
 {
