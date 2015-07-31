@@ -20,17 +20,18 @@ class UserController extends Controller
             if (array_key_exists('PHP_AUTH_USER', $_SERVER)) {
                 $username = str_replace("@KUDS.KINGSTON.AC.UK", "", strtoupper($_SERVER['PHP_AUTH_USER'])); 
             } else {
-                 \Log::error('API Error 401 - Authentication',["context"=>"User not authenticated or session expired. Pleasereload the page"]);
-                return $this->respondError(401);
+                $msg = "User not authenticated or session expired. Please reload the page";
+                 \Log::error('API Error 401 - Authentication',["context"=>$msg]);
+                return $this->respondError(401, $msg);
                 exit;
             }
         }
 
         
         if (!$username) {
-
-            \Log::error('API Error 401 - Authentication',["context"=>"No username available for LDAP lookup"]);
-            return $this->respondError(401);
+            $msg = "No username available for LDAP lookup";
+            \Log::error('API Error 401 - Authentication',["context"=>$msg]);
+            return $this->respondError(401,$msg);
             exit;
         }
 
@@ -58,9 +59,9 @@ class UserController extends Controller
 
 
             if(!$ldap_user) {
-
-                \Log::error('API Error 401 - Authentication',["context"=>"Unable to find user id: $username in LDAP lookup"]);
-                return $this->respondError(401);
+                $msg = "Unable to find user id: $username in LDAP lookup";
+                \Log::error('API Error 401 - Authentication',["context"=>$msg]);
+                return $this->respondError(401, $msg);
                 exit;
             }
 
