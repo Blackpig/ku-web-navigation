@@ -202,6 +202,7 @@ app.controller('stateCtrl', ['$rootScope','$scope', '$stateParams', '$state', 'u
 	};
 
 	self.toggleInfo = function(toggleInfo){
+		console.log ('scope:' + $scope.toggleInfo +', param:'+toggleInfo);
 		$scope.toggleInfo = (!$scope.toggleInfo) ? toggleInfo : null;
 	}
 
