@@ -203,8 +203,7 @@ app.controller('stateCtrl', ['$rootScope','$scope', '$stateParams', '$state', 'u
 
 	self.toggleInfo = function(toggleInfo){
 		console.log ('scope:' + $scope.toggleInfo +', param:'+toggleInfo);
-/*		$scope.toggleInfo = (!$scope.toggleInfo || $scope.toggleInfo != toggleInfo) ? toggleInfo : null;
-*/		$scope.toggleInfo = toggleInfo;
+		$scope.toggleInfo = (!$scope.toggleInfo || $scope.toggleInfo != toggleInfo) ? toggleInfo : null;
 	}
 
 	self.setFocus = function(hasFocus){
