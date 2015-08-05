@@ -474,7 +474,7 @@ a.button.manage-my-status:hover {
 
 .my-status .profile .summary {
 	font-size: 10pt;
-	line-height: 1.4pt
+	line-height: 1.4;
 }
 
 .my-status .ticker {
