@@ -27,7 +27,6 @@ return [
     */
 
     'default' => env('DB_LD_CONNECTION', 'landesk'),
-    //'default' => env('DB_ARTISAN_CONNECTION', 'mysql'),
 
     /*
     |--------------------------------------------------------------------------
