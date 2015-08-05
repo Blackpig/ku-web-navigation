@@ -72,10 +72,10 @@ class UserController extends Controller
             $user->email = $ldap_user->mail;
             $user->external_email = $ldap_user->msexchextensionattribute21;
             $user->employee_type = $this->getEmployeeType($ldap_user->employeetype);
-            $user->employee_class = $ldap_user->employeetype;
+            $user->employee_class = ucwords(strtolower($ldap_user->employeetype));
             $user->employee_status = ($user->employee_type == 0) ? 'staff' : 'student';
-            $user->job_title = $ldap_user->title;
-            $user->department = $ldap_user->company;
+            $user->job_title = ucwords(strtolower($ldap_user->title));
+            $user->department = ucwords(strtolower($ldap_user->company));
             $user->tel = $ldap_user->telephonenumber;
             $user->gender = strtolower($ldap_user->extensionAttribute1);
             $user->avatar = $this->getUserImage($user->id, $user->gender);
