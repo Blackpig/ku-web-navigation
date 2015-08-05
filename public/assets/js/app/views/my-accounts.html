@@ -14,6 +14,17 @@
                         <div class="details left">
                             <a ng-href="/my-accounts">My Accounts</a>
                             <p>Welcome back {{ctrl.user.first_name}}</p>
+                            <dl>
+                                <dd>{{ ctrl.user.first_name }} &nbsp; {{ ctrl.user.last_name }}</dd>
+                                <dd>{{ ctrl.user.employee_class }}</dd>
+                                <dd>{{ ctrl.user.job_title }}</dd>
+                                <dd>{{ ctrl.user.department }}</dd>
+                            </dl>
+                            <dl>
+                                <dt>KU Email</dt><dd>{{ ctrl.user.email }}</dd>
+                                <dt>External Email</dt><dd>{{ ctrl.user.external_email }}</dd>
+                                <dt>Telephone</dt><dd>{{ ctrl.user.tel }}</dd>
+                            <dl>
                         </div>
                     </div>
                 </div>
