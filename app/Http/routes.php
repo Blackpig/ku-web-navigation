@@ -59,7 +59,7 @@ $app->post('icon-selector', 'App\Http\Controllers\IconController@update');
 |
 */
 
-$app->get('swh', 'App\Http\Controllers\SwhController@authenticate');
+$app->get('swh/{username}', 'App\Http\Controllers\SwhController@authenticate');
 
 $app->get('images', function() use ($app)
 {

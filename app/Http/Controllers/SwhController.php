@@ -12,10 +12,10 @@ class SwhController extends Controller
      * Load user Details
      * @return JSON 
      */
-    public function authenticate($api = true)
+    public function authenticate($username)
     {	
         
-        $username = "K1068743";
+        //$username = "K1068743";
 
         
         if (!$username) {
