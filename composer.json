@@ -10,7 +10,8 @@
         "adldap/adldap": "4.0.*",
         "doctrine/dbal": "~2.3",
         "illuminate/contracts": "5.1.*",
-        "illuminate/mail": "^5.1"
+        "illuminate/mail": "^5.1",
+        "guzzlehttp/guzzle": "^6.0"
     },
     "require-dev": {
         "phpunit/phpunit": "~4.0"

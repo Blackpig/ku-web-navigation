@@ -123,6 +123,20 @@ class Endpoint extends Model{
 		return collect($endpoints);
 	}
 
+	public function scopeAllEndpoints()
+	{
+		$db = self::Connection();
+
+		$endpoints = [];
+
+        $rs = \DB::select('EXEC sp_getAllEndpoints ?';
+        
+		return collect($rs[0]);
+
+	}
+
+
+
 	public function scopeType($query, $guid)
 	{
 		$db = self::Connection();
