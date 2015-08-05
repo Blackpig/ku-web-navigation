@@ -52,54 +52,6 @@ $app->post('layout/{id}', 'App\Http\Controllers\LayoutController@update');
 $app->get('icon-selector', 'App\Http\Controllers\IconController@show');
 $app->post('icon-selector', 'App\Http\Controllers\IconController@update');
 
-/*
-|
-| iFrame routing
-|
-*/
-
-
-/*$app->get('routes/staffspace', function() use ($app)
-{
-
-	return view("routes.staffspace");
-
-});
-
-$app->get('routes/my-kingston', function() use ($app)
-{
-
-	return view("routes.my-kingston");
-
-});
-
-$app->get('routes/my-kingston-1', function() use ($app)
-{
-
-	return view("routes.my-kingston-1");
-
-});
-
-$app->get('routes/my-kingston-2', function() use ($app)
-{
-
-	return view("routes.my-kingston-2");
-
-});
-
-$app->get('routes/my-kingston-3', function() use ($app)
-{
-
-	return view("routes.my-kingston-3");
-
-});
-
-$app->get('routes/my-kingston-4', function() use ($app)
-{
-
-	return view("routes.my-kingston-4");
-
-});*/
 
 /**********
 |
@@ -107,7 +59,7 @@ $app->get('routes/my-kingston-4', function() use ($app)
 |
 */
 
-$app->get('swh', 'App\Http\Controllers\MyAccountsController@MyTickets');
+$app->get('swh', 'App\Http\Controllers\SwhController@authenticate');
 
 $app->get('images', function() use ($app)
 {
