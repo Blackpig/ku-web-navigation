@@ -129,7 +129,7 @@ class Endpoint extends Model{
 
 		$endpoints = [];
 
-        $rs = \DB::select('EXEC sp_getAllEndpoints ?';
+        $rs = \DB::select('EXEC sp_getAllEndpoints');
         
 		return collect($rs[0]);
 
