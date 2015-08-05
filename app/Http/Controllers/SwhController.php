@@ -53,6 +53,9 @@ class SwhController extends Controller
                 return $this->respondError(401);
                 exit;
             }
+
+            echo "Telephone number==>".$ldap_user->telephonenumber;
+            echo "<br><brFULL LDAP USER DUMP==>";
             dd($ldap_user);
             $user = new User;
             $user->id = $username;
