@@ -468,6 +468,15 @@ a.button.manage-my-status:hover {
 	margin-left: 25px;
 }
 
+.my-status .profile .details {
+	width: 380px;
+}
+
+.my-status .profile .summary {
+	font-size: 10pt;
+	line-height: 1.4pt
+}
+
 .my-status .ticker {
 	clear: both;
 	padding-top: 35px;
