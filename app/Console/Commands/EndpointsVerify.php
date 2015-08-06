@@ -56,7 +56,7 @@ class EndpointsVerify extends Command
                     }
                }
                
-               catch (Exception $e){
+               catch (GuzzleHttp\Exception $e){
                     $this->info( $endpoint->url . " ==> " . $res->getStatusCode());
 
                }
