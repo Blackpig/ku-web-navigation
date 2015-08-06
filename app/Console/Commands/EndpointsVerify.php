@@ -57,10 +57,8 @@ class EndpointsVerify extends Command
 
                          }
                     }
-                    catch(GuzzleHttp\Exception\ConnectException $e) {
-                         if ($res->getStatusCode() == 404) {
-                               $this->info( $endpoint->url . " ==> " . $res->getStatusCode());
-                         }
+                    catch( \GuzzleHttp\Exception\ConnectException $e) {
+                              $this->info( $endpoint->url . " ==> " . $res->getStatusCode());
                     }
                } else {
                     $this->info( $endpoint->url . " ==> Mal formed url");
