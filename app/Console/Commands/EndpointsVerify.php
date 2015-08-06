@@ -60,7 +60,7 @@ class EndpointsVerify extends Command
      private function notifyAndUpdate(Mailer $mailer, $endpoint) 
      {
 
-          $mailer->send('emails.endpoints.broken_link', ['endpoint' => $endpoint], function ($message) use ($endpoint) {
+          $mailer->send('emails.endpoints.broken-link', ['endpoint' => $endpoint], function ($message) use ($endpoint) {
                     $message->from('noreply@kingston.ac.uk', $name = null);
                     $message->sender('noreply@kingston.ac.uk', $name = null);
                     //$message->to($endpoint->primary_email, $name = $endpoint->primary_contact);
