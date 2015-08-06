@@ -11,7 +11,7 @@ class EndpointsReview extends Command
      *
      * @var string
      */
-     protected $name = 'endpoints:review {due=-14}';
+     protected $name = 'endpoints:review {--due=-14}';
  
      /**
      * The console command description.
@@ -28,7 +28,7 @@ class EndpointsReview extends Command
      public function Handle()
      {
 
-        foreach (Endpoint::ForReview($this->argument('due')) as $ep) {
+        foreach (Endpoint::ForReview($this->option('due')) as $ep) {
              
             $this->dispatch(new SendReviewEmail($ep));
         
