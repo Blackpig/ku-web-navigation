@@ -135,9 +135,9 @@ class Endpoint extends Model{
 
 	}
 
-	public function scopeForReview($d=false)
+	public function scopeForReview($query, $d=false)
 	{
-		$days = (!$d) ? env('ENDPOINT_REVIEW_DAYS', -14) : $d;
+		$days = ($d) ? $d : env('ENDPOINT_REVIEW_DAYS', -14);
 
 		$db = self::Connection();
 
