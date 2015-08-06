@@ -145,7 +145,7 @@ class Endpoint extends Model{
 
         $rs = \DB::select('EXEC sp_getEndpointsForReview ?', [$days]);
         
-		return collect($rs[0]);
+		return collect($rs);
 
 	}
 
