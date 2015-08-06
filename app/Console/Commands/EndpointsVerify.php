@@ -37,7 +37,7 @@ class EndpointsVerify extends Command
 
           foreach (Endpoint::AllEndpoints() as $endpoint) {
 
-               if (filter_var($endpoint->url, FILTER_VALIDATE_URL);)
+               if (filter_var($endpoint->url, FILTER_VALIDATE_URL)){
                
                     $res = $client->get($endpoint->url, ['http_errors' => false]);
 
