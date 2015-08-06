@@ -54,12 +54,11 @@ class EndpointsVerify extends Command
                          
                          //Endpoint::SetIsBtoken($ep->guid);
 
-                         }
                     }
                } else {
                     $this->info( $endpoint->url . " ==> Mal formed url");
                }
-          }  
+          } 
      }
       
 }
