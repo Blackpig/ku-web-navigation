@@ -29,7 +29,7 @@ class EndpointsReview extends Command
      *
      * @return void
      */
-     public function Handle()
+     public function Handle(Mailer $mailer)
      {
 
         foreach (Endpoint::ForReview($this->option('due')) as $endpoint) {
