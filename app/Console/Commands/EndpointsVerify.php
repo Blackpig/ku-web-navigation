@@ -37,7 +37,7 @@ class EndpointsVerify extends Command
 
           foreach (Endpoint::AllEndpoints() as $endpoint) {
                
-               $res = $client->get($endpoint->url);
+               $res = $client->get($endpoint->url, ['http_errors' => false]);
 
                $this->info( $endpoint->url . " ==> " . $res->getStatusCode());
                
