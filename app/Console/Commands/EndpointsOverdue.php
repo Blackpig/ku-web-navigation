@@ -4,21 +4,21 @@ use Illuminate\Support\Str;
 use Illuminate\Console\Command;
 use Symfony\Component\Console\Input\InputOption;
  
-class EndpointsReview extends Command
+class EndpointsOverdue extends Command
 {
      /**
      * The console command name.
      *
      * @var string
      */
-     protected $name = 'endpoints:review {due=-14}';
+     protected $name = 'endpoints:Overdue {due=1}';
  
      /**
      * The console command description.
      *
      * @var string
      */
-     protected $description = "Send email to endpoint owner if review date is due";
+     protected $description = "Send email to endpoint owner if review date is overdue";
  
      /**
      * Execute the console command.
@@ -28,13 +28,11 @@ class EndpointsReview extends Command
      public function Handle()
      {
 
-        foreach (Endpoint::ForReview($this->argument('due') as $ep) {
-             
-            $this->dispatch(new SendReviewEmail($ep));
+        foreach (Endpoint::ForReview($this->argument('due')) as $ep) {
+            
+            $this->dispatch(new SendOverdueEmail($ep));
         
         }  
-     
-
      }
  
       

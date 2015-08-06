@@ -13,7 +13,8 @@ class Kernel extends ConsoleKernel
      */
     protected $commands = [
         'App\Console\Commands\EndpointsVerify',
-        'App\Console\Commands\EndpointsReview'
+        'App\Console\Commands\EndpointsReview',
+        'App\Console\Commands\EndpointsOverdue'
     ];
 
     /**

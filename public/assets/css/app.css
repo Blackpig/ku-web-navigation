@@ -595,10 +595,11 @@ a.button.manage-my-status:hover {
     text-align: center;
     width:82px;
     float: left;
+    margin-left: 20px;
 } 
 
 .ms-tile .info {
-    width:192px;
+    width:172px;
     float: left;
 } 
 

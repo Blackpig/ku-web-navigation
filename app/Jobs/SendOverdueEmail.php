@@ -9,7 +9,7 @@ use Illuminate\Queue\InteractsWithQueue;
 use Illuminate\Contracts\Bus\SelfHandling;
 use Illuminate\Contracts\Queue\ShouldQueue;
 
-class SendIsBrokenEmail extends Job implements SelfHandling, ShouldQueue
+class SendOverdueEmail extends Job implements SelfHandling, ShouldQueue
 {
     use InteractsWithQueue;
 
@@ -34,8 +34,12 @@ class SendIsBrokenEmail extends Job implements SelfHandling, ShouldQueue
      */
     public function handle(Mailer $mailer)
     {
-        $mailer->send('emails.endpoints.is_broken', ['endpoint' => $this->$endpoint], function ($m) {
-            //
+        $mailer->send('emails.endpoints.overdue', ['endpoint' => $this->$endpoint], function ($message) {
+            $message->from('noreply@kingston.ac.uk', $name = null);
+            $message->sender('noreply@kingston.ac.uk', $name = null);
+            $message->to($this->$endpoint->primary_email, $name = $this->$endpoint->primary_contact);
+            $message->cc($this->$endpoint->manager_email, $name = $this->$endpoint->manager_contact);
+            $message->subject('KU Navigator Endpoint overdue review reminder');
         });
     }
 }

@@ -135,6 +135,19 @@ class Endpoint extends Model{
 
 	}
 
+	public function scopeForReview($d=false)
+	{
+		$days = (!$d) ? env('ENDPOINT_REVIEW_DAYS', -14) : $d;
+
+		$db = self::Connection();
+
+		$endpoints = [];
+
+        $rs = \DB::select('EXEC sp_getEndpointsForReview ?', [$days]));
+        
+		return collect($rs[0]);
+
+	}
 
 
 	public function scopeType($query, $guid)
