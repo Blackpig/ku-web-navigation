@@ -5,6 +5,7 @@ use Illuminate\Console\Command;
 use Symfony\Component\Console\Input\InputOption;
 use Laravel\Lumen\Routing\DispatchesJobs;
 use App\Http\Models\Endpoint;
+use App\Jobs\SendReviewEmail;
  
 class EndpointsReview extends Command
 {
