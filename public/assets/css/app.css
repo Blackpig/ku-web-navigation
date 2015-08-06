@@ -477,6 +477,14 @@ a.button.manage-my-status:hover {
 	line-height: 1.4;
 }
 
+.my-status .profile .summary strong {
+	color: #0a0159;
+}
+
+.my-status .profile .summary strong:after {
+	content: '\003A';
+}
+
 .my-status .ticker {
 	clear: both;
 	padding-top: 35px;
