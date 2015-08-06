@@ -14,7 +14,7 @@ class EndpointsOverdue extends Command
      *
      * @var string
      */
-     protected $name = 'endpoints:overdue {--due=1}';
+     protected $signature = 'endpoints:overdue {--due=1}';
  
      /**
      * The console command description.
