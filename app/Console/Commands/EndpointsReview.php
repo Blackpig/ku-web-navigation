@@ -34,11 +34,11 @@ class EndpointsReview extends Command
      {
 
         foreach (Endpoint::ForReview($this->option('due')) as $endpoint) {
-             
-            $mailer->send('emails.endpoints.review', ['endpoint' => $this->$endpoint], function ($m) {
+
+            $mailer->send('emails.endpoints.review', ['endpoint' => $endpoint], function ($m) {
                 $message->from('noreply@kingston.ac.uk', $name = null);
                 $message->sender('noreply@kingston.ac.uk', $name = null);
-                $message->to($this->$endpoint->primary_email, $name = $this->$endpoint->primary_contact);
+                $message->to($endpoint->primary_email, $name = $endpoint->primary_contact);
                 $message->subject('KU Navigator Endpoint overdue review reminder');
             });
         
