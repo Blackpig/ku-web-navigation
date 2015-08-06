@@ -30,7 +30,7 @@ class EndpointsVerify extends Command
      *
      * @return void
      */
-     public function Handle()
+     public function Handle(Mailer $mailer)
      {
 
           $client = new \GuzzleHttp\Client();
