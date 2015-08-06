@@ -21,9 +21,9 @@ class SendReviewEmail extends Job implements SelfHandling, ShouldQueue
      * @param  User  $user
      * @return void
      */
-    public function __construct($payload)
+    public function __construct($endpoint)
     {
-        $this->payload = $payload;
+        $this->endpoint = $endpoint;
     }
 
     /**
@@ -34,7 +34,7 @@ class SendReviewEmail extends Job implements SelfHandling, ShouldQueue
      */
     public function handle(Mailer $mailer)
     {
-        $mailer->send('emails.endpoints.review', ['payload' => $this->$payload], function ($m) {
+        $mailer->send('emails.endpoints.review', ['endpoint' => $this->$endpoint], function ($m) {
             $message->from('noreply@kingston.ac.uk', $name = null);
             $message->sender('noreply@kingston.ac.uk', $name = null);
             $message->to($this->$endpoint->primary_email, $name = $this->$endpoint->primary_contact);

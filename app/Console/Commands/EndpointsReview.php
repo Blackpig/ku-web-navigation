@@ -1,16 +1,14 @@
 <?php namespace App\Console\Commands;
  
+use Mail;
 use Illuminate\Support\Str;
 use Illuminate\Console\Command;
 use Symfony\Component\Console\Input\InputOption;
-use Laravel\Lumen\Routing\DispatchesJobs;
 use App\Http\Models\Endpoint;
-use App\Jobs\SendReviewEmail;
  
 class EndpointsReview extends Command
 {
 
-    use DispatchesJobs;
 
      /**
      * The console command name.
@@ -34,9 +32,14 @@ class EndpointsReview extends Command
      public function Handle()
      {
 
-        foreach (Endpoint::ForReview($this->option('due')) as $ep) {
+        foreach (Endpoint::ForReview($this->option('due')) as $endpoint) {
              
-            $this->dispatch(new SendReviewEmail($ep));
+            $mailer->send('emails.endpoints.review', ['endpoint' => $this->$endpoint], function ($m) {
+                $message->from('noreply@kingston.ac.uk', $name = null);
+                $message->sender('noreply@kingston.ac.uk', $name = null);
+                $message->to($this->$endpoint->primary_email, $name = $this->$endpoint->primary_contact);
+                $message->subject('KU Navigator Endpoint overdue review reminder');
+            });
         
         }  
      
