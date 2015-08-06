@@ -37,11 +37,12 @@ class EndpointsVerify extends Command
 
           foreach (Endpoint::AllEndpoints() as $endpoint) {
                
-               $res = $client->get($endpoint->url, ['http_errors' => false]);
+               try {
+                    $res = $client->get($endpoint->url, ['http_errors' => false]);
 
-               $this->info( $endpoint->url . " ==> " . $res->getStatusCode());
+                    $this->info( $endpoint->url . " ==> " . $res->getStatusCode());
                
-               if ($res->getStatusCode() == 404) {
+                    if ($res->getStatusCode() == 404) {
 
                     /*$mailer->send('emails.endpoints.broken_link', ['endpoint' => $endpoint], function ($message) use ($endpoint) {
                          $message->from('noreply@kingston.ac.uk', $name = null);
@@ -51,6 +52,12 @@ class EndpointsVerify extends Command
                       });*/
                     
                     //Endpoint::SetIsBtoken($ep->guid);
+
+                    }
+               }
+               
+               catch (Guzzle\Http\Exception\InvalidArgumentException){
+                    $this->info( $endpoint->url . " ==> " . $res->getStatusCode());
 
                }
           }  
