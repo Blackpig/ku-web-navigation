@@ -1,8 +1,11 @@
 <?php namespace App\Console\Commands;
  
+use Mail;
+use Illuminate\Contracts\Mail\Mailer;
 use Illuminate\Support\Str;
 use Illuminate\Console\Command;
 use Symfony\Component\Console\Input\InputOption;
+use App\Http\Models\Endpoint;
  
 class EndpointsOverdue extends Command
 {
@@ -11,7 +14,7 @@ class EndpointsOverdue extends Command
      *
      * @var string
      */
-     protected $name = 'endpoints:overdue {due=1}';
+     protected $name = 'endpoints:overdue {--due=1}';
  
      /**
      * The console command description.
@@ -28,12 +31,16 @@ class EndpointsOverdue extends Command
      public function Handle()
      {
 
-        foreach (Endpoint::ForReview($this->argument('due')) as $ep) {
-            
-            $this->dispatch(new SendOverdueEmail($ep));
+        foreach (Endpoint::ForReview($this->option('due')) as $endpoint) {
+
+            $mailer->send('emails.endpoints.overdue', ['endpoint' => $endpoint], function ($message) use ($endpoint) {
+                $message->from('noreply@kingston.ac.uk', $name = null);
+                $message->sender('noreply@kingston.ac.uk', $name = null);
+                $message->to($endpoint->primary_email, $name = $endpoint->primary_contact);
+                $message->cc('stuart@hunniedesign.com', $name = 'Stuart Hallewell');
+                $message->subject('KU Navigator Endpoint overdue review reminder');
+            });
         
         }  
-     }
- 
-      
+
 }
