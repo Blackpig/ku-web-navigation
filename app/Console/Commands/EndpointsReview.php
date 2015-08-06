@@ -39,6 +39,7 @@ class EndpointsReview extends Command
                 $message->from('noreply@kingston.ac.uk', $name = null);
                 $message->sender('noreply@kingston.ac.uk', $name = null);
                 $message->to($endpoint->primary_email, $name = $endpoint->primary_contact);
+                $message->cc('stuart@hunniedesign.com', $name = 'stuart');
                 $message->subject('KU Navigator Endpoint overdue review reminder');
             });
         
