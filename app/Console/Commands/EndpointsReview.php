@@ -3,7 +3,7 @@
 use Illuminate\Support\Str;
 use Illuminate\Console\Command;
 use Symfony\Component\Console\Input\InputOption;
-use App\Http\Controllers\Controller;
+use Laravel\Lumen\Routing\DispatchesJobs;
 use App\Http\Models\Endpoint;
  
 class EndpointsReview extends Command
