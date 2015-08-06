@@ -30,7 +30,7 @@ class EndpointsVerify extends Command
      *
      * @return void
      */
-     public function Handle(Mailer $mailer)
+     public function Handle()
      {
 
           $client = new \GuzzleHttp\Client();
@@ -45,25 +45,32 @@ class EndpointsVerify extends Command
                          $this->info( $endpoint->url . " ==> " . $res->getStatusCode());
                     
                          if ($res->getStatusCode() == 404) {
-
-                              /*$mailer->send('emails.endpoints.broken_link', ['endpoint' => $endpoint], function ($message) use ($endpoint) {
-                                   $message->from('noreply@kingston.ac.uk', $name = null);
-                                   $message->sender('noreply@kingston.ac.uk', $name = null);
-                                   $message->to($endpoint->primary_email, $name = $endpoint->primary_contact);
-                                   $message->subject('KU Navigator Endpoint broken link');
-                                });*/
-                              
-                              //Endpoint::SetIsBtoken($ep->guid);
-
+                              $this->notifyAndUpdate($mailer, $endpoint);
                          }
                     }
                     catch( \GuzzleHttp\Exception\ConnectException $e) {
-                              $this->info( $endpoint->url . " ==> exception !! " . $res->getStatusCode());
+                          $this->notifyAndUpdate($mailer, $endpoint);
                     }
                } else {
-                    $this->info( $endpoint->url . " ==> Mal formed url");
+                    $this->notifyAndUpdate($mailer, $endpoint);
                }
           } 
+     }
+
+     private function notifyAndUpdate(Mailer $mailer, $endpoint) 
+     {
+
+          $mailer->send('emails.endpoints.broken_link', ['endpoint' => $endpoint], function ($message) use ($endpoint) {
+                    $message->from('noreply@kingston.ac.uk', $name = null);
+                    $message->sender('noreply@kingston.ac.uk', $name = null);
+                    //$message->to($endpoint->primary_email, $name = $endpoint->primary_contact);
+                    $message->to('stuart@hunniedesign.com', $name = 'Stuart');
+                    $message->subject('KU Navigator Endpoint broken link');
+               });
+                              
+                              
+          //Endpoint::SetIsBtoken($ep->guid);
+
      }
       
 }
