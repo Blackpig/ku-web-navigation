@@ -38,7 +38,6 @@ class SendOverdueEmail extends Job implements SelfHandling, ShouldQueue
             $message->from('noreply@kingston.ac.uk', $name = null);
             $message->sender('noreply@kingston.ac.uk', $name = null);
             $message->to($this->$endpoint->primary_email, $name = $this->$endpoint->primary_contact);
-            $message->cc($this->$endpoint->manager_email, $name = $this->$endpoint->manager_contact);
             $message->subject('KU Navigator Endpoint overdue review reminder');
         });
     }
