@@ -39,21 +39,28 @@ class EndpointsVerify extends Command
 
                if (filter_var($endpoint->url, FILTER_VALIDATE_URL)){
                
-                    $res = $client->get($endpoint->url, ['http_errors' => false]);
+                    try{
+                         $res = $client->get($endpoint->url, ['http_errors' => false]);
 
-                    $this->info( $endpoint->url . " ==> " . $res->getStatusCode());
-               
-                    if ($res->getStatusCode() == 404) {
+                         $this->info( $endpoint->url . " ==> " . $res->getStatusCode());
+                    
+                         if ($res->getStatusCode() == 404) {
 
-                         /*$mailer->send('emails.endpoints.broken_link', ['endpoint' => $endpoint], function ($message) use ($endpoint) {
-                              $message->from('noreply@kingston.ac.uk', $name = null);
-                              $message->sender('noreply@kingston.ac.uk', $name = null);
-                              $message->to($endpoint->primary_email, $name = $endpoint->primary_contact);
-                              $message->subject('KU Navigator Endpoint broken link');
-                           });*/
-                         
-                         //Endpoint::SetIsBtoken($ep->guid);
+                              /*$mailer->send('emails.endpoints.broken_link', ['endpoint' => $endpoint], function ($message) use ($endpoint) {
+                                   $message->from('noreply@kingston.ac.uk', $name = null);
+                                   $message->sender('noreply@kingston.ac.uk', $name = null);
+                                   $message->to($endpoint->primary_email, $name = $endpoint->primary_contact);
+                                   $message->subject('KU Navigator Endpoint broken link');
+                                });*/
+                              
+                              //Endpoint::SetIsBtoken($ep->guid);
 
+                         }
+                    }
+                    catch(GuzzleHttp\Exception\ConnectException $e) {
+                         if ($res->getStatusCode() == 404) {
+                               $this->info( $endpoint->url . " ==> " . $res->getStatusCode());
+                         }
                     }
                } else {
                     $this->info( $endpoint->url . " ==> Mal formed url");
