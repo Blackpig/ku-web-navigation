@@ -35,7 +35,7 @@ class EndpointsReview extends Command
 
         foreach (Endpoint::ForReview($this->option('due')) as $endpoint) {
 
-            $mailer->send('emails.endpoints.review', ['endpoint' => $endpoint], function ($message, $endpoint) {
+            $mailer->send('emails.endpoints.review', ['endpoint' => $endpoint], function ($message) use ($endpoint) {
                 $message->from('noreply@kingston.ac.uk', $name = null);
                 $message->sender('noreply@kingston.ac.uk', $name = null);
                 $message->to($endpoint->primary_email, $name = $endpoint->primary_contact);
