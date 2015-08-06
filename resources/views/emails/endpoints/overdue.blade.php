@@ -6,8 +6,8 @@
 <body>
 <p style="color:red">The review date for the following KU Navigator endpoint has passed, and the review is now overdue.</p>
 
-<p>Review Date: {{ endpoint.review_date }}<br />
-Display name: <a href="">{{ endpoint.title }}</a>
+<p>Review Date: {{ $endpoint->review_date }}<br />
+Display name: <a href="">{{ $endpoint->title }}</a>
 </p>  
  
 <p>You are receiving this email because you are named as the primary point of contact for the endpoint.</p>
