@@ -1,6 +1,7 @@
 <?php namespace App\Console\Commands;
  
 use Mail;
+use Illuminate\Contracts\Mail\Mailer;
 use Illuminate\Support\Str;
 use Illuminate\Console\Command;
 use Symfony\Component\Console\Input\InputOption;
