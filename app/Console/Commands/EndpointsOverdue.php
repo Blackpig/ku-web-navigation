@@ -42,5 +42,5 @@ class EndpointsOverdue extends Command
             });
         
         }  
-
+    }
 }
