@@ -36,29 +36,26 @@ class EndpointsVerify extends Command
           $client = new \GuzzleHttp\Client();
 
           foreach (Endpoint::AllEndpoints() as $endpoint) {
+
+               if (filter_var($endpoint->url, FILTER_VALIDATE_URL);)
                
-               try {
                     $res = $client->get($endpoint->url, ['http_errors' => false]);
 
                     $this->info( $endpoint->url . " ==> " . $res->getStatusCode());
                
                     if ($res->getStatusCode() == 404) {
 
-                    /*$mailer->send('emails.endpoints.broken_link', ['endpoint' => $endpoint], function ($message) use ($endpoint) {
-                         $message->from('noreply@kingston.ac.uk', $name = null);
-                         $message->sender('noreply@kingston.ac.uk', $name = null);
-                         $message->to($endpoint->primary_email, $name = $endpoint->primary_contact);
-                         $message->subject('KU Navigator Endpoint broken link');
-                      });*/
-                    
-                    //Endpoint::SetIsBtoken($ep->guid);
+                         /*$mailer->send('emails.endpoints.broken_link', ['endpoint' => $endpoint], function ($message) use ($endpoint) {
+                              $message->from('noreply@kingston.ac.uk', $name = null);
+                              $message->sender('noreply@kingston.ac.uk', $name = null);
+                              $message->to($endpoint->primary_email, $name = $endpoint->primary_contact);
+                              $message->subject('KU Navigator Endpoint broken link');
+                           });*/
+                         
+                         //Endpoint::SetIsBtoken($ep->guid);
 
+                         }
                     }
-               }
-               
-               catch (Exception $e){
-                    $this->info( $endpoint->url . " ==> " . $res->getStatusCode());
-
                }
           }  
      }
