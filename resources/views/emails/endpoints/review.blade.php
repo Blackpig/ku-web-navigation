@@ -6,8 +6,8 @@
 <body>
 <p>The following KU Navigator endpoint is due for review within the next two weeks:</p>
 
-<p>Review Date: {{ endpoint.review_date }}<br />
-Display name: <a href="">{{ endpoint.title }}</a>
+<p>Review Date: {{ $endpoint->review_date }}<br />
+Display name: <a href="">{{ $endpoint->name }}</a>
 </p>  
  
 <p>You are receiving this email because you are named as the primary point of contact for the endpoint.</p>
