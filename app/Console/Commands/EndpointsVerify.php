@@ -56,7 +56,7 @@ class EndpointsVerify extends Command
                     }
                }
                
-               catch ($e){
+               catch (Exception $e){
                     $this->info( $endpoint->url . " ==> " . $res->getStatusCode());
 
                }
