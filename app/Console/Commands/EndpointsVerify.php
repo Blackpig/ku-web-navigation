@@ -35,20 +35,22 @@ class EndpointsVerify extends Command
 
           $client = new \GuzzleHttp\Client();
 
-          foreach (Endpoint::AllEndpoints() as $ep) {
+          foreach (Endpoint::AllEndpoints() as $endpoint) {
                
-               $res = $client->get($ep->url);
+               $res = $client->get($endppoint->url);
+
+               $this->info( $endppoint->url . " ==> " . $res->getStatusCode());
                
                if ($res->getStatusCode() == 404) {
 
-                    $mailer->send('emails.endpoints.broken_link', ['endpoint' => $endpoint], function ($message) use ($endpoint) {
+                    /*$mailer->send('emails.endpoints.broken_link', ['endpoint' => $endpoint], function ($message) use ($endpoint) {
                          $message->from('noreply@kingston.ac.uk', $name = null);
                          $message->sender('noreply@kingston.ac.uk', $name = null);
                          $message->to($endpoint->primary_email, $name = $endpoint->primary_contact);
                          $message->subject('KU Navigator Endpoint broken link');
-                      });
+                      });*/
                     
-                    Endpoint::SetIsBtoken($ep->guid);
+                    //Endpoint::SetIsBtoken($ep->guid);
 
                }
           }  
