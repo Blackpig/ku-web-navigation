@@ -3,6 +3,7 @@
 use Illuminate\Support\Str;
 use Illuminate\Console\Command;
 use Symfony\Component\Console\Input\InputOption;
+use App\Models\Endpoint;
  
 class EndpointsReview extends Command
 {
