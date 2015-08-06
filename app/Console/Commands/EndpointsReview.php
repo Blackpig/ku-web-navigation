@@ -28,7 +28,7 @@ class EndpointsReview extends Command
      public function Handle()
      {
 
-        foreach (Endpoint::ForReview($this->argument('due') as $ep) {
+        foreach (Endpoint::ForReview($this->argument('due')) as $ep) {
              
             $this->dispatch(new SendReviewEmail($ep));
         
