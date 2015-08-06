@@ -7,6 +7,9 @@ use App\Http\Models\Endpoint;
  
 class EndpointsReview extends Command
 {
+
+    use DispatchesJobs;
+
      /**
      * The console command name.
      *
