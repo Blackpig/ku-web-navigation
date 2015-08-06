@@ -56,7 +56,7 @@ class EndpointsVerify extends Command
                     }
                }
                
-               catch (Guzzle\Http\Exception\InvalidArgumentException){
+               catch (Guzzle\Http\Exception\InvalidArgumentException $e){
                     $this->info( $endpoint->url . " ==> " . $res->getStatusCode());
 
                }
