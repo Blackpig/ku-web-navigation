@@ -56,6 +56,8 @@ class EndpointsVerify extends Command
 
                          }
                     }
+               } else {
+                    $this->info( $endpoint->url . " ==> Mal formed url");
                }
           }  
      }
