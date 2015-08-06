@@ -41,8 +41,6 @@ class EndpointsVerify extends Command
                
                     try{
                          $res = $client->get($endpoint->url, ['http_errors' => false]);
-
-                         $this->info( $endpoint->url . " ==> " . $res->getStatusCode());
                     
                          if ($res->getStatusCode() == 404) {
                               $this->notifyAndUpdate($mailer, $endpoint);
@@ -59,6 +57,7 @@ class EndpointsVerify extends Command
 
      private function notifyAndUpdate(Mailer $mailer, $endpoint) 
      {
+          $this->info( $endpoint->url . " ==> " . $endpoint->name);
 
           $mailer->send('emails.endpoints.broken-link', ['endpoint' => $endpoint], function ($message) use ($endpoint) {
                     $message->from('noreply@kingston.ac.uk', $name = null);
