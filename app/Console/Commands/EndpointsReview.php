@@ -11,7 +11,7 @@ class EndpointsReview extends Command
      *
      * @var string
      */
-     protected $name = 'endpoints:review {--due=-14}';
+     protected $signature = 'endpoints:review {--due=-14}';
  
      /**
      * The console command description.
