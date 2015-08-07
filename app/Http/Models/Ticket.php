@@ -36,9 +36,7 @@ class Ticket extends Model{
 
 		$tickets = $top_30->pluck('ticket');
 
-		dd($tickets);
-
-		return collect($tickets);
+		return $tickets;
 	}
 
 	private function getServiceDesk($id, $count=false)
