@@ -18,7 +18,11 @@ class Ticket extends Model{
 	
 		$service_desk = $this->getServiceDesk($id, $count);
 		$esd = $this->getESD($id, $count);
-		//$quemis = $this->getQuemis($id, $count);
+		$quemis = $this->getQuemis($id, $count);
+
+		var_dump($service_desk);
+		var_dump($esd);
+		$var_dump($quemis);
 
 		$tickets = $service_desk;
 
@@ -68,13 +72,22 @@ class Ticket extends Model{
 				$rs = oci_parse($conn, $sql);
         		oci_execute($rs);    
 
+        		$return = [];
+
         		while ($row = oci_fetch_array($rs, OCI_ASSOC+OCI_RETURN_NULLS)) {
-        			var_dump($row);
-        			echo "<br><br><br>";
+        			$item = new \stdClass();
+        			$item->reference = $row['REFERENCE'];
+        			$item->created_at = $row['CREATED_AT'];
+        			$item->title = $row['TITLE'];
+        			$item->summary = $row['SUMMARY'];
+        			$item->status = $row['STATUS'];
+        			$item->source = $row['SOURCE'];
+
+        			$return[] = $item;
         		};
         }
 
-		return true;		
+		return collect($return);		
 	}
 
 	private function getQuemis($id, $count=false)
@@ -115,13 +128,22 @@ class Ticket extends Model{
 				$rs = oci_parse($conn, $sql);
         		oci_execute($rs);    
 
+        		$return = [];
+
         		while ($row = oci_fetch_array($rs, OCI_ASSOC+OCI_RETURN_NULLS)) {
-        			var_dump($row);
-        			echo "<br><br><br>";
+        			$item = new \stdClass();
+        			$item->reference = $row['REFERENCE'];
+        			$item->created_at = $row['CREATED_AT'];
+        			$item->title = $row['TITLE'];
+        			$item->summary = $row['SUMMARY'];
+        			$item->status = $row['STATUS'];
+        			$item->source = $row['SOURCE'];
+
+        			$return[] = $item;
         		};
         }
 
-		return true;		
+		return collect($return);		
 	}
 
 
