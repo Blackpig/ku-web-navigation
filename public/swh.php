@@ -1,6 +1,6 @@
 <?php
 
-    $user = $GET['user'];
+    $user = $_GET['user'];
  	$Link = "http://kuemdb.kingston.ac.uk";
     $db = "(DESCRIPTION=(ADDRESS_LIST = (ADDRESS = (PROTOCOL = TCP)(HOST = Kuemdb.kingston.ac.uk)(PORT = 14429)))(CONNECT_DATA=(SID=qempr)))"; 
     $conn = oci_connect('QuEMIS', 'QMSKSTS26272', $db);
