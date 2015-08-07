@@ -16,19 +16,15 @@ class Ticket extends Model{
 	public function scopeSummary($query, $id, $count)
 	{
 	
+		$tickets = collect();
+		
 		$service_desk = $this->getServiceDesk($id, $count);
 		$esd = $this->getESD($id, $count);
 		$quemis = $this->getQuemis($id, $count);
 
-		echo "<pre>";
-		var_dump($service_desk);
-		echo "</pre><br><br><br><br><br><pre>";
-		var_dump($esd);
-		echo "</pre><br><br><br><br><br><pre>";
-		var_dump($quemis);
-		echo "</pre>";
+		$tickets->merge([$service_desk,$esd,$quemis]);
 
-		$tickets = $service_desk;
+		dd($tickets);
 
 		return collect($tickets);
 	}
@@ -39,7 +35,7 @@ class Ticket extends Model{
 		DB::connection('landesk');
 
 		$rs = DB::select('EXEC sp_getTicketsById ?, ?', [$id, $count]);
-		return $rs;	
+		return collect($rs);	
 	}
 
 	private function getESD($id, $count=false)
