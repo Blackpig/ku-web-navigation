@@ -14,7 +14,7 @@
         left OUTER JOIN sched_o_job_status s ON s.status_id=j.status_id
         inner JOIN core_staff c ON c.staff_id=h.orig_staffid
         inner JOIN bd_location l ON l.loc_id=h.loc_id
-        WHERE c.staff_number = 'KU39220'
+        WHERE c.staff_number = 'KU12307'
         and (s.status <> '6 Work order finished ' AND s.status <> '7 Cancelled') 
         order by h.date_raised DESC) 
         where rownum < 31");
