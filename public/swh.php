@@ -4,13 +4,8 @@
  	$Link = "http://kuemdb.kingston.ac.uk";
     $db = "(DESCRIPTION=(ADDRESS_LIST = (ADDRESS = (PROTOCOL = TCP)(HOST = Kuemdb.kingston.ac.uk)(PORT = 14429)))(CONNECT_DATA=(SID=qempr)))"; 
     $conn = oci_connect('QuEMIS', 'QMSKSTS26272', $db);
-    if (!$conn) {
-        $e = oci_error();
-        trigger_error(htmlentities($e['message'], ENT_QUOTES), E_USER_ERROR);
-    }
-    else{
 
-        $stid2 = oci_parse($conn, "SELECT * from (SELECT  h.request_num, to_char(h.date_raised, 'dd/mm/yy hh:mi'),l.loc_ref, h.desc_of_request,  s.status  FROM ops_hd_help_desk h
+    $sql = "SELECT * from (SELECT  h.request_num, to_char(h.date_raised, 'dd/mm/yy hh:mi'),l.loc_ref, h.desc_of_request,  s.status  FROM ops_hd_help_desk h
         left OUTER JOIN ops_hd_job j ON j.request_num=h.request_num
         left OUTER JOIN sched_o_job_status s ON s.status_id=j.status_id
         inner JOIN core_staff c ON c.staff_id=h.orig_staffid
@@ -18,7 +13,18 @@
         WHERE c.staff_number = '". $user ."'
         and (s.status <> '6 Work order finished ' AND s.status <> '7 Cancelled') 
         order by h.date_raised DESC) 
-        where rownum < 31");
+        where rownum < 31";
+
+        echo "$sql<br/>";
+
+
+    if (!$conn) {
+        $e = oci_error();
+        trigger_error(htmlentities($e['message'], ENT_QUOTES), E_USER_ERROR);
+    }
+    else{
+
+        $stid2 = oci_parse($conn, $sql);
         oci_execute($stid2);    
         $cnt1 = 0;
         echo "<div class=\"datagrid\"><table border='1'>\n";
