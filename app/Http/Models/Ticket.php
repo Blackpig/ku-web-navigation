@@ -22,7 +22,7 @@ class Ticket extends Model{
 
 		var_dump($service_desk);
 		var_dump($esd);
-		$var_dump($quemis);
+		var_dump($quemis);
 
 		$tickets = $service_desk;
 
