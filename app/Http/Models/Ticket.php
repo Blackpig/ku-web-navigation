@@ -20,9 +20,13 @@ class Ticket extends Model{
 		$esd = $this->getESD($id, $count);
 		$quemis = $this->getQuemis($id, $count);
 
+		echo "<pre>";
 		var_dump($service_desk);
+		echo "</pre><br><br><br><br><br><pre>";
 		var_dump($esd);
+		echo "</pre><br><br><br><br><br><pre>";
 		var_dump($quemis);
+		echo "</pre>";
 
 		$tickets = $service_desk;
 
