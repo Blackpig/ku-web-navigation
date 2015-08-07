@@ -36,7 +36,7 @@ class Ticket extends Model{
 
 	private function getESD($id, $count=false)
 	{
-		$id = "KU39220";
+		$id = "12307";
 		$db = env('DB_ESD_DATABASE');
 		$user = env('DB_ESD_USERNAME');
 		$pass = env('DB_ESD_PASSWORD');
@@ -57,11 +57,11 @@ class Ticket extends Model{
 							'Ticket details withheld...' as summary, 
 							CCS_NAME
 						FROM HCL 
-							INNER JOIN CCN on (CCN_CODE = HCL_CCNC) 
-							INNER JOIN CCS ON (HCL.HCL_CCSC = CCS_CODE)
+							INNER JOIN CCN ON CCN_CODE = HCL_CCNC
+							INNER JOIN CCS ON HCL.HCL_CCSC = CCS_CODE
 						WHERE CCN_CODE = '$id' 
 						ORDER BY HCL.HCL_CODE DESC)
-				WHERE ROWNUM <= 30)";
+				WHERE ROWNUM <= 30";
 
 				$rs = oci_parse($conn, $sql);
         		oci_execute($rs);    
