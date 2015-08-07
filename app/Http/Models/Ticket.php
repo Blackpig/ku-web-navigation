@@ -53,9 +53,11 @@ class Ticket extends Model{
 				FROM (
 						SELECT 
 							HCL.HCL_CODE as reference, 
-							HCL.HCL_CRED, 
+							to_char(HCL.HCL_CRED, 'dd-mm-yy hh:mi') as created_at, 
+							'Private' as title,
 							'Ticket details withheld...' as summary, 
-							CCS_NAME
+							CCS_NAME as status,
+							'ESD' as source
 						FROM HCL 
 							INNER JOIN CCN ON CCN_CODE = HCL_CCNC
 							INNER JOIN CCS ON HCL.HCL_CCSC = CCS_CODE
@@ -94,7 +96,7 @@ class Ticket extends Model{
 				FROM (
 					SELECT  
 						h.request_num as reference, 
-						to_char(h.date_raised, 'dd/mm/yy hh:mi') as created_at,
+						to_char(h.date_raised, 'dd-mm-yy hh:mi') as created_at,
 						l.loc_ref as title, 
 						h.desc_of_request as summary,  
 						s.status as status, 
