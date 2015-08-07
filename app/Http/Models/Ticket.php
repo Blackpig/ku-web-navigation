@@ -73,7 +73,7 @@ class Ticket extends Model{
 				$rs = oci_parse($conn, $sql);
         		oci_execute($rs);    
 
-        		dd($rs)
+        		dd($rs);
         }
 
 		return true;		
