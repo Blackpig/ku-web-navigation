@@ -73,7 +73,10 @@ class Ticket extends Model{
 				$rs = oci_parse($conn, $sql);
         		oci_execute($rs);    
 
-        		dd($rs);
+        		while ($row = oci_fetch_array($stid2, OCI_ASSOC+OCI_RETURN_NULLS)) {
+        			var_dump($row);
+        			echo "<br><br><br>";
+        		};
         }
 
 		return true;		
