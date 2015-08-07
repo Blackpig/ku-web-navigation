@@ -22,7 +22,7 @@ class Ticket extends Model{
 		$esd = $this->getESD($id, $count);
 		$quemis = $this->getQuemis($id, $count);
 
-		$tickets = $tickets->merge([$service_desk,$esd,$quemis]);
+		$tickets = $tickets->merge($service_desk)->merge($esd)->merge($quemis);
 
 		dd($tickets);
 
