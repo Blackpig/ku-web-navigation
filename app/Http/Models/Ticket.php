@@ -28,6 +28,8 @@ class Ticket extends Model{
 			$keyed[] = ["date"=>$ticket->created_at, "ticket"=>$ticket];
 		}
 
+		$keyed = collect($keyed);
+
 		$sorted = $keyed->sortByDesc('date');
 
 		$top_30 = $sorted->take(30);
