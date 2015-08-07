@@ -197,6 +197,15 @@ class Endpoint extends Model{
 
 	}
 
+	public function scopeSetIsBroken($query, $guid)
+	{
+		$db = self::Connection();
+
+ 		
+ 		$rs = \DB::select('EXEC sp_setIsBroken ?', [$guid]);
+
+	}
+
 	private static function assignColour($i=0) 
 	{
 

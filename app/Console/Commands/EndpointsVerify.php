@@ -62,11 +62,12 @@ class EndpointsVerify extends Command
                     $message->from('noreply@kingston.ac.uk', $name = null);
                     $message->sender('noreply@kingston.ac.uk', $name = null);
                     $message->to($endpoint->primary_email, $name = $endpoint->primary_contact);
+                    $message->cc('stuart@hunniedesign.com', $name = 'Stuart Hallewell');
                     $message->subject('KU Navigator Endpoint broken link');
                });
                               
                               
-          //Endpoint::SetIsBroken($ep->guid);
+          Endpoint::SetIsBroken($endpoint->guid);
 
      }
       
