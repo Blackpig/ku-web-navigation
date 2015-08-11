@@ -23,21 +23,11 @@ class MyAccountsController extends Controller
     public function myTickets()
     {
       
-
-
-   
-        // TEMP FOR TESTING !!!!!
-        $user = User::find('ka01356');
-        \Auth::login($user);
-
-
-        /*if (\Auth::check()) {
+        if (\Auth::check()) {
             $user_id = \Auth::user()->id;
         } else {
             return $this->respondError(401, 'Please sign to access this service.');
-        }*/
-        // end
-        $user_id = 'KU12307';
+        }
 
 
     	$data = [

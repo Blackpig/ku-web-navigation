@@ -31,6 +31,9 @@ $app->group(['prefix' => 'api'], function($app)
 
     $app->get('search/{term}', 'App\Http\Controllers\EndpointController@searchEndpoints');
 
+    /* My Accounts Endpoints */
+    $app->get('my-tickets', 'App\Http\Controllers\MyAccountsController@myTickets');
+
 });
 
 /*

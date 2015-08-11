@@ -50,7 +50,7 @@ class Ticket extends Model{
 
 	private function getESD($id, $count=false)
 	{
-		$id = "1068743";
+
 		$db = env('DB_ESD_DATABASE');
 		$user = env('DB_ESD_USERNAME');
 		$pass = env('DB_ESD_PASSWORD');
@@ -71,7 +71,7 @@ class Ticket extends Model{
 							'Private' as title,
 							'Ticket details withheld...' as summary, 
 							CCS_NAME as status,
-							'ESD' as source
+							'Student Services' as source
 						FROM HCL 
 							INNER JOIN CCN ON CCN_CODE = HCL_CCNC
 							INNER JOIN CCS ON HCL.HCL_CCSC = CCS_CODE
@@ -102,7 +102,6 @@ class Ticket extends Model{
 
 	private function getQuemis($id, $count=false)
 	{
-		$id = "KU39220";
 		$db = env('DB_QMS_DATABASE');
 		$user = env('DB_QMS_USERNAME');
 		$pass = env('DB_QMS_PASSWORD');
@@ -120,10 +119,10 @@ class Ticket extends Model{
 					SELECT  
 						h.request_num as reference, 
 						to_char(h.date_raised, 'yyyy-mm-dd hh:mi:ss') as created_at,
-						l.loc_ref as title, 
+						'Room: ' + l.loc_ref as title, 
 						h.desc_of_request as summary,  
 						s.status as status, 
-						'Quemis' as source 
+						'Buldings & Maintenance' as source 
 					FROM ops_hd_help_desk h
 						LEFT OUTER JOIN ops_hd_job j ON j.request_num=h.request_num
 						LEFT OUTER JOIN sched_o_job_status s ON s.status_id=j.status_id

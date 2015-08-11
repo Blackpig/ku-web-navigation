@@ -406,6 +406,10 @@ p {
 /* My Status Tile */
 .ms-wall .tile.menu{
 	border-color: #0a0159;
+	padding: 1px;
+	width: 138px;
+	height: 138px;
+	border: none;
 }
 
 .ms-wall .tile.menu .tile-body{
@@ -562,33 +566,53 @@ a.button.manage-my-status:hover {
     margin: 0 5px 10px;
 }
 
-.ms-tile .tile-body{
-    width: 290px;
+.ms-tile-sq {
+    width: 140px;
+    height:140px;
+    background-color: #fff;
+    border: 1px solid #0a0159;
+    margin: 0 5px 10px;
+}
+
+.ms-tile-sq .tile-body{
+    width: 140px;
     height: 109px;
     color: #0a0159;
 }
 
-.ms-tile .tile-content p{
+.ms-tile .tile-content p, .ms-tile-sq .tile-content p{
 	color: #666;
 	font-size: 9pt;
 }
 
-.ms-tile .tile-content a{
+.ms-tile .tile-content a, .ms-tile-sq .tile-content a{
     color: #0a0159;
     height: initial;
 }
 
-.ms-tile .tile-front{
+.ms-tile .tile-front, {
     text-align: left;
 }
 
-.ms-tile .tile-front .tile-content{
+.ms-tile-sq .tile-front{
+	text-align: center;
+}
+
+.ms-tile .tile-front .tile-content, .ms-tile-sq .tile-front .tile-content{
     vertical-align: initial;
     padding-top: 15px;
 }
 
+.ms-tile-sq .tile-front .tile-content a{
+	width:124px;
+}
+
 .ms-tile .tile-back .tile-content {
 	width: 274px;
+}
+
+.ms-tile-sq .tile-back .tile-content {
+	width: 124px;
 }
 
 .ms-tile .title {
@@ -601,6 +625,10 @@ a.button.manage-my-status:hover {
 .ms-tile .info {
     width:172px;
     float: left;
+} 
+
+.ms-tile-sq .info {
+    width:124px;
 } 
 
 .ms-tile .info .details{
@@ -617,9 +645,73 @@ a.button.manage-my-status:hover {
 	margin: 0 auto;
 }
 
-.ms-tile .tile-icons .fa-lg{
+.ms-tile-sq .tile-icons {
+	background: #0a0159;
+	width: 138px;
+	margin: 0 auto;
+}
+
+.ms-tile .tile-icons .fa-lg, .ms-tile-sq .tile-icons .fa-lg{
     line-height: 1.5em;
     vertical-align: 0;
+}
+
+
+.grid-container {
+	border: 2px solid #fff;
+	padding: 2px;
+ 	margin-top:3rem;
+}
+
+.ms-grid table {
+  border-collapse: collapse;
+  table-layout: fixed;
+  width: 100%;
+  white-space: nowrap;
+  border: 2px solid #0a0159;
+}
+
+.ms-grid table caption{
+	padding: 5px 0;
+	background: #0a0159;
+	color: #fff;
+	line-height: 2.0rem;
+}
+
+
+.ms-grid th {
+	background: #0a0159;
+	color: #fff;
+}
+
+.ms-grid td {
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.ms-grid table tr.even, .ms-grid table tr.alt, .ms-grid table tr:nth-of-type(even) {
+	background: #D6DCFF;
+}
+
+/* Column widths are based on these cells */
+.td-ref {
+  width: 10%;
+}
+
+.td-created-at {
+  width: 15%;
+}
+
+.td-summary {
+  width: 45%;
+}
+
+.td-status {
+  width: 15%;
+}
+.td-source {
+  width: 15%;
 }
 
 /** Media Queries **/
@@ -636,7 +728,7 @@ a.button.manage-my-status:hover {
 
 /* Mobile */
 
-@media handheld, only screen and (max-width: 767px) {
+@media handheld, only screen and (max-width: 760px) {
 	
 	.wall {
 		min-width: 0;
@@ -695,6 +787,53 @@ a.button.manage-my-status:hover {
 	.image{
 		display: none;
 	}
+
+/* Force table to not be like tables anymore */
+	.ms-grid table, .ms-grid caption, .ms-grid thead, .ms-grid tbody, .ms-grid th, .ms-grid td, .ms-grid tr { 
+		display: block; 
+	}
+	
+	.ms-grid caption { 
+		width:100%;
+	}
+
+	/* Hide table headers (but not display: none;, for accessibility) */
+	.ms-grid thead tr { 
+		position: absolute;
+		top: -9999px;
+		left: -9999px;
+	}
+	
+	.ms-grid tr { border: 1px solid #0a0159; }
+	
+	.ms-grid td { 
+		/* Behave  like a "row" */
+		border: none;
+		border-bottom: 1px solid #0a0159; 
+		position: relative;
+		padding-left: 50%; 
+	}
+	
+	.ms-grid td:before { 
+		/* Now like a table header */
+		position: absolute;
+		/* Top/left values mimic padding */
+		top: 6px;
+		left: 6px;
+		width: 45%; 
+		padding-right: 10px; 
+		white-space: nowrap;
+	}
+	
+	/*
+	Label the data
+	*/
+	.ms-grid td:nth-of-type(1):before { content: "Reference"; }
+	.ms-grid td:nth-of-type(2):before { content: "Date created"; }
+	.ms-grid td:nth-of-type(3):before { content: "Summary"; }
+	.ms-grid td:nth-of-type(4):before { content: "Status"; }
+	.ms-grid td:nth-of-type(5):before { content: "Source"; }
+
 }
 
 /* Foundation Overrides */

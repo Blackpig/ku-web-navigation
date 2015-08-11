@@ -282,8 +282,8 @@ app.controller('searchCtrl', ['$rootScope','$scope', '$stateParams', '$state', '
 }]);
 
 /* Profile controller - used for My Accounts pages and states */
-app.controller('profileCtrl', ['$scope', '$state', 'user', 'navbarSvc',
-	function ($scope, $state, user, navbarSvc) {
+app.controller('profileCtrl', ['$scope', '$state', 'user', 'navbarSvc', 'accountsSvc',
+	function ($scope, $state, user, navbarSvc, accountsSvc) {
 
 		self = this;
 		self.user = user;
@@ -299,9 +299,29 @@ app.controller('profileCtrl', ['$scope', '$state', 'user', 'navbarSvc',
 
 		self.navbar = navbarSvc.navbar;
 
+		accountsSvc.getData($state.current.name).then( 
+			function(response) { 
+				self.data = response.data.data;
+				self.navbar = navbarSvc.navbar;
+			},
+			function(response) {
+			  var _error = {
+			  	'status': response.status,
+			  	'statusText': response.statusText,
+			  	'messageText': response.data.message
+			  }
+
+			  $rootScope.error = _error;
+			  $state.go('error');
+		});		
+
+
+
 		self.toggleInfo = function(toggleInfo){
 			$scope.toggleInfo = (!$scope.toggleInfo) ? toggleInfo : null;
 		}
+
+
 	
 }]);
 
@@ -356,6 +376,27 @@ app.factory('endpointsSvc',['$http','$q',function($http,$q){
 					}
 				}
 			};
+
+    return service;
+
+    }]) 
+
+/* Accounts Service - retrieves summary data for deifferent Accounts via API calls */
+
+app.factory('accountsSvc',['$http','$q',function($http,$q){
+
+	var service = {
+
+			accounts:{},
+
+			getData: function(route){
+
+				if (route == 'root.my-tickets') {
+					return $http.get('/api/my-tickets/');
+				}
+
+			}
+		}
 
     return service;
 

@@ -4,7 +4,7 @@
 	</header>
 
 	<div class="container">
-		<div class="ms-wall">
+        <div class="ms-wall">
             <div class="tile menu stamp pack" packery>
                 <div class="tile-body row">
                     <div class="tile-content">
@@ -12,8 +12,59 @@
                     </div>
                 </div>      
             </div>
-			<ng-include src="'assets/js/app/views/partials/my-accounts/tiles/my-tickets/quemis.html'"></ng-include>
+            <ng-include src="'assets/js/app/views/partials/my-accounts/tiles/my-tickets/quemis.html'"></ng-include>
             <ng-include src="'assets/js/app/views/partials/my-accounts/tiles/my-tickets/service-desk.html'"></ng-include>
             <ng-include src="'assets/js/app/views/partials/my-accounts/tiles/my-tickets/esd.html'"></ng-include>
+        </div>
+
+        <div class="ms-grid">
+            <div class="row grid-container">
+                <table role="grid">
+                    <caption>
+                        <span class="show-for-large-up">Your 30 most recent tickets across Service Desk, Student Services and Buildings & Maintenance.</span>
+                        <span class="hide-for-large-up">Your 30 most recent tickets.</span>
+                    </caption>
+                   
+                    <thead>
+                        <tr>
+                            <th class="td-ref">
+                                Ref.
+                            </th>
+                            <th class="td-created-at">
+                                Created At
+                            </th>
+                            <th class="td-summary">
+                                Summary
+                            </th>
+                            <th class="td-status">
+                                Status
+                            </th>
+                            <th class="td-source">
+                                Source
+                            </th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr ng-repeat="ticket in ctrl.data.tickets">
+                            <td>
+                                {{ ticket.reference }}
+                            </td>
+                            <td>
+                                {{ ticket.created_at }}
+                            </td>
+                            <td>
+                                <strong>{{ ticket.title }}</strong><br />
+                                {{ ticket.summary }}
+                            </td>
+                            <td>
+                                {{ ticket.status }}
+                            </td>
+                            <td>
+                                {{ ticket.source }}
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
         </div>
 	</div>

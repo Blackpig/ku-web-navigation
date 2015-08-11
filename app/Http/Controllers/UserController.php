@@ -14,7 +14,8 @@ class UserController extends Controller
      */
     public function authenticate($api = true)
     {	
-        if (env('APP_ENV') == 'local') {
+
+       if (env('APP_ENV') == 'local') {
             $username = "K1068743";
         } else {
             if (array_key_exists('PHP_AUTH_USER', $_SERVER)) {
