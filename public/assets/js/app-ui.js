@@ -396,7 +396,7 @@ app.factory('accountsSvc',['$http','$q',function($http,$q){
 					return $http.get('/api/my-tickets/');
 				} else {
 					deferred = $q.defer();
-                	deferred.resolve({});
+                	deferred.resolve({"data":[]});
                 	return deferred.promise;
 				}
 
