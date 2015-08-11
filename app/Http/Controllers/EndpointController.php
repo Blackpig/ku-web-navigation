@@ -255,11 +255,11 @@ class EndpointController extends Controller
 
             if ($is_index) {
                 // [square, square, wide, tall]
-                $mods = ["5", "7", "8", "9"];
+                $mods = ["3.5", "5", "7", "9"];
             } elseif ($has_service_group) {
-                $mods = ["5", "7", "8", "9"];                
+                $mods = ["5", "5", "7", "9"];                
             } else {
-                $mods = ["5", "7", "8", "9"];
+                $mods = ["5", "5", "7", "9"];
             }
 
             //echo "$i-" . $i%$mods[0] . "-" . $i%$mods[1] . "-" .  $i%$mods[2] . "-" . $i%$mods[3] . "<br/>";
