@@ -566,6 +566,10 @@ a.button.manage-my-status:hover {
     margin: 0 5px 10px;
 }
 
+.ms-tile .tile-body{
+    height:109px;
+}
+
 .ms-tile-sq {
     width: 140px;
     height:140px;
