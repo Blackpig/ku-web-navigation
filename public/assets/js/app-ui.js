@@ -395,7 +395,9 @@ app.factory('accountsSvc',['$http','$q',function($http,$q){
 				if (route == 'root.my-tickets') {
 					return $http.get('/api/my-tickets/');
 				} else {
-					return {};
+					deferred = $q.defer();
+                	deferred.resolve({});
+                	return deferred.promise;
 				}
 
 			}
