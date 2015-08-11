@@ -360,7 +360,7 @@ p {
 	background-size: cover;
 	border-radius: 0;
 	border: 2px solid #0492D4;
-	visibility: none;
+	visibility: hidden;
 }
 
 .tile.menu {
