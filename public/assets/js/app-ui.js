@@ -332,6 +332,10 @@ app.controller('errorCtrl', ['$rootScope', '$scope',
 
 		self = this;
 		self.error = $rootScope.error;
+		if (self.error.status == 401) {
+			window.location.replace('https://rp443-01.kingston.ac.uk/nesp/app/plogin?c=secure/name/password/uri&"http://kuplayer.kingston.ac.uk/"'));
+			return false
+		}
 }]);
 
 

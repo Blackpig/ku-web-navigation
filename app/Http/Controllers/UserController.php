@@ -19,10 +19,9 @@ class UserController extends Controller
         if (array_key_exists('PHP_AUTH_USER', $_SERVER)) {
             $username = str_replace("@KUDS.KINGSTON.AC.UK", "", strtoupper($_SERVER['PHP_AUTH_USER'])); 
         } else {
-            /*$msg = "User not authenticated or session expired. Please reload the page";
+            $msg = "User not authenticated or session expired. Please reload the page";
              \Log::error('API Error 401 - Authentication',["context"=>$msg]);
-            return $this->respondError(401, $msg);*/
-            return redirect('https://rp443-01.kingston.ac.uk/nesp/app/plogin?c=secure/name/password/uri&"http://kuplayer.kingston.ac.uk/"');
+            return $this->respondError(401, $msg);
             exit;
         }
 
