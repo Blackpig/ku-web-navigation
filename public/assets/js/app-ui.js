@@ -332,11 +332,11 @@ app.controller('errorCtrl', ['$rootScope', '$scope',
 
 		self = this;
 		self.error = $rootScope.error;
-		console.log(self.error);
-		if (self.error.status == 401) {
+
+		/*if (self.error.status == 401) {
 			window.location.replace('https://login01.kingston.ac.uk/nidp/idff/sso');
 			return false
-		}
+		}*/
 }]);
 
 
