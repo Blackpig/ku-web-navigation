@@ -255,11 +255,11 @@ class EndpointController extends Controller
 
             if ($is_index) {
                 // [square, square, wide, tall]
-                $mods = ["5", "5", "6", "9"];
+                $mods = ["5", "7", "8", "9"];
             } elseif ($has_service_group) {
-                $mods = ["5", "5", "6", "9"];                
+                $mods = ["5", "7", "8", "9"];                
             } else {
-                $mods = ["5", "5", "6", "9"];
+                $mods = ["5", "7", "8", "9"];
             }
                 
             if (($i%$mods[0] == 0 || $i%$mods[1]==0) && $image_count <= $max_images && $square->count() > 0) {
