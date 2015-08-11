@@ -262,19 +262,19 @@ class EndpointController extends Controller
                 $mods = ["5", "7", "8", "9"];
             }
 
-            echo "$i-" . $i%$mods[0] . "-" . $i%$mods[1] . "-" .  $i%$mods[2] . "-" . $i%$mods[3] . "<br/>";
+            //echo "$i-" . $i%$mods[0] . "-" . $i%$mods[1] . "-" .  $i%$mods[2] . "-" . $i%$mods[3] . "<br/>";
                 
-            if (($i%$mods[0] == 0 || $i%$mods[1]==0) && $image_count <= $max_images && $square->count() > 0) {
+            if ($i > 0 && ($i%$mods[0] == 0 || $i%$mods[1]==0) && $image_count <= $max_images && $square->count() > 0) {
                 $return_endpoints->push($this->makeImageEndpoint('square',$square->pop()));
                 $image_count++;
             }
 
-            if ($i%$mods[2] == 0 && $image_count <= $max_images && $wide->count() > 0) {
+            if ($i > 0 $i%$mods[2] == 0 && $image_count <= $max_images && $wide->count() > 0) {
                 $return_endpoints->push($this->makeImageEndpoint('wide',$wide->pop()));
                 $image_count++;
             }
 
-            if ($i%$mods[3] == 0 && $image_count <= $max_images && $tall->count() > 0) {
+            if ($i > 0 $i%$mods[3] == 0 && $image_count <= $max_images && $tall->count() > 0) {
                 $return_endpoints->push($this->makeImageEndpoint('tall',$tall->pop()));
                 $image_count++;
             }
