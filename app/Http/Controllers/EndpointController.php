@@ -261,6 +261,8 @@ class EndpointController extends Controller
             } else {
                 $mods = ["5", "7", "8", "9"];
             }
+
+            echo "$i-" . $i%$mods[0] . "-" . $i%$mods[1] . "-" .  $i%$mods[2] . "-" . $i%$mods[3] . "<br/>";
                 
             if (($i%$mods[0] == 0 || $i%$mods[1]==0) && $image_count <= $max_images && $square->count() > 0) {
                 $return_endpoints->push($this->makeImageEndpoint('square',$square->pop()));
