@@ -255,7 +255,7 @@ class EndpointController extends Controller
 
             if ($is_index) {
                 // [square, square, wide, tall]
-                $mods = ["3", "5", "7", "8"];
+                $mods = ["3", "5", "8", "10"];
             } elseif ($has_service_group) {
                 $mods = ["5", "5", "7", "9"];                
             } else {
