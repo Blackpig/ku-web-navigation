@@ -298,6 +298,7 @@ app.controller('profileCtrl', ['$scope', '$state', 'user', 'navbarSvc', 'account
 		navbarSvc.build(user.employee_type, $state.current.name, current, parents);
 
 		self.navbar = navbarSvc.navbar;
+		console.log($state.current.name);
 
 		accountsSvc.getData($state.current.name).then( 
 			function(response) { 
