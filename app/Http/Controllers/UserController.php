@@ -16,7 +16,7 @@ class UserController extends Controller
     {	
 
        if (\Auth::check()) {
-            $user = \Auth::user()->id;
+            $user = \Auth::user();
         } else {
 
             if (array_key_exists('PHP_AUTH_USER', $_SERVER)) {
