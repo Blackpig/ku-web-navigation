@@ -15,8 +15,8 @@ class SwhController extends Controller
     public function authenticate($username)
     {	
         
-        //$username = "K1068743";
-
+        $username = "ka01356";
+dd($_SERVER);
         
         if (!$username) {
 
