@@ -202,7 +202,6 @@ app.controller('stateCtrl', ['$rootScope','$scope', '$stateParams', '$state', 'u
 	};
 
 	self.toggleInfo = function(toggleInfo){
-		console.log ('scope:' + $scope.toggleInfo +', param:'+toggleInfo);
 		$scope.toggleInfo = (!$scope.toggleInfo || $scope.toggleInfo != toggleInfo) ? toggleInfo : null;
 	}
 
@@ -298,7 +297,6 @@ app.controller('profileCtrl', ['$scope', '$state', 'user', 'navbarSvc', 'account
 		navbarSvc.build(user.employee_type, $state.current.name, current, parents);
 
 		self.navbar = navbarSvc.navbar;
-		console.log($state.current.name);
 
 		accountsSvc.getData($state.current.name).then( 
 			function(response) { 
