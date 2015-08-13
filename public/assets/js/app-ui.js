@@ -281,8 +281,8 @@ app.controller('searchCtrl', ['$rootScope','$scope', '$stateParams', '$state', '
 }]);
 
 /* Profile controller - used for My Accounts pages and states */
-app.controller('profileCtrl', ['$scope', '$state', 'user', 'navbarSvc', 'accountsSvc',
-	function ($scope, $state, user, navbarSvc, accountsSvc) {
+app.controller('profileCtrl', ['$rootScope', '$scope', '$state', 'user', 'navbarSvc', 'accountsSvc',
+	function ($rootScope, $scope, $state, user, navbarSvc, accountsSvc) {
 
 		self = this;
 		self.user = user;

@@ -254,6 +254,7 @@ class EndpointController extends Controller
             $return_endpoints->push($endpoints->pop());
 
             if ($is_index) {
+                
                 // [square, square, wide, tall]
                 $mods = ["3", "5", "8", "10"];
             } elseif ($has_service_group) {
