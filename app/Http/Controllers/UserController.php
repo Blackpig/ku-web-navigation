@@ -15,10 +15,10 @@ class UserController extends Controller
     public function authenticate($api = true)
     {	
 
-        $x = \Auth::check();
+        $x = \Auth::viaRemember();
          \Log::warning('Start -- User logged in ',["context"=>$x]);
 
-       if (\Auth::check()) {
+       if (\Auth::viaRemember()) {
             $user = \Auth::user();
         } else {
 
