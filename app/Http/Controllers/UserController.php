@@ -93,7 +93,7 @@ class UserController extends Controller
                 $user->save();
             }
 
-            \Auth::login($user);
+            \Auth::loginUsingId($user->id);
 
             $x = \Auth::check();
 
