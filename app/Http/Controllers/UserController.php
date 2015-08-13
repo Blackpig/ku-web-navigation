@@ -94,7 +94,7 @@ class UserController extends Controller
             }
 
             //\Auth::loginUsingId($user->id);
-             \Auth::login($user);
+             \Auth::login($user, true);
 
             $x = \Auth::check();
 
