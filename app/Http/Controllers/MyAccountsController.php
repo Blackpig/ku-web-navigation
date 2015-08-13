@@ -23,7 +23,7 @@ class MyAccountsController extends Controller
     public function myTickets()
     {
 
-        $x = \Auth::viaRemember();
+        $x = \Auth::check();
 
         \Log::warning('MyTickets -- User is logged in',["context"=>$x]);
       

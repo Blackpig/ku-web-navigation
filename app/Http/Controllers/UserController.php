@@ -15,10 +15,10 @@ class UserController extends Controller
     public function authenticate($api = true)
     {	
 
-        $x = \Auth::viaRemember();
+        $x = \Auth::check();
          \Log::warning('Start -- User logged in ',["context"=>$x]);
 
-       if (\Auth::viaRemember()) {
+       if (\Auth::check()) {
             $user = \Auth::user();
         } else {
 
@@ -83,7 +83,7 @@ class UserController extends Controller
                 $user->tel = $ldap_user->telephonenumber;
                 $user->gender = strtolower($ldap_user->extensionAttribute1);
                 $user->avatar = $this->getUserImage($user->id, $user->gender);
-                $user->password = 'dummy';
+                $user->password = '';
                 $user->save();
                 
                 $user = User::find($username);
@@ -95,7 +95,7 @@ class UserController extends Controller
             }
 
             //\Auth::loginUsingId($user->id);
-             \Auth::login($user, true);
+             \Auth::login($user);
 
             $x = \Auth::check();
 
