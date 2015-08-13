@@ -91,6 +91,12 @@ class UserController extends Controller
             }
 
             \Auth::login($user);
+
+            $x = \Auth::check();
+
+             \Log::error('User is logged in',["context"=>$x]);
+
+
         }
 
         if ($api) {
