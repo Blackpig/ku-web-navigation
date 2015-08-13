@@ -16,7 +16,7 @@ class UserController extends Controller
     {	
 
         $x = \Auth::check();
-         \Log::warning('User logged in ',["context"=>$x]);
+         \Log::warning('Start -- User logged in ',["context"=>$x]);
 
        if (\Auth::check()) {
             $user = \Auth::user();
@@ -97,7 +97,7 @@ class UserController extends Controller
 
             $x = \Auth::check();
 
-             \Log::error('User is logged in',["context"=>$x]);
+             \Log::error('End -- User is logged in',["context"=>$x]);
 
 
         }

@@ -22,6 +22,10 @@ class MyAccountsController extends Controller
      */
     public function myTickets()
     {
+
+        $x = \Auth::check();
+
+        \Log::warning('MyTickets -- User is logged in',["context"=>$x]);
       
         if (\Auth::check()) {
             $user_id = \Auth::user()->id;
