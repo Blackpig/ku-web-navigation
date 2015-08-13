@@ -15,6 +15,9 @@ class UserController extends Controller
     public function authenticate($api = true)
     {	
 
+        $x = \Auth::check();
+         \Log::warning('User logged in ',["context"=>$x]);
+
        if (\Auth::check()) {
             $user = \Auth::user();
         } else {
