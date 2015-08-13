@@ -83,6 +83,7 @@ class UserController extends Controller
                 $user->tel = $ldap_user->telephonenumber;
                 $user->gender = strtolower($ldap_user->extensionAttribute1);
                 $user->avatar = $this->getUserImage($user->id, $user->gender);
+                $user->password = 'dummy';
                 $user->save();
                 
                 $user = User::find($username);
