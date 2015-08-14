@@ -25,22 +25,22 @@ class SwhController extends Controller
 
         $x = \Auth::check();
 
-        echo "Auth::check ==>" . $x;
+        echo "<br>Auth::check ==>" . $x;
 
        
     }
 
      public function authenticate2()
     {   
-        echo "PHP_AUTH_USER ==>" . isset($_SERVER['PHP_AUTH_USER']) ? $_SERVER['PHP_AUTH_USER'] : false;
+        echo "<br>PHP_AUTH_USER ==>" . isset($_SERVER['PHP_AUTH_USER']) ? $_SERVER['PHP_AUTH_USER'] : false;
         
         $x = \Auth::check();
 
-        echo "Auth::check ==>" . $x;
+        echo "<br>Auth::check ==>" . $x;
         
         $username = "ka01356";
 
-        echo "PHP_AUTH_USER ==>" . isset($_SERVER['PHP_AUTH_USER']) ? $_SERVER['PHP_AUTH_USER'] : false;
+        echo "<br>PHP_AUTH_USER ==>" . isset($_SERVER['PHP_AUTH_USER']) ? $_SERVER['PHP_AUTH_USER'] : false;
              
 
        
