@@ -18,7 +18,7 @@ class SwhController extends Controller
         \Session::forget('mikey');
          \Session::regenerate('mikey');
         \Session::put('mikey','mikey');
-        \Session::save();
+      //  \Session::save();
        /* $username = "ka01356";
 
         $x = "swh --> PHP_AUTH_USER ==>" . isset($_SERVER['PHP_AUTH_USER']) ? $_SERVER['PHP_AUTH_USER'] : false;
