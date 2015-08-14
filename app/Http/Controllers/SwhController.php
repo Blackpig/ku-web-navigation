@@ -17,7 +17,6 @@ class SwhController extends Controller
     {	
         \Session::put('mikey','mikey');
         \Session::save();
-        //\Session::save();
        /* $username = "ka01356";
 
         $x = "swh --> PHP_AUTH_USER ==>" . isset($_SERVER['PHP_AUTH_USER']) ? $_SERVER['PHP_AUTH_USER'] : false;
@@ -35,7 +34,7 @@ class SwhController extends Controller
        
     }
 
-     public function authenticate2(Request $request)
+     public function authenticate2()
     {   
         /*$x = "swh2 --> PHP_AUTH_USER ==>" . isset($_SERVER['PHP_AUTH_USER']) ? $_SERVER['PHP_AUTH_USER'] : false;
 
