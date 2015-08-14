@@ -7,6 +7,7 @@ class UserController extends Controller
 {
 
     use \App\Http\Traits\HttpResponseTrait;
+    use \App\Http\Traits\AuthTrait;
     
     /**
      * Load user Details
@@ -15,23 +16,12 @@ class UserController extends Controller
     public function authenticate($api = true)
     {	
 
-        $x = \Auth::check();
-         \Log::warning('Start -- User logged in ',["context"=>$x]);
-
        if (\Auth::check()) {
             $user = \Auth::user();
         } else {
 
-            if (array_key_exists('PHP_AUTH_USER', $_SERVER)) {
-                $username = str_replace("@KUDS.KINGSTON.AC.UK", "", strtoupper($_SERVER['PHP_AUTH_USER'])); 
-            } else {
-                $msg = "User not authenticated or session expired. Please reload the page";
-                 \Log::error('API Error 401 - Authentication',["context"=>$msg]);
-                return $this->respondError(401, $msg);
-                exit;
-            }
+            $username = $this->getUsername();
 
-            
             if (!$username) {
                 $msg = "No username available for LDAP lookup";
                 \Log::error('API Error 401 - Authentication',["context"=>$msg]);
@@ -96,12 +86,6 @@ class UserController extends Controller
 
             //\Auth::loginUsingId($user->id);
              \Auth::login($user);
-
-            $x = \Auth::check();
-
-             \Log::error('End -- User is logged in',["context"=>$x]);
-
-
         }
 
         if ($api) {
