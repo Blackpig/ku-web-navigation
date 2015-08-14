@@ -15,6 +15,8 @@ class SwhController extends Controller
      */
     public function authenticate1()
     {	
+        \Session::forget('mikey');
+         \Session::regenerate('mikey');
         \Session::put('mikey','mikey');
         \Session::save();
        /* $username = "ka01356";
