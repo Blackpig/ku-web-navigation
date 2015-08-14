@@ -26,7 +26,7 @@ class SwhController extends Controller
         $x = \Auth::check();
 
         echo "<br>Auth::check ==>" . $x;
-        return $this->respondError(401,'wibble');
+       // return $this->respondError(401,'wibble');
        
     }
 
