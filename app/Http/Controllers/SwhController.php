@@ -17,30 +17,34 @@ class SwhController extends Controller
         
         $username = "ka01356";
 
-        echo "PHP_AUTH_USER ==>" . isset($_SERVER['PHP_AUTH_USER']) ? $_SERVER['PHP_AUTH_USER'] : false;
+        $x = "swh --> PHP_AUTH_USER ==>" . isset($_SERVER['PHP_AUTH_USER']) ? $_SERVER['PHP_AUTH_USER'] : false;
+
+        \Log::notice($x);
              
         $user = User::find($username);
         
         \Auth::login($user);
 
-        $x = \Auth::check();
-
-        echo "<br>Auth::check ==>" . $x;
+        $x = "swh --> Auth::check ==>" . \Auth::check();
+         \Log::notice($x);
        // return $this->respondError(401,'wibble');
        
     }
 
      public function authenticate2()
     {   
-        echo "<br>PHP_AUTH_USER ==>" . isset($_SERVER['PHP_AUTH_USER']) ? $_SERVER['PHP_AUTH_USER'] : false;
-        
-        $x = \Auth::check();
+        $x = "swh --> PHP_AUTH_USER ==>" . isset($_SERVER['PHP_AUTH_USER']) ? $_SERVER['PHP_AUTH_USER'] : false;
 
-        echo "<br>Auth::check ==>" . $x . "<br>";
+        \Log::notice($x);
         
-        $username = "ka01356";
+        \Auth::login($user);
 
-        echo "<br>PHP_AUTH_USER ==>" . isset($_SERVER['PHP_AUTH_USER']) ? $_SERVER['PHP_AUTH_USER'] : false;
+        $x = "swh --> Auth::check ==>" . \Auth::check();
+         \Log::notice($x);
+        
+        $x = "swh --> PHP_AUTH_USER ==>" . isset($_SERVER['PHP_AUTH_USER']) ? $_SERVER['PHP_AUTH_USER'] : false;
+
+        \Log::notice($x);
              
 
        
