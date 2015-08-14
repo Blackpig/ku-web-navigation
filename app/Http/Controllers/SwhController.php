@@ -51,7 +51,7 @@ class SwhController extends Controller
         $s = "mikey==>" . \Session::get('mikey');
         \Log::notice($s);
              
-return 'true';
+return $s;
        
     }
 }
