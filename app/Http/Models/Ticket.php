@@ -24,6 +24,8 @@ class Ticket extends Model{
 
 		$tickets = $tickets->merge($service_desk)->merge($esd)->merge($quemis);
 
+		$keyed = [];
+		
 		foreach ($tickets as $ticket) {
 			$keyed[] = ["date"=>$ticket->created_at, "ticket"=>$ticket];
 		}
