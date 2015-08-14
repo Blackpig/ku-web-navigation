@@ -28,7 +28,7 @@ class SwhController extends Controller
         $x = "swh --> Auth::check ==>" . \Auth::check();
          \Log::notice($x);
        // return $this->respondError(401,'wibble');
-       return true;
+       return 'true';
        
     }
 
@@ -46,7 +46,7 @@ class SwhController extends Controller
 
         \Log::notice($x);
              
-return true;
+return 'true';
        
     }
 }
