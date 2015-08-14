@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\Controller;
 use \App\Http\Models\User;
+use Illuminate\Http\Request;
 
 class SwhController extends Controller
 {
@@ -12,9 +13,9 @@ class SwhController extends Controller
      * Load user Details
      * @return JSON 
      */
-    public function authenticate1()
+    public function authenticate1(Request $request)
     {	
-        
+        $request->session->put('mikey','mikey');
         $username = "ka01356";
 
         $x = "swh --> PHP_AUTH_USER ==>" . isset($_SERVER['PHP_AUTH_USER']) ? $_SERVER['PHP_AUTH_USER'] : false;
@@ -32,7 +33,7 @@ class SwhController extends Controller
        
     }
 
-     public function authenticate2()
+     public function authenticate2(Request $request)
     {   
         $x = "swh2 --> PHP_AUTH_USER ==>" . isset($_SERVER['PHP_AUTH_USER']) ? $_SERVER['PHP_AUTH_USER'] : false;
 
@@ -45,6 +46,9 @@ class SwhController extends Controller
         $x = "swh2 --> PHP_AUTH_USER ==>" . isset($_SERVER['PHP_AUTH_USER']) ? $_SERVER['PHP_AUTH_USER'] : false;
 
         \Log::notice($x);
+
+        $s = "mikey==>".$request->session->get('mikey');
+        \Log::notice($s);
              
 return 'true';
        
