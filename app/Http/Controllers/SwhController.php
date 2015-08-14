@@ -15,7 +15,7 @@ class SwhController extends Controller
      */
     public function authenticate1(Request $request)
     {	
-        $request->session->put('mikey','mikey');
+        $request->session()->put('mikey','mikey');
         $username = "ka01356";
 
         $x = "swh --> PHP_AUTH_USER ==>" . isset($_SERVER['PHP_AUTH_USER']) ? $_SERVER['PHP_AUTH_USER'] : false;
@@ -47,7 +47,7 @@ class SwhController extends Controller
 
         \Log::notice($x);
 
-        $s = "mikey==>".$request->session->get('mikey');
+        $s = "mikey==>".$request->session()->get('mikey');
         \Log::notice($s);
              
 return 'true';
