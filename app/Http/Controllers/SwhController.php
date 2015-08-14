@@ -33,15 +33,15 @@ class SwhController extends Controller
 
      public function authenticate2()
     {   
-        $x = "swh --> PHP_AUTH_USER ==>" . isset($_SERVER['PHP_AUTH_USER']) ? $_SERVER['PHP_AUTH_USER'] : false;
+        $x = "swh2 --> PHP_AUTH_USER ==>" . isset($_SERVER['PHP_AUTH_USER']) ? $_SERVER['PHP_AUTH_USER'] : false;
 
         \Log::notice($x);
     
 
-        $x = "swh --> Auth::check ==>" . \Auth::check();
+        $x = "swh2 --> Auth::check ==>" . \Auth::check();
          \Log::notice($x);
         
-        $x = "swh --> PHP_AUTH_USER ==>" . isset($_SERVER['PHP_AUTH_USER']) ? $_SERVER['PHP_AUTH_USER'] : false;
+        $x = "swh2 --> PHP_AUTH_USER ==>" . isset($_SERVER['PHP_AUTH_USER']) ? $_SERVER['PHP_AUTH_USER'] : false;
 
         \Log::notice($x);
              
