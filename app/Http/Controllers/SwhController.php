@@ -36,8 +36,7 @@ class SwhController extends Controller
         $x = "swh --> PHP_AUTH_USER ==>" . isset($_SERVER['PHP_AUTH_USER']) ? $_SERVER['PHP_AUTH_USER'] : false;
 
         \Log::notice($x);
-        
-        \Auth::login($user);
+    
 
         $x = "swh --> Auth::check ==>" . \Auth::check();
          \Log::notice($x);
