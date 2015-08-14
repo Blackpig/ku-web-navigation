@@ -36,7 +36,7 @@ class SwhController extends Controller
         
         $x = \Auth::check();
 
-        echo "<br>Auth::check ==>" . $x;
+        echo "<br>Auth::check ==>" . $x . "<br>";
         
         $username = "ka01356";
 
