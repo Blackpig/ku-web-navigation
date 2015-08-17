@@ -517,6 +517,7 @@ app.directive('packery', ['$rootScope', '$timeout',
 			link: function(scope, element, attrs) {
 			    scope.element = element;
 			    if (!$rootScope.packery) {
+			    	$('#mask').show();
 			    	$rootScope.packery = new Packery(element[0].parentElement, {
 			    		itemSelector: '.pack',
 			    		stamp: '.stamp',
@@ -530,6 +531,7 @@ app.directive('packery', ['$rootScope', '$timeout',
 
 		    	var orderItems = function() {
 		    		var itemElems = $rootScope.packery.getItemElements();
+		    		$('#mask').hide();
 		    	};
 
 		    	$rootScope.packery.on('layoutComplete', orderItems);
