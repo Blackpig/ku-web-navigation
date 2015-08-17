@@ -690,6 +690,10 @@ a.button.manage-my-status:hover {
  	margin-top:3rem;
 }
 
+.grid-container .panel {
+	margin-bottom: 0;
+}
+
 .ms-grid table {
   border-collapse: collapse;
   table-layout: fixed;
