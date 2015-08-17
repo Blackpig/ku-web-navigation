@@ -531,11 +531,12 @@ app.directive('packery', ['$rootScope', '$timeout',
 
 		    	var orderItems = function() {
 		    		var itemElems = $rootScope.packery.getItemElements();
-		    		$timeout(function() {
-		    			$('#mask').hide();
-		    			
-			      });
+		    		$timeout(clearMask, 5000 );
 		    	};
+
+		    	var clearMask = function(){
+		    		$('#mask').hide();
+		    	}
 
 		    	$rootScope.packery.on('layoutComplete', orderItems);
 
