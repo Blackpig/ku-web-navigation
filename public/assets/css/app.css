@@ -33,6 +33,11 @@ p {
 	background:rgba(5,5,5,0.9);
 }
 
+.spinner {
+	font-size: 5rem;
+	color: #d9e2ea;
+}
+
 .srch {
 	height: ;
 }
