@@ -923,6 +923,7 @@ a:hover, a:focus{
 	height: 140px;
 	border-left: 2px solid rgba(255,255,255,0);
 	border-right: 2px solid rgba(255,255,255,0);
+	background: transparent;
 }
 
 .ie .image.square img{
