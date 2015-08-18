@@ -918,6 +918,21 @@ a:hover, a:focus{
 	perspective:1000;
 }
 
+.ie .image.square{
+	width: 136px;
+	height: 140px;
+}
+
+.ie .image.tall{
+	width: 136px;
+	height: 290px;
+}
+
+.ie .image.wide{
+	width: 286px;
+	height: 140px;
+}
+
 .ie .service-group, .ie .service-group .tile-body, .ie .service-group .tile-content
  {
     width: 278px;
