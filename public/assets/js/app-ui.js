@@ -582,7 +582,7 @@ $(document).ready(function(){
 	/* We will manually toggle the front and back of teh tiles */
 	$('.fa-info').click(function(e){
 			e.preventDefault();
-			error.log('cliekty');
+			console.log('cliekty');
 			if ( $('html').hasClass('no-csstransforms3d')) {
 				_t = this;
 
