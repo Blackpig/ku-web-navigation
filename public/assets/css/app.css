@@ -1017,6 +1017,11 @@ a:hover, a:focus{
 	transform: rotateY(0deg);
 }
 
+.ie .tile-back .tile-content p {
+    line-height: 1.4;
+}
+
+
 .ie .top-bar .button {
 	height: auto;
 	padding-top: 0.4rem;
