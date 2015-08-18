@@ -15,4 +15,11 @@ trait AuthTrait
 
         return $username;
 	}
+
+	public function getUser()
+	{
+		$username = $this->getUsername();
+
+        return \Models\User::find($username);
+	}
 }
