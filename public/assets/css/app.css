@@ -918,8 +918,15 @@ a:hover, a:focus{
 	perspective:1000;
 }
 
-.ie .image.square, .ie .image.square img{
+.ie .image.square{
 	width: 136px;
+	height: 140px;
+	border-left: 2px solid rgba(255,255,255,0);
+	border-right: 2px solid rgba(255,255,255,0);
+}
+
+.ie .image.square img{
+	width: 140px;
 	height: 140px;
 }
 
