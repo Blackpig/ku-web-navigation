@@ -55,23 +55,27 @@ class EndpointController extends Controller
     public function organisationEndpointList($id)
     { 
 
-    	$type = Endpoint::Type($id);
+        if (!env('USE_CACHE')) {
+            Cache::forget($id);
+        }
 
-    	if ($type == 1) {
-    		$current = Endpoint::Organisation($id);
-    		$endpoints = Endpoint::OrganisationEndpoints($id);
-    		$parents = $this->roots[0];
-    	} elseif ($type == 2) {
-    		$current = Endpoint::ServiceGroup($id);
-    		$endpoints = Endpoint::OrganisationServiceGroupEndpoints($id, $current->organisation_guid);		
-    		$parents = $this->getParents(0, $current);
-    	} else {
-    		return $this->respondError(500, 'Unknown Tile Type');
-    	}
+    	$data = Cache::remember($id, env('CACHE_EXPIRY'), function($id) {
 
-    	//$data = Cache::remember($id,360, function($id) {
-	    //	return [
-		$data = [		
+            $type = Endpoint::Type($id);
+
+            if ($type == 1) {
+                $current = Endpoint::Organisation($id);
+                $endpoints = Endpoint::OrganisationEndpoints($id);
+                $parents = $this->roots[0];
+            } elseif ($type == 2) {
+                $current = Endpoint::ServiceGroup($id);
+                $endpoints = Endpoint::OrganisationServiceGroupEndpoints($id, $current->organisation_guid);     
+                $parents = $this->getParents(0, $current);
+            } else {
+                return $this->respondError(500, 'Unknown Tile Type');
+            }
+
+	    	return [	
 				"this"	=> [
 					"guid" => $current->guid,
 	    			"label" => $current->name
@@ -80,7 +84,7 @@ class EndpointController extends Controller
 	    		"has_service_group"	=> $this->checkForServiceGroup($endpoints),
 	    		"endpoints" => $endpoints
 	    	];
-	  //  });
+	    });
 
         $data['endpoints'] = $this->insertImages($data['endpoints'], false, $data['has_service_group']);
 
