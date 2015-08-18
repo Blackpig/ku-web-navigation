@@ -94,11 +94,11 @@ class EndpointController extends Controller
     public function channelList()
     {
 	    
-	    if (env('APP_ENV') == 'development') {
-    		Cache::forget('channels');
-    	}
+	    if (!env('USE_CACHE')) {
+            Cache::forget('channels');
+        }
 
-	    $data = Cache::remember('channels',360, function() {
+	    $data = Cache::remember('channels',env('CACHE_EXPIRY'), function() {
 	    	return [
 				"this"	=> $this->roots[1],
 	    		"parents" => [
