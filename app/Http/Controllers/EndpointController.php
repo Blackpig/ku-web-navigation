@@ -8,6 +8,7 @@ class EndpointController extends Controller
 {
 
 	use \App\Http\Traits\HttpResponseTrait;
+    use \App\Http\Traits\AuthTrait;
 
 	protected $roots = [
 			[
@@ -168,13 +169,15 @@ class EndpointController extends Controller
     public function searchEndpoints($term)
     { 
 
-    	if (\Auth::check()) {
-    		$staff_type = \Auth::user()->employee_type;
+    	$user = $this->getUser();
+
+        if ($user) {
+    		$staff_only = ($user->employee_type == 0) ? 1 : 0;
     	} else {
-    		$staff_type = 0;
+    		$staff_only = 0;
     	}
 
-    	$data['endpoints'] = Endpoint::Search($term, $staff_type);
+    	$data['endpoints'] = Endpoint::Search($term, $staff_only);
 
     	return $this->respondOK($data);
     }
