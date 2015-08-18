@@ -916,6 +916,7 @@ a:hover, a:focus{
 /* IE > 10 add a class ie to body and apply following styles */
 .ie .tile{
 	perspective:1000;
+	transform-style: preserve-3d;
 }
 
 .ie .image.square{
@@ -990,32 +991,44 @@ a:hover, a:focus{
 	height: inherit;
 }
 
-.ie .tile-front  {
-    height:101px;
-	margin:2px;
-	-ms-transform-style: preserve-3d;
-}
-
 .ie .flip{
-	transform: none;
+	transition: 0.6s;
+	transform-style: preserve-3d;
+	position: relative;
 }
 
 .ie .flip .tile-front {
 	transform: rotateY(-180deg);
 }
 
+.ie .tile-front, .ie tile-back {
+	backface-visibility: hidden;
+	transition: 0.6s;
+	transform-style: preserve-3d;
+	position: absolute;
+	top: 0;
+	left: 0;
+}
+
+.ie .tile-front  {
+    height:101px;
+	margin:2px;
+	z-index: 2;
+	-ms-transform: rotateY(0deg);
+	transform: rotateY(0deg);
+}
+
 .ie .tile-back  {
     height:101px;
-    -ms-transform-style: preserve-3d;
     -ms-transform: rotateY(-180deg);
     transform: rotateY(-180deg);
 }
 
-.ie .flip .tile-back {
+/*.ie .flip .tile-back {
 	margin:2px;
 	-ms-transform: rotateY(0deg);
 	transform: rotateY(0deg);
-}
+}*/
 
 .ie .tile-back .tile-content p {
     line-height: 1.4;
