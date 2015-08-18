@@ -1004,6 +1004,10 @@ a:hover, a:focus{
 	transform: rotateY(0deg);
 }
 
+.ie .flip .tile-back p {;
+	transform: rotateY(180deg);
+}
+
 .ie .flip{
 	transition: 0.6s;
 	transform-style: preserve-3d;
@@ -1031,6 +1035,10 @@ a:hover, a:focus{
     height:101px;
     -ms-transform: rotateY(-180deg);
     transform: rotateY(-180deg);
+}
+
+.ie .tile-back .tile-content p {
+    line-height: 1.4;
 }
 
 .ie .tile-back .tile-content p {
