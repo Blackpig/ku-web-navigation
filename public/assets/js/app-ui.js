@@ -582,6 +582,7 @@ $(document).ready(function(){
 	/* We will manually toggle the front and back of teh tiles */
 	if ( Modernizr.testProp('no-csstransforms3d')) {
 		$('.info-trigger').click(function(e){
+			console.log('clicketyclack');
 			e.preventDefault();
 			_t = this;
 
