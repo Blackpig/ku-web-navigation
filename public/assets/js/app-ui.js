@@ -581,6 +581,7 @@ $(document).ready(function(){
 	/* If the browser doesn't support 3d transforms then the front/back tile animation will not fire */
 	/* We will manually toggle the front and back of teh tiles */
 	if ( Modernizr.testProp('no-csstransforms3d')) {
+		console.log('modernized');
 		$('.info-trigger').click(function(e){
 			console.log('clicketyclack');
 			e.preventDefault();
