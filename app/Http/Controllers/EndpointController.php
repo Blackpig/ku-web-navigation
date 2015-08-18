@@ -59,7 +59,7 @@ class EndpointController extends Controller
             Cache::forget($id);
         }
 
-    	$data = Cache::remember($id, env('CACHE_EXPIRY'), function($id) {
+    	$data = Cache::remember($id, env('CACHE_EXPIRY'), function() use ($id) {
 
             $type = Endpoint::Type($id);
 
