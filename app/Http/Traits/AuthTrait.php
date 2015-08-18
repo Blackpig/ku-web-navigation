@@ -1,6 +1,7 @@
 <?php namespace App\Http\Traits;
 
 use Illuminate\Http\Request;
+Use App\Models\user;
 
 trait AuthTrait
 {
@@ -20,6 +21,6 @@ trait AuthTrait
 	{
 		$username = $this->getUsername();
 
-        return \Models\User::find($username);
+        return User::find($username);
 	}
 }
