@@ -1017,7 +1017,7 @@ a:hover, a:focus{
 
 .ie .tile-front  {
     height:101px;
-	margin:2px;
+	/*margin:2px;*/
 	z-index: 2;
 	-ms-transform: rotateY(0deg);
 	transform: rotateY(0deg);
