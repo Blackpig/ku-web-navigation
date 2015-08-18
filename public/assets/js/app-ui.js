@@ -580,7 +580,7 @@ $(document).ready(function(){
 
 	/* If the browser doesn't support 3d transforms then the front/back tile animation will not fire */
 	/* We will manually toggle the front and back of teh tiles */
-	$('.info-trigger').click(function(e){
+	$('.fa-info').click(function(e){
 			e.preventDefault();
 			error.log('cliekty');
 			if ( $('html').hasClass('no-csstransforms3d')) {
