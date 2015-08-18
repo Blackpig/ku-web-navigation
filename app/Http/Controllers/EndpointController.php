@@ -27,11 +27,11 @@ class EndpointController extends Controller
     public function organisationList()
     {
 
-    	if (env('APP_ENV') == 'development') {
+    	if (!env('USE_CACHE')) {
     		Cache::forget('organisations');
     	}
 
-    	$data = Cache::remember('organisations',360, function() {
+    	$data = Cache::remember('organisations',env('CACHE_EXPIRY'), function() {
     		return [
 				"this"	=> $this->roots[0],
 	  			"parents" => [

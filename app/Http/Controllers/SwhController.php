@@ -13,6 +13,15 @@ class SwhController extends Controller
      * Load user Details
      * @return JSON 
      */
+    
+    public function swh1()
+    {   
+        if (env('USE_CACHE')) {
+            echo "true";
+        } else {
+            echo "false";
+        }
+    }
     public function authenticate1()
     {	
         \Session::forget('mikey');
