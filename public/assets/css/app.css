@@ -992,18 +992,21 @@ a:hover, a:focus{
 	transform-style: preserve-3d;
 }
 
-.ie .flip{
-	transition: 0.6s;
-	transform-style: preserve-3d;
-	position: relative;
-	transform: rotateY(180deg);
-}
-
 .ie .flip .tile-front {
 	transform: rotateY(-180deg);
 }
 
-.ie .tile-front, .ie tile-back {
+.ie .flip .tile-back {;
+	transform: rotateY(0deg);
+}
+
+.ie .flip{
+	transition: 0.6s;
+	transform-style: preserve-3d;
+	position: relative;
+}
+
+.ie .tile-front, .ie .tile-back {
 	backface-visibility: hidden;
 	transition: 0.6s;
 	transform-style: preserve-3d;
@@ -1014,7 +1017,7 @@ a:hover, a:focus{
 
 .ie .tile-front  {
     height:101px;
-	/*margin:2px;*/
+	margin:2px;
 	z-index: 2;
 	-ms-transform: rotateY(0deg);
 	transform: rotateY(0deg);
@@ -1024,11 +1027,6 @@ a:hover, a:focus{
     height:101px;
     -ms-transform: rotateY(-180deg);
     transform: rotateY(-180deg);
-}
-
-.ie .flip .tile-back {
-	-ms-transform: rotateY(0deg);
-	transform: rotateY(0deg);
 }
 
 .ie .tile-back .tile-content p {
