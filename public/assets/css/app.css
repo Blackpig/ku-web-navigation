@@ -1024,11 +1024,11 @@ a:hover, a:focus{
     transform: rotateY(-180deg);
 }
 
-/*.ie .flip .tile-back {
+.ie .flip .tile-back {
 	margin:2px;
 	-ms-transform: rotateY(0deg);
 	transform: rotateY(0deg);
-}*/
+}
 
 .ie .tile-back .tile-content p {
     line-height: 1.4;
