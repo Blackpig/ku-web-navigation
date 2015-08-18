@@ -931,13 +931,27 @@ a:hover, a:focus{
 	height: 140px;
 }
 
-.ie .image.tall, .ie .image.tall img{
+.ie .image.tall{
 	width: 136px;
-	height: 290px;
+	height: 290px;	
+	border-left: 2px solid rgba(255,255,255,0);
+	border-right: 2px solid rgba(255,255,255,0);
 }
 
-.ie .image.wide, .ie .image.wide img{
+.ie .image.tall img{
+	width: 140px;
+	height: 290px;	
+}
+
+.ie .image.wide{
 	width: 286px;
+	height: 140px;	
+	border-left: 2px solid rgba(255,255,255,0);
+	border-right: 2px solid rgba(255,255,255,0);
+}
+
+.ie .image.wide img{
+	width: 290px;
 	height: 140px;
 }
 
