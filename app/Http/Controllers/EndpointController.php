@@ -57,6 +57,7 @@ class EndpointController extends Controller
     { 
 
         if (!env('USE_CACHE')) {
+            echo "dropping cache";
             Cache::forget($id);
         }
 
