@@ -580,16 +580,14 @@ $(document).ready(function(){
 
 	/* If the browser doesn't support 3d transforms then the front/back tile animation will not fire */
 	/* We will manually toggle the front and back of teh tiles */
-	if ( $('html').hasClass('no-csstransforms3d')) {
-		console.log('modernized');
-		$('.info-trigger').click(function(e){
-			console.log('clicketyclack');
+	$('.info-trigger').click(function(e){
 			e.preventDefault();
-			_t = this;
+			error.log('cliekty');
+			if ( $('html').hasClass('no-csstransforms3d')) {
+				_t = this;
 
-			_t.parents('.tile-icons').siblings('.tile-front').toggle();
-			_t.parents('.tile-icons').siblings('.tile-back').toggle();
+				_t.parents('.tile-icons').siblings('.tile-front').toggle();
+				_t.parents('.tile-icons').siblings('.tile-back').toggle();
+			}
 		})
-	}
-
 });
