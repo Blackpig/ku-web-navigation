@@ -987,10 +987,6 @@ a:hover, a:focus{
 	height: inherit;
 }
 
-.ie .tile{
-	perspective: initial;
-}
-
 .ie .tile-body{
 	perspective:1000px;
 	transform-style: preserve-3d;
