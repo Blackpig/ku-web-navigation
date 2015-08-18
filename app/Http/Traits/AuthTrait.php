@@ -1,7 +1,7 @@
 <?php namespace App\Http\Traits;
 
 use Illuminate\Http\Request;
-Use App\Models\user;
+Use App\Models\User;
 
 trait AuthTrait
 {
