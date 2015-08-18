@@ -918,17 +918,17 @@ a:hover, a:focus{
 	perspective:1000;
 }
 
-.ie .image.square{
+.ie .image.square, .ie .image.square img{
 	width: 136px;
 	height: 140px;
 }
 
-.ie .image.tall{
+.ie .image.tall, .ie .image.tall img{
 	width: 136px;
 	height: 290px;
 }
 
-.ie .image.wide{
+.ie .image.wide, .ie .image.wide img{
 	width: 286px;
 	height: 140px;
 }
