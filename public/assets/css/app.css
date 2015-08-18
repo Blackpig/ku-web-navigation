@@ -931,6 +931,14 @@ a:hover, a:focus{
 	height:101px;
 }
 
+.ie .my-status {
+	width: 389px;
+}
+
+.ie .my-status .details{
+	width: 229px;
+}
+
 .ie .ms-tile .tile-body {
 	height: 109px;
 }
