@@ -987,17 +987,21 @@ a:hover, a:focus{
 	height: inherit;
 }
 
+.ie .tile{
+	perspective: initial;
+}
+
 .ie .tile-body{
 	perspective:1000px;
 	transform-style: preserve-3d;
 }
 
 .ie .flip .tile-front {
-	transform: perspective(1000px) rotateY(-179.9deg);
+	transform: rotateY(-179.9deg);
 }
 
 .ie .flip .tile-back {;
-	transform: perspective(1000px) rotateY(0deg);
+	transform: rotateY(0deg);
 }
 
 .ie .flip{
@@ -1007,7 +1011,6 @@ a:hover, a:focus{
 }
 
 .ie .tile-front, .ie .tile-back {
-	perspective:1000px;
 	backface-visibility: hidden;
 	transition: 0.6s;
 	transform-style: preserve-3d;
