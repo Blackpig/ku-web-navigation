@@ -1,5 +1,6 @@
 /lumen.log
 /vendor
+/public/analytics
 .env
 .env.local
 *.sublime-project
