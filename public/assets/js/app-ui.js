@@ -580,6 +580,9 @@ app.directive('packery', ['$rootScope', '$timeout',
 		    	};
 
 		    	var clearMask = function(){
+		    		if ( $('html').hasClass('no-csstransforms3d')) {
+							$('.tile-back').hide();
+						}
 		    		$('#mask').fadeOut();
 		    	}
 
@@ -622,9 +625,5 @@ $(document).ready(function(){
 	$('.tile-front').click(function(e){
 		console.log('clicked');
 	})
-
-	if ( $('html').hasClass('no-csstransforms3d')) {
-		$('.tile-back').hide();
-	}
 
 });
