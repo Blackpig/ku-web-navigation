@@ -210,7 +210,7 @@ app.controller('stateCtrl', ['$rootScope','$scope', '$stateParams', '$state', 'u
 				$('.tile-back').hide();
 				$('.tile-front').show();
 				$('#front-'+toggleInfo).hide();
-				$('#back-'+toggleInfo).hide();
+				$('#back-'+toggleInfo).show();
 			}
 
 		$scope.toggleInfo = (!$scope.toggleInfo || $scope.toggleInfo != toggleInfo) ? toggleInfo : null;
