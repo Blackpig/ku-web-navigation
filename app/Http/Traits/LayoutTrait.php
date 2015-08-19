@@ -36,6 +36,8 @@ trait LayoutTrait
 		//Arrange according to the layout
 		$layout = json_decode($layout->layout, true);
 
+		dd($layout);
+
 		foreach($layout as $key) {
 			// Check that the tile/endpoint referenced by the layout 
 			// still exists in the containing group
