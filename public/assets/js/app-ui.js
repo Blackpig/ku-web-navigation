@@ -204,7 +204,7 @@ app.controller('stateCtrl', ['$rootScope','$scope', '$stateParams', '$state', 'u
 	self.toggleInfo = function(toggleInfo){
 
 		/* if we are using ie9 or worse then we can't use CSS 3d tansformations and just show hide the panels*/
-
+		console.log(toggleInfo);
 		if ( $('html').hasClass('no-csstransforms3d')) {
 				
 				$('.tile-back').hide();
