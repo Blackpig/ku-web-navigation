@@ -623,4 +623,8 @@ $(document).ready(function(){
 		console.log('clicked');
 	})
 
+	if ( $('html').hasClass('no-csstransforms3d')) {
+		$('.tile-back').hide();
+	}
+
 });
