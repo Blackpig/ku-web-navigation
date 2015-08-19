@@ -209,8 +209,13 @@ app.controller('stateCtrl', ['$rootScope','$scope', '$stateParams', '$state', 'u
 				
 				$('.tile-back').hide();
 				$('.tile-front').show();
-				$('#front-'+toggleInfo).toggle();
-				$('#back-'+toggleInfo).toggle();
+				if ($scope.toggleInfo == toggleInfo) {
+					$('#front-'+toggleInfo).show();
+					$('#back-'+toggleInfo).hide();
+				} else {
+					$('#front-'+toggleInfo).hide();
+					$('#back-'+toggleInfo).show();
+				}
 			}
 
 		$scope.toggleInfo = (!$scope.toggleInfo || $scope.toggleInfo != toggleInfo) ? toggleInfo : null;
