@@ -36,17 +36,20 @@ trait LayoutTrait
 		//Arrange according to the layout
 		$layout = json_decode($layout->layout, true);
 
-		dd($layout);
 
-		foreach($layout as $key) {
-			// Check that the tile/endpoint referenced by the layout 
-			// still exists in the containing group
-			if (array_key_exists($key, $keyed_arrange)) {
-					$ordered[] = $keyed_arrange[$key];
-				//remove the entry from the array
-				unset($keyed_arrange[$key]);
+		if ($layout) {
+			foreach($layout as $key) {
+				// Check that the tile/endpoint referenced by the layout 
+				// still exists in the containing group
+				if (array_key_exists($key, $keyed_arrange)) {
+						$ordered[] = $keyed_arrange[$key];
+					//remove the entry from the array
+					unset($keyed_arrange[$key]);
+				}
 			}
-		}
+		} else {
+			$ordered = [];
+		} 
 
 		// If there are any entries left - new endpoints have been added since 
 		// the last time the page was arranged, append these to the end of teh layout
