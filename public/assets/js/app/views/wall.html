@@ -145,13 +145,13 @@
 			<div ng-repeat="endpoint in ctrl.data.endpoints" packery>
 				<div ng-if="endpoint.type=='endpoint' || endpoint.type=='service-group'" class="tile {{endpoint.type}} {{endpoint.color}} pack" >
 	                <div class="tile-body row" ng-class="{'flip': toggleInfo=={{$index}} }">
-	                    <div class="tile-front">
+	                    <div class="tile-front" id="front-{{$index}}">
 	                        <div class="tile-content" ng-mouseenter="hasFocus=true"  ng-mouseleave="hasFocus=false">
 	                            <a ng-if="endpoint.type=='service-group'" ng-href="/{{ctrl.navbar.home.link | lowercase}}/{{endpoint.guid}}" ng-class="{hover:hasFocus}">{{endpoint.name}}</a>
 	                            <a ng-if="endpoint.type=='endpoint'" ng-href="{{endpoint.url}}" target="_blank" ng-class="{hover:hasFocus}">{{endpoint.name}}</a>
 	                        </div>
 	                    </div>
-	                    <div class="tile-back">
+	                    <div class="tile-back"  id="back-{{$index}}>
 	                        <div class="tile-content">
 	                            <p>{{endpoint.desc}}</p>
 	                        </div>

@@ -202,6 +202,17 @@ app.controller('stateCtrl', ['$rootScope','$scope', '$stateParams', '$state', 'u
 	};
 
 	self.toggleInfo = function(toggleInfo){
+
+		/* if we are using ie9 or worse then we can't use CSS 3d tansformations and just show hide the panels*/
+
+		if ( $('html').hasClass('no-csstransforms3d')) {
+				
+				$('.tile-back').hide();
+				$('.tile-front').show();
+				$('#front-'+toggleInfo).hide();
+				$('#back-'+toggleInfo).hide();
+			}
+
 		$scope.toggleInfo = (!$scope.toggleInfo || $scope.toggleInfo != toggleInfo) ? toggleInfo : null;
 	}
 
@@ -264,7 +275,7 @@ app.controller('searchCtrl', ['$rootScope','$scope', '$stateParams', '$state', '
 	};
 
 	self.toggleInfo = function(toggleInfo){
-		$scope.toggleInfo = (!$scope.toggleInfo) ? toggleInfo : null;
+		$scope.toggleInfo = (!$scope.toggleInfo || $scope.toggleInfo != toggleInfo) ? toggleInfo : null;
 	}
 
 	self.setFocus = function(hasFocus){
@@ -317,7 +328,7 @@ app.controller('profileCtrl', ['$rootScope', '$scope', '$state', 'user', 'navbar
 
 
 		self.toggleInfo = function(toggleInfo){
-			$scope.toggleInfo = (!$scope.toggleInfo) ? toggleInfo : null;
+			$scope.toggleInfo = (!$scope.toggleInfo || $scope.toggleInfo != toggleInfo) ? toggleInfo : null;
 		}
 
 
@@ -578,16 +589,4 @@ $(document).ready(function(){
 		console.log('clicked');
 	})
 
-	/* If the browser doesn't support 3d transforms then the front/back tile animation will not fire */
-	/* We will manually toggle the front and back of teh tiles */
-	$('.info-trigger').click(function(e){
-			//e.preventDefault();
-			alert('clickety');
-			/*if ( $('html').hasClass('no-csstransforms3d')) {
-				_t = this;
-
-				_t.parents('.tile-icons').siblings('.tile-front').toggle();
-				_t.parents('.tile-icons').siblings('.tile-back').toggle();
-			}*/
-		})
 });
