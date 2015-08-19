@@ -204,7 +204,6 @@ app.controller('stateCtrl', ['$rootScope','$scope', '$stateParams', '$state', 'u
 	self.toggleInfo = function(toggleInfo){
 
 		/* if we are using ie9 or worse then we can't use CSS 3d tansformations and just show hide the panels*/
-		console.log(toggleInfo);
 		if ( $('html').hasClass('no-csstransforms3d')) {
 				
 				$('.tile-back').hide();
@@ -280,6 +279,21 @@ app.controller('searchCtrl', ['$rootScope','$scope', '$stateParams', '$state', '
 	};
 
 	self.toggleInfo = function(toggleInfo){
+
+		/* if we are using ie9 or worse then we can't use CSS 3d tansformations and just show hide the panels*/
+		if ( $('html').hasClass('no-csstransforms3d')) {
+				
+				$('.tile-back').hide();
+				$('.tile-front').show();
+				if ($scope.toggleInfo == toggleInfo) {
+					$('#front-'+toggleInfo).show();
+					$('#back-'+toggleInfo).hide();
+				} else {
+					$('#front-'+toggleInfo).hide();
+					$('#back-'+toggleInfo).show();
+				}
+			}
+
 		$scope.toggleInfo = (!$scope.toggleInfo || $scope.toggleInfo != toggleInfo) ? toggleInfo : null;
 	}
 
@@ -333,6 +347,21 @@ app.controller('profileCtrl', ['$rootScope', '$scope', '$state', 'user', 'navbar
 
 
 		self.toggleInfo = function(toggleInfo){
+
+			/* if we are using ie9 or worse then we can't use CSS 3d tansformations and just show hide the panels*/
+		if ( $('html').hasClass('no-csstransforms3d')) {
+				
+				$('.tile-back').hide();
+				$('.tile-front').show();
+				if ($scope.toggleInfo == toggleInfo) {
+					$('#front-'+toggleInfo).show();
+					$('#back-'+toggleInfo).hide();
+				} else {
+					$('#front-'+toggleInfo).hide();
+					$('#back-'+toggleInfo).show();
+				}
+			}
+
 			$scope.toggleInfo = (!$scope.toggleInfo || $scope.toggleInfo != toggleInfo) ? toggleInfo : null;
 		}
 
