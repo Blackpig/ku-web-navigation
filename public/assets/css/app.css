@@ -1034,6 +1034,10 @@ a:hover, a:focus{
     transform: rotateY(-180deg);
 }
 
+<!--[if lte IE 9]>
+	.ie .tile-back  {display:none};
+<![endif]-->
+
 .ie .tile-back .tile-content p {
     line-height: 1.4;
 }
