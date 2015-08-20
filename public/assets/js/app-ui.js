@@ -565,18 +565,13 @@ app.directive('packery', ['$rootScope', '$timeout',
 			    	$('#mask').show();
 			    	$rootScope.packery = new Packery(element[0].parentElement, {
 			    		itemSelector: '.pack',
-			    		stamp: '.stamp',
-			    		/*animate: true,
-          				animationOptions: {
-            				duration: 100,
-            				queue: false
-          				}*/
+			    		stamp: '.stamp'			    		
 			    	});
 
 
 		    	var orderItems = function() {
 		    		var itemElems = $rootScope.packery.getItemElements();
-		    		$timeout(clearMask, 1000 );
+		    		$timeout(clearMask, 1500 );
 		    	};
 
 		    	var clearMask = function(){
