@@ -1046,6 +1046,11 @@ a:hover, a:focus{
     line-height: 1.4;
 }
 
+.ie .tile-content a:hover, .ie .tile-content a.hover {
+    text-shadow: none;
+    /*text-decoration: underline;*/
+    
+}
 
 .ie .top-bar .button {
 	height: auto;
