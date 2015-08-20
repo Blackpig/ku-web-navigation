@@ -569,7 +569,7 @@ app.directive('packery', ['$rootScope', '$timeout',
 			    		animate: true,
           				animationOptions: {
             				duration: 100,
-            				queue: true
+            				queue: false
           				}
 			    	});
 
