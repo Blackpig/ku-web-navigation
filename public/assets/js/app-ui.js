@@ -221,7 +221,7 @@ app.controller('stateCtrl', ['$rootScope','$scope', '$stateParams', '$state', 'u
 	}
 
 	self.setFocus = function(hasFocus){
-		$scope.hasFocus = (!$scope.hasFocus) ? hasFocus : null;
+		//$scope.hasFocus = (!$scope.hasFocus) ? hasFocus : null;
 	}
 
 	self.search = function() {
