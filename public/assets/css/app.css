@@ -905,8 +905,8 @@ a {
 }
 
 a:hover, a:focus{
-	color:#fff;
-	background-color: transparent;
+	/*color:#fff;
+	background-color: transparent;*/
 }
 
 .top-bar-section li:not(.has-form) a:not(.button):hover {
