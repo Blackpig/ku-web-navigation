@@ -43,6 +43,10 @@ var app = angular.module('kuwnApp', ['ui.router', 'mm.foundation'])
 					      	]
 						},
 
+        				onEnter: function(){
+						    window.scrollTo(0, 0);
+						  },
+
 						views: {
 							'content@': {
 								controller: 'rootCtrl'
@@ -139,15 +143,6 @@ var app = angular.module('kuwnApp', ['ui.router', 'mm.foundation'])
 						}
 						
 					})
-		.run(
-			['$rootScope','$stateProvider',
-				function($rootScope, $stateProvider) {
-					$rootScope.$on('$stateChangeSuccess', function() {
-					   document.body.scrollTop = document.documentElement.scrollTop = 0;
-					})
-				}
-			]
-		)	
 	}]);
 
 /*** CONTROLLERS ***/
