@@ -98,7 +98,9 @@ var app = angular.module('kuwnApp', ['ui.router', 'mm.foundation'])
 								templateUrl: '/assets/js/app/views/search.html',
 								controller: 'searchCtrl as ctrl'
 							}
-						}
+						},
+
+						onEnter: scrollTop
 						
 					})
 
@@ -114,7 +116,9 @@ var app = angular.module('kuwnApp', ['ui.router', 'mm.foundation'])
 								templateUrl: '/assets/js/app/views/my-accounts.html',
 								controller: 'profileCtrl as ctrl'
 							}
-						}
+						},
+
+						onEnter: scrollTop
 						
 					})
 
@@ -130,7 +134,9 @@ var app = angular.module('kuwnApp', ['ui.router', 'mm.foundation'])
 								templateUrl: '/assets/js/app/views/partials/my-accounts/my-tickets.html',
 								controller: 'profileCtrl as ctrl'
 							}
-						}
+						},
+
+						onEnter: scrollTop
 						
 					})
 
@@ -141,7 +147,9 @@ var app = angular.module('kuwnApp', ['ui.router', 'mm.foundation'])
 								templateUrl: '/assets/js/app/views/error.html',
 								controller: 'errorCtrl as ctrl'
 							}
-						}
+						},
+
+						onEnter: scrollTop
 						
 					})
 	}]);
