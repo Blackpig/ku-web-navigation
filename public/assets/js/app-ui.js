@@ -44,8 +44,7 @@ var app = angular.module('kuwnApp', ['ui.router', 'mm.foundation'])
 						},
 
         				onEnter: function(){
-        					console.log('fired');
-						    window.scrollTo(0, 0);
+        					document.body.scrollTop = document.documentElement.scrollTop = 0;
 						  },
 
 						views: {
