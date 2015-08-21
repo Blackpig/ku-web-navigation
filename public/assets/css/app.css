@@ -749,7 +749,7 @@ a.button.manage-my-status:hover {
 
 /* Phone screens */
 
-@media only screen { 
+@media only screen and (min-width: 40.0625em){ 
 
 	.top-bar-section ul li {
 		padding: 3px 0 2px 20px;
