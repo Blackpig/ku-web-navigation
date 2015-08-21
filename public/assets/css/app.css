@@ -772,7 +772,7 @@ a.button.manage-my-status:hover {
 
 @media handheld, only screen and (max-width: 760px) {
 	
-	.wall {
+	.wall, .ms-wall {
 		min-width: 0;
 		margin-top: 0 !important;
 	}	
@@ -788,7 +788,7 @@ a.button.manage-my-status:hover {
 	}
 
 	.my-status .profile .summary {
-		display: none;
+		visibility: hidden;
 	}
 
 	.my-status .avatar, .my-status .avatar img {
