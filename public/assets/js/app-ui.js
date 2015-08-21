@@ -2,12 +2,6 @@ var app = angular.module('kuwnApp', ['ui.router', 'mm.foundation'])
 
 /*** CONFIGURATION & ROUTING ***/
 /* Set our routing and templates */
-
-	.run(function($rootScope) {
-		    $rootScope.$on('$viewContentLoaded', function () {
-		        $(document).foundation();
-		    });
-		}),
 	.config(
 		['$locationProvider',
 		'$urlRouterProvider', 
