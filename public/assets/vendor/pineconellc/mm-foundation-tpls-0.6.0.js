@@ -3552,7 +3552,7 @@ angular.module("template/topbar/top-bar-section.html", []).run(["$templateCache"
 
 angular.module("template/topbar/top-bar.html", []).run(["$templateCache", function($templateCache) {
   $templateCache.put("template/topbar/top-bar.html",
-    "<nav class=\"top-bar\" ng-transclude></nav>");
+    "<nav class=\"top-bar\" data-topbar ng-transclude></nav>");
 }]);
 
 angular.module("template/tour/tour.html", []).run(["$templateCache", function($templateCache) {
