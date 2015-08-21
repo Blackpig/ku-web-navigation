@@ -752,7 +752,7 @@ a.button.manage-my-status:hover {
 @media only screen { 
 
 	.top-bar-section ul li {
-		padding: 3px 20px 0 2px;
+		padding: 3px 0 2px 20px;
 		border-top: 1px solid #666;
 	}
 
