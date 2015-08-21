@@ -783,6 +783,10 @@ a.button.manage-my-status:hover {
 		padding: 10px;
 	}
 
+	.my-status .profile .details {
+		width: 180px;
+	}
+
 	.my-status .avatar, .my-status .avatar img {
 		width: 60px;
 	}
