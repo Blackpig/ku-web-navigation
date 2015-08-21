@@ -140,9 +140,13 @@ var app = angular.module('kuwnApp', ['ui.router', 'mm.foundation'])
 						
 					})
 		.run(
-			$rootScope.$on('$stateChangeSuccess', function() {
-			   document.body.scrollTop = document.documentElement.scrollTop = 0;
-			})
+			['$rootScope',
+				function($rootScopr(){
+					$rootScope.$on('$stateChangeSuccess', function() {
+					   document.body.scrollTop = document.documentElement.scrollTop = 0;
+					})
+				})
+			]
 		)	
 	}]);
 
