@@ -64,7 +64,7 @@ var app = angular.module('kuwnApp', ['ui.router', 'mm.foundation'])
 							}
 						},
 
-						onEnter: scrollTop
+						//onEnter: scrollTop
 
 					})
 
@@ -82,7 +82,7 @@ var app = angular.module('kuwnApp', ['ui.router', 'mm.foundation'])
 							}
 						},
 
-						onEnter: scrollTop
+						//onEnter: scrollTop
 						
 					})
 
@@ -100,7 +100,7 @@ var app = angular.module('kuwnApp', ['ui.router', 'mm.foundation'])
 							}
 						},
 
-						onEnter: scrollTop
+						//onEnter: scrollTop
 						
 					})
 
@@ -118,7 +118,7 @@ var app = angular.module('kuwnApp', ['ui.router', 'mm.foundation'])
 							}
 						},
 
-						onEnter: scrollTop
+						//onEnter: scrollTop
 						
 					})
 
@@ -136,7 +136,7 @@ var app = angular.module('kuwnApp', ['ui.router', 'mm.foundation'])
 							}
 						},
 
-						onEnter: scrollTop
+						//onEnter: scrollTop
 						
 					})
 
@@ -149,7 +149,7 @@ var app = angular.module('kuwnApp', ['ui.router', 'mm.foundation'])
 							}
 						},
 
-						onEnter: scrollTop
+						//onEnter: scrollTop
 						
 					})
 	}]);
@@ -595,6 +595,7 @@ app.directive('packery', ['$rootScope', '$timeout',
 		    		if ( $('html').hasClass('no-csstransforms3d')) {
 							$('.tile-back').hide();
 						}
+					document.body.scrollTop = document.documentElement.scrollTop = 0;
 		    		$('#mask').fadeOut();
 		    	}
 
