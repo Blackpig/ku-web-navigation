@@ -64,9 +64,7 @@ var app = angular.module('kuwnApp', ['ui.router', 'mm.foundation'])
 							}
 						},
 
-						onEnter: function(){
-        					document.body.scrollTop = document.documentElement.scrollTop = 0;
-						  },
+						onEnter: scrollTop
 
 					})
 
@@ -82,7 +80,9 @@ var app = angular.module('kuwnApp', ['ui.router', 'mm.foundation'])
 								templateUrl: '/assets/js/app/views/wall.html',
 								controller: 'stateCtrl as ctrl'
 							}
-						}
+						},
+
+						onEnter: scrollTop
 						
 					})
 
@@ -145,6 +145,10 @@ var app = angular.module('kuwnApp', ['ui.router', 'mm.foundation'])
 						
 					})
 	}]);
+
+var scrollTop = function(){
+	document.body.scrollTop = document.documentElement.scrollTop = 0;
+}
 
 /*** CONTROLLERS ***/
 
