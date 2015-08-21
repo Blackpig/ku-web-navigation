@@ -28,18 +28,10 @@
                         	</div>
                         </li>
 
-                        <li has-dropdown>
-                            <div><a href="#"><i class="fa fa-ellipsis-h fa-lg"></i></a></div>
-                            <ul top-bar-dropdown>                      
-                                <li ng-repeat="crumb in ctrl.navbar.breadcrumbs">
-                                    <a ng-href="/{{ ctrl.navbar.home.link }}/{{ crumb.guid }}">{{ crumb.label }}</a>
-                                </li>
-                            </ul>
+                        <li>
+                            <div><a ng-href="/{{ ctrl.navbar.home.link }}"><i class="fa fa-th fa-lg"></i></a></div>
                         </li>
 
-                        <li ng-if="ctrl.navbar.canSwitch == 1">
-                            <div><a ng-href="/{{ctrl.navbar.switchTo}}"><i class="fa fa-exchange fa-lg"></i></a></div>
-                        </li>
                         <li>
                             <div><a href="https://staffspace.kingston.ac.uk/collaboration/service-desk-project/Pages/default.aspx" target="_blank" style="height:100%"><i class="fa fa-question fa-lg"></i></a></div>
                         </li>
@@ -48,7 +40,7 @@
 					<ul class="right show-for-small-only">
 
 						<li>
-                            <div><a ng-href="/"><i class="fa fa-th fa-lg"></i>&nbsp;Navigator</a></div>
+                            <div><a ng-href="/{{ ctrl.navbar.home.link }}"><i class="fa fa-th fa-lg"></i>&nbsp;Navigator</a></div>
                         </li>
                     
                         <li>
