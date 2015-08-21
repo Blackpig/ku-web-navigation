@@ -1047,8 +1047,7 @@ a:hover, a:focus{
 }
 
 .ie .tile-content a {
-   display: initial;
-    
+   display: block;
 }
 
 .ie .top-bar .button {
