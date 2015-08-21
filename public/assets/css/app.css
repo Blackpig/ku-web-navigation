@@ -787,6 +787,10 @@ a.button.manage-my-status:hover {
 		width: 180px;
 	}
 
+	.my-status .profile .summary {
+		display: none;
+	}
+
 	.my-status .avatar, .my-status .avatar img {
 		width: 60px;
 	}
