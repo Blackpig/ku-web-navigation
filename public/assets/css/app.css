@@ -747,8 +747,19 @@ a.button.manage-my-status:hover {
 
 /** Media Queries **/
 
-/* Smaller screens */
+/* Phone screens */
 
+@media only screen { 
+
+	.top-bar-section ul li {
+		padding: 3px 20px 0 2px;
+		border-top: 1px solid #666;
+	}
+
+}
+
+
+/* Smaller screens */
 @media only screen and (max-width: 960px) {
 
 	.wall {
@@ -1050,8 +1061,6 @@ a:hover, a:focus{
 .ie .tile-back .tile-content p {
     line-height: 1.4;
 }
-
-
 
 .ie .top-bar .button {
 	height: auto;
