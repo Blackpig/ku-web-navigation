@@ -43,10 +43,6 @@ var app = angular.module('kuwnApp', ['ui.router', 'mm.foundation'])
 					      	]
 						},
 
-        				onEnter: function(){
-        					document.body.scrollTop = document.documentElement.scrollTop = 0;
-						  },
-
 						views: {
 							'content@': {
 								controller: 'rootCtrl'
@@ -66,7 +62,12 @@ var app = angular.module('kuwnApp', ['ui.router', 'mm.foundation'])
 								templateUrl: '/assets/js/app/views/wall.html',
 								controller: 'stateCtrl as ctrl'
 							}
-						}
+						},
+
+						onEnter: function(){
+        					document.body.scrollTop = document.documentElement.scrollTop = 0;
+						  },
+
 					})
 
 					.state('root.student', {
