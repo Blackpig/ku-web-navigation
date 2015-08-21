@@ -138,7 +138,13 @@ var app = angular.module('kuwnApp', ['ui.router', 'mm.foundation'])
 							}
 						}
 						
-					})
+					}),
+					
+		.run(function($rootScope) {
+		    $rootScope.$on('$viewContentLoaded', function () {
+		        $(document).foundation();
+		    });
+		});
 	}]);
 
 /*** CONTROLLERS ***/
