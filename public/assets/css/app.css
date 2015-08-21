@@ -1011,6 +1011,11 @@ a:hover, a:focus{
 	position: relative;
 }
 
+.ie .tile-content {
+   padding-left: 0;
+   padding-right: 0;
+}
+
 .ie .tile-front, .ie .tile-back {
 	backface-visibility: hidden;
 	transition: 0.6s;
@@ -1046,9 +1051,7 @@ a:hover, a:focus{
     line-height: 1.4;
 }
 
-.ie .tile-content a {
-   display: block;
-}
+
 
 .ie .top-bar .button {
 	height: auto;
