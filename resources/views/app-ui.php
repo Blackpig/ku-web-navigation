@@ -13,7 +13,7 @@
     </head>
     <body>
         
-        <div ui-view name="content"></div>
+        <div ui-view name="content" autoscroll="true"></div>
        
     </body>
     <script src="/assets/vendor/jquery/jquery-1.11.2.min.js"></script>
