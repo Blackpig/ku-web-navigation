@@ -18,7 +18,15 @@
                         <div class="details left">
                             <a ng-href="/my-accounts">My Accounts</a>
                             <p>{{ctrl.user.first_name}}&nbsp;{{ ctrl.user.last_name }} ({{ ctrl.user.employee_class }})</p>
-                            
+                            <p class="summary">
+                                {{ ctrl.user.job_title }}<br />
+                                {{ ctrl.user.department }}<br />
+                            </p>
+                            <p class="summary">
+                                <strong>KU Email</strong> {{ ctrl.user.email }}<br />
+                                <span ng-if="ctrl.user.external_email"><strong>External Email</strong> {{ ctrl.user.external_email }}<br /></span>
+                                <span ng-if="ctrl.user.tel"><strong>Telephone</em> {{ ctrl.user.tel }}<br /></strong>
+                            </p>
                         </div>
                     </div>
                 </div>

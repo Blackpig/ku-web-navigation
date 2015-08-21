@@ -788,7 +788,7 @@ a.button.manage-my-status:hover {
 	}
 
 	.my-status .profile .summary {
-		visibility: hidden;
+		display: none;
 	}
 
 	.my-status .avatar, .my-status .avatar img {
