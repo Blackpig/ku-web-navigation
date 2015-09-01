@@ -29,6 +29,7 @@ trait LayoutTrait
 		});
 
 		// Turn the collection into a keyed collection by guid
+		$keyed_arrange = [];
 		foreach($arrange as $item) {
 			$keyed_arrange["$item->guid"] = $item;
 		}
