@@ -38,6 +38,7 @@ trait LayoutTrait
 		$layout = json_decode($layout->layout, true);
 
 
+		$ordered = [];
 		if ($layout) {
 			foreach($layout as $key) {
 				// Check that the tile/endpoint referenced by the layout 
@@ -48,8 +49,6 @@ trait LayoutTrait
 					unset($keyed_arrange[$key]);
 				}
 			}
-		} else {
-			$ordered = [];
 		} 
 
 		// If there are any entries left - new endpoints have been added since 
