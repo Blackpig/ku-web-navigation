@@ -63,10 +63,10 @@
 							  <script type="text/ng-template" id="searchModal.html">
 							     <div class="row collapse">
                             		<div class="large-8 small-9 columns">
-                              			<input type="text" name="term" placeholder="Search" id="modal_search_term" ng-keyup="$event.keyCode == 13 && srchCtrl.search()">
+                              			<input type="text" name="term" placeholder="Search" id="modal_search_term" ng-keyup="$event.keyCode == 13 && search()">
 		                            </div>
 		                            <div class="large-4 small-3 columns">
-		      							<a href="" ng-click="srchCtrl.search()" class="success button expand srch">Go</a>
+		      							<a href="" ng-click="search()" class="success button expand srch">Go</a>
 		    						</div>
 		                         </div>
 							    <a class="close-reveal-modal" ng-click="cancel()">&#215;</a>
