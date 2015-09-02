@@ -758,6 +758,7 @@ a.button.manage-my-status:hover {
 
 	.reveal-modal {
 		min-height: 20vh; 
+		background: #000;
 	}
 
 }
