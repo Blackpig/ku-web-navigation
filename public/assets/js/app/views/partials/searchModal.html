@@ -1,9 +1,13 @@
 							     <div class="row collapse">
-                            		<div class="large-8 small-9 columns">
+                            		<div class="small-9 columns end">
                               			<input type="text" name="term" placeholder="Search" id="modal_search_term" ng-keyup="$event.keyCode == 13 && search()">
 		                            </div>
-		                            <div class="large-4 small-3 columns">
+		                         </div>
+		                         <div class="row collapse">
+		                            <div class="small-4 columns">
 		      							<a href="" ng-click="search()" class="success button expand srch">Go</a>
 		    						</div>
+		    						<div class="small-offset-1 small-4 columns end">
+		      							<a href="" ng-click="cancel()" class="error button expand srch">Go</a>
+		    						</div>
 		                         </div>
-							    <a class="close-reveal-modal" ng-click="cancel()">&#215;</a>

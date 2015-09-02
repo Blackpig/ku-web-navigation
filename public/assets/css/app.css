@@ -756,6 +756,10 @@ a.button.manage-my-status:hover {
 		border-top: 1px solid #666;
 	}
 
+	.reveal-modal {
+		min-height: 20vh; 
+	}
+
 }
 
 
