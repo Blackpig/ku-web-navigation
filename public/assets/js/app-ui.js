@@ -377,7 +377,7 @@ app.controller('SearchModalCtrl', function ($scope, $modal) {
  	$scope.open = function () {
 
 	    var modalInstance = $modal.open({
-	      templateUrl: '/assets/js/app/views/partials/my-accounts/searchModal.html',
+	      templateUrl: '/assets/js/app/views/partials/searchModal.html',
 	      controller: 'searchInstanceCtrl as srchCtrl'
 	    });
 	}
