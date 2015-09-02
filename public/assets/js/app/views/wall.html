@@ -59,6 +59,28 @@
                             <div><a ng-href="/{{ctrl.navbar.switchTo}}"><i class="fa fa-exchange fa-lg"></i>&nbsp;Switch view</a></div>
                         </li>
                         <li>
+							<div ng-controller="SearchModalCtrl" style="height:100%">
+							  <script type="text/ng-template" id="searchModal.html">
+							     <div class="row collapse">
+                            		<div class="large-8 small-9 columns">
+                              			<input type="text" name="term" placeholder="Search" id="modal_search_term" ng-keyup="$event.keyCode == 13 && srchCtrl.search()">
+		                            </div>
+		                            <div class="large-4 small-3 columns">
+		      							<a href="" ng-click="srchCtrl.search()" class="success button expand srch">Go</a>
+		    						</div>
+		                         </div>
+							    <a class="close-reveal-modal" ng-click="cancel()">&#215;</a>
+							  </script>
+
+							  <button class="button" ng-click="open()">Open me!</button>
+							  <div ng-show="selected">Selection from a modal: {{ selected }}</div>
+							</div>
+                        	<div>
+                        		<a ng-click="open()" style="height:100%"><i class="fa fa-search fa-lg"></i>&nbsp;Search
+                        		</a>
+                        	</div>
+                        </li>
+                        <li>
                             <div><a href="https://staffspace.kingston.ac.uk/collaboration/service-desk-project/Pages/default.aspx" target="_blank" style="height:100%"><i class="fa fa-question fa-lg"></i>&nbsp;Help</a></div>
                         </li>
                     </ul> 

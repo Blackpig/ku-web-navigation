@@ -371,6 +371,34 @@ app.controller('profileCtrl', ['$rootScope', '$scope', '$state', 'user', 'navbar
 	
 }]);
 
+/* Search Modal controller - used on small devices to open close the search modal*/
+app.controller('SearchModalCtrl', function ($scope, $modal) {
+
+ 	$scope.open = function () {
+
+	    var modalInstance = $modal.open({
+	      templateUrl: 'searchModal.html',
+	      controller: 'searchInstanceCtrl as srchCtrl'
+	    });
+	}
+});
+
+/* Search Modal Instance controller - used on small devices to submit the form*/
+app..controller('searchInstanceCtrl', function ($scope, $modalInstance) {
+
+	$scope.search = function() {
+		var term = $('#modal_search_term').val();
+		$state.go('root.search', {'term': term});
+		$modalInstance.close($scope.selected.item);
+	}
+
+	$scope.cancel = function () {
+		$modalInstance.dismiss('cancel');
+	};
+});
+
+
+
 /* Error controller - used for disp[laying error page and messages */
 app.controller('errorCtrl', ['$rootScope', '$scope',
 	function ($rootScope, $scope) {
