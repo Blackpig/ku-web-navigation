@@ -387,7 +387,7 @@ app.controller('SearchModalCtrl', function ($scope, $modal) {
 app.controller('searchInstanceCtrl', function ($state, $scope, $modalInstance) {
 
 	$scope.search = function() {
-		console.log('fired');
+;
 		var term = $('#modal_search_term').val();
 		$modalInstance.close();
 		$state.go('root.search', {'term': term});
