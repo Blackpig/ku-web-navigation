@@ -384,7 +384,7 @@ app.controller('SearchModalCtrl', function ($scope, $modal) {
 });
 
 /* Search Modal Instance controller - used on small devices to submit the form*/
-app..controller('searchInstanceCtrl', function ($scope, $modalInstance) {
+app.controller('searchInstanceCtrl', function ($scope, $modalInstance) {
 
 	$scope.search = function() {
 		var term = $('#modal_search_term').val();
