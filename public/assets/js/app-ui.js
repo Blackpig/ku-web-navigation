@@ -596,7 +596,8 @@ app.directive('packery', ['$rootScope', '$timeout',
 			    	$('#mask').show();
 			    	$rootScope.packery = new Packery(element[0].parentElement, {
 			    		itemSelector: '.pack',
-			    		stamp: '.stamp'			    		
+			    		stamp: '.stamp',
+			    		gutter: 10		    		
 			    	});
 
 
