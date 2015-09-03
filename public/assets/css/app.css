@@ -586,7 +586,7 @@ a.button.manage-my-status:hover {
     height:140px;
     background-color: #fff;
     border: 1px solid #0a0159;
-    margin: 0 5px 10px;
+    /*margin: 0 5px 10px;*/
 }
 
 .ms-tile .tile-body{
