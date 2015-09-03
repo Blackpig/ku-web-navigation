@@ -1040,7 +1040,8 @@ a:hover, a:focus{
    padding-right: 0;
 }
 
-.ie .tile-content a {
+.ie .endpoint .tile-content a {
+	width: 130px;
    text-align: center;
    margin-left: auto;
    margin-right:auto;
