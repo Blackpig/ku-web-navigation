@@ -1042,6 +1042,8 @@ a:hover, a:focus{
 
 .ie .tile-content a {
    text-align: center;
+   margin-left: auto;
+   margin-right:auto;
 }
 
 .ie .tile-front, .ie .tile-back {
