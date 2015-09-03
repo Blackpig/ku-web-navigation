@@ -171,14 +171,14 @@
 
 			<div ng-repeat="endpoint in ctrl.data.endpoints" packery>
 				<div ng-if="endpoint.type=='endpoint' || endpoint.type=='service-group'" class="tile {{endpoint.type}} {{endpoint.color}} pack" >
-	                <div class="tile-body row" ng-class="{'flip': toggleInfo=={{$index}} }">
-	                    <div class="tile-front" id="front-{{$index}}">
+	                <div class="tile-body row" ng-class="{'flip': toggleInfo=={{$index+1}} }">
+	                    <div class="tile-front" id="front-{{$index+1}}">
 	                        <div class="tile-content" ng-mouseenter="hasFocus=true"  ng-mouseleave="hasFocus=false">
 	                            <a ng-if="endpoint.type=='service-group'" ng-href="/{{ctrl.navbar.home.link | lowercase}}/{{endpoint.guid}}" ng-class="{hover:hasFocus}">{{endpoint.name}}</a>
 	                            <a ng-if="endpoint.type=='endpoint'" ng-href="{{endpoint.url}}" target="_blank" ng-class="{hover:hasFocus}">{{endpoint.name}}</a>
 	                        </div>
 	                    </div>
-	                    <div class="tile-back" id="back-{{$index}}">
+	                    <div class="tile-back" id="back-{{$index+1}}">
 	                        <div class="tile-content">
 	                            <p>{{endpoint.desc}}</p>
 	                        </div>
@@ -194,7 +194,7 @@
 
 	                        <!-- <li><a href="#" class="bookmark" aria-haspopup="true" class="has-tip" tooltip="Add to My favourites"><i class="fa fa-star fa-lg"></i></a></li>-->
 
-	                        <li ng-if="endpoint.desc"><a href="#" ng-click="ctrl.toggleInfo($index)" class="info-trigger"><i class="fa fa-info fa-lg"></i></a></li>
+	                        <li ng-if="endpoint.desc"><a href="#" ng-click="ctrl.toggleInfo($index+1)" class="info-trigger"><i class="fa fa-info fa-lg"></i></a></li>
 
 	                    </ul>
 	                </div>
