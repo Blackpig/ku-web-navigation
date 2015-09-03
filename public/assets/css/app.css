@@ -1038,7 +1038,8 @@ a:hover, a:focus{
 .ie .tile-content {
    padding-left: 0;
    padding-right: 0;
-   margin: 0 auto;
+   margin-left: 0;
+   margin-right: 0;
 }
 
 .ie .tile-front, .ie .tile-back {
