@@ -578,7 +578,7 @@ a.button.manage-my-status:hover {
 .ms-wall .my-status {
 	width: 550px;
 	height: 250px;
-	margin: 0 5px 10px;
+	/*margin: 0 5px 10px;*/
 }
 
 .ms-tile {
