@@ -219,7 +219,7 @@ app.controller('stateCtrl', ['$rootScope','$scope', '$stateParams', '$state', 'u
 				}
 			}
 
-		$scope.toggleInfo = (!$scope.toggleInfo || $scope.toggleInfo != toggleInfo) ? toggleInfo : null;
+		$scope.toggleInfo = (!$scope.toggleInfo || $scope.toggleInfo !== toggleInfo) ? toggleInfo : null;
 	}
 
 	self.setFocus = function(hasFocus){
@@ -296,7 +296,7 @@ app.controller('searchCtrl', ['$rootScope','$scope', '$stateParams', '$state', '
 				}
 			}
 
-		$scope.toggleInfo = (!$scope.toggleInfo || $scope.toggleInfo != toggleInfo) ? toggleInfo : null;
+		$scope.toggleInfo = (!$scope.toggleInfo || $scope.toggleInfo !== toggleInfo) ? toggleInfo : null;
 	}
 
 	self.setFocus = function(hasFocus){
@@ -364,7 +364,7 @@ app.controller('profileCtrl', ['$rootScope', '$scope', '$state', 'user', 'navbar
 				}
 			}
 
-			$scope.toggleInfo = (!$scope.toggleInfo || $scope.toggleInfo != toggleInfo) ? toggleInfo : null;
+			$scope.toggleInfo = (!$scope.toggleInfo || $scope.toggleInfo !== toggleInfo) ? toggleInfo : null;
 		}
 
 
