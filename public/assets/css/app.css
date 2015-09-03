@@ -1040,7 +1040,7 @@ a:hover, a:focus{
    padding-right: 0;
 }
 
-.ie .tile-content {
+.ie .tile-content a {
    text-align: center;
 }
 
