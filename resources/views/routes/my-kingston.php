@@ -17,55 +17,28 @@
     <body>
         <div class="my-kingston">
             <div class="slide" id="im-1">
-                <p class="question">Where can I learn about <span>student loans?</span></p>
-                <div class="answer">
-                    <a href="https://kuplayer.kingston.ac.uk">
-                        <img src="../assets/images/navigator-logo-blue-on-white-140x140.png" />
-                        <p>KU Navigator<br /><span class="take-me">Take me there<i class="fa fa-long-arrow-right"></i></span></p>
-                    </a>
-                </div>
+                <a href="https://kuplayer.kingston.ac.uk">
+                    <img src="../assets/images/routes/my_kingston_1.jpg" />
+                </a>
             </div>
 
             <div class="slide" id="im-2">
-                <p class="question">How can I <span>change my course?</span></p>
-                <div class="answer">
-                    <a href="https://kuplayer.kingston.ac.uk">
-                        <img src="../assets/images/navigator-logo-blue-on-white-140x140.png" />
-                        <p>KU Navigator<br /><span class="take-me">Take me there<i class="fa fa-long-arrow-right"></i></span></p>
-                    </a>
-                </div>
+                <a href="https://kuplayer.kingston.ac.uk">
+                    <img src="../assets/images/routes/my_kingston_2.jpg" />
+                </a>
             </div>
 
             <div class="slide" id="im-3">
-                <p class="question">Who do we speak to about <span>our accommodation?</span></p>
-                <div class="answer">
-                    <a href="https://kuplayer.kingston.ac.uk">
-                        <img src="../assets/images/navigator-logo-blue-on-white-140x140.png" />
-                        <p>KU Navigator<br /><span class="take-me">Take me there<i class="fa fa-long-arrow-right"></i></span></p>
-                    </a>
-                </div>
+                <a href="https://kuplayer.kingston.ac.uk">
+                    <img src="../assets/images/routes/my_kingston_3.jpg" />
+                </a>
             </div>
 
             <div class="slide" id="im-4">
-                <p class="question">I can ask another <span>question here?</span></p>
-                <div class="answer">
-                    <a href="https://kuplayer.kingston.ac.uk">
-                        <img src="../assets/images/navigator-logo-blue-on-white-140x140.png" />
-                        <p>KU Navigator<br /><span class="take-me">Take me there<i class="fa fa-long-arrow-right"></i></span></p>
-                    </a>
-                </div>
+                <a href="https://kuplayer.kingston.ac.uk">
+                    <img src="../assets/images/routes/my_kingston_4.jpg" />
+                </a>
             </div>
-
-            <div class="slide" id="im-5">
-                <p class="question">Where do I print <span>my dissertation?</span></p>
-                <div class="answer">
-                    <a href="https://kuplayer.kingston.ac.uk">
-                        <img src="../assets/images/navigator-logo-blue-on-white-140x140.png" />
-                        <p>KU Navigator<br /><span class="take-me">Take me there<i class="fa fa-long-arrow-right"></i></span></p>
-                    </a>
-                </div>
-            </div>
-
         </div>
     </body>
     <script src="/assets/vendor/jquery/jquery-1.11.2.min.js"></script>

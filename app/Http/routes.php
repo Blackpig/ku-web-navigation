@@ -45,6 +45,15 @@ $app->group(['prefix' => 'api'], function($app)
 $app->get('layout/{type}/{id}', 'App\Http\Controllers\LayoutController@show'); 
 $app->post('layout/{id}', 'App\Http\Controllers\LayoutController@update'); 
 
+/*
+|
+| Routes - used to redirect user to navigator from Sharepoint/LANDesk and track where they came from
+|
+*/
+$app->group(['prefix' => 'route'], function($app)
+{
+    $app->get('/{view}/{source}', 'App\Http\Controllers\TrackerController@index'); 
+});
 
 /*
 |
