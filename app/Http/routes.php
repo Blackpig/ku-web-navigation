@@ -64,7 +64,7 @@ $app->get('sharepoint/{view}', function($view) use ($app)
 */
 $app->group(['prefix' => 'track'], function($app)
 {
-    $app->get('{source}/{type}', 'App\Http\Controllers\trackerController@index'); 
+    $app->get('{source}/{type}', 'App\Http\Controllers\TrackerController@index'); 
 
 });
 
