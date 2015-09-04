@@ -47,12 +47,25 @@ $app->post('layout/{id}', 'App\Http\Controllers\LayoutController@update');
 
 /*
 |
-| Routes - used to redirect user to navigator from Sharepoint/LANDesk and track where they came from
+| Sharepoint - used to present iFrame to sharepoint 
 |
 */
-$app->group(['prefix' => 'route'], function($app)
+$app->get('sharepoint/{view}', function($view) use ($app) 
 {
-    $app->get('/{view}/{source}', 'App\Http\Controllers\TrackerController@index'); 
+    $view = "routes.$view";
+    return view($view);   
+});
+
+/*
+|
+| Track - used to redirect users to the app after clicking 
+| a route link from sharepoint or servicedesk
+|
+*/
+$app->group(['prefix' => 'track'], function($app)
+{
+    $app->get('{source}/{type}', 'App\Http\Controllers\trackerController@index'); 
+
 });
 
 /*
@@ -87,9 +100,9 @@ $app->get('images', function() use ($app)
 |
 */
 
-$app->get('{path:.*}', function() use ($app) 
+$app->get('{path:.*}',  ['as' => 'navigator',function() use ($app) 
 {
 
     return view("app-ui");
 
-});
+}]);

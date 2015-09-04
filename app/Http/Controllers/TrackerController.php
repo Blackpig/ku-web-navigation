@@ -4,11 +4,11 @@ use App\Http\Controllers\Controller;
 
 class TrackerController extends Controller
 {
-	public function index($view, $source) {
+	public function index($source, $target) {
 
-		$view = "routes.$view";
+		// Add tracking here
 
-		return view($view);
+		return redirect()->route('navigator');
 
 	}
 }
