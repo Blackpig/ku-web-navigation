@@ -50,7 +50,7 @@ p {
 	padding-left: 20px;
 	padding-right: 20px;
 	margin: 0 auto;
-	width: 890px;
+	width: auto;
 	max-width: 890px;
 	min-width: 755px;
 }
