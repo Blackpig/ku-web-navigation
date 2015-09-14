@@ -103,6 +103,7 @@ $app->get('images', function() use ($app)
 $app->get('{path:.*}',  ['as' => 'navigator',function() use ($app) 
 {
 
-    return view("app-ui");
+    $title = (env('APP_ENV') == 'production') : 'Navigator' ? ucfirst(env('APP_ENV')) . " Navigator";
+    return view("app-ui")->with('title', $title);
 
 }]);
