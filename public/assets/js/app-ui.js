@@ -598,7 +598,7 @@ app.directive('packery', ['$rootScope', '$timeout',
 			    		itemSelector: '.pack',
 			    		stamp: '.stamp',
 			    		columnWidth: ".grid-sizer",
-			    		/*gutter: 10*/		    		
+			    		gutter: 5		    		
 			    	});
 
 
