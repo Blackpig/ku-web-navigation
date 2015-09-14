@@ -50,8 +50,8 @@ p {
 	padding-left: 20px;
 	padding-right: 20px;
 	margin: 0 auto;
-	width: auto;
-	max-width: 900px;
+	width: 890px;
+	max-width: 890px;
 	min-width: 755px;
 }
 
@@ -60,6 +60,12 @@ p {
 }
 
 /* Tile layout */
+.grid-sizer, .item {
+  width: 16.667%;
+  width: -webkit-calc( 1/6 * 100% );
+  width: calc( 1/6 * 100% );
+}
+
 .tile {
     border: 2px solid #000;
     border-radius: 3px;
