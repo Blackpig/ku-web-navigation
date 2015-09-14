@@ -285,10 +285,10 @@ class EndpointController extends Controller
                 $image_count++;
             }
 
-            /*if ($i > 0 && $i%$mods[3] == 0 && $image_count <= $max_images && $tall->count() > 0) {
+            if ($i > 0 && $i%$mods[3] == 0 && $image_count <= $max_images && $tall->count() > 0) {
                 $return_endpoints->push($this->makeImageEndpoint('tall',$tall->pop()));
                 $image_count++;
-            }*/
+            }
 
         }
 
