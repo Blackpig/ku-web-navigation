@@ -60,7 +60,7 @@ p {
 }
 
 /* Tile layout */
-.grid-sizer, .item {
+.grid-sizer {
   width: 16.667%;
   width: -webkit-calc( 1/6 * 100% );
   width: calc( 1/6 * 100% );
