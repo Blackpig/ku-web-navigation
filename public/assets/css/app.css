@@ -1026,7 +1026,7 @@ a:hover, a:focus{
 }
 
 .ie .flip .tile-back p {;
-	transform: rotateY(180deg);
+	transform: rotateY(179.9deg);
 }
 
 .ie .flip{
