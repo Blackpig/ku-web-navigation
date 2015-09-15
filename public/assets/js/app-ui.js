@@ -604,7 +604,7 @@ app.directive('packery', ['$rootScope', '$timeout',
 
 		    	var orderItems = function() {
 		    		var itemElems = $rootScope.packery.getItemElements();
-		    		$timeout(clearMask, 1500 );
+		    		$timeout(clearMask, 1000 );
 		    	};
 
 		    	var clearMask = function(){
