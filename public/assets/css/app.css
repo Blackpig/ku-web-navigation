@@ -635,6 +635,7 @@ a.button.manage-my-status:hover {
 }
 
 .ms-tile .tile-back .tile-content {
+	background: #ccc;
 	width: 274px;
 }
 
@@ -1026,7 +1027,7 @@ a:hover, a:focus{
 }
 
 .ie .flip .tile-back p {;
-	transform: rotateY(179.9deg);
+	transform: rotateY(180deg);
 }
 
 .ie .flip{
