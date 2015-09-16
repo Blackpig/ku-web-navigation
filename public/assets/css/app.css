@@ -1003,6 +1003,10 @@ a:hover, a:focus{
 	height: 109px;
 }
 
+.ie .ms-tile-sq .tile-body {
+	height: 107px;
+}
+
 .ie .ms-tile .info{
 	width: 172px;
 }
