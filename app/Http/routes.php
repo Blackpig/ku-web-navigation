@@ -54,9 +54,9 @@ $app->post('layout/{id}', 'App\Http\Controllers\LayoutController@update');
 $app->get('cache-clear/{id}', function($id) use ($app) 
 {
     if (strtolower($id) == 'all') {
-        Cache::flush();
+        \Cache::flush();
     } else {
-        Cache::forget($id);
+        \Cache::forget($id);
     }
     return true;   
 });
