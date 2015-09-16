@@ -14,7 +14,7 @@
         <div class="wrapper">
          <div class="staffspace">
             <div class="slide" id="im-1">
-                <a href="https://kuplayer.kingston.ac.uk">
+                <a href="https://navigator.kingston.ac.uk">
                     <img src="../assets/images/routes/staffspace.jpg" />
                 </a>
             </div>
@@ -45,7 +45,7 @@
         })
 
         function openKUPlayer() {
-            var url = 'https://kuplayer.kingston.ac.uk';
+            var url = 'https://navigator.kingston.ac.uk';
 
             $("<a>").attr("href", url).attr("target", "_blank")[0].click();
         }
