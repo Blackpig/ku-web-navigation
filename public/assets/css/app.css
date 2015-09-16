@@ -782,7 +782,7 @@ a.button.manage-my-status:hover {
 		margin-top: 0 !important;
 	}	
 
-	.ms-wall .my-status, .wall .my-status {
+	.ms-wall .my-status, .wall .my-status, .ie .ms-wall .my-status, .ie .wall .my-status, {
 		width: 266px;
 		height: 120px;
 		padding: 10px;
