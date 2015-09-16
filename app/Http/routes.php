@@ -58,7 +58,7 @@ $app->get('cache-clear/{id}', function($id) use ($app)
     } else {
         \Cache::forget($id);
     }
-    return true;   
+    //return true;   
 });
 
 /*
