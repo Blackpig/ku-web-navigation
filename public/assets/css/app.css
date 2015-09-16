@@ -764,132 +764,7 @@ a.button.manage-my-status:hover {
 }
 
 
-/* Smaller screens */
-@media only screen and (max-width: 960px) {
 
-	.wall {
-		min-width: 600px;
-	}
-	
-}
-
-/* Mobile */
-
-@media handheld, only screen and (max-width: 760px) {
-	
-	.wall, .ms-wall {
-		min-width: 0;
-		margin-top: 0 !important;
-	}	
-
-	.ms-wall .my-status, .wall .my-status, .ie .ms-wall .my-status, .ie .wall .my-status, {
-		width: 266px;
-		height: 120px;
-		padding: 10px;
-	}
-
-	.my-status .profile .details {
-		width: 180px;
-	}
-
-	.my-status .profile .summary {
-		display: none;
-	}
-
-	.my-status .avatar, .my-status .avatar img {
-		width: 60px;
-	}
-
-	.my-status .details{
-		margin-left: 14px;
-		width: 180px;
-	}
-
-	.my-status .details .welcome{
-		font-size: 11pt;
-		color: #0a0159;
-	}
-	
-	.my-status .details a.button.manage-my-status{
-		font-size: 11pt;
-		padding: 8px 16px;
-		position: absolute;
-		top: 72px;
-		left: 75px;
-	}
-
-	.my-status .small{
-		display: none;
-	}
-
-	.my-status .ticker, .my-status .icon-list, .my-status .details p.small{
-		display:none;
-	}
-
-	.service-group-tall {
-		width: 270px;
-		height: 130px;
-	}
-
-	.service-group-tall .tile-content {
-		width: 270px;
-	}
-
-	.service-group-tall .tile-body {
-		height: 80px;
-	}
-
-	.image{
-		display: none;
-	}
-
-/* Force table to not be like tables anymore */
-	.ms-grid table, .ms-grid caption, .ms-grid thead, .ms-grid tbody, .ms-grid th, .ms-grid td, .ms-grid tr { 
-		display: block; 
-	}
-	
-	.ms-grid caption { 
-		width:100%;
-	}
-
-	/* Hide table headers (but not display: none;, for accessibility) */
-	.ms-grid thead tr { 
-		position: absolute;
-		top: -9999px;
-		left: -9999px;
-	}
-	
-	.ms-grid tr { border: 1px solid #0a0159; }
-	
-	.ms-grid td { 
-		/* Behave  like a "row" */
-		border: none;
-		border-bottom: 1px solid #0a0159; 
-		position: relative;
-		padding-left: 50%; 
-	}
-	
-	.ms-grid td:before { 
-		/* Now like a table header */
-		position: absolute;
-		/* Top/left values mimic padding */
-		top: 6px;
-		left: 6px;
-		width: 45%; 
-		padding-right: 10px; 
-		white-space: nowrap;
-	}
-	
-	/*
-	Label the data
-	*/
-	.ms-grid td:nth-of-type(1):before { content: "Reference"; }
-	.ms-grid td:nth-of-type(2):before { content: "Date created"; }
-	.ms-grid td:nth-of-type(3):before { content: "Summary"; }
-	.ms-grid td:nth-of-type(4):before { content: "Status"; }
-	.ms-grid td:nth-of-type(5):before { content: "Source"; }
-
-}
 
 /* Foundation Overrides */
 
@@ -936,7 +811,6 @@ a:hover, a:focus{
 .top-bar-section li:not(.has-form) a:not(.button):hover {
 	background-color: transparent;
 }
-
 /* IE > 10 add a class ie to body and apply following styles */
 
 .ie .image.square{
@@ -1095,3 +969,129 @@ a:hover, a:focus{
 	padding-bottom: 0.4rem;
 }
 
+/* Smaller screens */
+@media only screen and (max-width: 960px) {
+
+	.wall {
+		min-width: 600px;
+	}
+	
+}
+
+/* Mobile */
+
+@media handheld, only screen and (max-width: 760px) {
+	
+	.wall, .ms-wall {
+		min-width: 0;
+		margin-top: 0 !important;
+	}	
+
+	.ms-wall .my-status, .wall .my-status, .ie .ms-wall .my-status, .ie .wall .my-status, {
+		width: 266px;
+		height: 120px;
+		padding: 10px;
+	}
+
+	.my-status .profile .details {
+		width: 180px;
+	}
+
+	.my-status .profile .summary {
+		display: none;
+	}
+
+	.my-status .avatar, .my-status .avatar img {
+		width: 60px;
+	}
+
+	.my-status .details{
+		margin-left: 14px;
+		width: 180px;
+	}
+
+	.my-status .details .welcome{
+		font-size: 11pt;
+		color: #0a0159;
+	}
+	
+	.my-status .details a.button.manage-my-status{
+		font-size: 11pt;
+		padding: 8px 16px;
+		position: absolute;
+		top: 72px;
+		left: 75px;
+	}
+
+	.my-status .small{
+		display: none;
+	}
+
+	.my-status .ticker, .my-status .icon-list, .my-status .details p.small{
+		display:none;
+	}
+
+	.service-group-tall {
+		width: 270px;
+		height: 130px;
+	}
+
+	.service-group-tall .tile-content {
+		width: 270px;
+	}
+
+	.service-group-tall .tile-body {
+		height: 80px;
+	}
+
+	.image{
+		display: none;
+	}
+
+/* Force table to not be like tables anymore */
+	.ms-grid table, .ms-grid caption, .ms-grid thead, .ms-grid tbody, .ms-grid th, .ms-grid td, .ms-grid tr { 
+		display: block; 
+	}
+	
+	.ms-grid caption { 
+		width:100%;
+	}
+
+	/* Hide table headers (but not display: none;, for accessibility) */
+	.ms-grid thead tr { 
+		position: absolute;
+		top: -9999px;
+		left: -9999px;
+	}
+	
+	.ms-grid tr { border: 1px solid #0a0159; }
+	
+	.ms-grid td { 
+		/* Behave  like a "row" */
+		border: none;
+		border-bottom: 1px solid #0a0159; 
+		position: relative;
+		padding-left: 50%; 
+	}
+	
+	.ms-grid td:before { 
+		/* Now like a table header */
+		position: absolute;
+		/* Top/left values mimic padding */
+		top: 6px;
+		left: 6px;
+		width: 45%; 
+		padding-right: 10px; 
+		white-space: nowrap;
+	}
+	
+	/*
+	Label the data
+	*/
+	.ms-grid td:nth-of-type(1):before { content: "Reference"; }
+	.ms-grid td:nth-of-type(2):before { content: "Date created"; }
+	.ms-grid td:nth-of-type(3):before { content: "Summary"; }
+	.ms-grid td:nth-of-type(4):before { content: "Status"; }
+	.ms-grid td:nth-of-type(5):before { content: "Source"; }
+
+}
