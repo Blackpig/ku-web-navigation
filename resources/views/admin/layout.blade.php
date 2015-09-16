@@ -32,7 +32,7 @@
 @section('content')
     <div id="wall" class="wall packery">
       
-        <div class="tile menu stamp left no-drag">
+        <div class="tile menu stamp left no-drag" style="margin-right:10px">
           <div class="tile-body row">
             <div class="tile-content">
               <a href="#" class="nolink"><i class="fa fa-home fa-4x"></i></a>
