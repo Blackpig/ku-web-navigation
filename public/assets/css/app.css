@@ -594,15 +594,15 @@ a.button.manage-my-status:hover {
 }
 
 .ms-tile-sq {
-    width: 140px;
-    height:140px;
+    width: 138px;
+    height:138px;
     background-color: #fff;
     border: 1px solid #0a0159;
     margin: 0 5px 10px;
 }
 
 .ms-tile-sq .tile-body{
-    width: 140px;
+    width: 138px;
     height: 109px;
     color: #0a0159;
 }
@@ -674,7 +674,7 @@ a.button.manage-my-status:hover {
 
 .ms-tile-sq .tile-icons {
 	background: #0a0159;
-	width: 138px;
+	width: 136px;
 	margin: 0 auto;
 }
 
