@@ -1023,7 +1023,7 @@ a:hover, a:focus{
 	position: relative;
 }
 
-.ie .flip .tile-front {
+.ie .flip .tile-front, .ie .ms-tile .flip .tile-front {
 	transform: rotateY(-179.9deg);
 	opacity:0;
 	-ms-transition: all 0.6s ease;
