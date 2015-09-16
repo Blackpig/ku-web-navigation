@@ -47,6 +47,22 @@ $app->post('layout/{id}', 'App\Http\Controllers\LayoutController@update');
 
 /*
 |
+| Cache clear
+|
+*/
+
+$app->get('cache-clear/{id}', function($id) use ($app) 
+{
+    if (strtolower($id) == 'all') {
+        Cache::flush();
+    } else {
+        Cache::forget($id);
+    }
+    return true;   
+});
+
+/*
+|
 | Sharepoint - used to present iFrame to sharepoint 
 |
 */
