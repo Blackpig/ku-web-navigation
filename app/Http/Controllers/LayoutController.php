@@ -33,7 +33,7 @@ class LayoutController extends Controller
 
         if ($type == 'osg') {
             $data['current'] = Endpoint::ServiceGroup($id);
-            $data['endpoints'] = Endpoint::OrganisationServiceGroupEndpoints($id, $data['current']->organisation_guid);     
+            $data['endpoints'] = Endpoint::OrganisationServiceGroupEndpoints($id, $data['current']->organisation_guid);   
         }
 
         if ($type == 'csg') {
