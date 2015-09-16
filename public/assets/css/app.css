@@ -865,13 +865,13 @@ a:hover, a:focus{
 	height:101px;
 }
 
-.ie .my-status {
+/*.ie .my-status {
 	width: 550px;
 }
 
 .ie .my-status .details{
 	width: 380px;
-}
+}*/
 
 .ie .ms-tile .tile-body {
 	height: 109px;
