@@ -499,9 +499,10 @@ a.button.manage-my-status:hover {
 	width: 380px;
 }
 
-.my-status .profile a.update {
+.my-status .profile a.update, .my-status .profile a.update:focus {
 	font-size: 9pt;
 	text-decoration: underline;
+	color: #0a0159
 }
 
 .my-status .profile a.update:hover {
