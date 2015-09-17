@@ -510,7 +510,7 @@ a.button.manage-my-status:hover {
 }
 
 .my-status .profile a.update:hover:after {
-	font-size: 9pt;
+	font-size: 11pt;
 	text-decoration: none;
 	content: '\00BB';
 }
