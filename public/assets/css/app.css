@@ -499,6 +499,17 @@ a.button.manage-my-status:hover {
 	width: 380px;
 }
 
+my-status .profile .update a {
+	font-size: 9pt;
+	text-decoration: underline;
+}
+
+my-status .profile .update a:hover {
+	font-size: 9pt;
+	color: #fff;
+	background: #0a0159;
+}
+
 .my-status .profile .summary {
 	font-size: 10pt;
 	line-height: 1.4;
@@ -745,27 +756,6 @@ a.button.manage-my-status:hover {
   width: 15%;
 }
 
-/** Media Queries **/
-
-/* Phone screens */
-
-@media only screen and (max-width: 40.0625em){ 
-
-	.top-bar-section ul li {
-		padding: 3px 0 2px 20px;
-		border-top: 1px solid #666;
-	}
-
-	.reveal-modal {
-		min-height: 20vh; 
-		background: #000;
-	}
-
-}
-
-
-
-
 /* Foundation Overrides */
 
 .top-bar .button {
@@ -969,6 +959,22 @@ a:hover, a:focus{
 	padding-bottom: 0.4rem;
 }
 
+/** Media Queries **/
+/* Phone screens */
+
+@media only screen and (max-width: 40.0625em){ 
+
+	.top-bar-section ul li {
+		padding: 3px 0 2px 20px;
+		border-top: 1px solid #666;
+	}
+
+	.reveal-modal {
+		min-height: 20vh; 
+		background: #000;
+	}
+
+}
 /* Smaller screens */
 @media only screen and (max-width: 960px) {
 
