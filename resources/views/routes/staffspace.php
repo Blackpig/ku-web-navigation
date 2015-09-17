@@ -9,6 +9,10 @@
         <link rel="stylesheet" href="/assets/vendor/font-awesome/css/font-awesome.min.css">
         <script src="/assets/vendor/foundation/js/vendor/modernizr.js"></script>
         <base href="/">
+        <style>
+            a, a img {outline: none;}
+            img {border: 0;}
+        </style>
     </head>
     <body>
         <div class="wrapper">
