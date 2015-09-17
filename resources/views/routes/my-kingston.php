@@ -18,25 +18,7 @@
         <div class="my-kingston">
             <div class="slide" id="im-1">
                 <a href="https://kunavigator.kingston.ac.uk">
-                    <img src="../assets/images/routes/my_kingston_1.jpg" />
-                </a>
-            </div>
-
-            <div class="slide" id="im-2">
-                <a href="https://kunavigator.kingston.ac.uk">
-                    <img src="../assets/images/routes/my_kingston_2.jpg" />
-                </a>
-            </div>
-
-            <div class="slide" id="im-3">
-                <a href="https://kunavigator.kingston.ac.uk">
-                    <img src="../assets/images/routes/my_kingston_3.jpg" />
-                </a>
-            </div>
-
-            <div class="slide" id="im-4">
-                <a href="https://kunavigator.kingston.ac.uk">
-                    <img src="../assets/images/routes/my_kingston_4.jpg" />
+                    <img src="../assets/images/routes/my_kingston.jpg" />
                 </a>
             </div>
         </div>
