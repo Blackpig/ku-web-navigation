@@ -506,8 +506,13 @@ a.button.manage-my-status:hover {
 
 .my-status .profile a.update:hover {
 	font-size: 9pt;
-	color: #fff;
-	background: #0a0159;
+	text-decoration: none;
+}
+
+.my-status .profile a.update:hover:after {
+	font-size: 9pt;
+	text-decoration: none;
+	content: " &#187";
 }
 
 .my-status .profile .summary {
