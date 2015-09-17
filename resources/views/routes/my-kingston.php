@@ -12,6 +12,8 @@
         <link href='https://fonts.googleapis.com/css?family=Roboto:400' rel='stylesheet' type='text/css'>
         <base href="/">
         <style>
+            a, a img {outline: none;}
+            img {border: 0;}
         </style>
     </head>
     <body>
