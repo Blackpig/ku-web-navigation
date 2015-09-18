@@ -125,7 +125,7 @@ class Ticket extends Model{
 						'Buldings & Maintenance' as source 
 					FROM ops_hd_help_desk h
 						LEFT OUTER JOIN ops_hd_job j ON j.request_num=h.request_num
-					WHERE j.request_num NOT NULL
+					WHERE j.request_num IS NOT NULL
 						
 					ORDER BY h.date_raised DESC) 
 				WHERE ROWNUM <= 30";
