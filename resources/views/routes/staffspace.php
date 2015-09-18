@@ -18,7 +18,7 @@
         <div class="wrapper">
          <div class="staffspace">
             <div class="slide" id="im-1">
-                <a href="https://kunavigator.kingston.ac.uk">
+                <a href="https://kunavigator.kingston.ac.uk" target="_blank">
                     <img src="../assets/images/routes/staffspace.jpg" />
                 </a>
             </div>
