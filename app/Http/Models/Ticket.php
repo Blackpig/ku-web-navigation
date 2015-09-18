@@ -20,7 +20,8 @@ class Ticket extends Model{
 		
 		$service_desk = $this->getServiceDesk($id, $count);
 		$esd = $this->getESD($id, $count);
-		$quemis = $this->getQuemis($id, $count);
+		//$quemis = $this->getQuemis($id, $count);
+		$quemis = collect([]);
 
 		$tickets = $tickets->merge($service_desk)->merge($esd)->merge($quemis);
 
