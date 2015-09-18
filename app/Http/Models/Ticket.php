@@ -107,7 +107,7 @@ class Ticket extends Model{
 		$db = env('DB_QMS_DATABASE');
 		$user = env('DB_QMS_USERNAME');
 		$pass = env('DB_QMS_PASSWORD');
-
+		$id = 'KU52365';
     	$conn = oci_connect($user, $pass, $db);
 
     	if (!$conn) {
@@ -135,7 +135,7 @@ class Ticket extends Model{
 						AND (s.status <> '6 Work order finished ' AND s.status <> '7 Cancelled') 
 					ORDER BY h.date_raised DESC) 
 				WHERE ROWNUM <= 30";
-
+				
 				$rs = oci_parse($conn, $sql);
         		oci_execute($rs);    
 
