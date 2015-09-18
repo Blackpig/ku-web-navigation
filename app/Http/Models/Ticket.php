@@ -129,7 +129,6 @@ class Ticket extends Model{
 						INNER JOIN bd_location l ON l.loc_id=h.loc_id
 					WHERE 
 						c.staff_number = '$id'
-						AND (s.status <> '6 Work order finished ' AND s.status <> '7 Cancelled') 
 					ORDER BY h.date_raised DESC) 
 				WHERE ROWNUM <= 30";
 
