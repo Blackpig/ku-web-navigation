@@ -122,12 +122,10 @@ class Ticket extends Model{
 						h.request_num as reference, 
 						to_char(h.date_raised, 'yyyy-mm-dd hh:mi') as created_at,
 						h.desc_of_request as summary,  
-						s.status as status, 
 						'Buldings & Maintenance' as source 
 					FROM ops_hd_help_desk h
 						LEFT OUTER JOIN ops_hd_job j ON j.request_num=h.request_num
-						LEFT OUTER JOIN sched_o_job_status s ON s.status_id=j.status_id
-					WHERE s.status > 0
+					WHERE j.request_num NOT NULL
 						
 					ORDER BY h.date_raised DESC) 
 				WHERE ROWNUM <= 30";
