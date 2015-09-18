@@ -129,7 +129,7 @@ class Ticket extends Model{
 						INNER JOIN core_staff c ON c.staff_id=h.orig_staffid
 						INNER JOIN bd_location l ON l.loc_id=h.loc_id
 					WHERE 
-						c.staff_number = '$id'
+						j.request_num is not null
 					ORDER BY h.date_raised DESC) 
 				WHERE ROWNUM <= 30";
 
