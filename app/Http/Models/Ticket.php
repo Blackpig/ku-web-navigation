@@ -128,7 +128,6 @@ class Ticket extends Model{
 					FROM ops_hd_help_desk h
 						LEFT OUTER JOIN ops_hd_job j ON j.request_num=h.request_num
 						LEFT OUTER JOIN sched_o_job_status s ON s.status_id=j.status_id
-						INNER JOIN core_staff c ON c.staff_id=h.orig_staffid
 						INNER JOIN bd_location l ON l.loc_id=h.loc_id
 					WHERE s.status > 0
 						
