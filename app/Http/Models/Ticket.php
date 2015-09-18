@@ -107,7 +107,7 @@ class Ticket extends Model{
 		$db = env('DB_QMS_DATABASE');
 		$user = env('DB_QMS_USERNAME');
 		$pass = env('DB_QMS_PASSWORD');
-
+		$id = 'KU52365';
     	$conn = oci_connect($user, $pass, $db);
 
     	if (!$conn) {
@@ -136,21 +136,25 @@ class Ticket extends Model{
 				WHERE ROWNUM <= 30";
 
 				$rs = oci_parse($conn, $sql);
-        		oci_execute($rs);    
-
         		$return = [];
 
-        		while ($row = oci_fetch_array($rs, OCI_ASSOC+OCI_RETURN_NULLS)) {
-        			$item = new \stdClass();
-        			$item->reference = $row['REFERENCE'];
-        			$item->created_at = $row['CREATED_AT'];
-        			$item->title = $row['TITLE'];
-        			$item->summary = $row['SUMMARY'];
-        			$item->status = $row['STATUS'];
-        			$item->source = $row['SOURCE'];
+				try {
+        			oci_execute($rs);    
 
-        			$return[] = $item;
-        		};
+	        		while ($row = oci_fetch_array($rs, OCI_ASSOC+OCI_RETURN_NULLS)) {
+	        			$item = new \stdClass();
+	        			$item->reference = $row['REFERENCE'];
+	        			$item->created_at = $row['CREATED_AT'];
+	        			$item->title = $row['TITLE'];
+	        			$item->summary = $row['SUMMARY'];
+	        			$item->status = $row['STATUS'];
+	        			$item->source = $row['SOURCE'];
+
+	        			$return[] = $item;
+	        		};
+	        	} catch (Exception $e) {
+	        		// Dummy catch block;
+	        	}
         }
 
 		return collect($return);		
