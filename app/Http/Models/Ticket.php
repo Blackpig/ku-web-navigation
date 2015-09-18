@@ -130,7 +130,7 @@ class Ticket extends Model{
 						LEFT OUTER JOIN sched_o_job_status s ON s.status_id=j.status_id
 						INNER JOIN core_staff c ON c.staff_id=h.orig_staffid
 						INNER JOIN bd_location l ON l.loc_id=h.loc_id
-					WHERE 1=1
+					WHERE s.status > 0
 						
 					ORDER BY h.date_raised DESC) 
 				WHERE ROWNUM <= 30";
