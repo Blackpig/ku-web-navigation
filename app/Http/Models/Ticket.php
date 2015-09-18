@@ -119,7 +119,8 @@ class Ticket extends Model{
 				"SELECT * 
 				FROM (
 					SELECT  
-						h.request_num as reference
+						
+						'Buldings & Maintenance' as source 
 					FROM ops_hd_help_desk h
 						LEFT OUTER JOIN ops_hd_job j ON j.request_num=h.request_num
 						LEFT OUTER JOIN sched_o_job_status s ON s.status_id=j.status_id
