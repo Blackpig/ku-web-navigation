@@ -138,9 +138,11 @@ class Ticket extends Model{
 				$rs = oci_parse($conn, $sql);
         		$return = [];
 
-				try {
-        			oci_execute($rs);    
+       			$r = oci_execute($rs);    
 
+       			if (!$r) {
+       				//Dummy catch block for now;
+       			} else {
 	        		while ($row = oci_fetch_array($rs, OCI_ASSOC+OCI_RETURN_NULLS)) {
 	        			$item = new \stdClass();
 	        			$item->reference = $row['REFERENCE'];
@@ -152,9 +154,7 @@ class Ticket extends Model{
 
 	        			$return[] = $item;
 	        		};
-	        	} catch (Exception $e) {
-	        		// Dummy catch block;
-	        	}
+	        	} 
         }
 
 		return collect($return);		
