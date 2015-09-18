@@ -107,7 +107,7 @@ class Ticket extends Model{
 		$db = env('DB_QMS_DATABASE');
 		$user = env('DB_QMS_USERNAME');
 		$pass = env('DB_QMS_PASSWORD');
-		$id='KU52365';
+		$id='KU53055';
     	$conn = oci_connect($user, $pass, $db);
 
     	if (!$conn) {
