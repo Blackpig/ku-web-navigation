@@ -29,7 +29,7 @@ class UserController extends Controller
                 exit;
             }
 
-            $username = ($username=='KA01356') ? "K1068743" : $username;
+            //$username = ($username=='KA01356') ? "K1068743" : $username;
 
             /* Do we have the user within the app*/
             $user = User::find($username);
@@ -80,7 +80,8 @@ class UserController extends Controller
             }
 
             if (strpos($user->avatar, 'avatar_') !== 0 ) {
-                $user->avatar = $this->getUserImage($user->id, strtolower($user->gender));
+                //$user->avatar = $this->getUserImage($user->id, strtolower($user->gender));
+                $user->avatar = $this->getUserImage('K1068743', strtolower($user->gender));
                 $user->save();
             }
 
