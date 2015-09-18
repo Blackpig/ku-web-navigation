@@ -79,10 +79,7 @@ class UserController extends Controller
                 $user = User::find($username);
             }
 
-            $x=strpos($user->avatar, 'avatar_');
-            echo "X=$x";
-
-            if (strpos($user->avatar, 'avatar_') !== 0 ) {
+            if (strpos($user->avatar, 'avatar_') !== false ) {
                 $user->avatar = $this->getUserImage($user->id, strtolower($user->gender));
                 $user->save();
             }
