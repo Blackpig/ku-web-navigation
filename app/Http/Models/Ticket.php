@@ -121,12 +121,15 @@ class Ticket extends Model{
 					SELECT  
 						h.request_num as reference, 
 						to_char(h.date_raised, 'yyyy-mm-dd hh:mi') as created_at,
+						'Room: ' + l.loc_ref as title, 
 						h.desc_of_request as summary,  
 						'Buldings & Maintenance' as source 
 					FROM ops_hd_help_desk h
 						LEFT OUTER JOIN ops_hd_job j ON j.request_num=h.request_num
-					WHERE j.request_num IS NOT NULL
-						
+						INNER JOIN core_staff c ON c.staff_id=h.orig_staffid
+						INNER JOIN bd_location l ON l.loc_id=h.loc_id
+					WHERE 
+						c.staff_number = '$id'
 					ORDER BY h.date_raised DESC) 
 				WHERE ROWNUM <= 30";
 
