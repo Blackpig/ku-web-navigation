@@ -29,7 +29,7 @@ class UserController extends Controller
                 exit;
             }
 
-            //$username = ($username=='KA01356') ? "K1068743" : $username;
+            $username = ($username=='KA01356') ? "K1068743" : $username;
 
             /* Do we have the user within the app*/
             $user = User::find($username);
@@ -123,7 +123,7 @@ class UserController extends Controller
 
             if (strtoupper($exists[0]) == "HTTP/1.1 200 OK") {
                 $hash = time();
-                $local = base_path() . "/public/assets/images/user/{$hash}.jpg";
+                $local = base_path() . "/public/assets/images/user/{$hash}{$id}.jpg";
 
                 if (copy($image, $local)) {
                     $local = str_replace(base_path() . "/public", "..", $local);
