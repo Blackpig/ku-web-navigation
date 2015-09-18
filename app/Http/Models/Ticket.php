@@ -141,7 +141,7 @@ class Ticket extends Model{
        			$r = oci_execute($rs);    
 
        			if (!$r) {
-       				$e = oci_error($rs)
+       				$e = oci_error($rs);
        			} else {
 	        		while ($row = oci_fetch_array($rs, OCI_ASSOC+OCI_RETURN_NULLS)) {
 	        			$item = new \stdClass();
