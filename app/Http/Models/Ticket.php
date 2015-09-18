@@ -107,7 +107,7 @@ class Ticket extends Model{
 		$db = env('DB_QMS_DATABASE');
 		$user = env('DB_QMS_USERNAME');
 		$pass = env('DB_QMS_PASSWORD');
-		$id = 'KU52365';
+		$id='KA01356';
     	$conn = oci_connect($user, $pass, $db);
 
     	if (!$conn) {
@@ -123,12 +123,16 @@ class Ticket extends Model{
 						to_char(h.date_raised, 'yyyy-mm-dd hh:mi:ss') as created_at,
 						'Room: ' + l.loc_ref as title, 
 						h.desc_of_request as summary,  
+						s.status as status, 
 						'Buldings & Maintenance' as source 
 					FROM ops_hd_help_desk h
+						LEFT OUTER JOIN ops_hd_job j ON j.request_num=h.request_num
+						LEFT OUTER JOIN sched_o_job_status s ON s.status_id=j.status_id
 						INNER JOIN core_staff c ON c.staff_id=h.orig_staffid
 						INNER JOIN bd_location l ON l.loc_id=h.loc_id
 					WHERE 
 						c.staff_number = '$id'
+						AND (s.status <> '6 Work order finished ' AND s.status <> '7 Cancelled') 
 					ORDER BY h.date_raised DESC) 
 				WHERE ROWNUM <= 30";
 
