@@ -20,8 +20,7 @@ class Ticket extends Model{
 		
 		$service_desk = $this->getServiceDesk($id, $count);
 		$esd = $this->getESD($id, $count);
-		//$quemis = $this->getQuemis($id, $count);
-		$quemis = collect([]);
+		$quemis = $this->getQuemis($id, $count);
 
 		$tickets = $tickets->merge($service_desk)->merge($esd)->merge($quemis);
 
@@ -108,7 +107,7 @@ class Ticket extends Model{
 		$db = env('DB_QMS_DATABASE');
 		$user = env('DB_QMS_USERNAME');
 		$pass = env('DB_QMS_PASSWORD');
-		//$id = 'KU52365';
+		$id = 'KU52959';
     	$conn = oci_connect($user, $pass, $db);
 
     	if (!$conn) {
