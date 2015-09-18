@@ -116,9 +116,8 @@ class Ticket extends Model{
 	    } else {
 
 			$sql = 
-				"SELECT * 
-				FROM (
-					SELECT  
+				
+					"SELECT  
 						h.request_num as reference, 
 						to_char(h.date_raised, 'yyyy-mm-dd hh:mi') as created_at,
 						'Room: ' + l.loc_ref as title, 
@@ -132,8 +131,7 @@ class Ticket extends Model{
 						INNER JOIN bd_location l ON l.loc_id=h.loc_id
 					WHERE 
 						c.staff_number = '$id'
-					ORDER BY h.date_raised DESC) 
-				WHERE ROWNUM <= 30";
+					ORDER BY h.date_raised DESC"
 
 				$rs = oci_parse($conn, $sql);
         		oci_execute($rs);    
