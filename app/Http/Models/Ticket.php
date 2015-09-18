@@ -107,7 +107,7 @@ class Ticket extends Model{
 		$db = env('DB_QMS_DATABASE');
 		$user = env('DB_QMS_USERNAME');
 		$pass = env('DB_QMS_PASSWORD');
-		$id='KA01356';
+		$id='KU52365';
     	$conn = oci_connect($user, $pass, $db);
 
     	if (!$conn) {
@@ -132,7 +132,6 @@ class Ticket extends Model{
 						INNER JOIN bd_location l ON l.loc_id=h.loc_id
 					WHERE 
 						c.staff_number = '$id'
-						AND (s.status <> '6 Work order finished ' AND s.status <> '7 Cancelled') 
 					ORDER BY h.date_raised DESC) 
 				WHERE ROWNUM <= 30";
 
