@@ -19,7 +19,7 @@
     <body>
         <div class="my-kingston">
             <div class="slide" id="im-1">
-                <a href="https://kunavigator.kingston.ac.uk">
+                <a href="https://kunavigator.kingston.ac.uk" target="_blank">
                     <img src="../assets/images/routes/my_kingston.jpg" />
                 </a>
             </div>
@@ -28,7 +28,7 @@
     <script src="/assets/vendor/jquery/jquery-1.11.2.min.js"></script>
     <script src="/assets/vendor/slick/slick.min.js"></script>
     <script>
-        $(document).ready(function(){
+        /*$(document).ready(function(){
             $('.my-kingston').slick({
                 autoplay: true,
                 speed: 700,
@@ -42,9 +42,9 @@
 
         $('.slide').click(function(){
             openKUPlayer();
-        })
+        })*/
 
-        $('a').click(function(e){
+        /*$('a').click(function(e){
             e.preventDefault();
             openKUPlayer();
         })
@@ -53,7 +53,7 @@
             var url = 'https://kunavigator.kingston.ac.uk';
 
             $("<a>").attr("href", url).attr("target", "_blank")[0].click();
-        }
+        }*/
 
     </script>          
 </html>
