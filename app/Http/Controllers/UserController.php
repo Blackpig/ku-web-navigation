@@ -30,7 +30,7 @@ class UserController extends Controller
             }
 
             //$username = ($username=='KA01356') ? "K1068743" : $username;
-            $username = 'KU12307;'
+            $username = 'KU12307';
             /* Do we have the user within the app*/
             $user = User::find($username);
 
