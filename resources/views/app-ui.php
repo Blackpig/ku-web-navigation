@@ -19,7 +19,7 @@
         <!-- Piwik -->
         <script type="text/javascript">
           var _paq = _paq || [];
-          _paq.push(['trackPageView']);
+          //_paq.push(['trackPageView']);
           _paq.push(['enableLinkTracking']);
           (function() {
             var u="//kuplayer.kingston.ac.uk/analytics/";
@@ -35,6 +35,8 @@
     <script src="/assets/vendor/jquery/jquery-1.11.2.min.js"></script>
     <script src="/assets/vendor/angular/angular.js"></script>
     <script src="/assets/vendor/angular-ui/angular-ui-router.min.js"></script>
+    <script src="/assets/vendor/angulartics/src/angulartics.js"></script>
+    <script src="/assets/vendor/angulartics/src/angulartics=piwik.js"></script>
     <script src="/assets/vendor/pineconellc/mm-foundation-tpls-0.6.0.js"></script>
     <script src="/assets/vendor/metafizzy/packery.pkgd.min.js"></script>
     <script src="/assets/js/app-ui.js"></script>

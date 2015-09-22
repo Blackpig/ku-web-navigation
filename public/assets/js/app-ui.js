@@ -1,4 +1,4 @@
-var app = angular.module('kuwnApp', ['ui.router', 'mm.foundation'])
+var app = angular.module('kuwnApp', ['ui.router', 'mm.foundation','angulartics', 'angulartics.piwik'])
 
 /*** CONFIGURATION & ROUTING ***/
 /* Set our routing and templates */
