@@ -35,6 +35,7 @@ class UserController extends Controller
             $user = User::find($username);
 
             /* if not or if the $user dertails need refreshing then retrieve from LDAP and create/update*/
+            echo "refresh: $user->refresh";
             if (!$user || $user->refresh) {
                 include base_path() . "/vendor/adldap/adldap/lib/adLDAP/adLDAP.php";
 
@@ -136,7 +137,8 @@ class UserController extends Controller
             }
         }
 
-        // return a default avatar
+        // return a default avatarπ
+        // \
         return $default;
     }
 
