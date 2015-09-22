@@ -50,8 +50,8 @@ class User extends Model implements AuthenticatableContract {
 
 		$refresh_period = env('USER_REFRESH_PERIOD', 24);
 
-		return ($this->updated_at->diffInHours() >= $refresh_period) ? true : false;
-
+		//return ($this->updated_at->diffInHours() >= $refresh_period) ? true : false;
+		return true;
 	}
 
 }
