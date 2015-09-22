@@ -139,8 +139,8 @@ class UserController extends Controller
             }
         }
 
-        // return a default avatarπ
-        // \
+        // return a default avatar
+
         return $default;
     }
 
