@@ -76,7 +76,9 @@ class UserController extends Controller
                 $user->gender = strtolower($ldap_user->extensionAttribute1);
                 $user->avatar = $this->getUserImage($user->id, $user->gender, $user->avatar);
                 $user->password = '';
-                echo $user->save();
+                // Force an update of the timestamp
+                $user->touch();
+                $user->save();
                 
                 $user = User::find($username);
             }
