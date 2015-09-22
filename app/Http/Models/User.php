@@ -41,4 +41,17 @@ class User extends Model implements AuthenticatableContract {
 		return ucfirst($this->first_name) . ' ' . ucfirst($this->last_name);
 	}
 
+	/**
+	 * Return the true if user details need refreshing 
+	 *
+	 * @return Boolean
+	 */
+	public function getRefreshAttribute() {
+
+		$refresh_period = env('USER_REFRESH_PERIOD', 24);
+
+		return ($this->updated_at->diffInHours() >= $refresh_period) ? true : false;
+
+	}
+
 }

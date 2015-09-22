@@ -34,8 +34,8 @@ class UserController extends Controller
             /* Do we have the user within the app*/
             $user = User::find($username);
 
-            /* if no then retrieve from LDAP and create*/
-            if (!$user) {
+            /* if not or if the $user dertails need refreshing then retrieve from LDAP and create/update*/
+            if (!$user || $user->refresh) {
                 include base_path() . "/vendor/adldap/adldap/lib/adLDAP/adLDAP.php";
 
                 $ldap_options = [
@@ -59,7 +59,8 @@ class UserController extends Controller
                     exit;
                 }
 
-                $user = new User;
+                /* Existing user or new user */
+                $user = ($user) ?  $user : new User;
                 $user->id = $username;
                 $user->first_name = $ldap_user->givenname;
                 $user->last_name = $ldap_user->sn;
@@ -72,19 +73,13 @@ class UserController extends Controller
                 $user->department = ucwords(strtolower($ldap_user->company));
                 $user->tel = $ldap_user->telephonenumber;
                 $user->gender = strtolower($ldap_user->extensionAttribute1);
-                $user->avatar = $this->getUserImage($user->id, $user->gender);
+                $user->avatar = $this->getUserImage($user->id, $user->gender, $user->avatar);
                 $user->password = '';
                 $user->save();
                 
                 $user = User::find($username);
             }
-
-            if (strpos($user->avatar, 'avatar_') !== false ) {
-                $user->avatar = $this->getUserImage($user->id, strtolower($user->gender));
-                $user->save();
-            }
-
-            //\Auth::loginUsingId($user->id);
+ 
              \Auth::login($user);
         }
 
@@ -104,10 +99,11 @@ class UserController extends Controller
 
     }
 
-    private function getUserImage($id=false, $gender='')
+    private function getUserImage($id=false, $gender='', $avatar=false)
     {
 
         $default = "../assets/images/avatar_{$gender}.png";
+        $public_path = base_path() . "/public";
 
         if ($id) {
 
@@ -121,17 +117,26 @@ class UserController extends Controller
 
             $exists = @get_headers($image);
 
+            // Does the user's image exists?
             if (strtoupper($exists[0]) == "HTTP/1.1 200 OK") {
-                $hash = time();
-                $local = base_path() . "/public/assets/images/user/{$hash}{$id}.jpg";
+                // Are we creating a new local copy 
+                if (!$avatar || strpos($avatar, 'avatar_') !== false) {
+                    $hash = time();
+                    $local = $public_path . "/assets/images/user/{$hash}{$id}.jpg";
+                // or replacing an existing one
+                } else {
+                    $local = str_replace("..", $public_path, $avatar);
+                }
 
+                // Copy the file and return its location
                 if (copy($image, $local)) {
-                    $local = str_replace(base_path() . "/public", "..", $local);
+                    $local = str_replace($public_path, "..", $local);
                     return $local;
                 }
             }
         }
 
+        // return a default avatar
         return $default;
     }
 
