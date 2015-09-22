@@ -35,9 +35,8 @@ class UserController extends Controller
             $user = User::find($username);
 
             /* if not or if the $user dertails need refreshing then retrieve from LDAP and create/update*/
-
             if (!$user || $user->refresh) {
-                 echo "refresh: $user->refresh";
+
                 include base_path() . "/vendor/adldap/adldap/lib/adLDAP/adLDAP.php";
 
                 $ldap_options = [
@@ -77,7 +76,7 @@ class UserController extends Controller
                 $user->gender = strtolower($ldap_user->extensionAttribute1);
                 $user->avatar = $this->getUserImage($user->id, $user->gender, $user->avatar);
                 $user->password = '';
-                $user->save();
+                echo $user->save();
                 
                 $user = User::find($username);
             }
