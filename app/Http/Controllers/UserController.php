@@ -35,8 +35,9 @@ class UserController extends Controller
             $user = User::find($username);
 
             /* if not or if the $user dertails need refreshing then retrieve from LDAP and create/update*/
-            echo "refresh: $user->refresh";
+
             if (!$user || $user->refresh) {
+                 echo "refresh: $user->refresh";
                 include base_path() . "/vendor/adldap/adldap/lib/adLDAP/adLDAP.php";
 
                 $ldap_options = [
