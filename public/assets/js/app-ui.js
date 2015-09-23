@@ -156,8 +156,8 @@ app.controller('rootCtrl', ['$rootScope', '$scope', '$state', 'user', 'navbarSvc
 }]);
 
 /* State controller - used to build Wall tiles **/
-app.controller('stateCtrl', ['$rootScope','$scope', '$stateParams', '$state', 'user', 'navbarSvc', 'endpointsSvc',
-	function ($rootScope, $scope, $stateParams, $state, user, navbarSvc, endpointsSvc) {
+app.controller('stateCtrl', ['$rootScope','$scope', '$stateParams', '$state', 'user', 'navbarSvc', 'endpointsSvc', 'Piwik'
+	function ($rootScope, $scope, $stateParams, $state, user, navbarSvc, endpointsSvc, piwik) {
 
 	// Students can't access the staff portal - redirect to student state if they try
 	if ( $state.is('root.staff') && user.employee_type == 1 ) {
@@ -188,6 +188,11 @@ app.controller('stateCtrl', ['$rootScope','$scope', '$stateParams', '$state', 'u
 				navbarSvc.build(user.employee_type, $state.current.name, self.data.this, self.data.parents);
 
 				self.navbar = navbarSvc.navbar;
+
+				piwik.setUserId(self.user.id);
+				piwik.setCustomVariable( 1, 'Vistor type', self.user.employee_class, 'visit' );
+				piwik.setDocumentTitle(self.navbar.currentLabel);
+				piwik.trackPageView();
 
 			},
 			function(response) {
