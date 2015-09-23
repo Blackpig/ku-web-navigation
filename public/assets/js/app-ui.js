@@ -174,6 +174,7 @@ app.controller('stateCtrl', ['$rootScope','$scope', '$stateParams', '$state', 'u
 	self.isrootpage = (self.tileid) ? false : true;
 	self.showback = false;
 	self.user = user;
+	self.track =
 
 	self.build = function()	{
 
@@ -188,12 +189,7 @@ app.controller('stateCtrl', ['$rootScope','$scope', '$stateParams', '$state', 'u
 				navbarSvc.build(user.employee_type, $state.current.name, self.data.this, self.data.parents);
 
 				self.navbar = navbarSvc.navbar;
-				console.log(self.user.employee_class);
-				piwik.setUserId(self.user.id);
-				piwik.setCustomVariable( 1, 'Vistor type', self.user.employee_class, 'visit' );
-				console.log(self.navbar.currentLabel);
-				piwik.setDocumentTitle(self.navbar.currentLabel);
-				piwik.trackPageView();
+				self.trackPage(self.user, self.navbar.currentLabel);
 
 			},
 			function(response) {
@@ -239,6 +235,25 @@ app.controller('stateCtrl', ['$rootScope','$scope', '$stateParams', '$state', 'u
 
 	self.switch = function(i) {
 		$('body').css('background', 'url(../assets/images/bg-page-' + i + '.jpg');
+	}
+
+	self.trackPage = function (user, title) {
+
+		piwik.setUserId(user.id);
+		piwik.setCustomVariable( 1, 'Vistor type', user.employee_class, 'visit' );
+		if (self.user.employee_type == 0) {
+			piwik.setCustomVariable( 2, 'Staff department', user.department, 'visit' );
+		} else {
+			piwik.setCustomVariable( 3, 'Student faculty', user.department, 'visit' );
+		}
+		piwik.setDocumentTitle(title);
+		piwik.trackPageView();
+	}
+
+	self.trackEvent = function(category, name) {
+		piwik.trackEvent('test category 1', 'Clicked');
+		piwik.trackEvent('test category 2', 'wibbled');
+		piwik.trackEvent('test category 3', 'clicked', 'my special value');
 	}
 
 	self.build();
