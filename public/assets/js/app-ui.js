@@ -190,10 +190,9 @@ app.controller('stateCtrl', ['$rootScope','$scope', '$stateParams', '$state', 'u
 				self.navbar = navbarSvc.navbar;
 
 				piwik.setUserId(self.user.id);
-				piwik.setCustomVariable( 1, 'Vistor type visit', 'wibble', 'visit' );
-				piwik.setCustomVariable( 1, 'Vistor type page', 'wibble 2', 'page' );
-				piwik.setDocumentTitle('Stuart Page Title');
-				piwik.trackPageView('/'+self.tileid);
+				piwik.setCustomVariable( 1, 'Vistor type', user.employee_class 'visit' );
+				piwik.setDocumentTitle(self.navbar.currentLabel);
+				piwik.trackPageView(self.navbar.currentLabel);
 
 			},
 			function(response) {
