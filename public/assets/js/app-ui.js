@@ -191,7 +191,7 @@ app.controller('stateCtrl', ['$rootScope','$scope', '$stateParams', '$state', 'u
 
 				piwik.setUserId(self.user.id);
 				piwik.setCustomVariable( 1, 'Vistor type visit', 'wibble', 'visit' );
-				piwik.setCustomVariable( 1, 'Vistor type page', 'wibble', 'page' );
+				piwik.setCustomVariable( 1, 'Vistor type page', 'wibble 2', 'page' );
 				piwik.setDocumentTitle('Stuart Page Title');
 				piwik.trackPageView('/'+self.tileid);
 
