@@ -16,7 +16,7 @@
     <body>
         
         <div ui-view name="content" autoscroll="false"></div>
-        <ngp-piwik ngp-set-js-url="/assets/analytis/piwik.js" ngp-set-tracker-url="/assets/analytis/piwik.php" ngp-set-site-id="<id>"> </ngp-piwik>
+        <ngp-piwik ngp-set-js-url="/analytis/piwik.js" ngp-set-tracker-url="/analytis/piwik.php" ngp-set-site-id="<id>"> </ngp-piwik>
     </body>
     <script src="/assets/vendor/jquery/jquery-1.11.2.min.js"></script>
     <script src="/assets/vendor/angular/angular.js"></script>
