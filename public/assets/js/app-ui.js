@@ -6,7 +6,7 @@ var app = angular.module('kuwnApp', ['ui.router', 'mm.foundation','angulartics',
 		['$locationProvider',
 		'$urlRouterProvider', 
 		'$stateProvider',
-		'$analyticsProvider'
+		'$analyticsProvider',
 
 		function($locationProvider, $urlRouterProvider, $stateProvider, $analyticsProvider) {
 			
