@@ -251,6 +251,8 @@ app.controller('stateCtrl', ['$rootScope','$scope', '$stateParams', '$state', 'u
 	}
 
 	self.trackEvent = function(tile_name, action, tile_type) {
+
+		console.log(tile_name); console.log(action); console.log(tile_type); 
 		piwik.trackEvent(tile_name, action, tile_type);
 	}
 
