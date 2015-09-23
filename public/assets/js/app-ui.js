@@ -148,18 +148,17 @@ var app = angular.module('kuwnApp', ['ui.router', 'mm.foundation','angulartics',
 
 /* Root Controller - used to pre-fetch User details and direct to correct portal */
 
-app.controller('rootCtrl', ['$rootScope', '$scope', '$state', 'user', 'navbarSvc', '$analytics',
-	function ($rootScope, $scope, $state, user, navbar, $analytics) {
+app.controller('rootCtrl', ['$rootScope', '$scope', '$state', 'user', 'navbarSvc', 
+	function ($rootScope, $scope, $state, user, navbar) {
 
 		var _state = 'root.' + user.employee_status;
-		$analytics.setUsername(user.id);
 		$state.go(_state);
 	
 }]);
 
 /* State controller - used to build Wall tiles **/
-app.controller('stateCtrl', ['$rootScope','$scope', '$stateParams', '$state', 'user', 'navbarSvc', 'endpointsSvc',
-	function ($rootScope, $scope, $stateParams, $state, user, navbarSvc, endpointsSvc) {
+app.controller('stateCtrl', ['$rootScope','$scope', '$stateParams', '$state', 'user', 'navbarSvc', 'endpointsSvc', '$analytics',
+	function ($rootScope, $scope, $stateParams, $state, user, navbarSvc, endpointsSvc, $analytics) {
 
 	// Students can't access the staff portal - redirect to student state if they try
 	if ( $state.is('root.staff') && user.employee_type == 1 ) {
@@ -190,6 +189,10 @@ app.controller('stateCtrl', ['$rootScope','$scope', '$stateParams', '$state', 'u
 				navbarSvc.build(user.employee_type, $state.current.name, self.data.this, self.data.parents);
 
 				self.navbar = navbarSvc.navbar;
+				$analytics.setUsername(user.id);
+				$analytics.setCustomVariable (1, 'Visitor Type', user.employee_status, 'visit');
+				$analytics.setDocumentTitle(self.navbar.currentLabel);
+				$analytics.pageTrack();
 
 			},
 			function(response) {
