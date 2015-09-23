@@ -16,7 +16,21 @@
     <body>
         
         <div ui-view name="content" autoscroll="false"></div>
-        <ngp-piwik ngp-set-js-url="/analytis/piwik.js" ngp-set-tracker-url="/analytis/piwik.php" ngp-set-site-id="<id>"> </ngp-piwik>
+        <!-- Piwik -->
+        <script type="text/javascript">
+          var _paq = _paq || [];
+          _paq.push(['trackPageView']);
+          _paq.push(['enableLinkTracking']);
+          (function() {
+            var u="//kuplayer.kingston.ac.uk/analytics/";
+            _paq.push(['setTrackerUrl', u+'piwik.php']);
+            _paq.push(['setSiteId', 1]);
+            var d=document, g=d.createElement('script'), s=d.getElementsByTagName('script')[0];
+            g.type='text/javascript'; g.async=true; g.defer=true; g.src=u+'piwik.js'; s.parentNode.insertBefore(g,s);
+          })();
+        </script>
+        <noscript><p><img src="//kuplayer.kingston.ac.uk/analytics/piwik.php?idsite=1" style="border:0;" alt="" /></p></noscript>
+        <!-- End Piwik Code -->   
     </body>
     <script src="/assets/vendor/jquery/jquery-1.11.2.min.js"></script>
     <script src="/assets/vendor/angular/angular.js"></script>
