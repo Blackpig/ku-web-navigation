@@ -15,6 +15,8 @@ var app = angular.module('kuwnApp', ['ui.router', 'mm.foundation','angulartics',
 
 			$urlRouterProvider.otherwise('/');
 
+			$analyticsProvider.virtualPageviews(false);
+
 			$stateProvider
 
 					// Root state - abstract state to load user and then set the state
