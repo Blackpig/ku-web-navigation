@@ -250,10 +250,8 @@ app.controller('stateCtrl', ['$rootScope','$scope', '$stateParams', '$state', 'u
 		piwik.trackPageView();
 	}
 
-	self.trackEvent = function(category, name) {
-		piwik.trackEvent('test category 1', 'Clicked');
-		piwik.trackEvent('test category 2', 'wibbled');
-		piwik.trackEvent('test category 3', 'clicked', 'my special value');
+	self.trackEvent = function(tile_name, action, tile_type) {
+		piwik.trackEvent(tile_name, action, tile_type);
 	}
 
 	self.build();
