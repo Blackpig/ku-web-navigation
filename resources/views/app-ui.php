@@ -36,6 +36,7 @@
     <script src="/assets/vendor/angular/angular.js"></script>
     <script src="/assets/vendor/angular-ui/angular-ui-router.min.js"></script>
     <script src="/assets/vendor/angulartics/src/angulartics.js"></script>
+    <script src="/assets/vendor/angulartics/src/angulartics-debug.js"></script>
     <script src="/assets/vendor/angulartics/src/angulartics-piwik.js"></script>
     <script src="/assets/vendor/pineconellc/mm-foundation-tpls-0.6.0.js"></script>
     <script src="/assets/vendor/metafizzy/packery.pkgd.min.js"></script>
