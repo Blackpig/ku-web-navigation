@@ -1,4 +1,4 @@
-var app = angular.module('kuwnApp', ['ui.router', 'mm.foundation','angulartics', 'angulartics.piwik'])
+var app = angular.module('kuwnApp', ['ui.router', 'mm.foundation','angulartics', 'angulartics.piwik','angulartics.debug'])
 
 /*** CONFIGURATION & ROUTING ***/
 /* Set our routing and templates */
@@ -6,8 +6,9 @@ var app = angular.module('kuwnApp', ['ui.router', 'mm.foundation','angulartics',
 		['$locationProvider',
 		'$urlRouterProvider', 
 		'$stateProvider',
+		'$analyticsProvider'
 
-		function($locationProvider, $urlRouterProvider, $stateProvider) {
+		function($locationProvider, $urlRouterProvider, $stateProvider, $analyticsProvider) {
 			
 			/*Enable HTML5 mode */
 			$locationProvider.html5Mode(true);
