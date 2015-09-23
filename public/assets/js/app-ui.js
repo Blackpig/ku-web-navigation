@@ -156,7 +156,7 @@ app.controller('rootCtrl', ['$rootScope', '$scope', '$state', 'user', 'navbarSvc
 }]);
 
 /* State controller - used to build Wall tiles **/
-app.controller('stateCtrl', ['$rootScope','$scope', '$stateParams', '$state', 'user', 'navbarSvc', 'endpointsSvc', 'Piwik'
+app.controller('stateCtrl', ['$rootScope','$scope', '$stateParams', '$state', 'user', 'navbarSvc', 'endpointsSvc', 'Piwik',
 	function ($rootScope, $scope, $stateParams, $state, user, navbarSvc, endpointsSvc, piwik) {
 
 	// Students can't access the staff portal - redirect to student state if they try
