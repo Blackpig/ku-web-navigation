@@ -148,7 +148,7 @@ var app = angular.module('kuwnApp', ['ui.router', 'mm.foundation','angulartics',
 
 /* Root Controller - used to pre-fetch User details and direct to correct portal */
 
-app.controller('rootCtrl', ['$rootScope', '$scope', '$state', 'user', 'navbarSvc', $analytics,
+app.controller('rootCtrl', ['$rootScope', '$scope', '$state', 'user', 'navbarSvc', '$analytics',
 	function ($rootScope, $scope, $state, user, navbar, $analytics) {
 
 		var _state = 'root.' + user.employee_status;
