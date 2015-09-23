@@ -188,11 +188,12 @@ app.controller('stateCtrl', ['$rootScope','$scope', '$stateParams', '$state', 'u
 				navbarSvc.build(user.employee_type, $state.current.name, self.data.this, self.data.parents);
 
 				self.navbar = navbarSvc.navbar;
-
+				console.log(self.user.employee_class);
 				piwik.setUserId(self.user.id);
-				piwik.setCustomVariable( 1, 'Vistor type', user.employee_class 'visit' );
+				piwik.setCustomVariable( 1, 'Vistor type', self.user.employee_class, 'visit' );
+				console.log(self.navbar.currentLabel);
 				piwik.setDocumentTitle(self.navbar.currentLabel);
-				piwik.trackPageView(self.navbar.currentLabel);
+				piwik.trackPageView();
 
 			},
 			function(response) {
