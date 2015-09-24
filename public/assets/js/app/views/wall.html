@@ -24,25 +24,25 @@
                         </li>
                         <li>
                         	<div style="height:100%">
-                        		<a ng-href="/my-accounts" style="height:100%"><i class="fa fa-user fa-lg"></i>
+                        		<a ng-href="/my-accounts" style="height:100%" ng-click="ctrl.trackEvent('Menu Bar', 'Clicked', 'My Accounts Icon')"><i class="fa fa-user fa-lg"></i>
                         		</a>
                         	</div>
                         </li>
 
                         <li has-dropdown>
-                            <div><a href="#"><i class="fa fa-ellipsis-h fa-lg"></i></a></div>
+                            <div><a href="#"><i class="fa fa-ellipsis-h fa-lg" ng-click="ctrl.trackEvent('Menu Bar', 'Clicked', 'Breadcrumb Menu Icon')"></i></a></div>
                             <ul top-bar-dropdown>                      
                                 <li ng-repeat="crumb in ctrl.navbar.breadcrumbs">
-                                    <a ng-href="/{{ ctrl.navbar.home.link }}/{{ crumb.guid }}">{{ crumb.label }}</a>
+                                    <a ng-href="/{{ ctrl.navbar.home.link }}/{{ crumb.guid }}" ng-click="ctrl.trackEvent('Menu Bar', 'Clicked', 'Breadcrumb Link - ' crumb.label)">{{ crumb.label }}</a>
                                 </li>
                             </ul>
                         </li>
 
                         <li ng-if="ctrl.navbar.canSwitch == 1">
-                            <div><a ng-href="/{{ctrl.navbar.switchTo}}"><i class="fa fa-exchange fa-lg"></i></a></div>
+                            <div><a ng-href="/{{ctrl.navbar.switchTo}}" ng-click="ctrl.trackEvent('Menu Bar', 'Clicked', 'Switch View Icon')"><i class="fa fa-exchange fa-lg"></i></a></div>
                         </li>
                         <li>
-                            <div><a href="https://mykingston.kingston.ac.uk/tools/KU-Navigator/Pages/default.aspx" target="_blank" style="height:100%"><i class="fa fa-question fa-lg"></i></a></div>
+                            <div><a href="https://mykingston.kingston.ac.uk/tools/KU-Navigator/Pages/default.aspx" target="_blank" style="height:100%" ng-click="ctrl.trackEvent('Menu Bar', 'Clicked', 'Help Icon')"><i class="fa fa-question fa-lg"></i></a></div>
                         </li>
                     </ul> 
 
@@ -50,13 +50,13 @@
                     
                         <li>
                         	<div style="height:100%">
-                        		<a ng-href="/my-accounts" style="height:100%"><i class="fa fa-user fa-lg"></i>&nbsp;My Accounts
+                        		<a ng-href="/my-accounts" style="height:100%" ng-click="ctrl.trackEvent('Menu Bar', 'Clicked', 'My Accounts Icon')"><i class="fa fa-user fa-lg"></i>&nbsp;My Accounts
                         		</a>
                         	</div>
                         </li>
 
                         <li ng-if="ctrl.navbar.canSwitch == 1">
-                            <div><a ng-href="/{{ctrl.navbar.switchTo}}"><i class="fa fa-exchange fa-lg"></i>&nbsp;Switch view</a></div>
+                            <div><a ng-href="/{{ctrl.navbar.switchTo}}" ng-click="ctrl.trackEvent('Menu Bar', 'Clicked', 'Switch View Icon')"><i class="fa fa-exchange fa-lg"></i>&nbsp;Switch view</a></div>
                         </li>
                         <li>
 							<div ng-controller="SearchModalCtrl" style="height:100%">
@@ -94,57 +94,57 @@
 					<div class="tile-body">
 						<div class="clearfix">
 							<div class="avatar left">
-								<a ng-href="/my-accounts"><img src="{{ctrl.user.avatar}}"></a>
+								<a ng-href="/my-accounts" ng-click="ctrl.trackEvent('My Accounts Panel', 'Clicked', 'Avatar/Image')"><img src="{{ctrl.user.avatar}}"></a>
 							</div>
 							<div class="details left">
-								<a ng-href="/my-accounts" class="welcome">Welcome back {{ctrl.user.first_name}}</a>
+								<a ng-href="/my-accounts" class="welcome" ng-click="ctrl.trackEvent('My Accounts Panel', 'Clicked', 'User\'s Name)">Welcome back {{ctrl.user.first_name}}</a>
 								<p class="small">Click the button below to manage your accounts. Alternatively jump straight to the relevant account via its icon below.</p>
-								<a ng-href="/my-accounts" class="button manage-my-status">Manage My Accounts</a>
+								<a ng-href="/my-accounts" class="button manage-my-status" ng-click="ctrl.trackEvent('My Accounts Panel', 'Clicked', 'Manage My Account Button')">Manage My Accounts</a>
 							</div>
 						</div>
 						<div class="icon-list">
 							<ul>
 								<li>
-									<a ng-href="/my-accounts/my-tickets" title="My Tickets"><i class="fa fa-tags"></i></a>
+									<a ng-href="/my-accounts/my-tickets" title="My Tickets" ng-click="ctrl.trackEvent('My Accounts Panel', 'Clicked', 'My Tickets Icon')"><i class="fa fa-tags"></i></a>
 								</li>
 								<li ng-if="ctrl.user.employee_type=='1'">
-									<a href="https://kupcutapp01.kingston.ac.uk:9192" target="_blank" title="My Print Account"><i class="fa fa-print"></i></a>
+									<a href="https://kupcutapp01.kingston.ac.uk:9192" target="_blank" title="My Print Account" ng-click="ctrl.trackEvent('My Accounts Panel', 'Clicked', 'My Print Account Icon')"><i class="fa fa-print"></i></a>
 								</li>
 								<li>
-									<a href="https://webapps2.kingston.ac.uk/helpdesk/forms/kunavigator/99rb.php?name={{ctrl.user.id}}" title="My IT Account" target="_blank"><i class="fa fa-laptop"></i></a>
+									<a href="https://webapps2.kingston.ac.uk/helpdesk/forms/kunavigator/99rb.php?name={{ctrl.user.id}}" title="My IT Account" target="_blank" ng-click="ctrl.trackEvent('My Accounts Panel', 'Clicked', 'My IT Account Icon')"><i class="fa fa-laptop"></i></a>
 								</li>
 								<li>
-									<a href="https://orac.kingston.ac.uk/orac/options/dooraccess/index.php" target="_blank" title="My Door Access"><i class="fa fa-unlock-alt"></i></a>
+									<a href="https://orac.kingston.ac.uk/orac/options/dooraccess/index.php" target="_blank" title="My Door Access" ng-click="ctrl.trackEvent('My Accounts Panel', 'Clicked', 'My Door Access Icon')"><i class="fa fa-unlock-alt"></i></a>
 								</li>
 								<li ng-if="ctrl.user.employee_type=='1'">
-									<a href="https://studyspace.kingston.ac.uk/webapps/login/" target="_blank" title="My Studyspace"><i class="fa fa-briefcase"></i></a>
+									<a href="https://studyspace.kingston.ac.uk/webapps/login/" target="_blank" title="My Studyspace" ng-click="ctrl.trackEvent('My Accounts Panel', 'Clicked', 'My Studyspace Icon')"><i class="fa fa-briefcase"></i></a>
 								</li>
 								<li ng-if="ctrl.user.employee_type=='1'">
-									<a href="https://osis.kingston.ac.uk/" target="_blank" title="My Modules"><i class="fa fa-cubes"></i></a>
+									<a href="https://osis.kingston.ac.uk/" target="_blank" title="My Modules" ng-click="ctrl.trackEvent('My Accounts Panel', 'Clicked', 'My Modules Icon')"><i class="fa fa-cubes"></i></a>
 								</li>
 								<li ng-if="ctrl.user.employee_type=='1'">
-									<a href="https://kuloans.kingston.ac.uk/connect2/wizard/default.aspx" target="_blank" title="My Room Bookings"><i class="fa fa-calendar-check-o"></i></a>
+									<a href="https://kuloans.kingston.ac.uk/connect2/wizard/default.aspx" target="_blank" title="My Room Bookings" ng-click="ctrl.trackEvent('My Accounts Panel', 'Clicked', 'My Room Bookings Icon')"><i class="fa fa-calendar-check-o"></i></a>
 								</li>
 								<li ng-if="ctrl.user.employee_type=='0'">
-									<a href="http://staffnet.kingston.ac.uk/multimedia/teaching-rooms-allocations/kh-traform.htm" target="_blank" title="Room Bookings"><i class="fa fa-calendar-check-o"></i></a>
+									<a href="http://staffnet.kingston.ac.uk/multimedia/teaching-rooms-allocations/kh-traform.htm" target="_blank" title="Room Bookings" ng-click="ctrl.trackEvent('My Accounts Panel', 'Clicked', 'My Room Bookings Icon')"><i class="fa fa-calendar-check-o"></i></a>
 								</li>
 								<li ng-if="ctrl.user.employee_type=='1'">
-									<a href="#" title="My Equipment Loans"><i class="fa fa-truck"></i></a>
+									<a href="#" title="My Equipment Loans" ng-click="ctrl.trackEvent('My Accounts Panel', 'Clicked', 'My Equipment Loans Icon')"><i class="fa fa-truck"></i></a>
 								</li>
 								<li>
-									<a href="http://ku-primo-prod.hosted.exlibrisgroup.com/primo_library/libweb/action/myAccountMenu.do?vid=KU_VU1" target="_blank" title="My Library"><i class="fa fa-book"></i></a>
+									<a href="http://ku-primo-prod.hosted.exlibrisgroup.com/primo_library/libweb/action/myAccountMenu.do?vid=KU_VU1" target="_blank" title="My Library" ng-click="ctrl.trackEvent('My Accounts Panel', 'Clicked', 'My Library Icon')"><i class="fa fa-book"></i></a>
 								</li>
 								<li>
-									<a href="https://osis.kingston.ac.uk/" target="_blank" title="My Timetable"><i class="fa fa-calendar"></i></a>
+									<a href="https://osis.kingston.ac.uk/" target="_blank" title="My Timetable" ng-click="ctrl.trackEvent('My Accounts Panel', 'Clicked', 'My Timetable Icon')"><i class="fa fa-calendar"></i></a>
 								</li>
 								<li>
-									<a href="http://mymail.kingston.ac.uk" target="_blank" title="My Mail"><i class="fa fa-envelope-o"></i></a>
+									<a href="http://mymail.kingston.ac.uk" target="_blank" title="My Mail" ng-click="ctrl.trackEvent('My Accounts Panel', 'Clicked', 'My Mail Icon')"><i class="fa fa-envelope-o"></i></a>
 								</li>
 								<li ng-if="ctrl.user.employee_type=='0'">
-									<a href="https://yourself.kingston.ac.uk/yspages/default.asp" target="_blank" title="HR Yourself"><i class="fa fa-user"></i></a>
+									<a href="https://yourself.kingston.ac.uk/yspages/default.asp" target="_blank" title="HR Yourself" ng-click="ctrl.trackEvent('My Accounts Panel', 'Clicked', 'HR Yourself')"><i class="fa fa-user"></i></a>
 								</li>
 								<li ng-if="ctrl.user.employee_type=='0'">
-									<a href="https://kingston.egsgroup.com/idea/useradmin/login.jsp?" target="_blank" title="KU OPS"><i class="fa fa-shopping-cart"></i></a>
+									<a href="https://kingston.egsgroup.com/idea/useradmin/login.jsp?" target="_blank" title="KU OPS" ng-click="ctrl.trackEvent('My Accounts Panel', 'Clicked', 'My KU OPS Icon')"><i class="fa fa-shopping-cart"></i></a>
 								</li>
 							</ul>
 						</div>
@@ -156,7 +156,7 @@
 			<div class="tile menu stamp pack" ng-if="!ctrl.isrootpage" packery>
 				<div class="tile-body row">
 					<div class="tile-content">
-						<a ng-href="/{{ ctrl.navbar.home.link }}"><i class="fa fa-lg fa-home fa-4x"></i></a>
+						<a ng-href="/{{ ctrl.navbar.home.link }}" ng-click="ctrl.trackEvent('Home Page Tile', 'Clicked', 'Return to Navigator Home')"><i class="fa fa-lg fa-home fa-4x"></i></a>
 					</div>
 				</div>		
 			</div>
@@ -164,7 +164,7 @@
 			<div ng-if="ctrl.showback && !ctrl.isrootpage" class="tile menu stamp pack" packery>	
 				<div class="tile-body row">
 					<div class="tile-content">
-						<a ng-href="/{{ ctrl.navbar.home.link }}/{{ ctrl.navbar.backLink }}"><i class="fa fa-step-backward fa-4x"></i></a>
+						<a ng-href="/{{ ctrl.navbar.home.link }}/{{ ctrl.navbar.backLink }}" ng-click="ctrl.trackEvent('Back Arrow Tile', 'Clicked', 'Return to previous page')"><i class="fa fa-step-backward fa-4x"></i></a>
 					</div>
 				</div>	
 			</div>	
@@ -174,8 +174,8 @@
 	                <div class="tile-body row" ng-class="{'flip': toggleInfo=={{$index+1}} }">
 	                    <div class="tile-front" id="front-{{$index+1}}">
 	                        <div class="tile-content" ng-mouseenter="hasFocus=true"  ng-mouseleave="hasFocus=false">
-	                            <a ng-if="endpoint.type=='service-group'" ng-href="/{{ctrl.navbar.home.link | lowercase}}/{{endpoint.guid}}" ng-class="{hover:hasFocus}" ng-click="ctrl.trackEvent(endpoint.name, 'Clicked', endpoint.organisation)">{{endpoint.name}}</a>
-	                            <a ng-if="endpoint.type=='endpoint'" ng-href="{{endpoint.url}}" target="_blank" ng-class="{hover:hasFocus}">{{endpoint.name}}</a>
+	                            <a ng-if="endpoint.type=='service-group'" ng-href="/{{ctrl.navbar.home.link | lowercase}}/{{endpoint.guid}}" ng-class="{hover:hasFocus}" ng-click="ctrl.trackEvent('Service Group Tile', 'Clicked', endpoint.name)">{{endpoint.name}}</a>
+	                            <a ng-if="endpoint.type=='endpoint'" ng-href="{{endpoint.url}}" target="_blank" ng-class="{hover:hasFocus}" ng-click="ctrl.trackEvent('Endpoint Tile', 'Clicked', endpoint.name)">{{endpoint.name}}</a>
 	                        </div>
 	                    </div>
 	                    <div class="tile-back" id="back-{{$index+1}}">
@@ -188,9 +188,9 @@
 	                    <ul>
 	                        <li><a href="#" role="tooltip"><span aria-haspopup="true" data-options="touch_close_text:'close me'" class="has-tip tip-top" tooltip="{{endpoint.organisation}}"><i class="fa {{endpoint.icon}} fa-lg"></i></span></a></li>
 
-	                        <li ng-if="endpoint.type=='service-group'"><a  ng-href="/{{ctrl.navbar.home.link | lowercase}}/{{endpoint.guid}}" ng-mouseenter="hasFocus=true"  ng-mouseleave="hasFocus=false" ng-class="{hover:hasFocus}" ng-click="ctrl.trackEvent(endpoint.name, 'Clicked', endpoint.organisation)"><i class="fa {{endpoint.target_type}} fa-lg"></i></a></li>
+	                        <li ng-if="endpoint.type=='service-group'"><a  ng-href="/{{ctrl.navbar.home.link | lowercase}}/{{endpoint.guid}}" ng-mouseenter="hasFocus=true"  ng-mouseleave="hasFocus=false" ng-class="{hover:hasFocus}" ng-click="ctrl.trackEvent('Service Group Tile', 'Clicked', endpoint.name)"><i class="fa {{endpoint.target_type}} fa-lg"></i></a></li>
 
-	                        <li ng-if="endpoint.type=='endpoint'"><a  href="{{endpoint.url}}" target="_blank" ng-mouseenter="hasFocus=true"  ng-mouseleave="hasFocus=false" ng-class="{hover:hasFocus}"><i class="fa {{endpoint.target_type}} fa-lg"></i></a></li>
+	                        <li ng-if="endpoint.type=='endpoint'"><a  href="{{endpoint.url}}" target="_blank" ng-mouseenter="hasFocus=true"  ng-mouseleave="hasFocus=false" ng-class="{hover:hasFocus}"><i class="fa {{endpoint.target_type}} fa-lg" ng-click="ctrl.trackEvent('Endpoint Tile', 'Clicked', endpoint.name)"></i></a></li>
 
 	                        <!-- <li><a href="#" class="bookmark" aria-haspopup="true" class="has-tip" tooltip="Add to My favourites"><i class="fa fa-star fa-lg"></i></a></li>-->
 
