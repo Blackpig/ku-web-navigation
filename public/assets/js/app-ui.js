@@ -261,7 +261,7 @@ app.controller('stateCtrl', ['$rootScope','$scope', '$stateParams', '$state', 'u
 }]);
 
 /* State controller - used to build Wall tiles **/
-app.controller('searchCtrl', ['$rootScope','$scope', '$stateParams', '$state', 'user', 'navbarSvc', 'endpointsSvc', 'Piwik'
+app.controller('searchCtrl', ['$rootScope','$scope', '$stateParams', '$state', 'user', 'navbarSvc', 'endpointsSvc', 'Piwik',
 	function ($rootScope, $scope, $stateParams, $state, user, navbarSvc, endpointsSvc, piwik) {
 
 	self = this;
