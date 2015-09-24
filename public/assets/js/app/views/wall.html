@@ -33,7 +33,7 @@
                             <div><a href="#"><i class="fa fa-ellipsis-h fa-lg" ng-click="ctrl.trackEvent('Menu Bar', 'Clicked', 'Breadcrumb Menu Icon')"></i></a></div>
                             <ul top-bar-dropdown>                      
                                 <li ng-repeat="crumb in ctrl.navbar.breadcrumbs">
-                                    <a ng-href="/{{ ctrl.navbar.home.link }}/{{ crumb.guid }}" ng-click="ctrl.trackEvent('Menu Bar', 'Clicked', 'Breadcrumb Link - ' crumb.label)">{{ crumb.label }}</a>
+                                    <a ng-href="/{{ ctrl.navbar.home.link }}/{{ crumb.guid }}" ng-click="ctrl.trackEvent('Menu Bar', 'Clicked', 'Breadcrumb Link - ' + crumb.label)">{{ crumb.label }}</a>
                                 </li>
                             </ul>
                         </li>
