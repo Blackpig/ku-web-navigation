@@ -174,7 +174,7 @@
 	                <div class="tile-body row" ng-class="{'flip': toggleInfo=={{$index+1}} }">
 	                    <div class="tile-front" id="front-{{$index+1}}">
 	                        <div class="tile-content" ng-mouseenter="hasFocus=true"  ng-mouseleave="hasFocus=false">
-	                            <a ng-if="endpoint.type=='service-group'" ng-href="/{{ctrl.navbar.home.link | lowercase}}/{{endpoint.guid}}" ng-class="{hover:hasFocus}" ng-click="ctrl.trackEvent('endpoint.name', 'Clicked', 'endpoint.organisation')">{{endpoint.name}}</a>
+	                            <a ng-if="endpoint.type=='service-group'" ng-href="/{{ctrl.navbar.home.link | lowercase}}/{{endpoint.guid}}" ng-class="{hover:hasFocus}" ng-click="ctrl.trackEvent(endpoint.name, 'Clicked', endpoint.organisation)">{{endpoint.name}}</a>
 	                            <a ng-if="endpoint.type=='endpoint'" ng-href="{{endpoint.url}}" target="_blank" ng-class="{hover:hasFocus}">{{endpoint.name}}</a>
 	                        </div>
 	                    </div>
@@ -188,7 +188,7 @@
 	                    <ul>
 	                        <li><a href="#" role="tooltip"><span aria-haspopup="true" data-options="touch_close_text:'close me'" class="has-tip tip-top" tooltip="{{endpoint.organisation}}"><i class="fa {{endpoint.icon}} fa-lg"></i></span></a></li>
 
-	                        <li ng-if="endpoint.type=='service-group'"><a  ng-href="/{{ctrl.navbar.home.link | lowercase}}/{{endpoint.guid}}" ng-mouseenter="hasFocus=true"  ng-mouseleave="hasFocus=false" ng-class="{hover:hasFocus}" ng-click="ctrl.trackEvent('endpoint.name', 'Clicked', 'endpoint.organisation')"><i class="fa {{endpoint.target_type}} fa-lg"></i></a></li>
+	                        <li ng-if="endpoint.type=='service-group'"><a  ng-href="/{{ctrl.navbar.home.link | lowercase}}/{{endpoint.guid}}" ng-mouseenter="hasFocus=true"  ng-mouseleave="hasFocus=false" ng-class="{hover:hasFocus}" ng-click="ctrl.trackEvent(endpoint.name, 'Clicked', endpoint.organisation)"><i class="fa {{endpoint.target_type}} fa-lg"></i></a></li>
 
 	                        <li ng-if="endpoint.type=='endpoint'"><a  href="{{endpoint.url}}" target="_blank" ng-mouseenter="hasFocus=true"  ng-mouseleave="hasFocus=false" ng-class="{hover:hasFocus}"><i class="fa {{endpoint.target_type}} fa-lg"></i></a></li>
 
