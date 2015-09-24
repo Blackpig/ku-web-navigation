@@ -261,8 +261,8 @@ app.controller('stateCtrl', ['$rootScope','$scope', '$stateParams', '$state', 'u
 }]);
 
 /* State controller - used to build Wall tiles **/
-app.controller('searchCtrl', ['$rootScope','$scope', '$stateParams', '$state', 'user', 'navbarSvc', 'endpointsSvc',
-	function ($rootScope, $scope, $stateParams, $state, user, navbarSvc, endpointsSvc) {
+app.controller('searchCtrl', ['$rootScope','$scope', '$stateParams', '$state', 'user', 'navbarSvc', 'endpointsSvc', 'Piwik'
+	function ($rootScope, $scope, $stateParams, $state, user, navbarSvc, endpointsSvc, piwik) {
 
 	self = this;
 
@@ -286,6 +286,8 @@ app.controller('searchCtrl', ['$rootScope','$scope', '$stateParams', '$state', '
 
 				navbarSvc.search(user.employee_type, self.term, self.data.endpoints.length);
 				self.navbar = navbarSvc.navbar;
+
+				piwik.trackSiteSearch(self.term, 'Endpoints', self.data.endpoints.length)
 
 			},
 			function(response) {
