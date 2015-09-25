@@ -13,7 +13,7 @@ class AddDepartmentCodeToUsers extends Migration
     public function up()
     {
         Schema::table('users', function (Blueprint $table) {
-            $table->string('department_code',20)->after('department');
+            $table->string('department_code',20)->after('department')->nullable();
         });
     }
 
