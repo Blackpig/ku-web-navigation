@@ -156,8 +156,8 @@ app.controller('rootCtrl', ['$rootScope', '$scope', '$state', 'user', 'navbarSvc
 }]);
 
 /* State controller - used to build Wall tiles **/
-app.controller('stateCtrl', ['$rootScope','$scope', '$stateParams', '$state', 'user', 'navbarSvc', 'endpointsSvc', 'Piwik',
-	function ($rootScope, $scope, $stateParams, $state, user, navbarSvc, endpointsSvc, piwik) {
+app.controller('stateCtrl', ['$rootScope','$scope', '$stateParams', '$state', 'user', 'navbarSvc', 'endpointsSvc', 'analyticSvc',
+	function ($rootScope, $scope, $stateParams, $state, user, navbarSvc, endpointsSvc, analyticSvc) {
 
 	// Students can't access the staff portal - redirect to student state if they try
 	if ( $state.is('root.staff') && user.employee_type == 1 ) {
@@ -189,7 +189,7 @@ app.controller('stateCtrl', ['$rootScope','$scope', '$stateParams', '$state', 'u
 				navbarSvc.build(user.employee_type, $state.current.name, self.data.this, self.data.parents);
 
 				self.navbar = navbarSvc.navbar;
-				self.trackPage(self.user, self.navbar.currentLabel);
+				analyticSvc.trackPageView(self.user, self.navbar.currentLabel);
 
 			},
 			function(response) {
@@ -237,32 +237,16 @@ app.controller('stateCtrl', ['$rootScope','$scope', '$stateParams', '$state', 'u
 		$('body').css('background', 'url(../assets/images/bg-page-' + i + '.jpg');
 	}
 
-	self.trackPage = function (user, title) {
-
-		piwik.setUserId(user.id);
-		piwik.setCustomVariable( 1, 'Vistor type', user.employee_class, 'visit' );
-		if (self.user.employee_type == 0) {
-			piwik.setCustomVariable( 2, 'Staff department', user.department, 'visit' );
-		} else {
-			piwik.setCustomVariable( 3, 'Student faculty', user.department, 'visit' );
-		}
-		piwik.setDocumentTitle(title);
-		piwik.trackPageView();
+	self.trackEvent = function(tile_name, action, tile_type){
+		analyticSvc.trackEvent(tile_name, action, tile_type);
 	}
-
-	self.trackEvent = function(tile_name, action, tile_type) {
-
-		console.log(tile_name); console.log(action); console.log(tile_type); 
-		piwik.trackEvent(tile_name, action, tile_type);
-	}
-
 	self.build();
 	
 }]);
 
 /* State controller - used to build Wall tiles **/
-app.controller('searchCtrl', ['$rootScope','$scope', '$stateParams', '$state', 'user', 'navbarSvc', 'endpointsSvc', 'Piwik',
-	function ($rootScope, $scope, $stateParams, $state, user, navbarSvc, endpointsSvc, piwik) {
+app.controller('searchCtrl', ['$rootScope','$scope', '$stateParams', '$state', 'user', 'navbarSvc', 'endpointsSvc', 'analyticSvc',
+	function ($rootScope, $scope, $stateParams, $state, user, navbarSvc, endpointsSvc, analyticSvc) {
 
 	self = this;
 
@@ -287,7 +271,7 @@ app.controller('searchCtrl', ['$rootScope','$scope', '$stateParams', '$state', '
 				navbarSvc.search(user.employee_type, self.term, self.data.endpoints.length);
 				self.navbar = navbarSvc.navbar;
 
-				piwik.trackSiteSearch(self.term, 'Endpoints', self.data.endpoints.length)
+				analyticSvc.trackSiteSearch(self.term, 'Endpoints', self.data.endpoints.length);
 
 			},
 			function(response) {
@@ -331,13 +315,17 @@ app.controller('searchCtrl', ['$rootScope','$scope', '$stateParams', '$state', '
 		$state.go('root.search', {'term': term});
 	}
 
+	self.trackEvent = function(tile_name, action, tile_type){
+		analyticSvc.trackEvent(tile_name, action, tile_type);
+	}
+
 	self.build();
 	
 }]);
 
 /* Profile controller - used for My Accounts pages and states */
-app.controller('profileCtrl', ['$rootScope', '$scope', '$state', 'user', 'navbarSvc', 'accountsSvc',
-	function ($rootScope, $scope, $state, user, navbarSvc, accountsSvc) {
+app.controller('profileCtrl', ['$rootScope', '$scope', '$state', 'user', 'navbarSvc', 'accountsSvc', 'analyticSvc'
+	function ($rootScope, $scope, $state, user, navbarSvc, accountsSvc, analyticSvc) {
 
 		self = this;
 		self.user = user;
@@ -348,10 +336,11 @@ app.controller('profileCtrl', ['$rootScope', '$scope', '$state', 'user', 'navbar
 			parents['guid'] = null;
 			parents['link'] = null;
 		}
-
 		navbarSvc.build(user.employee_type, $state.current.name, current, parents);
 
 		self.navbar = navbarSvc.navbar;
+
+		analyticSvc.trackPageView(self.user, self.navbar.currentLabel);
 
 		accountsSvc.getData($state.current.name).then( 
 			function(response) { 
@@ -368,8 +357,6 @@ app.controller('profileCtrl', ['$rootScope', '$scope', '$state', 'user', 'navbar
 			  $rootScope.error = _error;
 			  $state.go('error');
 		});		
-
-
 
 		self.toggleInfo = function(toggleInfo){
 
@@ -390,7 +377,9 @@ app.controller('profileCtrl', ['$rootScope', '$scope', '$state', 'user', 'navbar
 			$scope.toggleInfo = (!$scope.toggleInfo || $scope.toggleInfo !== toggleInfo) ? toggleInfo : null;
 		}
 
-
+		self.trackEvent = function(tile_name, action, tile_type){
+			analyticSvc.trackEvent(tile_name, action, tile_type);
+		}
 	
 }]);
 
@@ -440,7 +429,6 @@ app.controller('errorCtrl', ['$rootScope', '$scope',
 /*** SERVICES ***/
 
 /* User Service - loads user details on page load */
-
 app.factory('userSvc',['$http','$q',function($http, $q){
 
 	var service = {
@@ -457,7 +445,6 @@ app.factory('userSvc',['$http','$q',function($http, $q){
 }]) 
 
 /* Endpoint Service - retrieves Endpoints via API calls */
-
 app.factory('endpointsSvc',['$http','$q',function($http,$q){
 
 	var service = {
@@ -485,7 +472,6 @@ app.factory('endpointsSvc',['$http','$q',function($http,$q){
     }]) 
 
 /* Accounts Service - retrieves summary data for deifferent Accounts via API calls */
-
 app.factory('accountsSvc',['$http','$q',function($http,$q){
 
 	var service = {
@@ -604,6 +590,35 @@ app.factory('navbarSvc',[function(){
 
     }]) 
 
+/* Analytic Service - executes Piwik analytics calls */
+app.factory('analyticSvc',['Piwik',function(piwik){
+
+	var service = {
+
+			trackPageView: function(user, title){
+				piwik.setUserId(user.id);
+				piwik.setCustomVariable( 1, 'Vistor type', user.employee_class, 'visit' );
+				if (user.employee_type == 0) {
+					piwik.setCustomVariable( 2, 'Staff department', user.department, 'visit' );
+				} else {
+					piwik.setCustomVariable( 3, 'Student faculty', user.department, 'visit' );
+				}
+				piwik.setDocumentTitle(title);
+				piwik.trackPageView();
+			},
+
+			trackEvent: function(tile_name, action, tile_type) {
+				piwik.trackEvent(tile_name, action, tile_type);
+			},
+
+			trackSiteSearch: function(term, type, count){
+				piwik.trackSiteSearch(term, type, count);
+			}
+        };
+
+    return service;
+
+}]) 
 
 /*** DIRECTIVES ***/
 
@@ -673,9 +688,5 @@ $(document).ready(function(){
 	if (typeof document.body.style.msTransform == "string") {
 		$("body").addClass("ie");
 	} 
-
-	$('.tile-front').click(function(e){
-		console.log('clicked');
-	})
 
 });

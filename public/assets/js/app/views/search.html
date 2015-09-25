@@ -90,7 +90,7 @@
 		                <div class="tile-body row" ng-class="{'flip': toggleInfo=={{$index}}}">
 		                    <div class="tile-front">
 		                        <div class="tile-content" ng-mouseenter="hasFocus=true"  ng-mouseleave="hasFocus=false">
-		                            <a href="{{endpoint.url}}" target="_blank" ng-class="{hover:hasFocus}">{{endpoint.name}}</a>
+		                            <a href="{{endpoint.url}}" target="_blank" ng-class="{hover:hasFocus}" ng-click="ctrl.trackEvent(endpoint.service_group_type, 'Clicked', endpoint.name)">{{endpoint.name}}</a>
 		                        </div>
 		                    </div>
 		                    <div class="tile-back">
@@ -102,7 +102,7 @@
 		                <div class="tile-icons">
 		                    <ul>
 		                        <li><a href="#"><span aria-haspopup="true" class="has-tip tip-top" tooltip="{{endpoint.organisation}}"><i class="fa {{endpoint.icon}} fa-lg"></i></span></a></li>
-		                        <li><a href="{{endpoint.url}}" target="_blank" ng-mouseenter="hasFocus=true"  ng-mouseleave="hasFocus=false" ng-class="{hover:hasFocus}"><i class="fa {{endpoint.target_type}} fa-lg"></i></a></li>
+		                        <li><a href="{{endpoint.url}}" target="_blank" ng-mouseenter="hasFocus=true"  ng-mouseleave="hasFocus=false" ng-class="{hover:hasFocus}" ng-click="ctrl.trackEvent(endpoint.service_group_type, 'Clicked', endpoint.name)"><i class="fa {{endpoint.target_type}} fa-lg"></i></a></li>
 		                        <!-- <li><a href="#" class="bookmark" aria-haspopup="true" class="has-tip" tooltip="Add to My favourites"><i class="fa fa-star fa-lg"></i></a></li>-->
 		                        <li><a href="#" ng-click="ctrl.toggleInfo($index)"><i class="fa fa-info fa-lg"></i></a></li>
 		                    </ul>

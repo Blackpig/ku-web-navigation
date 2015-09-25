@@ -17,7 +17,7 @@
                         </div>
                         <div class="details left">
                             <a ng-href="/my-accounts">{{ctrl.user.first_name}}&nbsp;{{ ctrl.user.last_name }} ({{ ctrl.user.employee_class }})</a>
-                            <p><a href="https://portal.kingston.ac.uk/ServiceDesk.WebAccess/ss/object/create.rails?class_name=RequestManagement.Request&lifecycle_name=NewProcess411&object_template_name=NewTemplate13" class="update" target="_blank">Update my details&nbsp;</a><p>
+                            <p><a href="https://portal.kingston.ac.uk/ServiceDesk.WebAccess/ss/object/create.rails?class_name=RequestManagement.Request&lifecycle_name=NewProcess411&object_template_name=NewTemplate13" class="update" target="_blank" ng-click="ctrl.trackEvent('My Accounts', 'Clicked', 'Update my details link')">Update my details&nbsp;</a><p>
                             <p class="summary">
                                 {{ ctrl.user.job_title }}<br />
                                 {{ ctrl.user.department }}<br />
@@ -27,7 +27,7 @@
                                 <span ng-if="ctrl.user.external_email"><strong>External Email</strong> {{ ctrl.user.external_email }}<br /></span>
                                 <span ng-if="ctrl.user.tel"><strong>Telephone</strong> {{ ctrl.user.tel }}</span>
                             </p>
-                            <a ng-href="/" class="button manage-my-status">Return to Navigator</a>
+                            <a ng-href="/" class="button manage-my-status" ng-click="ctrl.trackEvent('My Accounts', 'Clicked', 'Return to Navigator button')">Return to Navigator</a>
                         </div>
                     </div>
                 </div>
