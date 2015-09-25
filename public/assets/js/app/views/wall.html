@@ -175,7 +175,7 @@
 	                    <div class="tile-front" id="front-{{$index+1}}">
 	                        <div class="tile-content" ng-mouseenter="hasFocus=true"  ng-mouseleave="hasFocus=false">
 	                            <a ng-if="endpoint.type=='service-group'" ng-href="/{{ctrl.navbar.home.link | lowercase}}/{{endpoint.guid}}" ng-class="{hover:hasFocus}" ng-click="ctrl.trackEvent(ctrl.data.service_group_type, 'Clicked', endpoint.name)">{{endpoint.name}}</a>
-	                            <a ng-if="endpoint.type=='endpoint'" ng-href="{{endpoint.url}}" target="_blank" ng-class="{hover:hasFocus}" ng-click="ctrl.trackEvent(ctrl.data.service_group_type, 'Clicked', endpoint.name)">{{endpoint.name}}</a>
+	                            <a ng-if="endpoint.type=='endpoint'" ng-href="{{endpoint.url}}" target="_blank" ng-class="{hover:hasFocus}" ng-click="ctrl.trackEvent('Endpoint Tile', 'Clicked', endpoint.name)">{{endpoint.name}}</a>
 	                        </div>
 	                    </div>
 	                    <div class="tile-back" id="back-{{$index+1}}">
@@ -190,7 +190,7 @@
 
 	                        <li ng-if="endpoint.type=='service-group'"><a  ng-href="/{{ctrl.navbar.home.link | lowercase}}/{{endpoint.guid}}" ng-mouseenter="hasFocus=true"  ng-mouseleave="hasFocus=false" ng-class="{hover:hasFocus}" ng-click="ctrl.trackEvent(ctrl.data.service_group_type, 'Clicked', endpoint.name)"><i class="fa {{endpoint.target_type}} fa-lg"></i></a></li>
 
-	                        <li ng-if="endpoint.type=='endpoint'"><a  href="{{endpoint.url}}" target="_blank" ng-mouseenter="hasFocus=true"  ng-mouseleave="hasFocus=false" ng-class="{hover:hasFocus}"><i class="fa {{endpoint.target_type}} fa-lg" ng-click="ctrl.trackEvent(ctrl.data.service_group_type, 'Clicked', endpoint.name)"></i></a></li>
+	                        <li ng-if="endpoint.type=='endpoint'"><a  href="{{endpoint.url}}" target="_blank" ng-mouseenter="hasFocus=true"  ng-mouseleave="hasFocus=false" ng-class="{hover:hasFocus}"><i class="fa {{endpoint.target_type}} fa-lg" ng-click="ctrl.trackEvent('Endpoint Tile, 'Clicked', endpoint.name)"></i></a></li>
 
 	                        <!-- <li><a href="#" class="bookmark" aria-haspopup="true" class="has-tip" tooltip="Add to My favourites"><i class="fa fa-star fa-lg"></i></a></li>-->
 
