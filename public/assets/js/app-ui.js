@@ -597,13 +597,14 @@ app.factory('analyticSvc',['Piwik',function(piwik){
 	var service = {
 
 			trackPageView: function(user, title){
+
+				var dept = user.department_code;
+
 				piwik.setUserId(user.id);
 				piwik.setCustomVariable( 1, 'Vistor type', user.employee_class, 'visit' );
-				if (user.employee_type == 0) {
-					piwik.setCustomVariable( 2, 'Staff department', user.department, 'visit' );
-				} else {
-					piwik.setCustomVariable( 3, 'Student faculty', user.department, 'visit' );
-				}
+				piwik.setCustomVariable( 2, 'Organisation Code', dept.substring(0,4), 'visit' );
+				piwik.setCustomVariable( 3, 'Department Code', user.department_code, 'visit' );
+				piwik.setCustomVariable( 4, 'Organisation name', user.department, 'visit' );
 				piwik.setDocumentTitle(title);
 				piwik.trackPageView();
 			},
