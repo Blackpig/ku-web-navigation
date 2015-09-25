@@ -156,7 +156,7 @@ class EndpointController extends Controller
 				],
 	    		"parents" => $parents,
 	    		"has_service_group"	=> $this->checkForServiceGroup($endpoints),
-                "service_group_type" => "Channel Service group",
+                "service_group_type" => "Channel Service Group",
 	    		"endpoints" => $endpoints
 	    	];
 	    });
