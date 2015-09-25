@@ -161,6 +161,7 @@ app.controller('stateCtrl', ['$rootScope','$scope', '$stateParams', '$state', 'u
 
 	// Students can't access the staff portal - redirect to student state if they try
 	if ( $state.is('root.staff') && user.employee_type == 1 ) {
+		analyticSvc.trackEvent('Illegal Action', 'Direct Entry', 'Student Attempting to access Staff Portal');
 		$state.go('root.student');
 	}
 
@@ -324,7 +325,7 @@ app.controller('searchCtrl', ['$rootScope','$scope', '$stateParams', '$state', '
 }]);
 
 /* Profile controller - used for My Accounts pages and states */
-app.controller('profileCtrl', ['$rootScope', '$scope', '$state', 'user', 'navbarSvc', 'accountsSvc', 'analyticSvc'
+app.controller('profileCtrl', ['$rootScope', '$scope', '$state', 'user', 'navbarSvc', 'accountsSvc', 'analyticSvc',
 	function ($rootScope, $scope, $state, user, navbarSvc, accountsSvc, analyticSvc) {
 
 		self = this;
