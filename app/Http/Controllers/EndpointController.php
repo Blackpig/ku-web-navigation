@@ -40,6 +40,7 @@ class EndpointController extends Controller
 	    				"label" => null
 	    			],
 	    		"has_service_group"	=> true,
+                "service_group_type" => "University Organisation",
 	    		"endpoints" => Endpoint::Organisations()
 	    	];
 	    });
@@ -83,6 +84,7 @@ class EndpointController extends Controller
 				],
 	    		"parents" => $parents,
 	    		"has_service_group"	=> $this->checkForServiceGroup($endpoints),
+                "service_group_type" => "Organisation Service Group",
 	    		"endpoints" => $endpoints
 	    	];
 	    });
@@ -111,6 +113,7 @@ class EndpointController extends Controller
 	    				"label" => null
 	    			],
 	    		"has_service_group"	=> true,
+                "service_group_type" => "Student Channel",
 	    		"endpoints" => Endpoint::Channels()
 		    ];
 	    });
@@ -153,6 +156,7 @@ class EndpointController extends Controller
 				],
 	    		"parents" => $parents,
 	    		"has_service_group"	=> $this->checkForServiceGroup($endpoints),
+                "service_group_type" => "Channel Service group",
 	    		"endpoints" => $endpoints
 	    	];
 	    });
