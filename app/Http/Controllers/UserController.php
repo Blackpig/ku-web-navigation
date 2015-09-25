@@ -72,7 +72,7 @@ class UserController extends Controller
                 $user->employee_status = ($user->employee_type == 0) ? 'staff' : 'student';
                 $user->job_title = ucwords(strtolower($ldap_user->title));
                 $user->department = ucwords(strtolower($ldap_user->company));
-                $user->department_code = ucwords(strtolower($ldap_user->departmentnumber));
+                $user->department_code = strtoupper($ldap_user->departmentnumber);
                 $user->tel = $ldap_user->telephonenumber;
                 $user->gender = strtolower($ldap_user->extensionAttribute1);
                 $user->avatar = $this->getUserImage($user->id, $user->gender, $user->avatar);
