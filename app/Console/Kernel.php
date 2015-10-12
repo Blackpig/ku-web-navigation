@@ -29,11 +29,11 @@ class Kernel extends ConsoleKernel
             return (env('APP_ENV') == 'production') ? true : false;
         });
 
-        $schedule->command('endpoints:review {--due=-14}')->dailyAt('04:00')->when(function () {
+        $schedule->command('endpoints:review --due=-14')->dailyAt('04:00')->when(function () {
             return (env('APP_ENV') == 'production') ? true : false;
         });
 
-        $schedule->command('endpoints:overdue {--due=1}')->dailyAt('05:00')->when(function () {
+        $schedule->command('endpoints:overdue --due=1')->dailyAt('05:00')->when(function () {
             return (env('APP_ENV') == 'production') ? true : false;
         });        
     }
