@@ -7,7 +7,7 @@
 <p>The following KU Navigator endpoint is due for review within the next two weeks:</p>
 
 <p>Review Date: {{ $endpoint->review_date }}<br />
-Display name: <a href="">{{ $endpoint->name }}</a>
+Display name: <a href="https://portal.kingston.ac.uk/ServiceDesk.WebAccess/ss/Query/List.rails?class_name=Config.ConfigItem&attributes=Guid&template=Edit%20Actions&hide_filters=True&query_changed=False&cns=Guid-e-0&c0={{ $endpoint->guid }}">{{ $endpoint->name }}</a>
 </p>  
  
 <p>You are receiving this email because you are named as the primary point of contact for the endpoint.</p>
@@ -19,6 +19,6 @@ Display name: <a href="">{{ $endpoint->name }}</a>
 </ul>
  
  
-<p>For more information on KU Navigator, click here <a href=""></a></p>
+<p>For more information on KU Navigator, click here <a href="https://mykingston.kingston.ac.uk/tools/KU-Navigator/Pages/default.aspx"></a></p>
 </body>
 </html>

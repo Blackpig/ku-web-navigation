@@ -64,55 +64,20 @@ $app->get('cache-clear/{id}', function($id) use ($app)
 /*
 |
 | Sharepoint - used to present iFrame to sharepoint 
+| No longer used - left here for reference
 |
 */
-$app->get('sharepoint/{view}', function($view) use ($app) 
+/*$app->get('sharepoint/{view}', function($view) use ($app) 
 {
     $view = "routes.$view";
     return view($view);   
-});
-
-/*
-|
-| Track - used to redirect users to the app after clicking 
-| a route link from sharepoint or servicedesk
-|
-*/
-$app->group(['prefix' => 'track'], function($app)
-{
-    $app->get('{source}/{type}', 'App\Http\Controllers\TrackerController@index'); 
-
-});
-
-/*
-|
-| Icon admin - a temporary route to allow departments/channels to select their icon - remove when live
-|
-*/
-
-$app->get('icon-selector', 'App\Http\Controllers\IconController@show');
-$app->post('icon-selector', 'App\Http\Controllers\IconController@update');
-
-
-/**********
-|
-| debugging
-|
-*/
-
-$app->get('swh', 'App\Http\Controllers\SwhController@swh1');
-/*$app->get('swh2', 'App\Http\Controllers\SwhController@authenticate2');
-
-$app->get('images', function() use ($app)
-{
-
-	return view("images");
-
 });*/
 
 /*
 |
 | Front-end routing - send all requests to front end for Angular to manage routing
+| DO NOT MOVE - This is a catch all route and should remain as the last route within
+| the file
 |
 */
 

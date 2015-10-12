@@ -25,6 +25,9 @@ class Kernel extends ConsoleKernel
      */
     protected function schedule(Schedule $schedule)
     {
-        //
+        $schedule->command('endpoints:verify')->dailyAt('03:00');
+        $schedule->command('endpoints:review {--due=-14}')->dailyAt('04:00');
+        $schedule->command('endpoints:overdue {--due=1}')->dailyAt('05:00');
+        
     }
 }
