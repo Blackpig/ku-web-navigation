@@ -133,7 +133,10 @@ class UserController extends Controller
                 }
 
                 // Copy the file and return its location
-                if (copy($image, $local)) {
+                if (!@copy($image, $local)) {
+                    $err = error_get_last();
+                    $msg = "Avatar copy error - " . $err['type'] . ": " . $err['message'];
+                } else {
                     $local = str_replace($public_path, "..", $local);
                     return $local;
                 }
