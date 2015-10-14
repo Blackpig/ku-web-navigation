@@ -19,6 +19,6 @@ Display name: <a href="https://portal.kingston.ac.uk/ServiceDesk.WebAccess/ss/Qu
 </ul>
  
  
-<p>For more information on KU Navigator, click here <a href="https://mykingston.kingston.ac.uk/tools/KU-Navigator/Pages/default.aspx"></a></p>
+<p>For more information on KU Navigator, <a href="https://mykingston.kingston.ac.uk/tools/KU-Navigator/Pages/default.aspx">click here</a></p>
 </body>
 </html>

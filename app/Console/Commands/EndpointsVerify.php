@@ -40,7 +40,7 @@ class EndpointsVerify extends Command
                if (filter_var($endpoint->url, FILTER_VALIDATE_URL)){
                
                     try{
-                         $res = $client->get($endpoint->url, ['http_errors' => false]);
+                         $res = $client->get($endpoint->url, ['http_errors' => false, 'allow_redirects' => false]);
                     
                          if ($res->getStatusCode() == 404) {
                               $this->notifyAndUpdate($mailer, $endpoint);
